@@ -23,5 +23,10 @@ namespace FurnitureRentals.Controller
         {
             return this.furnitureDBDAL.GetFurnitureBySerialNumber(serialNumber);
         }
+
+        public List<Furniture> GetFurnitureByCategory(int categoryID)
+        {
+            return this.furnitureDBDAL.GetFurnitureByCategory(categoryID);
+        }
     }
 }

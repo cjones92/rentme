@@ -47,6 +47,46 @@ namespace FurnitureRentals.DAL
             }
             return chosenFurniture;
         }
+
+        public List<Furniture> GetFurnitureByCategory(int categoryID)
+        {
+            List<Furniture> furnitureList = new List<Furniture>();
+            Furniture chosenFurniture = new Furniture();
+            chosenFurniture.CategoryID = categoryID;
+
+            string selectStatement = "SELECT serial_no AS 'Serial Number', furniture.description AS Item, furniture_style.description AS Style, total_available AS 'Total Available' " +
+"FROM furniture JOIN furniture_style ON furniture.style_id = furniture_style.style_id JOIN inventory ON furniture.furniture_id = inventory.furniture_id WHERE furniture.CategoryID = @CategoryID";
+            ;
+
+            using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@CategoryID", chosenFurniture.CategoryID);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+
+
+                        while (reader.Read())
+                        {
+                            Furniture furniture = new Furniture();
+                            furniture.ItemDescription = reader["Serial Number"].ToString();
+                            furniture.FurnitureStyle = reader["Style"].ToString();
+                            furniture.Quantity = (int)reader["Quantity"];
+
+                            furnitureList.Add(furniture);
+
+                        }
+
+                    }
+
+                }
+
+            }
+            return furnitureList;
+        }
     }
 }
 

@@ -8,7 +8,8 @@ namespace FurnitureRentals.User_Controls
     /// <summary>
     /// Class adds a new incident to the in-memory database
     /// </summary>
-    public partial class ManageCustomerUserControl : UserControl { 
+    public partial class ManageCustomerUserControl : UserControl
+    { 
 
         public event EventHandler DataSaved;
 
@@ -17,7 +18,7 @@ namespace FurnitureRentals.User_Controls
         /// </summary>
         public ManageCustomerUserControl()
         {
-            //InitializeComponent();
+            InitializeComponent();
             
         }
         

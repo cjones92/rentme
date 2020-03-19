@@ -15,5 +15,9 @@ namespace FurnitureRentals.Model
        public string FurnitureStyle { get; set; }
 
        public string ItemDescription { get; set; }
+
+       public string Category { get; set; }
+
+       public int CategoryID { get; set; }
     }
 }
