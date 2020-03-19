@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data.SqlClient;
+
+namespace FurnitureRentals.DAL
+{
+    /// <summary>
+    /// Class initialized the db connection string
+    /// </summary>
+    public static class FurnitureDBDAL
+    {
+       
+    }
+}
