@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using rentmecs6232.Models;
 using System.Data.SqlClient;
 
 namespace FurnitureRentals.DAL
@@ -14,11 +15,11 @@ namespace FurnitureRentals.DAL
        public List<Furniture> GetFurnitureBySerialNumber(string serialNumber)
         {
 
-            Incident chosenIncident = new Incident();
-            chosenIncident.IncidentID = incidentID;
+            Furniture chosenFurniture = new Furniture();
+            chosenFurniture.SerialNUmber = serialNumber;
 
             string selectStatement = "SELECT serial_no AS 'Serial Number', furniture.description AS Item, furniture_style.description AS Style, total_available AS 'Total Available' " +
-"FROM furniture JOIN furniture_style ON furniture.style_id = furniture_style.style_id JOIN inventory ON furniture.furniture_id = inventory.furniture_id WHERE furniture.";
+"FROM furniture JOIN furniture_style ON furniture.style_id = furniture_style.style_id JOIN inventory ON furniture.furniture_id = inventory.furniture_id WHERE furniture.serial_no = @SerialNumber";
             ;
 
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
@@ -27,7 +28,7 @@ namespace FurnitureRentals.DAL
 
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
-                    selectCommand.Parameters.AddWithValue("@IncidentID", chosenIncident.IncidentID);
+                    selectCommand.Parameters.AddWithValue("@SerialNumber", chosenFurniture.SerialNumber);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
 
@@ -35,17 +36,9 @@ namespace FurnitureRentals.DAL
                         while (reader.Read())
                         {
 
-                            chosenIncident.ProductCode = reader["ProductCode"].ToString();
-                            chosenIncident.DateOpened = (DateTime)reader["DateOpened"];
-                            chosenIncident.CustomerName = reader["CustomerName"].ToString();
-                            chosenIncident.TechnicianName = reader["TechnicianName"].ToString();
-                            chosenIncident.Title = reader["Title"].ToString();
-                            chosenIncident.Description = reader["Description"].ToString();
-
-                            if (reader["DateClosed"] != DBNull.Value)
-                            {
-                                chosenIncident.DateClosed = (DateTime)reader["DateClosed"];
-                            }
+                            chosenFurniture.Description = reader["Serial Number"].ToString();
+                            chosenFurniture.Style = reader["Style"].ToString();
+                            chosenFurniture.Quantity = (int)reader["Quantity"];
 
                         }
 
@@ -54,7 +47,7 @@ namespace FurnitureRentals.DAL
                 }
             }
 
-            return chosenIncident;
+            return chosenFurniture;
         }
     }
 }
