@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\FurnitureController.cs" />
     <Compile Include="DAL\FurnitureRentalsDBConnection.cs" />
     <Compile Include="UserControl\ManageCustomerControl.cs">
       <SubType>UserControl</SubType>
@@ -90,7 +91,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controller\" />
     <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
