@@ -1,22 +1,20 @@
-﻿using System;
+﻿using FurnitureRentals.Model;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using rentmecs6232.Models;
-using System.Data.SqlClient;
+using System.Threading.Tasks;
 
 namespace FurnitureRentals.DAL
 {
-    /// <summary>
-    /// Class initialized the db connection string
-    /// </summary>
-    public static class FurnitureDBDAL
+    class FurnitureDBDAL
     {
-       public List<Furniture> GetFurnitureBySerialNumber(string serialNumber)
+        public Furniture GetFurnitureBySerialNumber(string serialNumber)
         {
 
             Furniture chosenFurniture = new Furniture();
-            chosenFurniture.SerialNUmber = serialNumber;
+            chosenFurniture.SerialNumber = serialNumber;
 
             string selectStatement = "SELECT serial_no AS 'Serial Number', furniture.description AS Item, furniture_style.description AS Style, total_available AS 'Total Available' " +
 "FROM furniture JOIN furniture_style ON furniture.style_id = furniture_style.style_id JOIN inventory ON furniture.furniture_id = inventory.furniture_id WHERE furniture.serial_no = @SerialNumber";
@@ -36,8 +34,8 @@ namespace FurnitureRentals.DAL
                         while (reader.Read())
                         {
 
-                            chosenFurniture.Description = reader["Serial Number"].ToString();
-                            chosenFurniture.Style = reader["Style"].ToString();
+                            chosenFurniture.ItemDescription = reader["Serial Number"].ToString();
+                            chosenFurniture.FurnitureStyle = reader["Style"].ToString();
                             chosenFurniture.Quantity = (int)reader["Quantity"];
 
                         }
@@ -45,9 +43,10 @@ namespace FurnitureRentals.DAL
                     }
 
                 }
-            }
 
+            }
             return chosenFurniture;
         }
     }
 }
+
