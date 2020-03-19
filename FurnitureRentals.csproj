@@ -47,10 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\FurnitureRentalsDBConnection.cs" />
-    <Compile Include="UserControl\ManageCustomerControl.cs">
+    <Compile Include="User Controls\ManageCustomerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\ManageCustomerControl.Designer.cs">
+    <Compile Include="User Controls\ManageCustomerControl.Designer.cs">
       <DependentUpon>ManageCustomerControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MainForm.cs">
@@ -70,7 +70,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControl\ManageCustomerControl.resx">
+    <EmbeddedResource Include="User Controls\ManageCustomerControl.resx">
       <DependentUpon>ManageCustomerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">

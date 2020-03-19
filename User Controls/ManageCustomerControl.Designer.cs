@@ -72,7 +72,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.43478F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.56522F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 195F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197F));
             this.tableLayoutPanel1.Controls.Add(this.cbxGender, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtFirstName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 3);
@@ -96,7 +96,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txtMiddleName, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 5);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 39);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 19);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 11;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.57732F));
@@ -275,7 +275,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.75497F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.24503F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
             this.tableLayoutPanel2.Controls.Add(this.label5, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtState, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtPostalCode, 2, 0);
@@ -283,7 +283,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(458, 42);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(456, 42);
             this.tableLayoutPanel2.TabIndex = 20;
             // 
             // label5
@@ -291,7 +291,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(173, 10);
+            this.label5.Location = new System.Drawing.Point(169, 10);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.label5.Size = new System.Drawing.Size(125, 21);
@@ -305,13 +305,13 @@
             this.txtState.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
             this.txtState.Multiline = true;
             this.txtState.Name = "txtState";
-            this.txtState.Size = new System.Drawing.Size(88, 30);
+            this.txtState.Size = new System.Drawing.Size(86, 30);
             this.txtState.TabIndex = 37;
             // 
             // txtPostalCode
             // 
             this.txtPostalCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPostalCode.Location = new System.Drawing.Point(321, 6);
+            this.txtPostalCode.Location = new System.Drawing.Point(317, 6);
             this.txtPostalCode.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
             this.txtPostalCode.Multiline = true;
             this.txtPostalCode.Name = "txtPostalCode";
@@ -320,7 +320,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(669, 3);
+            this.btnSearch.Location = new System.Drawing.Point(667, 3);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(131, 45);
             this.btnSearch.TabIndex = 21;
@@ -399,13 +399,13 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(458, 44);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(456, 44);
             this.tableLayoutPanel4.TabIndex = 33;
             // 
             // textBox2
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox2.Location = new System.Drawing.Point(211, 7);
+            this.textBox2.Location = new System.Drawing.Point(210, 7);
             this.textBox2.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
@@ -448,7 +448,7 @@
             this.tableLayoutPanel3.Controls.Add(this.btnRegister, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnUpdate, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnClear, 2, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(228, 564);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(229, 544);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -490,7 +490,7 @@
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ManageCustomerUserControl";
-            this.Size = new System.Drawing.Size(913, 631);
+            this.Size = new System.Drawing.Size(898, 604);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

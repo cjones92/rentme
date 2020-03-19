@@ -10,15 +10,12 @@ namespace FurnitureRentals.User_Controls
     /// </summary>
     public partial class ManageCustomerUserControl : UserControl { 
 
-        public event EventHandler DataSaved;
-
         /// <summary>
         /// Constructor initializes the class level variables
         /// </summary>
         public ManageCustomerUserControl()
         {
-            //InitializeComponent();
-            
+            InitializeComponent();            
         }
         
     }
