@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CustomerController.cs" />
     <Compile Include="Controller\FurnitureController.cs" />
+    <Compile Include="DAL\CustomerDAL.cs" />
     <Compile Include="DAL\FurnitureDBDAL.cs" />
     <Compile Include="DAL\FurnitureRentalsDBConnection.cs" />
     <Compile Include="Model\Customer.cs" />

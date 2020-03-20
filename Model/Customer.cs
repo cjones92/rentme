@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.Model
 {
+    /// <summary>
+    /// Model class for Customer
+    /// </summary>
     class Customer
     {
+        public int CustomerId { get; set; }
         public string FirstName { get; set; }
 
         public string MiddleName { get; set; }
