@@ -10,9 +10,6 @@ namespace FurnitureRentals.User_Controls
     /// </summary>
     public partial class ManageCustomerUserControl : UserControl
     { 
-
-        public event EventHandler DataSaved;
-
         /// <summary>
         /// Constructor initializes the class level variables
         /// </summary>
@@ -21,6 +18,11 @@ namespace FurnitureRentals.User_Controls
             InitializeComponent();
             
         }
-        
+
+        private void ManageCustomerUserControl_Load(object sender, EventArgs e)
+        {
+            cbxSearch.SelectedIndex = 0;
+            cbxGender.SelectedIndex = 0;
+        }
     }
 }
