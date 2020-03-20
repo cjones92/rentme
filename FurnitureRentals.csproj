@@ -49,6 +49,7 @@
     <Compile Include="Controller\FurnitureController.cs" />
     <Compile Include="DAL\FurnitureDBDAL.cs" />
     <Compile Include="DAL\FurnitureRentalsDBConnection.cs" />
+    <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Furniture.cs" />
     <Compile Include="User Controls\ManageCustomerControl.cs">
       <SubType>UserControl</SubType>
