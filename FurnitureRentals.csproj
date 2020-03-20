@@ -46,12 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\FurnitureController.cs" />
+    <Compile Include="DAL\FurnitureDBDAL.cs" />
     <Compile Include="DAL\FurnitureRentalsDBConnection.cs" />
-    <Compile Include="User Controls\ManageCustomerControl.cs">
+    <Compile Include="Model\Furniture.cs" />
+    <Compile Include="UserControl\ManageCustomerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\ManageCustomerControl.Designer.cs">
+    <Compile Include="UserControl\ManageCustomerControl.Designer.cs">
       <DependentUpon>ManageCustomerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FurnitureSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FurnitureSearchForm.Designer.cs">
+      <DependentUpon>FurnitureSearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
@@ -70,7 +79,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="User Controls\ManageCustomerControl.resx">
+    <EmbeddedResource Include="UserControl\ManageCustomerControl.resx">
       <DependentUpon>ManageCustomerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
@@ -90,8 +99,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controller\" />
-    <Folder Include="Model\" />
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
