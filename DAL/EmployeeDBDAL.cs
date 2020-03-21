@@ -34,11 +34,8 @@ namespace FurnitureRentals.DAL
 
                         while (reader.Read())
                         {
-
-                            
                             foundLogins = (int)reader["Login"];
-                            
-
+                       
                         }
 
                     }

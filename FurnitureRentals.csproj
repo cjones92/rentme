@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\CustomerController.cs" />
+    <Compile Include="Controller\EmployeeController.cs" />
     <Compile Include="Controller\FurnitureController.cs" />
     <Compile Include="DAL\AdministratorDBDAL.cs" />
     <Compile Include="DAL\CategoryDBDAL.cs" />
