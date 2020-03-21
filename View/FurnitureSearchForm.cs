@@ -86,7 +86,7 @@ namespace FurnitureRentals.View
             else if (searchChoice == "Style" && this.furnitureStyleComboBox.SelectedIndex > -1)
             {
                 furnitureList = this.furnitureController.GetFurnitureByStyleID(int.Parse(this.furnitureStyleComboBox.SelectedValue.ToString()));
-                furnitureBindingSource.DataSource = furnitureList;
+              furnitureBindingSource.DataSource = furnitureList;
             }
 
 
