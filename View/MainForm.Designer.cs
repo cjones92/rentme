@@ -30,8 +30,9 @@
         {
             this.tabManageCustomerUserControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.manageCustomerUserControl1 = new FurnitureRentals.User_Controls.ManageCustomerUserControl();
             this.LoggedInLabel = new System.Windows.Forms.Label();
+            this.LogoutLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.manageCustomerUserControl1 = new FurnitureRentals.User_Controls.ManageCustomerUserControl();
             this.tabManageCustomerUserControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -58,14 +59,6 @@
             this.tabPage1.Text = "Manage Customer";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // manageCustomerUserControl1
-            // 
-            this.manageCustomerUserControl1.Location = new System.Drawing.Point(26, 3);
-            this.manageCustomerUserControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.manageCustomerUserControl1.Name = "manageCustomerUserControl1";
-            this.manageCustomerUserControl1.Size = new System.Drawing.Size(685, 513);
-            this.manageCustomerUserControl1.TabIndex = 0;
-            // 
             // LoggedInLabel
             // 
             this.LoggedInLabel.AutoSize = true;
@@ -75,16 +68,37 @@
             this.LoggedInLabel.TabIndex = 1;
             this.LoggedInLabel.Text = "Not Logged In";
             // 
+            // LogoutLinkLabel
+            // 
+            this.LogoutLinkLabel.AutoSize = true;
+            this.LogoutLinkLabel.Location = new System.Drawing.Point(595, 11);
+            this.LogoutLinkLabel.Name = "LogoutLinkLabel";
+            this.LogoutLinkLabel.Size = new System.Drawing.Size(45, 13);
+            this.LogoutLinkLabel.TabIndex = 3;
+            this.LogoutLinkLabel.TabStop = true;
+            this.LogoutLinkLabel.Text = "Log Out";
+            this.LogoutLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LogoutLinkLabel_LinkClicked);
+            // 
+            // manageCustomerUserControl1
+            // 
+            this.manageCustomerUserControl1.Location = new System.Drawing.Point(26, 3);
+            this.manageCustomerUserControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.manageCustomerUserControl1.Name = "manageCustomerUserControl1";
+            this.manageCustomerUserControl1.Size = new System.Drawing.Size(685, 513);
+            this.manageCustomerUserControl1.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(827, 561);
+            this.Controls.Add(this.LogoutLinkLabel);
             this.Controls.Add(this.LoggedInLabel);
             this.Controls.Add(this.tabManageCustomerUserControl);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
             this.Text = "Furniture Rentals";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.tabManageCustomerUserControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -98,6 +112,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private User_Controls.ManageCustomerUserControl manageCustomerUserControl1;
         private System.Windows.Forms.Label LoggedInLabel;
+        private System.Windows.Forms.LinkLabel LogoutLinkLabel;
     }
 }
 

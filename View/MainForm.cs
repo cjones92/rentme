@@ -42,5 +42,16 @@ namespace FurnitureRentals
                 System.Windows.Forms.Application.Exit();
             }
         }
+
+        /// <summary>
+        /// This method hides the main form and opens the cleared login form when the link is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LogoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+
+        }
     }
 }
