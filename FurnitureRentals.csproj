@@ -52,9 +52,11 @@
     <Compile Include="DAL\CustomerDAL.cs" />
     <Compile Include="DAL\FurnitureDBDAL.cs" />
     <Compile Include="DAL\FurnitureRentalsDBConnection.cs" />
+    <Compile Include="DAL\StyleDBDAL.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Furniture.cs" />
+    <Compile Include="Model\Style.cs" />
     <Compile Include="User Controls\ManageCustomerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
