@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.Controller
 {
-    
+
 
     class FurnitureController
     {
