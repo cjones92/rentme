@@ -19,7 +19,7 @@ namespace FurnitureRentals.Controller
             this.furnitureDBDAL = new FurnitureDBDAL();
         }
 
-        public Furniture GetFurnitureBySerialNumber(string serialNumber)
+        public List<Furniture> GetFurnitureBySerialNumber(string serialNumber)
         {
             return this.furnitureDBDAL.GetFurnitureBySerialNumber(serialNumber);
         }

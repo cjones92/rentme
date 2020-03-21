@@ -29,11 +29,142 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.FurnitureDataGridView = new System.Windows.Forms.DataGridView();
+            this.QuantityRenting = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.furnitureBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.StyleLabel = new System.Windows.Forms.Label();
+            this.CategoryLabel = new System.Windows.Forms.Label();
+            this.SerialNumberLabel = new System.Windows.Forms.Label();
+            this.furnitureStyleComboBox = new System.Windows.Forms.ComboBox();
+            this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.SerialNumberTextBox = new System.Windows.Forms.TextBox();
+            this.SearchOptionsComboBox = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.FurnitureDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // FurnitureDataGridView
+            // 
+            this.FurnitureDataGridView.AutoGenerateColumns = false;
+            this.FurnitureDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.FurnitureDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.QuantityRenting});
+            this.FurnitureDataGridView.DataSource = this.furnitureBindingSource;
+            this.FurnitureDataGridView.Location = new System.Drawing.Point(162, 168);
+            this.FurnitureDataGridView.Name = "FurnitureDataGridView";
+            this.FurnitureDataGridView.Size = new System.Drawing.Size(546, 220);
+            this.FurnitureDataGridView.TabIndex = 11;
+            // 
+            // QuantityRenting
+            // 
+            this.QuantityRenting.HeaderText = "Quantity Renting";
+            this.QuantityRenting.Name = "QuantityRenting";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(92, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Search Option";
+            // 
+            // StyleLabel
+            // 
+            this.StyleLabel.AutoSize = true;
+            this.StyleLabel.Location = new System.Drawing.Point(406, 71);
+            this.StyleLabel.Name = "StyleLabel";
+            this.StyleLabel.Size = new System.Drawing.Size(30, 13);
+            this.StyleLabel.TabIndex = 18;
+            this.StyleLabel.Text = "Style";
+            // 
+            // CategoryLabel
+            // 
+            this.CategoryLabel.AutoSize = true;
+            this.CategoryLabel.Location = new System.Drawing.Point(406, 71);
+            this.CategoryLabel.Name = "CategoryLabel";
+            this.CategoryLabel.Size = new System.Drawing.Size(49, 13);
+            this.CategoryLabel.TabIndex = 17;
+            this.CategoryLabel.Text = "Category";
+            // 
+            // SerialNumberLabel
+            // 
+            this.SerialNumberLabel.AutoSize = true;
+            this.SerialNumberLabel.Location = new System.Drawing.Point(406, 70);
+            this.SerialNumberLabel.Name = "SerialNumberLabel";
+            this.SerialNumberLabel.Size = new System.Drawing.Size(73, 13);
+            this.SerialNumberLabel.TabIndex = 16;
+            this.SerialNumberLabel.Text = "Serial Number";
+            // 
+            // furnitureStyleComboBox
+            // 
+            this.furnitureStyleComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureBindingSource, "FurnitureStyle", true));
+            this.furnitureStyleComboBox.FormattingEnabled = true;
+            this.furnitureStyleComboBox.Location = new System.Drawing.Point(487, 62);
+            this.furnitureStyleComboBox.Name = "furnitureStyleComboBox";
+            this.furnitureStyleComboBox.Size = new System.Drawing.Size(121, 21);
+            this.furnitureStyleComboBox.TabIndex = 15;
+            // 
+            // categoryComboBox
+            // 
+            this.categoryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureBindingSource, "Category", true));
+            this.categoryComboBox.FormattingEnabled = true;
+            this.categoryComboBox.Location = new System.Drawing.Point(487, 63);
+            this.categoryComboBox.Name = "categoryComboBox";
+            this.categoryComboBox.Size = new System.Drawing.Size(121, 21);
+            this.categoryComboBox.TabIndex = 14;
+            // 
+            // SerialNumberTextBox
+            // 
+            this.SerialNumberTextBox.Location = new System.Drawing.Point(508, 63);
+            this.SerialNumberTextBox.Name = "SerialNumberTextBox";
+            this.SerialNumberTextBox.Size = new System.Drawing.Size(100, 20);
+            this.SerialNumberTextBox.TabIndex = 13;
+            // 
+            // SearchOptionsComboBox
+            // 
+            this.SearchOptionsComboBox.FormattingEnabled = true;
+            this.SearchOptionsComboBox.Location = new System.Drawing.Point(173, 67);
+            this.SearchOptionsComboBox.Name = "SearchOptionsComboBox";
+            this.SearchOptionsComboBox.Size = new System.Drawing.Size(121, 21);
+            this.SearchOptionsComboBox.TabIndex = 12;
+            // 
+            // FurnitureSearchForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.FurnitureDataGridView);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.StyleLabel);
+            this.Controls.Add(this.CategoryLabel);
+            this.Controls.Add(this.SerialNumberLabel);
+            this.Controls.Add(this.furnitureStyleComboBox);
+            this.Controls.Add(this.categoryComboBox);
+            this.Controls.Add(this.SerialNumberTextBox);
+            this.Controls.Add(this.SearchOptionsComboBox);
+            this.Name = "FurnitureSearchForm";
             this.Text = "FurnitureSearchForm";
+            ((System.ComponentModel.ISupportInitialize)(this.FurnitureDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView FurnitureDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuantityRenting;
+        private System.Windows.Forms.BindingSource furnitureBindingSource;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label StyleLabel;
+        private System.Windows.Forms.Label CategoryLabel;
+        private System.Windows.Forms.Label SerialNumberLabel;
+        private System.Windows.Forms.ComboBox furnitureStyleComboBox;
+        private System.Windows.Forms.ComboBox categoryComboBox;
+        private System.Windows.Forms.TextBox SerialNumberTextBox;
+        private System.Windows.Forms.ComboBox SearchOptionsComboBox;
     }
 }

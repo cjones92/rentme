@@ -89,6 +89,9 @@
     <EmbeddedResource Include="User Controls\ManageCustomerControl.resx">
       <DependentUpon>ManageCustomerControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FurnitureSearchForm.resx">
+      <DependentUpon>FurnitureSearchForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
