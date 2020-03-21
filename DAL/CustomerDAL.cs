@@ -23,7 +23,7 @@ namespace FurnitureRentals.DAL
             }
             else if (phone != null && phone.Length > 0)
             {
-                sqlStatement += "where home_phone = @Phone";
+                sqlStatement += "where phone_number = @Phone";
             }
             else if (customerid > 0)
             {
@@ -72,6 +72,38 @@ namespace FurnitureRentals.DAL
             }
 
             return customer;
+        }
+
+        public Boolean RegisterCustomer(Customer customer)
+        {
+            using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
+            {
+                string sqlStatement = "INSERT INTO CUSTOMER (first_name, middle_name, last_name, sex, " +
+                "date_of_birth, phone_number, address1, address2, city, state, zipcode) " +
+                "VALUES (@FirstName, @MiddleName, @LastName, @Gender, @DateOfBirth, @PhoneNumber, @Address1," +
+                "@Address2, @City, @State, @PostalCode)";
+
+                connection.Open();
+
+                using (SqlCommand insertCommand = new SqlCommand(sqlStatement, connection))
+                {
+                    insertCommand.Connection = connection;
+                    insertCommand.Parameters.AddWithValue("@FirstName", customer.FirstName);
+                    insertCommand.Parameters.AddWithValue("@MiddleName", customer.MiddleName);
+                    insertCommand.Parameters.AddWithValue("@LastName", customer.LastName);
+                    insertCommand.Parameters.AddWithValue("@Gender", customer.Gender);
+                    insertCommand.Parameters.AddWithValue("@DateOfBirth", customer.DateOfBirth);
+                    insertCommand.Parameters.AddWithValue("@PhoneNumber", customer.HomePhone);
+                    insertCommand.Parameters.AddWithValue("@Address1", customer.Address1);
+                    insertCommand.Parameters.AddWithValue("@Address2", customer.Address2);
+                    insertCommand.Parameters.AddWithValue("@City", customer.City);
+                    insertCommand.Parameters.AddWithValue("@State", customer.State);
+                    insertCommand.Parameters.AddWithValue("@PostalCode", customer.PostalCode);
+
+                    insertCommand.ExecuteNonQuery();
+                    return true;
+                }
+            }
         }
     }
 }
