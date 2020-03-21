@@ -24,9 +24,9 @@ namespace FurnitureRentals.Controller
             this.customerDAL = new CustomerDAL();
         }
 
-        public Customer GetCustomer(string name, string phone, String customerid)
+        public Customer GetCustomer(string name, string phone, int customerId)
         {
-            return this.customerDAL.GetCustomer(name, phone, customerid);
+            return this.customerDAL.GetCustomer(name, phone, customerId);
         }
     }
 }
