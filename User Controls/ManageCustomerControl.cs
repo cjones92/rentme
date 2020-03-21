@@ -34,6 +34,8 @@ namespace FurnitureRentals.User_Controls
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
+            txtFirstName.ReadOnly = false;
+            txtLastName.ReadOnly = false;
             this.clearAllFields();
         }
 
@@ -100,6 +102,9 @@ namespace FurnitureRentals.User_Controls
                 txtPostalCode.Text = customer.PostalCode;
                 btnRegister.Enabled = false;
                 btnUpdate.Enabled = true;
+
+                txtFirstName.ReadOnly = true;
+                txtLastName.ReadOnly = true;
             }
         }
 
@@ -110,6 +115,9 @@ namespace FurnitureRentals.User_Controls
             txtSearch.Text = "";
             btnRegister.Enabled = true;
             btnUpdate.Enabled = true;
+
+            txtFirstName.ReadOnly = false;
+            txtLastName.ReadOnly = false;
         }
 
         private void clearAllFields()
@@ -243,6 +251,47 @@ namespace FurnitureRentals.User_Controls
             }
 
             return false;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String name = txtFirstName.Text + " " + txtLastName.Text;
+                Customer customer = this.customerController.GetCustomer(name, "", 0);
+
+                customer.FirstName = txtFirstName.Text;
+                customer.MiddleName = txtMiddleName.Text;
+                customer.LastName = txtLastName.Text;
+                customer.Gender = cbxGender.SelectedItem.ToString();
+                customer.DateOfBirth = dtDateOfBirth.Value;
+                customer.Address1 = txtAddress1.Text;
+                customer.Address2 = txtAddress2.Text;
+                customer.City = txtCity.Text;
+                customer.State = txtState.Text;
+                customer.PostalCode = txtPostalCode.Text;
+                customer.HomePhone = txtHomePhone.Text;
+
+                string errorMessage = this.isValidate(customer);
+                if (errorMessage.Length > 0)
+                {
+                    MessageBox.Show(errorMessage, "Error");
+                    return;
+                }
+
+                if (this.customerController.UpdateCustomer(customer))
+                {
+                    MessageBox.Show("Customer updated successfully!", "Success");
+                }
+                else
+                {
+                    MessageBox.Show("Unable to updated the customer!", "Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
         }
     }
 }

@@ -117,5 +117,42 @@ namespace FurnitureRentals.DAL
                 }
             }
         }
+
+        /// <summary>
+        /// Method that updates the customer into customer table
+        /// </summary>
+        /// <param name="customer">customer object</param>
+        /// <returns>true if customer updated successfully</returns>
+        public Boolean UpdateCustomer(Customer customer)
+        {
+            using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
+            {
+                string sqlStatement = "UPDATE CUSTOMER SET middle_name = @MiddleName, sex = @Gender, " +
+                "date_of_birth = @DateOfBirth, phone_number=@PhoneNumber, address1=@Address1, address2=@Address2, " +
+                "city=@City, state=@State, zipcode=@PostalCode " +
+                "WHERE first_name=@FirstName and last_name=@LastName";
+
+                connection.Open();
+
+                using (SqlCommand updateCommand = new SqlCommand(sqlStatement, connection))
+                {
+                    updateCommand.Connection = connection;
+                    updateCommand.Parameters.AddWithValue("@FirstName", customer.FirstName);
+                    updateCommand.Parameters.AddWithValue("@MiddleName", customer.MiddleName);
+                    updateCommand.Parameters.AddWithValue("@LastName", customer.LastName);
+                    updateCommand.Parameters.AddWithValue("@Gender", customer.Gender);
+                    updateCommand.Parameters.AddWithValue("@DateOfBirth", customer.DateOfBirth);
+                    updateCommand.Parameters.AddWithValue("@PhoneNumber", customer.HomePhone);
+                    updateCommand.Parameters.AddWithValue("@Address1", customer.Address1);
+                    updateCommand.Parameters.AddWithValue("@Address2", customer.Address2);
+                    updateCommand.Parameters.AddWithValue("@City", customer.City);
+                    updateCommand.Parameters.AddWithValue("@State", customer.State);
+                    updateCommand.Parameters.AddWithValue("@PostalCode", customer.PostalCode);
+
+                    updateCommand.ExecuteNonQuery();
+                    return true;
+                }
+            }
+        }
     }
 }

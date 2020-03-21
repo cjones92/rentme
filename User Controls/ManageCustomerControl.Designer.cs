@@ -135,6 +135,7 @@
             // txtFirstName
             // 
             this.txtFirstName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtFirstName.Font = new System.Drawing.Font("Calibri", 10.2F);
             this.txtFirstName.Location = new System.Drawing.Point(249, 58);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.txtFirstName.MaxLength = 45;
@@ -307,6 +308,7 @@
             // txtState
             // 
             this.txtState.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtState.Font = new System.Drawing.Font("Calibri", 10.2F);
             this.txtState.Location = new System.Drawing.Point(18, 6);
             this.txtState.Margin = new System.Windows.Forms.Padding(18, 2, 3, 2);
             this.txtState.MaxLength = 20;
@@ -318,6 +320,7 @@
             // txtPostalCode
             // 
             this.txtPostalCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtPostalCode.Font = new System.Drawing.Font("Calibri", 10.2F);
             this.txtPostalCode.Location = new System.Drawing.Point(353, 6);
             this.txtPostalCode.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.txtPostalCode.MaxLength = 10;
@@ -329,6 +332,7 @@
             // txtCity
             // 
             this.txtCity.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtCity.Font = new System.Drawing.Font("Calibri", 10.2F);
             this.txtCity.Location = new System.Drawing.Point(249, 421);
             this.txtCity.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.txtCity.MaxLength = 45;
@@ -340,6 +344,7 @@
             // txtAddress2
             // 
             this.txtAddress2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtAddress2.Font = new System.Drawing.Font("Calibri", 10.2F);
             this.txtAddress2.Location = new System.Drawing.Point(249, 374);
             this.txtAddress2.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.txtAddress2.MaxLength = 45;
@@ -351,6 +356,7 @@
             // txtAddress1
             // 
             this.txtAddress1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtAddress1.Font = new System.Drawing.Font("Calibri", 10.2F);
             this.txtAddress1.Location = new System.Drawing.Point(249, 327);
             this.txtAddress1.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.txtAddress1.MaxLength = 45;
@@ -362,6 +368,7 @@
             // txtHomePhone
             // 
             this.txtHomePhone.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtHomePhone.Font = new System.Drawing.Font("Calibri", 10.2F);
             this.txtHomePhone.Location = new System.Drawing.Point(249, 281);
             this.txtHomePhone.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.txtHomePhone.MaxLength = 10;
@@ -373,6 +380,7 @@
             // txtLastName
             // 
             this.txtLastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtLastName.Font = new System.Drawing.Font("Calibri", 10.2F);
             this.txtLastName.Location = new System.Drawing.Point(249, 144);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.txtLastName.MaxLength = 45;
@@ -400,6 +408,7 @@
             // txtSearch
             // 
             this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtSearch.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(251, 7);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.txtSearch.Multiline = true;
@@ -451,6 +460,7 @@
             // txtMiddleName
             // 
             this.txtMiddleName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtMiddleName.Font = new System.Drawing.Font("Calibri", 10.2F);
             this.txtMiddleName.Location = new System.Drawing.Point(249, 102);
             this.txtMiddleName.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.txtMiddleName.MaxLength = 45;
@@ -497,6 +507,7 @@
             this.btnUpdate.TabIndex = 15;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnClear
             // 

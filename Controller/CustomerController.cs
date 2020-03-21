@@ -45,5 +45,15 @@ namespace FurnitureRentals.Controller
         {
             return this.customerDAL.RegisterCustomer(customer);
         }
+
+        /// <summary>
+        /// Method that updates the customer into customer table
+        /// </summary>
+        /// <param name="customer">customer object</param>
+        /// <returns>true if customer updated successfully</returns>
+        public Boolean UpdateCustomer(Customer customer)
+        {
+            return this.customerDAL.UpdateCustomer(customer);
+        }
     }
 }
