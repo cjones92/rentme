@@ -22,6 +22,7 @@ namespace FurnitureRentals.View
             this.LoadSignInComboBox();
             this.employeeController = new EmployeeController();
             this.adminstratorController = new AdminstratorController();
+            PasswordMaskedTextBox.UseSystemPasswordChar = true;
         }
 
         private void LoadSignInComboBox()

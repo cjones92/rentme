@@ -33,6 +33,7 @@
             this.LoggedInLabel = new System.Windows.Forms.Label();
             this.LogoutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.manageCustomerUserControl1 = new FurnitureRentals.User_Controls.ManageCustomerUserControl();
+            this.UserLoggedInLabel = new System.Windows.Forms.Label();
             this.tabManageCustomerUserControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +63,7 @@
             // LoggedInLabel
             // 
             this.LoggedInLabel.AutoSize = true;
-            this.LoggedInLabel.Location = new System.Drawing.Point(53, 8);
+            this.LoggedInLabel.Location = new System.Drawing.Point(120, 9);
             this.LoggedInLabel.Name = "LoggedInLabel";
             this.LoggedInLabel.Size = new System.Drawing.Size(75, 13);
             this.LoggedInLabel.TabIndex = 1;
@@ -87,11 +88,21 @@
             this.manageCustomerUserControl1.Size = new System.Drawing.Size(685, 513);
             this.manageCustomerUserControl1.TabIndex = 0;
             // 
+            // UserLoggedInLabel
+            // 
+            this.UserLoggedInLabel.AutoSize = true;
+            this.UserLoggedInLabel.Location = new System.Drawing.Point(9, 8);
+            this.UserLoggedInLabel.Name = "UserLoggedInLabel";
+            this.UserLoggedInLabel.Size = new System.Drawing.Size(76, 13);
+            this.UserLoggedInLabel.TabIndex = 4;
+            this.UserLoggedInLabel.Text = "Logged In As: ";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(827, 561);
+            this.Controls.Add(this.UserLoggedInLabel);
             this.Controls.Add(this.LogoutLinkLabel);
             this.Controls.Add(this.LoggedInLabel);
             this.Controls.Add(this.tabManageCustomerUserControl);
@@ -113,6 +124,7 @@
         private User_Controls.ManageCustomerUserControl manageCustomerUserControl1;
         private System.Windows.Forms.Label LoggedInLabel;
         private System.Windows.Forms.LinkLabel LogoutLinkLabel;
+        private System.Windows.Forms.Label UserLoggedInLabel;
     }
 }
 
