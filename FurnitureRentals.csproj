@@ -48,8 +48,10 @@
   <ItemGroup>
     <Compile Include="Controller\CustomerController.cs" />
     <Compile Include="Controller\FurnitureController.cs" />
+    <Compile Include="DAL\AdministratorDBDAL.cs" />
     <Compile Include="DAL\CategoryDBDAL.cs" />
     <Compile Include="DAL\CustomerDAL.cs" />
+    <Compile Include="DAL\EmployeeDBDAL.cs" />
     <Compile Include="DAL\FurnitureDBDAL.cs" />
     <Compile Include="DAL\FurnitureRentalsDBConnection.cs" />
     <Compile Include="DAL\StyleDBDAL.cs" />
@@ -99,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FurnitureSearchForm.resx">
       <DependentUpon>FurnitureSearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

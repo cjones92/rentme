@@ -15,6 +15,13 @@ namespace FurnitureRentals.View
         public LoginForm()
         {
             InitializeComponent();
+            this.LoadSignInComboBox();
+        }
+
+        private void LoadSignInComboBox()
+        {
+            List<string> signInList = new List<string> { "Administrator", "Employee" };
+            this.SignInComboBox.DataSource = signInList;
         }
     }
 }
