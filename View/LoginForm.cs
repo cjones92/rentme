@@ -14,12 +14,14 @@ namespace FurnitureRentals.View
     public partial class LoginForm : Form
     {
         private EmployeeController employeeController;
+        private AdminstratorController adminstratorController;
         private MainForm CurrentMainForm;
         public LoginForm()
         {
             InitializeComponent();
             this.LoadSignInComboBox();
             this.employeeController = new EmployeeController();
+            this.adminstratorController = new AdminstratorController();
         }
 
         private void LoadSignInComboBox()
@@ -30,7 +32,8 @@ namespace FurnitureRentals.View
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            if (this.employeeController.EmployeeLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text))
+            if (((string)this.SignInComboBox.SelectedValue == "Employee" && this.employeeController.EmployeeLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text)) ||
+                (string)this.SignInComboBox.SelectedValue == "Administrator" && this.adminstratorController.AdministratorLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text))
             {
                 
                 if (this.CurrentMainForm == null)
