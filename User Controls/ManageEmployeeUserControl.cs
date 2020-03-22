@@ -167,6 +167,7 @@ namespace FurnitureRentals.User_Controls
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+
             if (this.IsValidData())
             {
                 try
@@ -185,6 +186,14 @@ namespace FurnitureRentals.User_Controls
                     this.employee.UserName = txtUsername.Text;
                     this.employee.Password = txtPassword.Text;
                     this.employee.Status = cbxStatus.Text;
+
+                    String name = this.employee.FirstName + " " + this.employee.LastName;
+                    // String phoneNumber = this.employee.Phone;
+                    if (this.isEmployeeExist(name))
+                    {
+                        MessageBox.Show("Employee already exists.", "Info");
+                    }
+
 
                     bool isRegistered = this.employeeController.RegisterEmployee(this.employee);
 
@@ -274,11 +283,60 @@ namespace FurnitureRentals.User_Controls
             dateChosen = true;
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private bool isEmployeeExist(String name)
         {
+            String phonenumber = txtHomePhone.Text;
 
+            this.employee = this.employeeController.GetEmployee(name, phonenumber, 0);
+            if (this.employee != null)
+            {
+                return true;
+            }
+
+            return false;
         }
 
-       
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (this.IsValidData())
+            {
+                try
+                {
+                    this.employee.FirstName = txtFirstName.Text;
+                    this.employee.MiddleName = txtMiddleName.Text;
+                    this.employee.LastName = txtLastName.Text;
+                    this.employee.Sex = cbxGender.SelectedItem.ToString();
+                    this.employee.DateOfBirth = dtDateOfBirth.Value;
+                    this.employee.Address1 = txtAddress1.Text;
+                    this.employee.Address2 = txtAddress2.Text;
+                    this.employee.City = txtCity.Text;
+                    this.employee.State = cbxState.Text;
+                    this.employee.PostalCode = txtPostalCode.Text;
+                    this.employee.Phone = txtHomePhone.Text;
+                    this.employee.UserName = txtUsername.Text;
+                    this.employee.Phone = txtPassword.Text;
+                    this.employee.Status = cbxStatus.Text;
+
+                    bool isUpdated = EmployeeController.UpdateEmployee(this.employee);
+
+
+                    if (isUpdated)
+                    {
+                        MessageBox.Show("Employee is updated successfully!", "Success");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Employee could not be registered at this time");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
+        }
+
+
     }
 }

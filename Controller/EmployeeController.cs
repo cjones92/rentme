@@ -63,5 +63,16 @@ namespace FurnitureRentals.Controller
             return this.employeeDBDAL.GetEmployee(name, phone, employeeId);
         }
 
+
+        /// <summary>
+        /// Updates the employee in the employee table.
+        /// </summary>
+        /// <param name="employee">Employee object</param>
+        /// <returns>true if employee is updated successfully</returns>
+        public static bool UpdateEmployee(Employee employee)
+        {
+            return EmployeeDBDAL.UpdateEmployee(employee);
+        }
+
     }
 }

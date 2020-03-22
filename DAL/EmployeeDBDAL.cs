@@ -181,6 +181,50 @@ namespace FurnitureRentals.DAL
             }
         }
 
+        /// <summary>
+        /// Updates the employee in the employee table.
+        /// </summary>
+        /// <param name="employee">Employee object</param>
+        /// <returns>true if employee is updated successfully</returns>
+        public static bool UpdateEmployee(Employee employee)
+        {
+            using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
+            {
+                string sqlStatement = "UPDATE employee" +
+                " SET first_name = @FirstName, middle_name = @MiddleName, last_name = @LastName, sex = @Gender, " +
+                "date_of_birth = @DateOfBirth, phone_number=@PhoneNumber, address1=@Address1, address2=@Address2, " +
+                "city=@City, state=@State, zipcode=@PostalCode, username = @UserName, password = @Password, status = @Status " +
+                
+                "WHERE first_name=@FirstName and last_name=@LastName";
+
+                connection.Open();
+
+                using (SqlCommand updateCommand = new SqlCommand(sqlStatement, connection))
+                {
+                    updateCommand.Connection = connection;
+                    updateCommand.Parameters.AddWithValue("@FirstName", employee.FirstName);
+                    updateCommand.Parameters.AddWithValue("@MiddleName", employee.MiddleName);
+                    updateCommand.Parameters.AddWithValue("@LastName", employee.LastName);
+                    updateCommand.Parameters.AddWithValue("@Gender", employee.Sex);
+                    updateCommand.Parameters.AddWithValue("@DateOfBirth", employee.DateOfBirth);
+                    updateCommand.Parameters.AddWithValue("@PhoneNumber", employee.Phone);
+                    updateCommand.Parameters.AddWithValue("@Address1", employee.Address1);
+                    updateCommand.Parameters.AddWithValue("@Address2", employee.Address2);
+                    updateCommand.Parameters.AddWithValue("@City", employee.City);
+                    updateCommand.Parameters.AddWithValue("@State", employee.State);
+                    updateCommand.Parameters.AddWithValue("@PostalCode", employee.PostalCode);
+                    updateCommand.Parameters.AddWithValue("@UserName", employee.UserName);
+                    updateCommand.Parameters.AddWithValue("@Password", employee.Password);
+                    updateCommand.Parameters.AddWithValue("@Status", employee.Status);
+
+                    updateCommand.ExecuteNonQuery();
+                    return true;
+                }
+            }
+        }
+
+
+
     }
 
 }
