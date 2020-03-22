@@ -8,8 +8,16 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.DAL
 {
+    /// <summary>
+    /// DAL class responsible for interacting with the Furniture table of the FurnitureRentals database
+    /// </summary>
     class FurnitureDBDAL
     {
+        /// <summary>
+        /// Searches for furniture by serial number
+        /// </summary>
+        /// <param name="serialNumber">serial number</param>
+        /// <returns>furniture that matches that serial number</returns>
         public List<Furniture> GetFurnitureBySerialNumber(string serialNumber)
         {
 
@@ -51,6 +59,12 @@ namespace FurnitureRentals.DAL
             return furnitureList;
         }
 
+
+        /// <summary>
+        /// Searches for furniture by category
+        /// </summary>
+        /// <param name="categoryID">category</param>
+        /// <returns>list of furniture with that category</returns>
         public List<Furniture> GetFurnitureByCategory(int categoryID)
         {
             List<Furniture> furnitureList = new List<Furniture>();
@@ -93,6 +107,11 @@ namespace FurnitureRentals.DAL
         }
 
 
+        /// <summary>
+        /// Searches for furniture with a certain style
+        /// </summary>
+        /// <param name="styleID">style of furniture</param>
+        /// <returns>list of furniture with style</returns>
         public List<Furniture> GetFurnitureByStyle(int styleID)
         {
             List<Furniture> furnitureList = new List<Furniture>();

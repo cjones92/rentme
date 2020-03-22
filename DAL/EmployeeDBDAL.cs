@@ -8,8 +8,17 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.DAL
 {
+    /// <summary>
+    /// DAL class responsible for interacting with the Employee table of the FurnitureRentals database
+    /// </summary>
     public class EmployeeDBDAL
     {
+        /// <summary>
+        /// Verifies that an employee's login credentials are in the database
+        /// </summary>
+        /// <param name="userName">Employee's username</param>
+        /// <param name="password">Employee's password</param>
+        /// <returns>whether credentials are valid</returns>
         public bool CheckPassword(string userName, string password)
         {
             int foundLogins = 0;

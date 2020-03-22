@@ -7,8 +7,17 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.DAL
 {
+    /// <summary>
+    /// DAL class responsible for interacting with the Administrator table of the FurnitureRentals database
+    /// </summary>
     class AdministratorDBDAL
     {
+        /// <summary>
+        /// Checks validity of administrator's login credentials
+        /// </summary>
+        /// <param name="userName">admin user name</param>
+        /// <param name="password">admin password</param>
+        /// <returns>whether credentials are valid</returns>
         public bool CheckPassword(string userName, string password)
         {
             int foundLogins = 0;

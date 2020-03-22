@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.DAL
 {
+    /// <summary>
+    /// DAL class responsible for interacting with the Category table of the FurnitureRentals database
+    /// </summary>
     class CategoryDBDAL
     {
         public List<Category> GetCategories()

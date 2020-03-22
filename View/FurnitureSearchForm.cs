@@ -12,9 +12,16 @@ using System.Windows.Forms;
 
 namespace FurnitureRentals.View
 {
+    /// <summary>
+    /// Contains logic for the Furniture Search Form
+    /// </summary>
     public partial class FurnitureSearchForm : Form
     {
         FurnitureController furnitureController;
+
+        /// <summary>
+        /// Controller for class
+        /// </summary>
         public FurnitureSearchForm()
         {
             furnitureController = new FurnitureController();
@@ -27,15 +34,20 @@ namespace FurnitureRentals.View
 
         private void LoadSearchOptionsComboBox()
         {
-            List<string> choices = new List<string> { "Serial Number", "Category", "Style" };
+            List<string> choices = new List<string> {"Select Search Style:", "Serial Number", "Category", "Style" };
             this.SearchOptionsComboBox.DataSource = choices;
+            
         }
 
         private void LoadCategoryComboBox()
         {
             try
             {
+                Category dummyCategory = new Category();
+                dummyCategory.CategoryID = 0;
+                dummyCategory.CategoryDescription = "Pick a category:";
                 List<Category> categoryList = this.furnitureController.GetCategories();
+                categoryList.Insert(0, dummyCategory);
                 this.categoryComboBox.DataSource = categoryList;
                 this.categoryComboBox.ValueMember = "CategoryID";
                 this.categoryComboBox.DisplayMember = "CategoryDescription";
@@ -52,7 +64,11 @@ namespace FurnitureRentals.View
 
             try
             {
+                Style dummyStyle = new Style();
+                dummyStyle.StyleID = 0;
+                dummyStyle.StyleDescription = "Pick a style:";
                 List<Style> styleList = this.furnitureController.GetStyles();
+                styleList.Insert(0, dummyStyle);
                 this.furnitureStyleComboBox.DataSource = styleList;
                 this.furnitureStyleComboBox.ValueMember = "StyleID";
                 this.furnitureStyleComboBox.DisplayMember = "StyleDescription";
@@ -96,6 +112,7 @@ namespace FurnitureRentals.View
         private void SearchOptionsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedValue = (string)this.SearchOptionsComboBox.SelectedValue;
+            
             if (selectedValue == "Serial Number")
             {
                 this.CategoryLabel.Visible = false;
@@ -123,6 +140,14 @@ namespace FurnitureRentals.View
                 this.CategoryLabel.Visible = false;
                 this.StyleLabel.Visible = true;
                 this.furnitureStyleComboBox.Visible = true;
+            } else
+            {
+                this.SerialNumberTextBox.Visible = false;
+                this.SerialNumberLabel.Visible = false;
+                this.categoryComboBox.Visible = false;
+                this.CategoryLabel.Visible = false;
+                this.StyleLabel.Visible = false;
+                this.furnitureStyleComboBox.Visible = false;
             }
         }
 
@@ -141,10 +166,7 @@ namespace FurnitureRentals.View
             this.LoadFurnitureGridView();
         }
 
-        private void furnitureStyleLabel_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
 
