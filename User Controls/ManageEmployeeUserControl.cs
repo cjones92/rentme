@@ -23,11 +23,14 @@ namespace FurnitureRentals.User_Controls
             this.employeeController = new EmployeeController();
             this.employee = new Employee();
             this.dateChosen = false;
+            txtSearch.Focus();
         }
 
 
         private void ManageEmployeeUserControl_Load(object sender, EventArgs e)
         {
+            cbxSearch.SelectedIndex = 0;
+
             string[] states = new string[]
         {
                 "AL", "AK", "AZ", "AR", "CA",
@@ -64,6 +67,82 @@ namespace FurnitureRentals.User_Controls
 
             dtDateOfBirth.MaxDate = DateTime.Today;
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchCriteria = cbxSearch.SelectedItem.ToString();
+            string searchString = txtSearch.Text;
+            this.employee = null;
+
+
+            string errorMessage = "";
+            if (searchString.Trim().Length == 0)
+            {
+                errorMessage = "Please enter " + searchCriteria;
+                txtSearch.Focus();
+            }
+            else if (searchCriteria == "First Name Last Name")
+            {
+                this.employee = this.employeeController.GetEmployee(txtSearch.Text, "", 0);
+            }
+            else if (searchCriteria == "Phone Number")
+            {
+                this.employee = this.employeeController.GetEmployee("", txtSearch.Text, 0);
+            }
+            else
+            {
+                try
+                {
+                    int employeeId = Convert.ToInt32(txtSearch.Text);
+                    if (employeeId < 1)
+                    {
+                        errorMessage = "Invalid Employee ID";
+                    }
+
+                    this.employee = this.employeeController.GetEmployee("", "", employeeId);
+                }
+                catch (ArgumentException)
+                {
+                    errorMessage = "Invalid Employee ID";
+                }
+            }
+
+            if (errorMessage.Length > 0)
+            {
+                MessageBox.Show(errorMessage, "Error");
+            }
+            else if (this.employee == null)
+            {
+                MessageBox.Show("Employee doesn't exist. Please check your information.", "Error");
+                btnRegister.Enabled = true;
+                btnUpdate.Enabled = false;
+            }
+            else
+            {
+                txtFirstName.Text = this.employee.FirstName;
+                txtMiddleName.Text = this.employee.MiddleName;
+                txtLastName.Text = this.employee.LastName;
+                cbxGender.SelectedItem = this.employee.Sex;
+                dtDateOfBirth.Value = this.employee.DateOfBirth;
+                txtHomePhone.Text = this.employee.Phone;
+                txtAddress1.Text = this.employee.Address1;
+                txtAddress2.Text = this.employee.Address2;
+                txtCity.Text = this.employee.City;
+                cbxState.Text = this.employee.State;
+                txtPostalCode.Text = this.employee.PostalCode;
+                txtUsername.Text = this.employee.UserName;
+                txtPassword.Text = this.employee.Password;
+                cbxStatus.Text = this.employee.Status;
+
+                btnRegister.Enabled = false;
+                btnUpdate.Enabled = true;
+
+                txtFirstName.ReadOnly = true;
+                txtLastName.ReadOnly = true;
+            }
+
+        }
+
 
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -194,5 +273,12 @@ namespace FurnitureRentals.User_Controls
         {
             dateChosen = true;
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

@@ -30,8 +30,11 @@
         {
             this.tbCtrlAdminForm = new System.Windows.Forms.TabControl();
             this.tbPgEmployee = new System.Windows.Forms.TabPage();
-            this.tbPgReport = new System.Windows.Forms.TabPage();
             this.manageEmployeeUserControl1 = new FurnitureRentals.User_Controls.ManageEmployeeUserControl();
+            this.tbPgReport = new System.Windows.Forms.TabPage();
+            this.UserLoggedInLabel = new System.Windows.Forms.Label();
+            this.LogoutLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.LoggedInLabel = new System.Windows.Forms.Label();
             this.tbCtrlAdminForm.SuspendLayout();
             this.tbPgEmployee.SuspendLayout();
             this.SuspendLayout();
@@ -40,11 +43,11 @@
             // 
             this.tbCtrlAdminForm.Controls.Add(this.tbPgEmployee);
             this.tbCtrlAdminForm.Controls.Add(this.tbPgReport);
-            this.tbCtrlAdminForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbCtrlAdminForm.Location = new System.Drawing.Point(0, 0);
+            this.tbCtrlAdminForm.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tbCtrlAdminForm.Location = new System.Drawing.Point(0, 36);
             this.tbCtrlAdminForm.Name = "tbCtrlAdminForm";
             this.tbCtrlAdminForm.SelectedIndex = 0;
-            this.tbCtrlAdminForm.Size = new System.Drawing.Size(1027, 700);
+            this.tbCtrlAdminForm.Size = new System.Drawing.Size(1029, 689);
             this.tbCtrlAdminForm.TabIndex = 0;
             // 
             // tbPgEmployee
@@ -53,20 +56,10 @@
             this.tbPgEmployee.Location = new System.Drawing.Point(4, 25);
             this.tbPgEmployee.Name = "tbPgEmployee";
             this.tbPgEmployee.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgEmployee.Size = new System.Drawing.Size(1019, 671);
+            this.tbPgEmployee.Size = new System.Drawing.Size(1021, 660);
             this.tbPgEmployee.TabIndex = 0;
             this.tbPgEmployee.Text = "Employee";
             this.tbPgEmployee.UseVisualStyleBackColor = true;
-            // 
-            // tbPgReport
-            // 
-            this.tbPgReport.Location = new System.Drawing.Point(4, 25);
-            this.tbPgReport.Name = "tbPgReport";
-            this.tbPgReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgReport.Size = new System.Drawing.Size(826, 394);
-            this.tbPgReport.TabIndex = 1;
-            this.tbPgReport.Text = "Report";
-            this.tbPgReport.UseVisualStyleBackColor = true;
             // 
             // manageEmployeeUserControl1
             // 
@@ -76,17 +69,62 @@
             this.manageEmployeeUserControl1.Size = new System.Drawing.Size(1522, 1031);
             this.manageEmployeeUserControl1.TabIndex = 0;
             // 
+            // tbPgReport
+            // 
+            this.tbPgReport.Location = new System.Drawing.Point(4, 25);
+            this.tbPgReport.Name = "tbPgReport";
+            this.tbPgReport.Padding = new System.Windows.Forms.Padding(3);
+            this.tbPgReport.Size = new System.Drawing.Size(1019, 671);
+            this.tbPgReport.TabIndex = 1;
+            this.tbPgReport.Text = "Report";
+            this.tbPgReport.UseVisualStyleBackColor = true;
+            // 
+            // UserLoggedInLabel
+            // 
+            this.UserLoggedInLabel.AutoSize = true;
+            this.UserLoggedInLabel.Location = new System.Drawing.Point(1, 9);
+            this.UserLoggedInLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.UserLoggedInLabel.Name = "UserLoggedInLabel";
+            this.UserLoggedInLabel.Size = new System.Drawing.Size(99, 17);
+            this.UserLoggedInLabel.TabIndex = 5;
+            this.UserLoggedInLabel.Text = "Logged In As: ";
+            // 
+            // LogoutLinkLabel
+            // 
+            this.LogoutLinkLabel.AutoSize = true;
+            this.LogoutLinkLabel.Location = new System.Drawing.Point(854, 16);
+            this.LogoutLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LogoutLinkLabel.Name = "LogoutLinkLabel";
+            this.LogoutLinkLabel.Size = new System.Drawing.Size(59, 17);
+            this.LogoutLinkLabel.TabIndex = 6;
+            this.LogoutLinkLabel.TabStop = true;
+            this.LogoutLinkLabel.Text = "Log Out";
+            // 
+            // LoggedInLabel
+            // 
+            this.LoggedInLabel.AutoSize = true;
+            this.LoggedInLabel.Location = new System.Drawing.Point(139, 9);
+            this.LoggedInLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LoggedInLabel.Name = "LoggedInLabel";
+            this.LoggedInLabel.Size = new System.Drawing.Size(97, 17);
+            this.LoggedInLabel.TabIndex = 7;
+            this.LoggedInLabel.Text = "Not Logged In";
+            // 
             // AdminMainFormWithUserControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1027, 700);
+            this.ClientSize = new System.Drawing.Size(1029, 725);
+            this.Controls.Add(this.LoggedInLabel);
+            this.Controls.Add(this.LogoutLinkLabel);
+            this.Controls.Add(this.UserLoggedInLabel);
             this.Controls.Add(this.tbCtrlAdminForm);
             this.Name = "AdminMainFormWithUserControls";
             this.Text = "AdminMainFormWithUserControls";
             this.tbCtrlAdminForm.ResumeLayout(false);
             this.tbPgEmployee.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -96,5 +134,8 @@
         private System.Windows.Forms.TabPage tbPgEmployee;
         private User_Controls.ManageEmployeeUserControl manageEmployeeUserControl1;
         private System.Windows.Forms.TabPage tbPgReport;
+        private System.Windows.Forms.Label UserLoggedInLabel;
+        private System.Windows.Forms.LinkLabel LogoutLinkLabel;
+        private System.Windows.Forms.Label LoggedInLabel;
     }
 }

@@ -37,5 +37,17 @@ namespace FurnitureRentals.Controller
 
         }
 
+        /// <summary>
+        /// Method that returns the selected employee from the employee table
+        /// </summary>
+        /// <param name="name">first name last name of the employee</param>
+        /// <param name="phone">phone number of the employee</param>
+        /// <param name="customerid">employee id of the employee</param>
+        /// <returns>Customer object</returns>
+        public Employee GetEmployee(string name, string phone, int employeeId)
+        {
+            return this.employeeDBDAL.GetEmployee(name, phone, employeeId);
+        }
+
     }
 }
