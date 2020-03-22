@@ -75,6 +75,12 @@
     <Compile Include="User Controls\ManageEmployeeUserControl.Designer.cs">
       <DependentUpon>ManageEmployeeUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AdminMainFormWithUserControls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminMainFormWithUserControls.Designer.cs">
+      <DependentUpon>AdminMainFormWithUserControls.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FurnitureSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\ManageEmployeeUserControl.resx">
       <DependentUpon>ManageEmployeeUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminMainFormWithUserControls.resx">
+      <DependentUpon>AdminMainFormWithUserControls.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FurnitureSearchForm.resx">
       <DependentUpon>FurnitureSearchForm.cs</DependentUpon>
