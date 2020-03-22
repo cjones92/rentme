@@ -26,16 +26,8 @@ namespace FurnitureRentals.User_Controls
         }
 
 
-
-
-
-        
-
         private void ManageEmployeeUserControl_Load(object sender, EventArgs e)
         {
-            //cbxGender.Items.Add("Male");
-            //cbxGender.Items.Add("Female");
-
             string[] states = new string[]
         {
                 "AL", "AK", "AZ", "AR", "CA",
@@ -54,9 +46,6 @@ namespace FurnitureRentals.User_Controls
             {
                 cbxState.Items.Add(state);
             }
-
-           // cbxStatus.Items.Add("Active");
-            //cbxStatus.Items.Add("Inactive");
 
             if (cbxState.SelectedIndex < 0)
             {
@@ -89,6 +78,8 @@ namespace FurnitureRentals.User_Controls
             txtCity.Text = "";
             cbxState.SelectedIndex = 0;
             txtPostalCode.Text = "";
+            txtUsername.Text = "";
+            txtPassword.Text = "";
             cbxStatus.SelectedIndex = 0;
             //btnRegister.Enabled = false;
             btnUpdate.Enabled = false;
