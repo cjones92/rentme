@@ -8,15 +8,29 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.Controller
 {
+    /// <summary>
+    /// This controller class interacts with the DAL layer and implements functions
+    /// for furniture
+    /// </summary>
     public class EmployeeController
     {
 
         EmployeeDBDAL employeeDBDAL;
 
+        /// <summary>
+        /// Class controller
+        /// </summary>
         public EmployeeController()
         {
             this.employeeDBDAL = new EmployeeDBDAL();
         }
+
+        /// <summary>
+        /// Verifies employee login credentials
+        /// </summary>
+        /// <param name="UserName">Employee username<param>
+        /// <param name="Password">Employee password</param>
+        /// <returns>Whether login credentials are valid</returns>
         public bool EmployeeLogin(string UserName, string Password)
         {
             return this.employeeDBDAL.CheckPassword(UserName, Password);
