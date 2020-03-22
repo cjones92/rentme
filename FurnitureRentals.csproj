@@ -68,6 +68,12 @@
     <Compile Include="User Controls\ManageCustomerControl.Designer.cs">
       <DependentUpon>ManageCustomerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Controls\ManageEmployeeUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\ManageEmployeeUserControl.Designer.cs">
+      <DependentUpon>ManageEmployeeUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FurnitureSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     </Compile>
     <EmbeddedResource Include="User Controls\ManageCustomerControl.resx">
       <DependentUpon>ManageCustomerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\ManageEmployeeUserControl.resx">
+      <DependentUpon>ManageEmployeeUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FurnitureSearchForm.resx">
       <DependentUpon>FurnitureSearchForm.cs</DependentUpon>
