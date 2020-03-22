@@ -5,8 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FurnitureRentals.Model
+
 {
-    class Employee
+    /// <summary>
+    /// The Employee model class.
+    /// </summary>
+    public class Employee
     {
         public int EmployeeID { get; set; }
 
@@ -35,6 +39,8 @@ namespace FurnitureRentals.Model
         public string Password { get; set; }
 
         public string Phone { get; set; }
+
+        public string Status { get; set; }
 
     }
 }
