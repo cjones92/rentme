@@ -29,6 +29,7 @@ namespace FurnitureRentals.View
         {
             List<string> choices = new List<string> { "Serial Number", "Category", "Style" };
             this.SearchOptionsComboBox.DataSource = choices;
+            
         }
 
         private void LoadCategoryComboBox()
