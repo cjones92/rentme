@@ -14,6 +14,20 @@ namespace FurnitureRentals.User_Controls
     {
         private readonly CustomerController customerController;
 
+        private string[] states = new string[]
+        {
+            "AL", "AK", "AZ", "AR", "CA",
+            "CO", "CT", "DE", "FL", "GA",
+            "HI", "ID", "IL", "IN", "IA",
+            "KS", "KY", "LA", "ME", "MD",
+            "MA", "MI", "MN", "MS", "MO",
+            "MT", "NE", "NV", "NH", "NJ",
+            "NM", "NY", "NC", "ND", "OH",
+            "OK", "OR", "PA", "RI", "SC",
+            "SD", "TN", "TX", "UT", "VT",
+            "VA", "WA", "WV", "WI", "WY"
+        };
+
         /// <summary>
         /// Constructor initializes the class level variables
         /// </summary>
@@ -28,8 +42,14 @@ namespace FurnitureRentals.User_Controls
 
         private void ManageCustomerUserControl_Load(object sender, EventArgs e)
         {
+            foreach (string state in states)
+            {
+                cbxState.Items.Add(state);
+            }
+
             cbxSearch.SelectedIndex = 0;
             cbxGender.SelectedIndex = 0;
+            cbxState.SelectedIndex = 0;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -98,7 +118,7 @@ namespace FurnitureRentals.User_Controls
                 txtAddress1.Text = customer.Address1;
                 txtAddress2.Text = customer.Address2;
                 txtCity.Text = customer.City;
-                txtState.Text = customer.State;
+                cbxState.SelectedItem = customer.State;
                 txtPostalCode.Text = customer.PostalCode;
                 btnRegister.Enabled = false;
                 btnUpdate.Enabled = true;
@@ -131,7 +151,7 @@ namespace FurnitureRentals.User_Controls
             txtAddress1.Text = "";
             txtAddress2.Text = "";
             txtCity.Text = "";
-            txtState.Text = "";
+            cbxState.SelectedIndex = 0;
             txtPostalCode.Text = "";
             btnRegister.Enabled = false;
             btnUpdate.Enabled = false;
@@ -150,7 +170,7 @@ namespace FurnitureRentals.User_Controls
                 customer.Address1 = txtAddress1.Text;
                 customer.Address2 = txtAddress2.Text;
                 customer.City = txtCity.Text;
-                customer.State = txtState.Text;
+                customer.State = cbxState.SelectedItem.ToString();
                 customer.PostalCode = txtPostalCode.Text;
                 customer.HomePhone = txtHomePhone.Text;
 
@@ -222,11 +242,6 @@ namespace FurnitureRentals.User_Controls
                 txtCity.Focus();
                 errorMessage = "Please enter city!";
             }
-            else if (customer.State.Trim().Length == 0)
-            {
-                txtState.Focus();
-                errorMessage = "Please enter state!";
-            }
             else if (customer.PostalCode.Trim().Length == 0)
             {
                 txtPostalCode.Focus();
@@ -268,7 +283,7 @@ namespace FurnitureRentals.User_Controls
                 customer.Address1 = txtAddress1.Text;
                 customer.Address2 = txtAddress2.Text;
                 customer.City = txtCity.Text;
-                customer.State = txtState.Text;
+                customer.State = cbxState.SelectedItem.ToString();
                 customer.PostalCode = txtPostalCode.Text;
                 customer.HomePhone = txtHomePhone.Text;
 
