@@ -16,10 +16,10 @@ namespace FurnitureRentals.DAL
         /// <param name="name">first name last name of the customer</param>
         /// <param name="phone">phone number of the customer</param>
         /// <param name="customerid">customer id of the customer</param>
-        /// <returns>Customer object</returns>
-        public Customer GetCustomer(string name, string phone, int customerid)
+        /// <returns>list of customer objects</returns>
+        public List<Customer> GetCustomers(string name, string phone, int customerid)
         {
-            Customer customer = null;
+            List<Customer> customerList = new List<Customer>();
 
             string sqlStatement = "SELECT customer_id, first_name, middle_name, last_name, sex, " +
                 "date_of_birth, phone_number, address1, address2, city, state, zipcode from customer ";
@@ -60,7 +60,7 @@ namespace FurnitureRentals.DAL
                     {
                         if (reader.Read())
                         {
-                            customer = new Customer();
+                            Customer customer = new Customer();
                             customer.CustomerId = Convert.ToInt32(reader["customer_id"].ToString());
                             customer.FirstName = reader["first_name"].ToString();
                             customer.MiddleName = reader["middle_name"].ToString();
@@ -73,12 +73,13 @@ namespace FurnitureRentals.DAL
                             customer.State = reader["state"].ToString();
                             customer.PostalCode = reader["zipcode"].ToString();
                             customer.DateOfBirth = (DateTime)reader["date_of_birth"];
+                            customerList.Add(customer);
                         }
                     }
                 }
             }
 
-            return customer;
+            return customerList;
         }
 
         /// <summary>

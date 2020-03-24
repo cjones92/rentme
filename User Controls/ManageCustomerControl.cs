@@ -1,6 +1,7 @@
 ﻿using FurnitureRentals.Controller;
 using FurnitureRentals.Model;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -13,6 +14,8 @@ namespace FurnitureRentals.User_Controls
     public partial class ManageCustomerUserControl : UserControl
     {
         private readonly CustomerController customerController;
+        private List<Customer> customerList = new List<Customer>();
+        private int customerId = 0;
 
         private string[] states = new string[]
         {
@@ -61,9 +64,9 @@ namespace FurnitureRentals.User_Controls
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            customerId = 0;
             string searchCriteria = cbxSearch.SelectedItem.ToString();
-            string searchString = txtSearch.Text;
-            Customer customer = null;
+            string searchString = txtSearch.Text;            
 
             string errorMessage = "";
             if (searchString.Trim().Length == 0)
@@ -73,11 +76,11 @@ namespace FurnitureRentals.User_Controls
             }
             else if (searchCriteria == "First Name Last Name")
             {
-                customer = this.customerController.GetCustomer(txtSearch.Text, "", 0);
+                customerList = this.customerController.GetCustomers(txtSearch.Text, "", 0);
             }
             else if (searchCriteria == "Phone Number")
             {
-                customer = this.customerController.GetCustomer("", txtSearch.Text, 0);
+                customerList = this.customerController.GetCustomers("", txtSearch.Text, 0);
             }
             else
             {
@@ -89,7 +92,7 @@ namespace FurnitureRentals.User_Controls
                         errorMessage = "Invalid Customer ID entered";
                     }
 
-                    customer = this.customerController.GetCustomer("", "", customerId);
+                    customerList = this.customerController.GetCustomers("", "", customerId);
                 }
                 catch (ArgumentException)
                 {
@@ -101,14 +104,16 @@ namespace FurnitureRentals.User_Controls
             {
                 MessageBox.Show(errorMessage, "Error");
             }
-            else if (customer == null)
+            else if (customerList.Count == 0)
             {
                 MessageBox.Show("Customer doesn't exist. Please register!", "Error");
                 btnRegister.Enabled = true;
                 btnUpdate.Enabled = false;
             }
-            else
+            else if(customerList.Count==1)
             {
+                Customer customer = customerList[0];
+                customerId = customer.CustomerId;
                 txtFirstName.Text = customer.FirstName;
                 txtMiddleName.Text = customer.MiddleName;
                 txtLastName.Text = customer.LastName;
@@ -301,14 +306,14 @@ namespace FurnitureRentals.User_Controls
 
         private Boolean isCustomerExist(String name, String phoneNumber)
         {
-            Customer customer = this.customerController.GetCustomer(name, "", 0);
-            if (customer != null)
+            List<Customer> customerList = this.customerController.GetCustomers(name, "", 0);
+            if (customerList.Count>0)
             {
                 return true;
             }
 
-            customer = this.customerController.GetCustomer("", phoneNumber, 0);
-            if (customer != null)
+            customerList = this.customerController.GetCustomers("", phoneNumber, 0);
+            if (customerList.Count>0)
             {
                 return true;
             }
@@ -321,8 +326,8 @@ namespace FurnitureRentals.User_Controls
             try
             {
                 String name = txtFirstName.Text + " " + txtLastName.Text;
-                Customer customer = this.customerController.GetCustomer(name, "", 0);
-
+                Customer customer = new Customer();
+                customer.CustomerId = this.customerId;
                 customer.FirstName = txtFirstName.Text;
                 customer.MiddleName = txtMiddleName.Text;
                 customer.LastName = txtLastName.Text;

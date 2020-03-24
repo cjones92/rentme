@@ -31,9 +31,9 @@ namespace FurnitureRentals.Controller
         /// <param name="phone">phone number of the customer</param>
         /// <param name="customerid">customer id of the customer</param>
         /// <returns>Customer object</returns>
-        public Customer GetCustomer(string name, string phone, int customerId)
+        public List<Customer> GetCustomers(string name, string phone, int customerId)
         {
-            return customerDAL.GetCustomer(name, phone, customerId);
+            return customerDAL.GetCustomers(name, phone, customerId);
         }
 
         /// <summary>
