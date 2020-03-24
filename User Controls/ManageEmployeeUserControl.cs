@@ -315,7 +315,7 @@ namespace FurnitureRentals.User_Controls
                     this.employee.PostalCode = txtPostalCode.Text;
                     this.employee.Phone = txtHomePhone.Text;
                     this.employee.UserName = txtUsername.Text;
-                    this.employee.Phone = txtPassword.Text;
+                    this.employee.Password = txtPassword.Text;
                     this.employee.Status = cbxStatus.Text;
 
                     bool isUpdated = EmployeeController.UpdateEmployee(this.employee);
