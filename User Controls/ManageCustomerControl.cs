@@ -53,6 +53,7 @@ namespace FurnitureRentals.User_Controls
             cbxSearch.SelectedIndex = 0;
             cbxGender.SelectedIndex = 0;
             cbxState.SelectedIndex = 0;
+            cbxSearch.Focus();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -112,25 +113,29 @@ namespace FurnitureRentals.User_Controls
             }
             else if(customerList.Count==1)
             {
-                Customer customer = customerList[0];
-                customerId = customer.CustomerId;
-                txtFirstName.Text = customer.FirstName;
-                txtMiddleName.Text = customer.MiddleName;
-                txtLastName.Text = customer.LastName;
-                cbxGender.SelectedItem = customer.Gender;
-                dtDateOfBirth.Value = customer.DateOfBirth;
-                txtHomePhone.Text = customer.HomePhone;
-                txtAddress1.Text = customer.Address1;
-                txtAddress2.Text = customer.Address2;
-                txtCity.Text = customer.City;
-                cbxState.SelectedItem = customer.State;
-                txtPostalCode.Text = customer.PostalCode;
-                btnRegister.Enabled = false;
-                btnUpdate.Enabled = true;
-
-                txtFirstName.ReadOnly = true;
-                txtLastName.ReadOnly = true;
+                this.populateCustomerData(customerList[0]);                
             }
+        }
+
+        private void populateCustomerData(Customer customer)
+        {
+            customerId = customer.CustomerId;
+            txtFirstName.Text = customer.FirstName;
+            txtMiddleName.Text = customer.MiddleName;
+            txtLastName.Text = customer.LastName;
+            cbxGender.SelectedItem = customer.Gender;
+            dtDateOfBirth.Value = customer.DateOfBirth;
+            txtHomePhone.Text = customer.HomePhone;
+            txtAddress1.Text = customer.Address1;
+            txtAddress2.Text = customer.Address2;
+            txtCity.Text = customer.City;
+            cbxState.SelectedItem = customer.State;
+            txtPostalCode.Text = customer.PostalCode;
+            btnRegister.Enabled = false;
+            btnUpdate.Enabled = true;
+
+            txtFirstName.ReadOnly = true;
+            txtLastName.ReadOnly = true;
         }
 
         private void btnClear_Click(object sender, EventArgs e)

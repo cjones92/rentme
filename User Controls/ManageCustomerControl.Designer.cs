@@ -31,19 +31,19 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cbxGender = new System.Windows.Forms.ComboBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
             this.lblMiddleName = new System.Windows.Forms.Label();
             this.lblSearchBy = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblGender = new System.Windows.Forms.Label();
+            this.lblDateOfBirth = new System.Windows.Forms.Label();
+            this.lblPhoneNumber = new System.Windows.Forms.Label();
+            this.lblAddress1 = new System.Windows.Forms.Label();
+            this.lblAddress2 = new System.Windows.Forms.Label();
+            this.lblCity = new System.Windows.Forms.Label();
+            this.lblState = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblPostalCode = new System.Windows.Forms.Label();
             this.txtPostalCode = new System.Windows.Forms.TextBox();
             this.cbxState = new System.Windows.Forms.ComboBox();
             this.txtCity = new System.Windows.Forms.TextBox();
@@ -77,17 +77,17 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 172F));
             this.tableLayoutPanel1.Controls.Add(this.cbxGender, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtFirstName, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lblLastName, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblMiddleName, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblSearchBy, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblFirstName, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 10);
+            this.tableLayoutPanel1.Controls.Add(this.lblGender, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.lblDateOfBirth, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.lblPhoneNumber, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.lblAddress1, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.lblAddress2, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.lblCity, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.lblState, 0, 10);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 10);
             this.tableLayoutPanel1.Controls.Add(this.txtCity, 1, 9);
             this.tableLayoutPanel1.Controls.Add(this.txtAddress2, 1, 8);
@@ -132,7 +132,7 @@
             this.cbxGender.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.cbxGender.Name = "cbxGender";
             this.cbxGender.Size = new System.Drawing.Size(169, 30);
-            this.cbxGender.TabIndex = 7;
+            this.cbxGender.TabIndex = 106;
             // 
             // txtFirstName
             // 
@@ -144,19 +144,19 @@
             this.txtFirstName.Multiline = true;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(486, 30);
-            this.txtFirstName.TabIndex = 4;
+            this.txtFirstName.TabIndex = 103;
             // 
-            // label9
+            // lblLastName
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(109, 149);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.label9.Size = new System.Drawing.Size(116, 21);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "Last Name : ";
+            this.lblLastName.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastName.Location = new System.Drawing.Point(109, 149);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblLastName.Size = new System.Drawing.Size(116, 21);
+            this.lblLastName.TabIndex = 21;
+            this.lblLastName.Text = "Last Name : ";
             // 
             // lblMiddleName
             // 
@@ -179,7 +179,7 @@
             this.lblSearchBy.Name = "lblSearchBy";
             this.lblSearchBy.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblSearchBy.Size = new System.Drawing.Size(110, 21);
-            this.lblSearchBy.TabIndex = 18;
+            this.lblSearchBy.TabIndex = 1;
             this.lblSearchBy.Text = "Search By : ";
             // 
             // lblFirstName
@@ -194,89 +194,89 @@
             this.lblFirstName.TabIndex = 19;
             this.lblFirstName.Text = "First Name : ";
             // 
-            // label2
+            // lblGender
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(131, 193);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.label2.Size = new System.Drawing.Size(94, 21);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Gender : ";
+            this.lblGender.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblGender.AutoSize = true;
+            this.lblGender.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGender.Location = new System.Drawing.Point(131, 193);
+            this.lblGender.Name = "lblGender";
+            this.lblGender.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblGender.Size = new System.Drawing.Size(94, 21);
+            this.lblGender.TabIndex = 22;
+            this.lblGender.Text = "Gender : ";
             // 
-            // label10
+            // lblDateOfBirth
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(94, 239);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.label10.Size = new System.Drawing.Size(131, 21);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Date of Birth : ";
+            this.lblDateOfBirth.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblDateOfBirth.AutoSize = true;
+            this.lblDateOfBirth.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateOfBirth.Location = new System.Drawing.Point(94, 239);
+            this.lblDateOfBirth.Name = "lblDateOfBirth";
+            this.lblDateOfBirth.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblDateOfBirth.Size = new System.Drawing.Size(131, 21);
+            this.lblDateOfBirth.TabIndex = 23;
+            this.lblDateOfBirth.Text = "Date of Birth : ";
             // 
-            // label7
+            // lblPhoneNumber
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(92, 285);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.label7.Size = new System.Drawing.Size(133, 21);
-            this.label7.TabIndex = 24;
-            this.label7.Text = "Home Phone : ";
+            this.lblPhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblPhoneNumber.AutoSize = true;
+            this.lblPhoneNumber.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhoneNumber.Location = new System.Drawing.Point(92, 285);
+            this.lblPhoneNumber.Name = "lblPhoneNumber";
+            this.lblPhoneNumber.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblPhoneNumber.Size = new System.Drawing.Size(133, 21);
+            this.lblPhoneNumber.TabIndex = 24;
+            this.lblPhoneNumber.Text = "Home Phone : ";
             // 
-            // label4
+            // lblAddress1
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(117, 332);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.label4.Size = new System.Drawing.Size(108, 21);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Address1 : ";
+            this.lblAddress1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblAddress1.AutoSize = true;
+            this.lblAddress1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress1.Location = new System.Drawing.Point(117, 332);
+            this.lblAddress1.Name = "lblAddress1";
+            this.lblAddress1.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblAddress1.Size = new System.Drawing.Size(108, 21);
+            this.lblAddress1.TabIndex = 25;
+            this.lblAddress1.Text = "Address1 : ";
             // 
-            // label8
+            // lblAddress2
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(117, 378);
-            this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.label8.Size = new System.Drawing.Size(108, 21);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "Address2 : ";
+            this.lblAddress2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblAddress2.AutoSize = true;
+            this.lblAddress2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress2.Location = new System.Drawing.Point(117, 378);
+            this.lblAddress2.Name = "lblAddress2";
+            this.lblAddress2.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblAddress2.Size = new System.Drawing.Size(108, 21);
+            this.lblAddress2.TabIndex = 26;
+            this.lblAddress2.Text = "Address2 : ";
             // 
-            // label3
+            // lblCity
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(155, 425);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.label3.Size = new System.Drawing.Size(70, 21);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "City : ";
+            this.lblCity.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblCity.AutoSize = true;
+            this.lblCity.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCity.Location = new System.Drawing.Point(155, 425);
+            this.lblCity.Name = "lblCity";
+            this.lblCity.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblCity.Size = new System.Drawing.Size(70, 21);
+            this.lblCity.TabIndex = 27;
+            this.lblCity.Text = "City : ";
             // 
-            // label1
+            // lblState
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(146, 474);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.label1.Size = new System.Drawing.Size(79, 21);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "State : ";
+            this.lblState.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblState.AutoSize = true;
+            this.lblState.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblState.Location = new System.Drawing.Point(146, 474);
+            this.lblState.Name = "lblState";
+            this.lblState.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblState.Size = new System.Drawing.Size(79, 21);
+            this.lblState.TabIndex = 28;
+            this.lblState.Text = "State : ";
             // 
             // tableLayoutPanel2
             // 
@@ -284,7 +284,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.30809F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.69191F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187F));
-            this.tableLayoutPanel2.Controls.Add(this.label5, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblPostalCode, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtPostalCode, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.cbxState, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(231, 462);
@@ -295,17 +295,17 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(516, 42);
             this.tableLayoutPanel2.TabIndex = 20;
             // 
-            // label5
+            // lblPostalCode
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(200, 10);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.label5.Size = new System.Drawing.Size(125, 21);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Postal Code : ";
+            this.lblPostalCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblPostalCode.AutoSize = true;
+            this.lblPostalCode.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPostalCode.Location = new System.Drawing.Point(200, 10);
+            this.lblPostalCode.Name = "lblPostalCode";
+            this.lblPostalCode.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblPostalCode.Size = new System.Drawing.Size(125, 21);
+            this.lblPostalCode.TabIndex = 29;
+            this.lblPostalCode.Text = "Postal Code : ";
             // 
             // txtPostalCode
             // 
@@ -317,7 +317,7 @@
             this.txtPostalCode.Multiline = true;
             this.txtPostalCode.Name = "txtPostalCode";
             this.txtPostalCode.Size = new System.Drawing.Size(150, 30);
-            this.txtPostalCode.TabIndex = 14;
+            this.txtPostalCode.TabIndex = 113;
             // 
             // cbxState
             // 
@@ -329,7 +329,7 @@
             this.cbxState.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.cbxState.Name = "cbxState";
             this.cbxState.Size = new System.Drawing.Size(136, 30);
-            this.cbxState.TabIndex = 13;
+            this.cbxState.TabIndex = 112;
             // 
             // txtCity
             // 
@@ -341,7 +341,7 @@
             this.txtCity.Multiline = true;
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(486, 30);
-            this.txtCity.TabIndex = 12;
+            this.txtCity.TabIndex = 111;
             // 
             // txtAddress2
             // 
@@ -353,7 +353,7 @@
             this.txtAddress2.Multiline = true;
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.Size = new System.Drawing.Size(486, 30);
-            this.txtAddress2.TabIndex = 11;
+            this.txtAddress2.TabIndex = 110;
             // 
             // txtAddress1
             // 
@@ -365,7 +365,7 @@
             this.txtAddress1.Multiline = true;
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.Size = new System.Drawing.Size(486, 30);
-            this.txtAddress1.TabIndex = 10;
+            this.txtAddress1.TabIndex = 109;
             // 
             // txtHomePhone
             // 
@@ -377,7 +377,7 @@
             this.txtHomePhone.Multiline = true;
             this.txtHomePhone.Name = "txtHomePhone";
             this.txtHomePhone.Size = new System.Drawing.Size(486, 30);
-            this.txtHomePhone.TabIndex = 9;
+            this.txtHomePhone.TabIndex = 108;
             // 
             // txtLastName
             // 
@@ -389,7 +389,7 @@
             this.txtLastName.Multiline = true;
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(486, 30);
-            this.txtLastName.TabIndex = 6;
+            this.txtLastName.TabIndex = 105;
             // 
             // tableLayoutPanel4
             // 
@@ -416,7 +416,7 @@
             this.txtSearch.Multiline = true;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(252, 30);
-            this.txtSearch.TabIndex = 2;
+            this.txtSearch.TabIndex = 101;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // cbxSearch
@@ -434,7 +434,7 @@
             this.cbxSearch.Margin = new System.Windows.Forms.Padding(18, 2, 3, 2);
             this.cbxSearch.Name = "cbxSearch";
             this.cbxSearch.Size = new System.Drawing.Size(195, 30);
-            this.cbxSearch.TabIndex = 1;
+            this.cbxSearch.TabIndex = 100;
             // 
             // dtDateOfBirth
             // 
@@ -445,7 +445,7 @@
             this.dtDateOfBirth.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.dtDateOfBirth.Name = "dtDateOfBirth";
             this.dtDateOfBirth.Size = new System.Drawing.Size(169, 29);
-            this.dtDateOfBirth.TabIndex = 8;
+            this.dtDateOfBirth.TabIndex = 107;
             // 
             // btnSearch
             // 
@@ -454,7 +454,7 @@
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(131, 38);
-            this.btnSearch.TabIndex = 3;
+            this.btnSearch.TabIndex = 102;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -469,7 +469,7 @@
             this.txtMiddleName.Multiline = true;
             this.txtMiddleName.Name = "txtMiddleName";
             this.txtMiddleName.Size = new System.Drawing.Size(486, 30);
-            this.txtMiddleName.TabIndex = 5;
+            this.txtMiddleName.TabIndex = 104;
             // 
             // label6
             // 
@@ -505,7 +505,7 @@
             this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(133, 37);
-            this.btnRegister.TabIndex = 16;
+            this.btnRegister.TabIndex = 115;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -516,7 +516,7 @@
             this.btnClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(136, 37);
-            this.btnClear.TabIndex = 17;
+            this.btnClear.TabIndex = 116;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -527,7 +527,7 @@
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(133, 37);
-            this.btnUpdate.TabIndex = 15;
+            this.btnUpdate.TabIndex = 114;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -567,17 +567,17 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblMiddleName;
         private System.Windows.Forms.Label lblSearchBy;
         private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblGender;
+        private System.Windows.Forms.Label lblDateOfBirth;
+        private System.Windows.Forms.Label lblPhoneNumber;
+        private System.Windows.Forms.Label lblAddress1;
+        private System.Windows.Forms.Label lblAddress2;
+        private System.Windows.Forms.Label lblCity;
+        private System.Windows.Forms.Label lblState;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtCity;
@@ -594,7 +594,7 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.ComboBox cbxGender;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblPostalCode;
         private System.Windows.Forms.TextBox txtPostalCode;
         private System.Windows.Forms.DateTimePicker dtDateOfBirth;
         private System.Windows.Forms.Label label6;
