@@ -208,19 +208,38 @@ namespace FurnitureRentals.User_Controls
             if (customer.FirstName.Trim().Length == 0)
             {
                 txtFirstName.Focus();
-                errorMessage = "Please enter first name!";
+                errorMessage = "Please enter valid first name!";
             }
             else if (customer.LastName.Trim().Length == 0)
             {
                 txtLastName.Focus();
-                errorMessage = "Please enter last name!";
+                errorMessage = "Please enter valid last name!";
             }
             else if (customer.HomePhone.Trim().Length == 0)
             {
                 txtHomePhone.Focus();
-                errorMessage = "Please enter phone number!";
+                errorMessage = "Please enter valid phone number!";
             }
-            else if (customer.HomePhone.Trim().Length > 0)
+            else if (customer.Address1.Trim().Length == 0)
+            {
+                txtAddress1.Focus();
+                errorMessage = "Please enter valid address1!";
+            }
+            else if (customer.City.Trim().Length == 0)
+            {
+                txtCity.Focus();
+                errorMessage = "Please enter city!";
+            }
+            else if (customer.PostalCode.Trim().Length == 0 ||
+                customer.PostalCode.Trim().Length < 5 ||
+                customer.PostalCode.Trim().Length == 6 ||
+                (customer.PostalCode.Trim().Length > 6 && customer.PostalCode.Trim().Length < 10))
+            {
+                txtPostalCode.Focus();
+                errorMessage = "Please enter valid postal code!";
+            }
+
+            if (customer.HomePhone.Trim().Length > 0)
             {
                 try
                 {
@@ -232,20 +251,49 @@ namespace FurnitureRentals.User_Controls
                     errorMessage = "Please enter valid phone number!";
                 }
             }
-            else if (customer.Address1.Trim().Length == 0)
+
+            if (customer.PostalCode.Trim().Length > 0)
             {
-                txtAddress1.Focus();
-                errorMessage = "Please enter address!";
-            }
-            else if (customer.City.Trim().Length == 0)
-            {
-                txtCity.Focus();
-                errorMessage = "Please enter city!";
-            }
-            else if (customer.PostalCode.Trim().Length == 0)
-            {
-                txtPostalCode.Focus();
-                errorMessage = "Please enter postal code!";
+                string postalCode = customer.PostalCode.Trim();
+                String firstPart = postalCode.Substring(0, 5);
+                try
+                {
+                    Convert.ToInt64(firstPart);
+                }
+                catch (FormatException)
+                {
+                    txtHomePhone.Focus();
+                    errorMessage = "Please enter valid postal code!";
+                    return errorMessage;
+                }
+
+                String secondPart = "";
+                if (postalCode.Length > 5)
+                {
+                    secondPart = postalCode.Substring(5, 1);
+                    if (secondPart != "-")
+                    {
+                        txtHomePhone.Focus();
+                        errorMessage = "Please enter valid postal code!";
+                        return errorMessage;
+                    }
+                }
+
+                String thirdPart = "";
+                if (postalCode.Length == 10)
+                {
+                    thirdPart = postalCode.Substring(6);
+                    try
+                    {
+                        Convert.ToInt64(thirdPart);
+                    }
+                    catch (FormatException)
+                    {
+                        txtHomePhone.Focus();
+                        errorMessage = "Please enter valid postal code!";
+                        return errorMessage;
+                    }
+                }
             }
 
             return errorMessage;

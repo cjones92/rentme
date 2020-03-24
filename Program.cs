@@ -17,8 +17,8 @@ namespace FurnitureRentals
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FurnitureSearchForm());
-            
+            //Application.Run(new FurnitureSearchForm());
+            Application.Run(new MainForm());
         }
     }
 }
