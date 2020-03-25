@@ -60,17 +60,17 @@ namespace FurnitureRentals.User_Controls
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             string searchCriteria = cbxSearch.SelectedItem.ToString();
-            if (searchCriteria == "First Name Last Name")
-            {
-                toolTip.Show("Please leave a space between first name and last name", txtSearch);
-            } 
-            else if (searchCriteria == "Phone Number")
+            if (searchCriteria == "Phone Number")
             {
                 toolTip.Show("Please enter only number without any dashes", txtSearch);
-            } 
-            else
+            }
+            else if (searchCriteria == "Customer ID")
             {
                 toolTip.Show("Please enter only numbers", txtSearch);
+            }
+            else
+            {
+                toolTip.Show("Please leave a space between first name and last name", txtSearch);
             }
 
             this.clearAllFields();
@@ -88,30 +88,47 @@ namespace FurnitureRentals.User_Controls
                 errorMessage = "Please enter " + searchCriteria;
                 txtSearch.Focus();
             }
-            else if (searchCriteria == "First Name Last Name")
-            {
-                customerList = this.customerController.GetCustomers(txtSearch.Text, "", 0);
-            }
             else if (searchCriteria == "Phone Number")
-            {
-                customerList = this.customerController.GetCustomers("", txtSearch.Text, 0);
-            }
-            else
             {
                 try
                 {
                     int customerId = Convert.ToInt32(txtSearch.Text);
-                    if (customerId < 1)
+                    if (txtSearch.Text.Length < 10 || txtSearch.Text.Length > 10)
                     {
-                        errorMessage = "Invalid Customer ID entered";
+                        errorMessage = "Please enter valid phone number!";
+                        txtSearch.Focus();
+                    }
+
+                    customerList = this.customerController.GetCustomers("", txtSearch.Text, -1);
+                }
+                catch (FormatException)
+                {
+                    errorMessage = "Please enter valid phone number!";
+                    txtSearch.Focus();
+                }
+            }
+            else if (searchCriteria == "Customer ID")
+            {
+                try
+                {
+                    int customerId = Convert.ToInt32(txtSearch.Text);
+                    if (customerId < 0)
+                    {
+                        errorMessage = "Please enter valid customer id!";
+                        txtSearch.Focus();
                     }
 
                     customerList = this.customerController.GetCustomers("", "", customerId);
                 }
-                catch (ArgumentException)
+                catch (FormatException)
                 {
-                    errorMessage = "Invalid Customer ID entered";
+                    errorMessage = "Please enter valid customer id!";
+                    txtSearch.Focus();
                 }
+            }
+            else
+            {
+                customerList = this.customerController.GetCustomers(txtSearch.Text, "", 0);
             }
 
             if (errorMessage.Length > 0)
