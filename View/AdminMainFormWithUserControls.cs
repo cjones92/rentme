@@ -16,5 +16,39 @@ namespace FurnitureRentals.View
         {
             InitializeComponent();
         }
+
+        public void SetLoggedInLabelText(string name)
+        {
+            if (name == null)
+            {
+                throw new ArgumentNullException("Name cannot be null");
+            }
+            this.LoggedInLabel.Text = name;
+        }
+
+        /// <summary>
+        /// This method hides the main form and opens the cleared login form when the link is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LogoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+
+        }
+
+        /// <summary>
+        /// This method dictates the closing of the form when the X button is hit on the main form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AdminMainFormWithUserControls_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.DialogResult == DialogResult.Cancel)
+            {
+                System.Windows.Forms.Application.Exit();
+            }
+        }
     }
 }
+

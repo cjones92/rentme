@@ -16,12 +16,14 @@ namespace FurnitureRentals.View
         private EmployeeController employeeController;
         private AdminstratorController adminstratorController;
         private MainForm CurrentMainForm;
+        private AdminMainFormWithUserControls CurrentAdminForm;
         public LoginForm()
         {
             InitializeComponent();
             this.LoadSignInComboBox();
             this.employeeController = new EmployeeController();
             this.adminstratorController = new AdminstratorController();
+            this.CurrentAdminForm = new AdminMainFormWithUserControls();
             PasswordMaskedTextBox.UseSystemPasswordChar = true;
         }
 
@@ -36,26 +38,44 @@ namespace FurnitureRentals.View
             if (((string)this.SignInComboBox.SelectedValue == "Employee" && this.employeeController.EmployeeLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text)) ||
                 (string)this.SignInComboBox.SelectedValue == "Administrator" && this.adminstratorController.AdministratorLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text))
             {
-                
-                if (this.CurrentMainForm == null)
+
+                if ((string)this.SignInComboBox.SelectedValue == "Employee")
                 {
-                    this.CurrentMainForm = new MainForm();
+                    if (this.CurrentMainForm == null)
+                    {
+                        this.CurrentMainForm = new MainForm();
+                    }
+
+                    this.CurrentMainForm.SetLoggedInLabelText(this.UserNameTextBox.Text);
+                    this.Hide();
+                    DialogResult exitMethodResult = this.CurrentMainForm.ShowDialog();
+
+                    this.UserNameTextBox.ResetText();
+                    this.PasswordMaskedTextBox.ResetText();
+
+                    if (this.CurrentMainForm.DialogResult == DialogResult.OK)
+                    {
+                        this.Show();
+                    }
+                } else
+                {
+                    if (this.CurrentAdminForm == null)
+                    {
+                        this.CurrentAdminForm = new AdminMainFormWithUserControls();
+                    }
+
+                    this.CurrentAdminForm.SetLoggedInLabelText(this.UserNameTextBox.Text);
+                    this.Hide();
+                    DialogResult exitMethodResult = this.CurrentAdminForm.ShowDialog();
+
+                    this.UserNameTextBox.ResetText();
+                    this.PasswordMaskedTextBox.ResetText();
                 }
 
-                this.CurrentMainForm.SetLoggedInLabelText(this.UserNameTextBox.Text);
-                this.Hide();
-                DialogResult exitMethodResult = this.CurrentMainForm.ShowDialog();
-
-                this.UserNameTextBox.ResetText();
-                this.PasswordMaskedTextBox.ResetText();
-
-                if (this.CurrentMainForm.DialogResult == DialogResult.OK)
+                if (this.CurrentAdminForm.DialogResult == DialogResult.OK)
                 {
                     this.Show();
                 }
-
-
-
 
             }
             else
