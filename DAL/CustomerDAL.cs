@@ -58,7 +58,7 @@ namespace FurnitureRentals.DAL
 
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-                        if (reader.Read())
+                        while (reader.Read())
                         {
                             Customer customer = new Customer();
                             customer.CustomerId = Convert.ToInt32(reader["customer_id"].ToString());

@@ -81,6 +81,12 @@
     <Compile Include="View\AdminMainFormWithUserControls.Designer.cs">
       <DependentUpon>AdminMainFormWithUserControls.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\CustomerTableView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CustomerTableView.Designer.cs">
+      <DependentUpon>CustomerTableView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FurnitureSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     <EmbeddedResource Include="View\AdminMainFormWithUserControls.resx">
       <DependentUpon>AdminMainFormWithUserControls.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\CustomerTableView.resx">
+      <DependentUpon>CustomerTableView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FurnitureSearchForm.resx">
       <DependentUpon>FurnitureSearchForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +137,7 @@
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\FurnitureRentals.Model.Customer.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.Furniture.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

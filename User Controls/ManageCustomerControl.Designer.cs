@@ -58,11 +58,11 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtMiddleName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -74,7 +74,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.43478F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.56522F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 172F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 173F));
             this.tableLayoutPanel1.Controls.Add(this.cbxGender, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtFirstName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblLastName, 0, 3);
@@ -128,7 +128,7 @@
             this.cbxGender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.cbxGender.Location = new System.Drawing.Point(248, 189);
+            this.cbxGender.Location = new System.Drawing.Point(248, 188);
             this.cbxGender.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.cbxGender.Name = "cbxGender";
             this.cbxGender.Size = new System.Drawing.Size(169, 30);
@@ -283,7 +283,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.30809F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.69191F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
             this.tableLayoutPanel2.Controls.Add(this.lblPostalCode, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtPostalCode, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.cbxState, 0, 0);
@@ -292,7 +292,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(516, 42);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(515, 42);
             this.tableLayoutPanel2.TabIndex = 20;
             // 
             // lblPostalCode
@@ -300,7 +300,7 @@
             this.lblPostalCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblPostalCode.AutoSize = true;
             this.lblPostalCode.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPostalCode.Location = new System.Drawing.Point(200, 10);
+            this.lblPostalCode.Location = new System.Drawing.Point(198, 10);
             this.lblPostalCode.Name = "lblPostalCode";
             this.lblPostalCode.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblPostalCode.Size = new System.Drawing.Size(125, 21);
@@ -311,7 +311,7 @@
             // 
             this.txtPostalCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtPostalCode.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.txtPostalCode.Location = new System.Drawing.Point(348, 6);
+            this.txtPostalCode.Location = new System.Drawing.Point(346, 6);
             this.txtPostalCode.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.txtPostalCode.MaxLength = 10;
             this.txtPostalCode.Multiline = true;
@@ -325,7 +325,7 @@
             this.cbxState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxState.Font = new System.Drawing.Font("Calibri", 10.8F);
             this.cbxState.FormattingEnabled = true;
-            this.cbxState.Location = new System.Drawing.Point(20, 6);
+            this.cbxState.Location = new System.Drawing.Point(20, 5);
             this.cbxState.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.cbxState.Name = "cbxState";
             this.cbxState.Size = new System.Drawing.Size(136, 30);
@@ -404,7 +404,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(516, 44);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(515, 44);
             this.tableLayoutPanel4.TabIndex = 33;
             // 
             // txtSearch
@@ -430,7 +430,7 @@
             "First Name Last Name",
             "Phone Number",
             "Customer ID"});
-            this.cbxSearch.Location = new System.Drawing.Point(18, 7);
+            this.cbxSearch.Location = new System.Drawing.Point(18, 6);
             this.cbxSearch.Margin = new System.Windows.Forms.Padding(18, 2, 3, 2);
             this.cbxSearch.Name = "cbxSearch";
             this.cbxSearch.Size = new System.Drawing.Size(195, 30);
@@ -450,7 +450,7 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnSearch.Location = new System.Drawing.Point(753, 6);
+            this.btnSearch.Location = new System.Drawing.Point(752, 6);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(131, 38);
@@ -475,11 +475,21 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(753, 287);
+            this.label6.Location = new System.Drawing.Point(752, 287);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(108, 17);
             this.label6.TabIndex = 34;
             this.label6.Text = "(Only Numbers)";
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(752, 476);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(156, 17);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "(00000-0000 or 00000)";
             // 
             // tableLayoutPanel3
             // 
@@ -531,16 +541,6 @@
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(753, 476);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(156, 17);
-            this.label11.TabIndex = 35;
-            this.label11.Text = "(00000-0000 or 00000)";
             // 
             // ManageCustomerUserControl
             // 

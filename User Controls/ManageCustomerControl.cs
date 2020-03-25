@@ -39,7 +39,7 @@ namespace FurnitureRentals.User_Controls
             InitializeComponent();
             this.customerController = new CustomerController();
             btnRegister.Enabled = true;
-            btnUpdate.Enabled = true;
+            btnUpdate.Enabled = false;
             txtSearch.Focus();
         }
 
@@ -58,8 +58,6 @@ namespace FurnitureRentals.User_Controls
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            txtFirstName.ReadOnly = false;
-            txtLastName.ReadOnly = false;
             this.clearAllFields();
         }
 
@@ -67,7 +65,7 @@ namespace FurnitureRentals.User_Controls
         {
             customerId = 0;
             string searchCriteria = cbxSearch.SelectedItem.ToString();
-            string searchString = txtSearch.Text;            
+            string searchString = txtSearch.Text;
 
             string errorMessage = "";
             if (searchString.Trim().Length == 0)
@@ -111,14 +109,29 @@ namespace FurnitureRentals.User_Controls
                 btnRegister.Enabled = true;
                 btnUpdate.Enabled = false;
             }
-            else if(customerList.Count==1)
+            else if (customerList.Count == 1)
             {
-                this.populateCustomerData(customerList[0]);                
+                this.populateCustomerData(customerList[0]);
+            }
+            else if (customerList.Count > 1)
+            {
+                View.CustomerTableView customerTableView = new View.CustomerTableView();
+                customerTableView.RefreshCustomersDataView(customerList);
+                customerTableView.StartPosition = FormStartPosition.CenterParent;
+                customerTableView.ShowDialog();
+                int selectedIndex = customerTableView.GetSelectedRowIndex();
+                if (customerTableView.DialogResult == DialogResult.OK && selectedIndex > -1)
+                {
+                    this.populateCustomerData(customerList[selectedIndex]);
+                }
             }
         }
 
         private void populateCustomerData(Customer customer)
         {
+            btnRegister.Enabled = false;
+            btnUpdate.Enabled = true;
+
             customerId = customer.CustomerId;
             txtFirstName.Text = customer.FirstName;
             txtMiddleName.Text = customer.MiddleName;
@@ -131,40 +144,6 @@ namespace FurnitureRentals.User_Controls
             txtCity.Text = customer.City;
             cbxState.SelectedItem = customer.State;
             txtPostalCode.Text = customer.PostalCode;
-            btnRegister.Enabled = false;
-            btnUpdate.Enabled = true;
-
-            txtFirstName.ReadOnly = true;
-            txtLastName.ReadOnly = true;
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            this.clearAllFields();
-            cbxSearch.SelectedIndex = 0;
-            txtSearch.Text = "";
-            btnRegister.Enabled = true;
-            btnUpdate.Enabled = true;
-
-            txtFirstName.ReadOnly = false;
-            txtLastName.ReadOnly = false;
-        }
-
-        private void clearAllFields()
-        {
-            txtFirstName.Text = "";
-            txtMiddleName.Text = "";
-            txtLastName.Text = "";
-            cbxGender.SelectedIndex = 0;
-            dtDateOfBirth.Value = DateTime.Now;
-            txtHomePhone.Text = "";
-            txtAddress1.Text = "";
-            txtAddress2.Text = "";
-            txtCity.Text = "";
-            cbxState.SelectedIndex = 0;
-            txtPostalCode.Text = "";
-            btnRegister.Enabled = false;
-            btnUpdate.Enabled = false;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -191,11 +170,9 @@ namespace FurnitureRentals.User_Controls
                     return;
                 }
 
-                String name = customer.FirstName + " " + customer.LastName;
-                String phoneNumber = customer.HomePhone;
-                if (this.isCustomerExist(name, phoneNumber))
+                if (this.isCustomerExist(customer.HomePhone))
                 {
-                    MessageBox.Show("Customer already exists!", "Info");
+                    MessageBox.Show("Customer already exists!", "Error");
                 }
                 else if (this.customerController.RegisterCustomer(customer))
                 {
@@ -210,6 +187,78 @@ namespace FurnitureRentals.User_Controls
             {
                 MessageBox.Show(ex.ToString(), "Error");
             }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String name = txtFirstName.Text + " " + txtLastName.Text;
+                Customer customer = new Customer();
+                customer.CustomerId = this.customerId;
+                customer.FirstName = txtFirstName.Text;
+                customer.MiddleName = txtMiddleName.Text;
+                customer.LastName = txtLastName.Text;
+                customer.Gender = cbxGender.SelectedItem.ToString();
+                customer.DateOfBirth = dtDateOfBirth.Value;
+                customer.Address1 = txtAddress1.Text;
+                customer.Address2 = txtAddress2.Text;
+                customer.City = txtCity.Text;
+                customer.State = cbxState.SelectedItem.ToString();
+                customer.PostalCode = txtPostalCode.Text;
+                customer.HomePhone = txtHomePhone.Text;
+
+                string errorMessage = this.isValidate(customer);
+                if (errorMessage.Length > 0)
+                {
+                    MessageBox.Show(errorMessage, "Error");
+                    return;
+                }
+
+                if (this.isCustomerExist(customer.HomePhone))
+                {
+                    MessageBox.Show("Phone number associated with different customer!", "Error");
+                    txtHomePhone.Focus();
+                }
+                else if (this.customerController.UpdateCustomer(customer))
+                {
+                    MessageBox.Show("Customer updated successfully!", "Success");
+                }
+                else
+                {
+                    MessageBox.Show("Unable to updated the customer!", "Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            this.clearAllFields();
+            cbxSearch.SelectedIndex = 0;
+            txtSearch.Text = "";
+            btnRegister.Enabled = true;
+            btnUpdate.Enabled = false;
+        }
+
+        private void clearAllFields()
+        {
+            txtFirstName.Text = "";
+            txtMiddleName.Text = "";
+            txtLastName.Text = "";
+            cbxGender.SelectedIndex = 0;
+            dtDateOfBirth.Value = DateTime.Now;
+            txtHomePhone.Text = "";
+            txtAddress1.Text = "";
+            txtAddress2.Text = "";
+            txtCity.Text = "";
+            cbxState.SelectedIndex = 0;
+            txtPostalCode.Text = "";
+            btnRegister.Enabled = true;
+            btnUpdate.Enabled = false;
         }
 
         private string isValidate(Customer customer)
@@ -309,62 +358,15 @@ namespace FurnitureRentals.User_Controls
             return errorMessage;
         }
 
-        private Boolean isCustomerExist(String name, String phoneNumber)
+        private Boolean isCustomerExist(String phoneNumber)
         {
-            List<Customer> customerList = this.customerController.GetCustomers(name, "", 0);
-            if (customerList.Count>0)
-            {
-                return true;
-            }
-
-            customerList = this.customerController.GetCustomers("", phoneNumber, 0);
-            if (customerList.Count>0)
+            List<Customer> customerList = this.customerController.GetCustomers("", phoneNumber, 0);
+            if (customerList.Count > 0)
             {
                 return true;
             }
 
             return false;
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                String name = txtFirstName.Text + " " + txtLastName.Text;
-                Customer customer = new Customer();
-                customer.CustomerId = this.customerId;
-                customer.FirstName = txtFirstName.Text;
-                customer.MiddleName = txtMiddleName.Text;
-                customer.LastName = txtLastName.Text;
-                customer.Gender = cbxGender.SelectedItem.ToString();
-                customer.DateOfBirth = dtDateOfBirth.Value;
-                customer.Address1 = txtAddress1.Text;
-                customer.Address2 = txtAddress2.Text;
-                customer.City = txtCity.Text;
-                customer.State = cbxState.SelectedItem.ToString();
-                customer.PostalCode = txtPostalCode.Text;
-                customer.HomePhone = txtHomePhone.Text;
-
-                string errorMessage = this.isValidate(customer);
-                if (errorMessage.Length > 0)
-                {
-                    MessageBox.Show(errorMessage, "Error");
-                    return;
-                }
-
-                if (this.customerController.UpdateCustomer(customer))
-                {
-                    MessageBox.Show("Customer updated successfully!", "Success");
-                }
-                else
-                {
-                    MessageBox.Show("Unable to updated the customer!", "Error");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Error");
-            }
         }
     }
 }
