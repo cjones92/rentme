@@ -13,6 +13,7 @@ namespace FurnitureRentals.User_Controls
     /// </summary>
     public partial class ManageCustomerUserControl : UserControl
     {
+        private ToolTip toolTip = new ToolTip();
         private readonly CustomerController customerController;
         private List<Customer> customerList = new List<Customer>();
         private int customerId = 0;
@@ -58,6 +59,20 @@ namespace FurnitureRentals.User_Controls
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
+            string searchCriteria = cbxSearch.SelectedItem.ToString();
+            if (searchCriteria == "First Name Last Name")
+            {
+                toolTip.Show("Please leave a space between first name and last name", txtSearch);
+            } 
+            else if (searchCriteria == "Phone Number")
+            {
+                toolTip.Show("Please enter only number without any dashes", txtSearch);
+            } 
+            else
+            {
+                toolTip.Show("Please enter only numbers", txtSearch);
+            }
+
             this.clearAllFields();
         }
 
