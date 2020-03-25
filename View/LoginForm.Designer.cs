@@ -33,39 +33,39 @@
             this.PasswordMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.LoginButton = new System.Windows.Forms.Button();
             this.ErrorMessageLabel = new System.Windows.Forms.Label();
-            this.LoginLabel = new System.Windows.Forms.Label();
             this.LoginChoiceLabel = new System.Windows.Forms.Label();
             this.UserLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.LoginCloseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SignInComboBox
             // 
             this.SignInComboBox.FormattingEnabled = true;
-            this.SignInComboBox.Location = new System.Drawing.Point(245, 111);
+            this.SignInComboBox.Location = new System.Drawing.Point(165, 65);
             this.SignInComboBox.Name = "SignInComboBox";
-            this.SignInComboBox.Size = new System.Drawing.Size(121, 21);
+            this.SignInComboBox.Size = new System.Drawing.Size(151, 21);
             this.SignInComboBox.TabIndex = 0;
             // 
             // UserNameTextBox
             // 
-            this.UserNameTextBox.Location = new System.Drawing.Point(245, 166);
+            this.UserNameTextBox.Location = new System.Drawing.Point(165, 107);
             this.UserNameTextBox.Name = "UserNameTextBox";
-            this.UserNameTextBox.Size = new System.Drawing.Size(121, 20);
+            this.UserNameTextBox.Size = new System.Drawing.Size(151, 20);
             this.UserNameTextBox.TabIndex = 1;
             // 
             // PasswordMaskedTextBox
             // 
-            this.PasswordMaskedTextBox.Location = new System.Drawing.Point(245, 217);
+            this.PasswordMaskedTextBox.Location = new System.Drawing.Point(165, 146);
             this.PasswordMaskedTextBox.Name = "PasswordMaskedTextBox";
-            this.PasswordMaskedTextBox.Size = new System.Drawing.Size(121, 20);
+            this.PasswordMaskedTextBox.Size = new System.Drawing.Size(151, 20);
             this.PasswordMaskedTextBox.TabIndex = 2;
             // 
             // LoginButton
             // 
-            this.LoginButton.Location = new System.Drawing.Point(364, 262);
+            this.LoginButton.Location = new System.Drawing.Point(165, 210);
             this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(100, 31);
+            this.LoginButton.Size = new System.Drawing.Size(74, 31);
             this.LoginButton.TabIndex = 4;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = true;
@@ -79,19 +79,10 @@
             this.ErrorMessageLabel.Size = new System.Drawing.Size(0, 13);
             this.ErrorMessageLabel.TabIndex = 5;
             // 
-            // LoginLabel
-            // 
-            this.LoginLabel.AutoSize = true;
-            this.LoginLabel.Location = new System.Drawing.Point(169, 65);
-            this.LoginLabel.Name = "LoginLabel";
-            this.LoginLabel.Size = new System.Drawing.Size(40, 13);
-            this.LoginLabel.TabIndex = 6;
-            this.LoginLabel.Text = "Log In:";
-            // 
             // LoginChoiceLabel
             // 
             this.LoginChoiceLabel.AutoSize = true;
-            this.LoginChoiceLabel.Location = new System.Drawing.Point(145, 118);
+            this.LoginChoiceLabel.Location = new System.Drawing.Point(80, 73);
             this.LoginChoiceLabel.Name = "LoginChoiceLabel";
             this.LoginChoiceLabel.Size = new System.Drawing.Size(55, 13);
             this.LoginChoiceLabel.TabIndex = 7;
@@ -100,7 +91,7 @@
             // UserLabel
             // 
             this.UserLabel.AutoSize = true;
-            this.UserLabel.Location = new System.Drawing.Point(148, 172);
+            this.UserLabel.Location = new System.Drawing.Point(72, 114);
             this.UserLabel.Name = "UserLabel";
             this.UserLabel.Size = new System.Drawing.Size(63, 13);
             this.UserLabel.TabIndex = 8;
@@ -109,21 +100,31 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(148, 223);
+            this.label1.Location = new System.Drawing.Point(79, 153);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "Password:";
             // 
+            // LoginCloseButton
+            // 
+            this.LoginCloseButton.Location = new System.Drawing.Point(246, 210);
+            this.LoginCloseButton.Name = "LoginCloseButton";
+            this.LoginCloseButton.Size = new System.Drawing.Size(70, 31);
+            this.LoginCloseButton.TabIndex = 10;
+            this.LoginCloseButton.Text = "Close";
+            this.LoginCloseButton.UseVisualStyleBackColor = true;
+            this.LoginCloseButton.Click += new System.EventHandler(this.LoginCloseButton_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(523, 312);
+            this.Controls.Add(this.LoginCloseButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.UserLabel);
             this.Controls.Add(this.LoginChoiceLabel);
-            this.Controls.Add(this.LoginLabel);
             this.Controls.Add(this.ErrorMessageLabel);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.PasswordMaskedTextBox);
@@ -143,9 +144,9 @@
         private System.Windows.Forms.MaskedTextBox PasswordMaskedTextBox;
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Label ErrorMessageLabel;
-        private System.Windows.Forms.Label LoginLabel;
         private System.Windows.Forms.Label LoginChoiceLabel;
         private System.Windows.Forms.Label UserLabel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button LoginCloseButton;
     }
 }

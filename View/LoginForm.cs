@@ -87,15 +87,13 @@ namespace FurnitureRentals.View
 
         }
 
-
-
-
-
-
-
-
-
-
+        private void LoginCloseButton_Click(object sender, EventArgs e)
+        {
+            
+            
+                System.Windows.Forms.Application.Exit();
+            
+        }
     }
     }
 
