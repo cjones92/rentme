@@ -1,6 +1,6 @@
 ﻿namespace FurnitureRentals.View
 {
-    partial class FurnitureSearchForm
+    partial class FurnitureSearchFormDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -35,14 +35,16 @@
             this.StyleLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.FurnitureDataGridView = new System.Windows.Forms.DataGridView();
-            this.furnitureStyleComboBox = new System.Windows.Forms.ComboBox();
-            this.categoryComboBox = new System.Windows.Forms.ComboBox();
-            this.SerialNumberTextBox = new System.Windows.Forms.TextBox();
-            this.furnitureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.furnitureBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.furnitureStyleComboBox = new System.Windows.Forms.ComboBox();
+            this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.SerialNumberTextBox = new System.Windows.Forms.TextBox();
+            this.AddButton = new System.Windows.Forms.Button();
+            this.CloseFurnitureButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.FurnitureDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -107,6 +109,34 @@
             this.FurnitureDataGridView.Size = new System.Drawing.Size(446, 220);
             this.FurnitureDataGridView.TabIndex = 20;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "SerialNumber";
+            this.dataGridViewTextBoxColumn1.HeaderText = "SerialNumber";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "ItemDescription";
+            this.dataGridViewTextBoxColumn6.HeaderText = "ItemDescription";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "FurnitureStyle";
+            this.dataGridViewTextBoxColumn3.HeaderText = "FurnitureStyle";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Quantity";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Quantity";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // furnitureBindingSource
+            // 
+            this.furnitureBindingSource.DataSource = typeof(FurnitureRentals.Model.Furniture);
+            // 
             // furnitureStyleComboBox
             // 
             this.furnitureStyleComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureBindingSource, "FurnitureStyle", true));
@@ -136,39 +166,33 @@
             this.SerialNumberTextBox.TabIndex = 23;
             this.SerialNumberTextBox.TextChanged += new System.EventHandler(this.SerialNumberTextBox_TextChanged);
             // 
-            // furnitureBindingSource
+            // AddButton
             // 
-            this.furnitureBindingSource.DataSource = typeof(FurnitureRentals.Model.Furniture);
+            this.AddButton.Location = new System.Drawing.Point(335, 367);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(75, 23);
+            this.AddButton.TabIndex = 24;
+            this.AddButton.Text = "Add to Cart";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
-            // dataGridViewTextBoxColumn1
+            // CloseFurnitureButton
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "SerialNumber";
-            this.dataGridViewTextBoxColumn1.HeaderText = "SerialNumber";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.CloseFurnitureButton.Location = new System.Drawing.Point(438, 367);
+            this.CloseFurnitureButton.Name = "CloseFurnitureButton";
+            this.CloseFurnitureButton.Size = new System.Drawing.Size(75, 23);
+            this.CloseFurnitureButton.TabIndex = 25;
+            this.CloseFurnitureButton.Text = "Close";
+            this.CloseFurnitureButton.UseVisualStyleBackColor = true;
+            this.CloseFurnitureButton.Click += new System.EventHandler(this.CloseFurnitureButton_Click);
             // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "ItemDescription";
-            this.dataGridViewTextBoxColumn6.HeaderText = "ItemDescription";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "FurnitureStyle";
-            this.dataGridViewTextBoxColumn3.HeaderText = "FurnitureStyle";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Quantity";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Quantity";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // FurnitureSearchForm
+            // FurnitureSearchFormDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(663, 409);
+            this.Controls.Add(this.CloseFurnitureButton);
+            this.Controls.Add(this.AddButton);
             this.Controls.Add(this.SerialNumberTextBox);
             this.Controls.Add(this.categoryComboBox);
             this.Controls.Add(this.furnitureStyleComboBox);
@@ -178,7 +202,7 @@
             this.Controls.Add(this.CategoryLabel);
             this.Controls.Add(this.SerialNumberLabel);
             this.Controls.Add(this.SearchOptionsComboBox);
-            this.Name = "FurnitureSearchForm";
+            this.Name = "FurnitureSearchFormDialog";
             this.Text = "FurnitureSearchForm";
             ((System.ComponentModel.ISupportInitialize)(this.FurnitureDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).EndInit();
@@ -202,5 +226,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.Button CloseFurnitureButton;
     }
 }

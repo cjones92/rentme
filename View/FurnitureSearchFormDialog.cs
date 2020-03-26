@@ -15,14 +15,14 @@ namespace FurnitureRentals.View
     /// <summary>
     /// Contains logic for the Furniture Search Form
     /// </summary>
-    public partial class FurnitureSearchForm : Form
+    public partial class FurnitureSearchFormDialog : Form
     {
         FurnitureController furnitureController;
 
         /// <summary>
         /// Controller for class
         /// </summary>
-        public FurnitureSearchForm()
+        public FurnitureSearchFormDialog()
         {
             furnitureController = new FurnitureController();
             InitializeComponent();
@@ -166,7 +166,16 @@ namespace FurnitureRentals.View
             this.LoadFurnitureGridView();
         }
 
-       
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            
+        }
+
+        private void CloseFurnitureButton_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.No;
+        }
     }
 }
 
