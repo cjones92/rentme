@@ -50,7 +50,7 @@
             // SearchOptionsComboBox
             // 
             this.SearchOptionsComboBox.FormattingEnabled = true;
-            this.SearchOptionsComboBox.Location = new System.Drawing.Point(173, 67);
+            this.SearchOptionsComboBox.Location = new System.Drawing.Point(156, 54);
             this.SearchOptionsComboBox.Name = "SearchOptionsComboBox";
             this.SearchOptionsComboBox.Size = new System.Drawing.Size(121, 21);
             this.SearchOptionsComboBox.TabIndex = 12;
@@ -59,7 +59,7 @@
             // SerialNumberLabel
             // 
             this.SerialNumberLabel.AutoSize = true;
-            this.SerialNumberLabel.Location = new System.Drawing.Point(406, 70);
+            this.SerialNumberLabel.Location = new System.Drawing.Point(321, 54);
             this.SerialNumberLabel.Name = "SerialNumberLabel";
             this.SerialNumberLabel.Size = new System.Drawing.Size(76, 13);
             this.SerialNumberLabel.TabIndex = 16;
@@ -68,7 +68,7 @@
             // CategoryLabel
             // 
             this.CategoryLabel.AutoSize = true;
-            this.CategoryLabel.Location = new System.Drawing.Point(406, 71);
+            this.CategoryLabel.Location = new System.Drawing.Point(345, 54);
             this.CategoryLabel.Name = "CategoryLabel";
             this.CategoryLabel.Size = new System.Drawing.Size(52, 13);
             this.CategoryLabel.TabIndex = 17;
@@ -77,7 +77,7 @@
             // StyleLabel
             // 
             this.StyleLabel.AutoSize = true;
-            this.StyleLabel.Location = new System.Drawing.Point(406, 71);
+            this.StyleLabel.Location = new System.Drawing.Point(364, 54);
             this.StyleLabel.Name = "StyleLabel";
             this.StyleLabel.Size = new System.Drawing.Size(33, 13);
             this.StyleLabel.TabIndex = 18;
@@ -86,11 +86,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(92, 70);
+            this.label1.Location = new System.Drawing.Point(92, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 19;
-            this.label1.Text = "Search Option";
+            this.label1.Text = "Search by:";
             // 
             // FurnitureDataGridView
             // 
@@ -102,7 +102,7 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn2});
             this.FurnitureDataGridView.DataSource = this.furnitureBindingSource;
-            this.FurnitureDataGridView.Location = new System.Drawing.Point(95, 151);
+            this.FurnitureDataGridView.Location = new System.Drawing.Point(95, 126);
             this.FurnitureDataGridView.Name = "FurnitureDataGridView";
             this.FurnitureDataGridView.Size = new System.Drawing.Size(446, 220);
             this.FurnitureDataGridView.TabIndex = 20;
@@ -111,7 +111,7 @@
             // 
             this.furnitureStyleComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureBindingSource, "FurnitureStyle", true));
             this.furnitureStyleComboBox.FormattingEnabled = true;
-            this.furnitureStyleComboBox.Location = new System.Drawing.Point(502, 62);
+            this.furnitureStyleComboBox.Location = new System.Drawing.Point(403, 51);
             this.furnitureStyleComboBox.Name = "furnitureStyleComboBox";
             this.furnitureStyleComboBox.Size = new System.Drawing.Size(121, 21);
             this.furnitureStyleComboBox.TabIndex = 21;
@@ -121,7 +121,7 @@
             // 
             this.categoryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureBindingSource, "Category", true));
             this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(502, 63);
+            this.categoryComboBox.Location = new System.Drawing.Point(403, 51);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(121, 21);
             this.categoryComboBox.TabIndex = 22;
@@ -130,9 +130,9 @@
             // SerialNumberTextBox
             // 
             this.SerialNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureBindingSource, "SerialNumber", true));
-            this.SerialNumberTextBox.Location = new System.Drawing.Point(502, 64);
+            this.SerialNumberTextBox.Location = new System.Drawing.Point(403, 54);
             this.SerialNumberTextBox.Name = "SerialNumberTextBox";
-            this.SerialNumberTextBox.Size = new System.Drawing.Size(100, 20);
+            this.SerialNumberTextBox.Size = new System.Drawing.Size(121, 20);
             this.SerialNumberTextBox.TabIndex = 23;
             this.SerialNumberTextBox.TextChanged += new System.EventHandler(this.SerialNumberTextBox_TextChanged);
             // 
@@ -168,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 471);
+            this.ClientSize = new System.Drawing.Size(663, 409);
             this.Controls.Add(this.SerialNumberTextBox);
             this.Controls.Add(this.categoryComboBox);
             this.Controls.Add(this.furnitureStyleComboBox);
