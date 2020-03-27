@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FurnitureRentals.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace FurnitureRentals
 {
     public partial class MainForm : Form
     {
+        FurnitureSearchFormDialog furnitureSearchForm;
         public MainForm()
         {
             InitializeComponent();
@@ -51,6 +53,18 @@ namespace FurnitureRentals
         private void LogoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+
+        }
+
+        private void FurnitureSearchButton_Click(object sender, EventArgs e)
+        {
+            FurnitureSearchFormDialog furnitureSearchForm = new FurnitureSearchFormDialog();
+            DialogResult addedResult = furnitureSearchForm.ShowDialog();
+
+            if (addedResult == DialogResult.OK)
+            {
+                ///Code will go here to add items chosen in furniture search to shopping cart when it is created
+            }
 
         }
     }
