@@ -90,28 +90,41 @@ namespace FurnitureRentals.View
             string searchChoice = (string)this.SearchOptionsComboBox.SelectedValue;
             if (searchChoice == "Serial Number" && this.SerialNumberTextBox.TextLength > 3)
             {
-
+                this.SerialNumberTextBox.ResetText();
                 furnitureList = this.furnitureController.GetFurnitureBySerialNumber(this.SerialNumberTextBox.Text);
                 furnitureBindingSource.DataSource = furnitureList;
+                if (furnitureList.Count == 0)
+                {
+                    MessageBox.Show("There are no items matching this serial number.");
+                }
             }
             else if ((searchChoice == "Category") && (this.categoryComboBox.SelectedIndex > -1))
             {
                 furnitureList = this.furnitureController.GetFurnitureByCategory((int.Parse(this.categoryComboBox.SelectedValue.ToString())));
+                this.categoryComboBox.SelectedIndex = -1;
+                if (furnitureList.Count == 0)
+                {
+                    MessageBox.Show("There are no items matching this category.");
+                }
                 furnitureBindingSource.DataSource = furnitureList;
+
+               
             }
             else if (searchChoice == "Style" && this.furnitureStyleComboBox.SelectedIndex > -1)
             {
+                this.furnitureStyleComboBox.SelectedIndex = -1;
                 furnitureList = this.furnitureController.GetFurnitureByStyleID(int.Parse(this.furnitureStyleComboBox.SelectedValue.ToString()));
               furnitureBindingSource.DataSource = furnitureList;
+                if (furnitureList.Count == 0)
+                {
+                    MessageBox.Show("There are no items matching this style.");
+                }
             } else
             {
 
             }
 
            
-
-
-
         }
 
         private void SearchOptionsComboBox_SelectedIndexChanged(object sender, EventArgs e)

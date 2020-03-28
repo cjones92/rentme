@@ -11,12 +11,20 @@ using System.Windows.Forms;
 
 namespace FurnitureRentals.View
 {
+    /// <summary>
+    /// Logic for login form
+    /// </summary>
     public partial class LoginForm : Form
     {
         private EmployeeController employeeController;
         private AdminstratorController adminstratorController;
         private MainForm CurrentMainForm;
         private AdminMainFormWithUserControls CurrentAdminForm;
+       
+        
+        /// <summary>
+        /// Constructor for class
+        /// </summary>
         public LoginForm()
         {
             InitializeComponent();
