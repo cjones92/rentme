@@ -65,15 +65,15 @@ namespace FurnitureRentals.DAL
 
 
         /// <summary>
-        /// Method that returns the selected employee(s) from the employee table
+        /// Method that returns the selected employee from the employee table
         /// </summary>
         /// <param name="name">first name last name of the employee</param>
         /// <param name="phone">phone number of the employee</param>
         /// <param name="customerid">employee id of the employee</param>
         /// <returns>Employee object</returns>
-        public List<Employee> GetEmployees(string name, string phone, int employeeid)
+        public Employee GetEmployee(string name, string phone, int employeeid)
         {
-            List<Employee> employeeList = new List<Employee>();
+            Employee employee = null;
 
             string sqlStatement = "SELECT employee_id, first_name, middle_name, last_name, sex, " +
                 "date_of_birth, phone_number, address1, address2, city, state, zipcode, username, password, status FROM employee ";
@@ -112,9 +112,9 @@ namespace FurnitureRentals.DAL
 
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.Read())
                         {
-                            Employee employee = new Employee();
+                            employee = new Employee();
                             employee.EmployeeID = Convert.ToInt32(reader["employee_id"].ToString());
                             employee.FirstName = reader["first_name"].ToString();
                             employee.MiddleName = reader["middle_name"].ToString();
@@ -130,13 +130,12 @@ namespace FurnitureRentals.DAL
                             employee.UserName = reader["username"].ToString();
                             employee.Password = reader["password"].ToString();
                             employee.Status = reader["status"].ToString();
-                            employeeList.Add(employee);
                         }
                     }
                 }
             }
 
-            return employeeList;
+            return employee;
         }
 
 

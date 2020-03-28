@@ -83,7 +83,7 @@
             this.tblLtPnlManageEmployee.ColumnCount = 3;
             this.tblLtPnlManageEmployee.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.43478F));
             this.tblLtPnlManageEmployee.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.56522F));
-            this.tblLtPnlManageEmployee.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 182F));
+            this.tblLtPnlManageEmployee.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 181F));
             this.tblLtPnlManageEmployee.Controls.Add(this.tableLayoutPanel3, 1, 11);
             this.tblLtPnlManageEmployee.Controls.Add(this.cbxGender, 1, 4);
             this.tblLtPnlManageEmployee.Controls.Add(this.txtFirstName, 1, 1);
@@ -137,7 +137,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.30809F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.69191F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 196F));
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.txtUsername, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.txtPassword, 2, 0);
@@ -155,7 +155,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(210, 10);
+            this.label2.Location = new System.Drawing.Point(211, 10);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.label2.Size = new System.Drawing.Size(106, 21);
@@ -171,14 +171,14 @@
             this.txtUsername.MaxLength = 10;
             this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(150, 30);
+            this.txtUsername.Size = new System.Drawing.Size(151, 30);
             this.txtUsername.TabIndex = 15;
             // 
             // txtPassword
             // 
             this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtPassword.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.txtPassword.Location = new System.Drawing.Point(339, 6);
+            this.txtPassword.Location = new System.Drawing.Point(340, 6);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.txtPassword.MaxLength = 10;
             this.txtPassword.Multiline = true;
@@ -197,7 +197,7 @@
             this.cbxGender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.cbxGender.Location = new System.Drawing.Point(256, 170);
+            this.cbxGender.Location = new System.Drawing.Point(256, 169);
             this.cbxGender.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.cbxGender.Name = "cbxGender";
             this.cbxGender.Size = new System.Drawing.Size(169, 30);
@@ -352,7 +352,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.30809F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.69191F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 196F));
             this.tableLayoutPanel2.Controls.Add(this.lblZipCode, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtPostalCode, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.cbxState, 0, 0);
@@ -370,7 +370,7 @@
             this.lblZipCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblZipCode.AutoSize = true;
             this.lblZipCode.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblZipCode.Location = new System.Drawing.Point(191, 10);
+            this.lblZipCode.Location = new System.Drawing.Point(192, 10);
             this.lblZipCode.Name = "lblZipCode";
             this.lblZipCode.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.lblZipCode.Size = new System.Drawing.Size(125, 21);
@@ -381,7 +381,7 @@
             // 
             this.txtPostalCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtPostalCode.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.txtPostalCode.Location = new System.Drawing.Point(339, 6);
+            this.txtPostalCode.Location = new System.Drawing.Point(340, 6);
             this.txtPostalCode.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.txtPostalCode.MaxLength = 10;
             this.txtPostalCode.Multiline = true;
@@ -395,7 +395,7 @@
             this.cbxState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxState.Font = new System.Drawing.Font("Calibri", 10.8F);
             this.cbxState.FormattingEnabled = true;
-            this.cbxState.Location = new System.Drawing.Point(13, 6);
+            this.cbxState.Location = new System.Drawing.Point(14, 5);
             this.cbxState.Name = "cbxState";
             this.cbxState.Size = new System.Drawing.Size(157, 30);
             this.cbxState.TabIndex = 13;
@@ -519,7 +519,7 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnSearch.Location = new System.Drawing.Point(779, 2);
+            this.btnSearch.Location = new System.Drawing.Point(780, 2);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(131, 37);
@@ -544,7 +544,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(779, 268);
+            this.label6.Location = new System.Drawing.Point(780, 268);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(108, 17);
             this.label6.TabIndex = 34;
@@ -579,7 +579,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.30809F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.69191F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 196F));
             this.tableLayoutPanel1.Controls.Add(this.cbxStatus, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(239, 540);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -599,7 +599,7 @@
             this.cbxStatus.Items.AddRange(new object[] {
             "Active",
             "Inactive"});
-            this.cbxStatus.Location = new System.Drawing.Point(15, 5);
+            this.cbxStatus.Location = new System.Drawing.Point(16, 6);
             this.cbxStatus.Name = "cbxStatus";
             this.cbxStatus.Size = new System.Drawing.Size(155, 30);
             this.cbxStatus.TabIndex = 17;

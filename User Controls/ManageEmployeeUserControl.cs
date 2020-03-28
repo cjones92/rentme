@@ -17,9 +17,6 @@ namespace FurnitureRentals.User_Controls
         private readonly EmployeeController employeeController;
         private Employee employee;
         private bool dateChosen;
-        private List<Employee> employeeList;
-        private int employeeId;
-
         public ManageEmployeeUserControl()
         {
             InitializeComponent();
@@ -27,8 +24,6 @@ namespace FurnitureRentals.User_Controls
             this.employee = new Employee();
             this.dateChosen = false;
             txtSearch.Focus();
-            // employeeId = 0;
-            employeeList = new List<Employee>();
         }
 
 
@@ -75,10 +70,9 @@ namespace FurnitureRentals.User_Controls
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            employeeId = 0;
             string searchCriteria = cbxSearch.SelectedItem.ToString();
             string searchString = txtSearch.Text;
-            // this.employee = null;
+            this.employee = null;
 
 
             string errorMessage = "";
@@ -87,115 +81,67 @@ namespace FurnitureRentals.User_Controls
                 errorMessage = "Please enter " + searchCriteria;
                 txtSearch.Focus();
             }
-            // else if (searchCriteria == "First Name Last Name")
-            // {
-            //this.employee = this.employeeController.GetEmployee(txtSearch.Text, "", 0);
-            // employeeList = EmployeeController.GetEmployee(txtSearch.Text, "", 0);
-            //}
+            else if (searchCriteria == "First Name Last Name")
+            {
+                this.employee = this.employeeController.GetEmployee(txtSearch.Text, "", 0);
+            }
             else if (searchCriteria == "Phone Number")
             {
-                try
-                {
-                    employeeId = Convert.ToInt32(txtSearch.Text);
-                    if (txtSearch.Text.Length < 10 || txtSearch.Text.Length > 10)
-                    {
-                        errorMessage = "Please enter valid phone number.";
-                        txtSearch.Focus();
-                    }
-
-                    employeeList = this.employeeController.GetEmployees("", txtSearch.Text, -1);
-                }
-                catch (FormatException)
-                {
-                    errorMessage = "Invalid phone number.";
-                    txtSearch.Focus();
-                }
+                this.employee = this.employeeController.GetEmployee("", txtSearch.Text, 0);
             }
-
-            else if (searchCriteria == "Employee ID")
+            else
             {
                 try
                 {
-                    employeeId = Convert.ToInt32(txtSearch.Text);
-                    if (employeeId < 0)
+                    int employeeId = Convert.ToInt32(txtSearch.Text);
+                    if (employeeId < 1)
                     {
                         errorMessage = "Invalid Employee ID";
-                        txtSearch.Focus();
                     }
 
-                    employeeList = this.employeeController.GetEmployees("", "", employeeId);
+                    this.employee = this.employeeController.GetEmployee("", "", employeeId);
                 }
-                catch (FormatException)
+                catch (ArgumentException)
                 {
                     errorMessage = "Invalid Employee ID";
-                    txtSearch.Focus();
-                }
-            }
-            //else
-            //{
-              //  employeeList = this.employeeController.GetEmployees(txtSearch.Text, "", 0);
-            //}
-
-            else if (searchCriteria == "First Name Last Name")
-                 {
-                //this.employee = this.employeeController.GetEmployee(txtSearch.Text, "", 0);
-                // employeeList = EmployeeController.GetEmployee(txtSearch.Text, "", 0);
-                employeeList = this.employeeController.GetEmployees(txtSearch.Text, "", 0);
-                //}
-
-                if (errorMessage.Length > 0)
-                {
-                    MessageBox.Show(errorMessage, "Error");
-                }
-                else if (employeeList.Count == 0)
-                {
-                    MessageBox.Show("Employee doesn't exist. Please check your information.", "Error");
-                    btnRegister.Enabled = true;
-                    btnUpdate.Enabled = false;
-                }
-                else if (employeeList.Count == 1)
-                {
-                    this.populateEmployeeData(employeeList[0]);
-                }
-                else if (employeeList.Count > 1)
-                {
-                    View.EmployeeTableView employeeTableView = new View.EmployeeTableView();
-                    employeeTableView.RefreshEmployeesDataView(employeeList);
-                    employeeTableView.StartPosition = FormStartPosition.CenterParent;
-                    employeeTableView.ShowDialog();
-                    int selectedIndex = employeeTableView.GetSelectedRowIndex();
-                    if (employeeTableView.DialogResult == DialogResult.OK && selectedIndex > -1)
-                    {
-                        this.populateEmployeeData(employeeList[selectedIndex]);
-                    }
                 }
             }
 
+            if (errorMessage.Length > 0)
+            {
+                MessageBox.Show(errorMessage, "Error");
+            }
+            else if (this.employee == null)
+            {
+                MessageBox.Show("Employee doesn't exist. Please check your information.", "Error");
+                btnRegister.Enabled = true;
+                btnUpdate.Enabled = false;
+            }
+            else
+            {
+                txtFirstName.Text = this.employee.FirstName;
+                txtMiddleName.Text = this.employee.MiddleName;
+                txtLastName.Text = this.employee.LastName;
+                cbxGender.SelectedItem = this.employee.Sex;
+                dtDateOfBirth.Value = this.employee.DateOfBirth;
+                txtHomePhone.Text = this.employee.Phone;
+                txtAddress1.Text = this.employee.Address1;
+                txtAddress2.Text = this.employee.Address2;
+                txtCity.Text = this.employee.City;
+                cbxState.Text = this.employee.State;
+                txtPostalCode.Text = this.employee.PostalCode;
+                txtUsername.Text = this.employee.UserName;
+                txtPassword.Text = this.employee.Password;
+                cbxStatus.Text = this.employee.Status;
+
+                btnRegister.Enabled = false;
+                btnUpdate.Enabled = true;
+
+                txtFirstName.ReadOnly = true;
+                txtLastName.ReadOnly = true;
+            }
+
         }
-
-
-        private void populateEmployeeData(Employee employee)
-        {
-            btnRegister.Enabled = false;
-            btnUpdate.Enabled = true;
-
-            employeeId = employee.EmployeeID;
-            txtFirstName.Text = employee.FirstName;
-            txtMiddleName.Text = employee.MiddleName;
-            txtLastName.Text = employee.LastName;
-            cbxGender.SelectedItem = employee.Sex;
-            dtDateOfBirth.Value = employee.DateOfBirth;
-            txtHomePhone.Text = employee.Phone;
-            txtAddress1.Text = employee.Address1;
-            txtAddress2.Text = employee.Address2;
-            txtCity.Text = employee.City;
-            cbxState.Text = employee.State;
-            txtPostalCode.Text = employee.PostalCode;
-            txtUsername.Text = employee.UserName;
-            txtPassword.Text = employee.Password;
-            cbxStatus.Text = employee.Status;
-        }
-
 
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -228,31 +174,30 @@ namespace FurnitureRentals.User_Controls
             {
                 try
                 {
-                    Employee employee = new Employee();
-                    employee.FirstName = txtFirstName.Text;
-                    employee.MiddleName = txtMiddleName.Text;
-                    employee.LastName = txtLastName.Text;
-                    employee.Sex = cbxGender.Text;
-                    employee.DateOfBirth = dtDateOfBirth.Value.Date;
-                    employee.Phone = txtHomePhone.Text;
-                    employee.Address1 = txtAddress1.Text;
-                    employee.Address2 = txtAddress2.Text;
-                    employee.City = txtCity.Text;
-                    employee.State = cbxState.Text;
-                    employee.PostalCode = txtPostalCode.Text;
-                    employee.UserName = txtUsername.Text;
-                    employee.Password = txtPassword.Text;
-                    employee.Status = cbxStatus.Text;
+                    this.employee.FirstName = txtFirstName.Text;
+                    this.employee.MiddleName = txtMiddleName.Text;
+                    this.employee.LastName = txtLastName.Text;
+                    this.employee.Sex = cbxGender.Text;
+                    this.employee.DateOfBirth = dtDateOfBirth.Value.Date;
+                    this.employee.Phone = txtHomePhone.Text;
+                    this.employee.Address1 = txtAddress1.Text;
+                    this.employee.Address2 = txtAddress2.Text;
+                    this.employee.City = txtCity.Text;
+                    this.employee.State = cbxState.Text;
+                    this.employee.PostalCode = txtPostalCode.Text;
+                    this.employee.UserName = txtUsername.Text;
+                    this.employee.Password = txtPassword.Text;
+                    this.employee.Status = cbxStatus.Text;
 
-                    String name = employee.FirstName + " " + employee.LastName;
+                    String name = this.employee.FirstName + " " + this.employee.LastName;
                     // String phoneNumber = this.employee.Phone;
-                    // if (this.isEmployeeExist(name))
-                    // {
-                    //     MessageBox.Show("Employee already exists.", "Info");
-                    // }
+                    if (this.isEmployeeExist(name))
+                    {
+                        MessageBox.Show("Employee already exists.", "Info");
+                    }
 
 
-                    bool isRegistered = this.employeeController.RegisterEmployee(employee);
+                    bool isRegistered = this.employeeController.RegisterEmployee(this.employee);
 
                     if (isRegistered)
                     {
@@ -342,11 +287,10 @@ namespace FurnitureRentals.User_Controls
 
         private bool isEmployeeExist(String name)
         {
-            //String phonenumber = txtHomePhone.Text;
-            List<Employee> customerList = this.employeeController.GetEmployees(name, "", 0);
+            String phonenumber = txtHomePhone.Text;
 
-            //  this.employee = this.employeeController.GetEmployee(name, phonenumber, 0);
-            if (employeeList.Count > 0)
+            this.employee = this.employeeController.GetEmployee(name, phonenumber, 0);
+            if (this.employee != null)
             {
                 return true;
             }
