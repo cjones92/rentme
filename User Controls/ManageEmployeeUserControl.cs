@@ -146,11 +146,13 @@ namespace FurnitureRentals.User_Controls
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            cbxSearch.SelectedIndex = 0;
+            txtSearch.Text = "";
             txtFirstName.Text = "";
             txtMiddleName.Text = "";
             txtLastName.Text = "";
             cbxGender.SelectedIndex = 0;
-            dtDateOfBirth.Value = DateTime.Now;
+            dtDateOfBirth.Value = DateTime.Today;
             txtHomePhone.Text = "";
             txtAddress1.Text = "";
             txtAddress2.Text = "";
@@ -160,7 +162,7 @@ namespace FurnitureRentals.User_Controls
             txtUsername.Text = "";
             txtPassword.Text = "";
             cbxStatus.SelectedIndex = 0;
-            //btnRegister.Enabled = false;
+            btnRegister.Enabled = true;
             btnUpdate.Enabled = false;
             btnClear.Enabled = true;
         }
