@@ -103,7 +103,12 @@ namespace FurnitureRentals.View
             {
                 furnitureList = this.furnitureController.GetFurnitureByStyleID(int.Parse(this.furnitureStyleComboBox.SelectedValue.ToString()));
               furnitureBindingSource.DataSource = furnitureList;
+            } else
+            {
+
             }
+
+           
 
 
 

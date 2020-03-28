@@ -37,6 +37,7 @@
             this.UserLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.LoginCloseButton = new System.Windows.Forms.Button();
+            this.ErrorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SignInComboBox
@@ -46,6 +47,7 @@
             this.SignInComboBox.Name = "SignInComboBox";
             this.SignInComboBox.Size = new System.Drawing.Size(151, 21);
             this.SignInComboBox.TabIndex = 0;
+            this.SignInComboBox.SelectedIndexChanged += new System.EventHandler(this.SignInComboBox_SelectedIndexChanged);
             // 
             // UserNameTextBox
             // 
@@ -53,6 +55,7 @@
             this.UserNameTextBox.Name = "UserNameTextBox";
             this.UserNameTextBox.Size = new System.Drawing.Size(151, 20);
             this.UserNameTextBox.TabIndex = 1;
+            this.UserNameTextBox.TextChanged += new System.EventHandler(this.UserNameTextBox_TextChanged);
             // 
             // PasswordMaskedTextBox
             // 
@@ -60,6 +63,7 @@
             this.PasswordMaskedTextBox.Name = "PasswordMaskedTextBox";
             this.PasswordMaskedTextBox.Size = new System.Drawing.Size(151, 20);
             this.PasswordMaskedTextBox.TabIndex = 2;
+            this.PasswordMaskedTextBox.TextChanged += new System.EventHandler(this.PasswordMaskedTextBox_TextChanged);
             // 
             // LoginButton
             // 
@@ -116,11 +120,20 @@
             this.LoginCloseButton.UseVisualStyleBackColor = true;
             this.LoginCloseButton.Click += new System.EventHandler(this.LoginCloseButton_Click);
             // 
+            // ErrorLabel
+            // 
+            this.ErrorLabel.AutoSize = true;
+            this.ErrorLabel.Location = new System.Drawing.Point(83, 182);
+            this.ErrorLabel.Name = "ErrorLabel";
+            this.ErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.ErrorLabel.TabIndex = 11;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(418, 312);
+            this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.LoginCloseButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.UserLabel);
@@ -148,5 +161,6 @@
         private System.Windows.Forms.Label UserLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button LoginCloseButton;
+        private System.Windows.Forms.Label ErrorLabel;
     }
 }

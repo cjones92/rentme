@@ -80,8 +80,8 @@ namespace FurnitureRentals.View
             }
             else
             {
-                ErrorMessageLabel.ForeColor = Color.Red;
-                ErrorMessageLabel.Text = "Invalid username/password";
+                ErrorLabel.ForeColor = Color.Red;
+                ErrorLabel.Text = "Invalid username/password";
 
             }
 
@@ -93,6 +93,23 @@ namespace FurnitureRentals.View
             
                 System.Windows.Forms.Application.Exit();
             
+        }
+
+        private void UserNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ErrorLabel.ResetText();
+        }
+
+        
+
+        private void SignInComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ErrorLabel.ResetText();
+        }
+
+        private void PasswordMaskedTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ErrorLabel.ResetText();
         }
     }
     }
