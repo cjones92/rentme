@@ -42,25 +42,21 @@ namespace FurnitureRentals.Controller
         /// <param name="employee">Employee</param>
         public Boolean RegisterEmployee(Employee employee)
         {
-            if (employee == null)
-            {
-                throw new ArgumentNullException("Employee cannot be null");
-            }
-
-           return  EmployeeDBDAL.RegisterEmployee(employee);
+            
+            return EmployeeDBDAL.RegisterEmployee(employee);
 
         }
 
         /// <summary>
-        /// Method that returns the selected employee from the employee table
+        /// Method that returns the selected employee(s) from the employee table
         /// </summary>
         /// <param name="name">first name last name of the employee</param>
         /// <param name="phone">phone number of the employee</param>
         /// <param name="customerid">employee id of the employee</param>
         /// <returns>Customer object</returns>
-        public Employee GetEmployee(string name, string phone, int employeeId)
+        public List<Employee> GetEmployees(string name, string phone, int employeeId)
         {
-            return this.employeeDBDAL.GetEmployee(name, phone, employeeId);
+            return this.employeeDBDAL.GetEmployees(name, phone, employeeId);
         }
 
 

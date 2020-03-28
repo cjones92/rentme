@@ -87,6 +87,12 @@
     <Compile Include="View\CustomerTableView.Designer.cs">
       <DependentUpon>CustomerTableView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\EmployeeTableView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EmployeeTableView.Designer.cs">
+      <DependentUpon>EmployeeTableView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FurnitureSearchFormDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     <EmbeddedResource Include="View\CustomerTableView.resx">
       <DependentUpon>CustomerTableView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\EmployeeTableView.resx">
+      <DependentUpon>EmployeeTableView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FurnitureSearchFormDialog.resx">
       <DependentUpon>FurnitureSearchFormDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +147,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\FurnitureRentals.Model.Customer.datasource" />
+    <None Include="Properties\DataSources\FurnitureRentals.Model.Employee.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.Furniture.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
