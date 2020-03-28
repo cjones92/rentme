@@ -87,7 +87,7 @@
     <Compile Include="View\CustomerTableView.Designer.cs">
       <DependentUpon>CustomerTableView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FurnitureSearchForm.cs">
+    <Compile Include="View\FurnitureSearchFormDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\FurnitureSearchFormDialog.Designer.cs">
@@ -128,8 +128,8 @@
     <EmbeddedResource Include="View\CustomerTableView.resx">
       <DependentUpon>CustomerTableView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FurnitureSearchForm.resx">
-      <DependentUpon>FurnitureSearchForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\FurnitureSearchFormDialog.resx">
+      <DependentUpon>FurnitureSearchFormDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
