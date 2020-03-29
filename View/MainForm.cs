@@ -16,7 +16,7 @@ namespace FurnitureRentals
     /// </summary>
     public partial class MainForm : Form
     {
-        FurnitureSearchFormDialog furnitureSearchForm;
+        
 
         /// <summary>
         /// Class constructor
