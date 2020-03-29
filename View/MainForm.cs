@@ -11,9 +11,16 @@ using System.Windows.Forms;
 
 namespace FurnitureRentals
 {
+    /// <summary>
+    /// Logic for main form
+    /// </summary>
     public partial class MainForm : Form
     {
         FurnitureSearchFormDialog furnitureSearchForm;
+
+        /// <summary>
+        /// Class constructor
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();

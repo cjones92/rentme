@@ -10,13 +10,23 @@ using System.Windows.Forms;
 
 namespace FurnitureRentals.View
 {
+    /// <summary>
+    /// Logic for AdminMainFormWithUserControls
+    /// </summary>
     public partial class AdminMainFormWithUserControls : Form
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public AdminMainFormWithUserControls()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Sets logged in label
+        /// </summary>
+        /// <param name="name"></param>
         public void SetLoggedInLabelText(string name)
         {
             if (name == null)

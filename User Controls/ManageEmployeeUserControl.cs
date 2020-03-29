@@ -12,6 +12,9 @@ using FurnitureRentals.Controller;
 
 namespace FurnitureRentals.User_Controls
 {
+    /// <summary>
+    /// Logic for ManageEmployeeUserControl
+    /// </summary>
     public partial class ManageEmployeeUserControl : UserControl
     {
         private readonly EmployeeController employeeController;
@@ -21,6 +24,9 @@ namespace FurnitureRentals.User_Controls
         private int employeeId;
         private ToolTip toolTip;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public ManageEmployeeUserControl()
         {
             InitializeComponent();

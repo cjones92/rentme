@@ -11,10 +11,16 @@ using System.Windows.Forms;
 
 namespace FurnitureRentals.View
 {
+    /// <summary>
+    /// Logic for CustomerTableView
+    /// </summary>
     partial class CustomerTableView : Form
     {
         private int selectedRowIndex = -1;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public CustomerTableView()
         {
             InitializeComponent();
@@ -25,6 +31,10 @@ namespace FurnitureRentals.View
             customerDataGridView.ClearSelection();
         }
 
+        /// <summary>
+        /// Refreshes customer data
+        /// </summary>
+        /// <param name="customerList"></param>
         public void RefreshCustomersDataView(List<Customer> customerList)
         {
             this.customerDataGridView.DataSource = customerList;

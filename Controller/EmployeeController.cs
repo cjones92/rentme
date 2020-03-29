@@ -10,7 +10,7 @@ namespace FurnitureRentals.Controller
 {
     /// <summary>
     /// This controller class interacts with the DAL layer and implements functions
-    /// for furniture
+    /// for employees
     /// </summary>
     public class EmployeeController
     {
