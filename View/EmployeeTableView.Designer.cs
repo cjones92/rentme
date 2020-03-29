@@ -32,6 +32,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblSearchResults = new System.Windows.Forms.Label();
             this.employeeDataGridView = new System.Windows.Forms.DataGridView();
+            this.btnSelect = new System.Windows.Forms.Button();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.middleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +48,6 @@
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnSelect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -101,7 +101,19 @@
             this.employeeDataGridView.RowTemplate.Height = 24;
             this.employeeDataGridView.Size = new System.Drawing.Size(776, 231);
             this.employeeDataGridView.TabIndex = 8;
+            this.employeeDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeDataGridView_CellContentClick);
             this.employeeDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeDataGridView_CellContentClick);
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnSelect.Location = new System.Drawing.Point(511, 349);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(163, 41);
+            this.btnSelect.TabIndex = 7;
+            this.btnSelect.Text = "Select";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // firstNameDataGridViewTextBoxColumn
             // 
@@ -232,17 +244,6 @@
             // employeeBindingSource
             // 
             this.employeeBindingSource.DataSource = typeof(FurnitureRentals.Model.Employee);
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSelect.Location = new System.Drawing.Point(511, 349);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(163, 41);
-            this.btnSelect.TabIndex = 7;
-            this.btnSelect.Text = "Select";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // EmployeeTableView
             // 
