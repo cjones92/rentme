@@ -145,8 +145,9 @@
             // CategoryDescriptionComboBox
             // 
             this.CategoryDescriptionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoryBindingSource, "CategoryDescription", true));
+            this.CategoryDescriptionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CategoryDescriptionComboBox.FormattingEnabled = true;
-            this.CategoryDescriptionComboBox.Location = new System.Drawing.Point(420, 51);
+            this.CategoryDescriptionComboBox.Location = new System.Drawing.Point(420, 50);
             this.CategoryDescriptionComboBox.Name = "CategoryDescriptionComboBox";
             this.CategoryDescriptionComboBox.Size = new System.Drawing.Size(121, 21);
             this.CategoryDescriptionComboBox.TabIndex = 26;
@@ -155,8 +156,9 @@
             // StyleDescriptionComboBox
             // 
             this.StyleDescriptionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.styleBindingSource, "StyleDescription", true));
+            this.StyleDescriptionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.StyleDescriptionComboBox.FormattingEnabled = true;
-            this.StyleDescriptionComboBox.Location = new System.Drawing.Point(420, 99);
+            this.StyleDescriptionComboBox.Location = new System.Drawing.Point(420, 51);
             this.StyleDescriptionComboBox.Name = "StyleDescriptionComboBox";
             this.StyleDescriptionComboBox.Size = new System.Drawing.Size(121, 21);
             this.StyleDescriptionComboBox.TabIndex = 27;
