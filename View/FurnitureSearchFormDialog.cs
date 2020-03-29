@@ -27,7 +27,7 @@ namespace FurnitureRentals.View
             furnitureController = new FurnitureController();
             InitializeComponent();
             this.LoadSearchOptionsComboBox();
-            this.LoadCategoryComboBox();
+            this.LoadCategoryDescriptionComboBox();
             this.LoadStyleComboBox();
 
         }
@@ -39,7 +39,7 @@ namespace FurnitureRentals.View
             
         }
 
-        private void LoadCategoryComboBox()
+        private void LoadCategoryDescriptionComboBox()
         {
             try
             {
@@ -48,9 +48,9 @@ namespace FurnitureRentals.View
                 dummyCategory.CategoryDescription = "Pick a category:";
                 List<Category> categoryList = this.furnitureController.GetCategories();
                 categoryList.Insert(0, dummyCategory);
-                this.categoryComboBox.DataSource = categoryList;
-                this.categoryComboBox.ValueMember = "CategoryID";
-                this.categoryComboBox.DisplayMember = "CategoryDescription";
+                this.CategoryDescriptionComboBox.DataSource = categoryList;
+                this.CategoryDescriptionComboBox.ValueMember = "CategoryID";
+                this.CategoryDescriptionComboBox.DisplayMember = "CategoryDescription";
 
             }
             catch (Exception ex)
@@ -69,9 +69,9 @@ namespace FurnitureRentals.View
                 dummyStyle.StyleDescription = "Pick a style:";
                 List<Style> styleList = this.furnitureController.GetStyles();
                 styleList.Insert(0, dummyStyle);
-                this.furnitureStyleComboBox.DataSource = styleList;
-                this.furnitureStyleComboBox.ValueMember = "StyleID";
-                this.furnitureStyleComboBox.DisplayMember = "StyleDescription";
+                this.StyleDescriptionComboBox.DataSource = styleList;
+                this.StyleDescriptionComboBox.ValueMember = "StyleID";
+                this.StyleDescriptionComboBox.DisplayMember = "StyleDescription";
 
             }
             catch (Exception ex)
@@ -84,44 +84,53 @@ namespace FurnitureRentals.View
         {
             List<Furniture> furnitureList;
 
-
             FurnitureDataGridView.AllowUserToAddRows = false;
 
-            string searchChoice = (string)this.SearchOptionsComboBox.SelectedValue;
-            if (searchChoice == "Serial Number" && this.SerialNumberTextBox.TextLength > 3)
-            {
-                this.SerialNumberTextBox.ResetText();
-                furnitureList = this.furnitureController.GetFurnitureBySerialNumber(this.SerialNumberTextBox.Text);
-                furnitureBindingSource.DataSource = furnitureList;
-                if (furnitureList.Count == 0)
-                {
-                    MessageBox.Show("There are no items matching this serial number.");
-                }
-            }
-            else if ((searchChoice == "Category") && (this.categoryComboBox.SelectedIndex > -1))
-            {
-                furnitureList = this.furnitureController.GetFurnitureByCategory((int.Parse(this.categoryComboBox.SelectedValue.ToString())));
-                this.categoryComboBox.SelectedIndex = -1;
-                if (furnitureList.Count == 0)
-                {
-                    MessageBox.Show("There are no items matching this category.");
-                }
-                furnitureBindingSource.DataSource = furnitureList;
-
-               
-            }
-            else if (searchChoice == "Style" && this.furnitureStyleComboBox.SelectedIndex > -1)
-            {
-                this.furnitureStyleComboBox.SelectedIndex = -1;
-                furnitureList = this.furnitureController.GetFurnitureByStyleID(int.Parse(this.furnitureStyleComboBox.SelectedValue.ToString()));
-              furnitureBindingSource.DataSource = furnitureList;
-                if (furnitureList.Count == 0)
-                {
-                    MessageBox.Show("There are no items matching this style.");
-                }
-            } else
+            try
             {
 
+                string searchChoice = (string)this.SearchOptionsComboBox.SelectedValue;
+                if (searchChoice == "Serial Number" && this.SerialNumberTextBox.TextLength > 3)
+                {
+
+                    furnitureList = this.furnitureController.GetFurnitureBySerialNumber(this.SerialNumberTextBox.Text);
+                    furnitureBindingSource.DataSource = furnitureList;
+                    if (furnitureList.Count == 0)
+                    {
+                        MessageBox.Show("There are no items matching this serial number");
+                    }
+
+                }
+                else if ((searchChoice == "Category") && (this.CategoryDescriptionComboBox.SelectedIndex > -1 ))
+                {
+                    furnitureList = this.furnitureController.GetFurnitureByCategory((int.Parse(this.CategoryDescriptionComboBox.SelectedValue.ToString())));
+                    furnitureBindingSource.DataSource = furnitureList;
+                    if (furnitureList.Count == 0 && this.CategoryDescriptionComboBox.SelectedIndex != 0)
+                    {
+                        MessageBox.Show("There are no items matching this category");
+                    }
+
+                }
+                else if (searchChoice == "Style" && this.StyleDescriptionComboBox.SelectedIndex > -1)
+                {
+
+                    furnitureList = this.furnitureController.GetFurnitureByStyleID(int.Parse(this.StyleDescriptionComboBox.SelectedValue.ToString()));
+                    furnitureBindingSource.DataSource = furnitureList;
+
+                    if (furnitureList.Count == 0 && this.StyleDescriptionComboBox.SelectedIndex != 0)
+                    {
+                        MessageBox.Show("There are no items matching this style");
+                    }
+
+                }
+                else
+                {
+
+                }
+
+            } catch (Exception ex)
+            {
+                MessageBox.Show("There was an issue reaching the database. Please try again later");
             }
 
            
@@ -134,38 +143,38 @@ namespace FurnitureRentals.View
             if (selectedValue == "Serial Number")
             {
                 this.CategoryLabel.Visible = false;
-                this.categoryComboBox.Visible = false;
+                this.CategoryDescriptionComboBox.Visible = false;
                 this.StyleLabel.Visible = false;
-                this.furnitureStyleComboBox.Visible = false;
+                this.StyleDescriptionComboBox.Visible = false;
                 this.SerialNumberLabel.Visible = true;
                 this.SerialNumberTextBox.Visible = true;
             }
             else if (selectedValue == "Category")
             {
                 this.StyleLabel.Visible = false;
-                this.furnitureStyleComboBox.Visible = false;
+                this.StyleDescriptionComboBox.Visible = false;
                 this.SerialNumberLabel.Visible = false;
                 this.SerialNumberTextBox.Visible = false;
                 this.CategoryLabel.Visible = true;
-                this.categoryComboBox.Visible = true;
+                this.CategoryDescriptionComboBox.Visible = true;
 
             }
             else if (selectedValue == "Style")
             {
                 this.SerialNumberTextBox.Visible = false;
                 this.SerialNumberLabel.Visible = false;
-                this.categoryComboBox.Visible = false;
+                this.CategoryDescriptionComboBox.Visible = false;
                 this.CategoryLabel.Visible = false;
                 this.StyleLabel.Visible = true;
-                this.furnitureStyleComboBox.Visible = true;
+                this.StyleDescriptionComboBox.Visible = true;
             } else
             {
                 this.SerialNumberTextBox.Visible = false;
                 this.SerialNumberLabel.Visible = false;
-                this.categoryComboBox.Visible = false;
+                this.CategoryDescriptionComboBox.Visible = false;
                 this.CategoryLabel.Visible = false;
                 this.StyleLabel.Visible = false;
-                this.furnitureStyleComboBox.Visible = false;
+                this.StyleDescriptionComboBox.Visible = false;
             }
         }
 

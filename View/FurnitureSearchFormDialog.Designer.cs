@@ -40,13 +40,17 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.furnitureBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.furnitureStyleComboBox = new System.Windows.Forms.ComboBox();
-            this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.SerialNumberTextBox = new System.Windows.Forms.TextBox();
             this.AddButton = new System.Windows.Forms.Button();
             this.CloseFurnitureButton = new System.Windows.Forms.Button();
+            this.CategoryDescriptionComboBox = new System.Windows.Forms.ComboBox();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.styleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.StyleDescriptionComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.FurnitureDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.styleBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchOptionsComboBox
@@ -137,30 +141,10 @@
             // 
             this.furnitureBindingSource.DataSource = typeof(FurnitureRentals.Model.Furniture);
             // 
-            // furnitureStyleComboBox
-            // 
-            this.furnitureStyleComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureBindingSource, "FurnitureStyle", true));
-            this.furnitureStyleComboBox.FormattingEnabled = true;
-            this.furnitureStyleComboBox.Location = new System.Drawing.Point(403, 51);
-            this.furnitureStyleComboBox.Name = "furnitureStyleComboBox";
-            this.furnitureStyleComboBox.Size = new System.Drawing.Size(121, 21);
-            this.furnitureStyleComboBox.TabIndex = 21;
-            this.furnitureStyleComboBox.SelectedIndexChanged += new System.EventHandler(this.furnitureStyleComboBox_SelectedIndexChanged);
-            // 
-            // categoryComboBox
-            // 
-            this.categoryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureBindingSource, "Category", true));
-            this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(403, 51);
-            this.categoryComboBox.Name = "categoryComboBox";
-            this.categoryComboBox.Size = new System.Drawing.Size(121, 21);
-            this.categoryComboBox.TabIndex = 22;
-            this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.categoryComboBox_SelectedIndexChanged);
-            // 
             // SerialNumberTextBox
             // 
             this.SerialNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureBindingSource, "SerialNumber", true));
-            this.SerialNumberTextBox.Location = new System.Drawing.Point(403, 54);
+            this.SerialNumberTextBox.Location = new System.Drawing.Point(420, 51);
             this.SerialNumberTextBox.Name = "SerialNumberTextBox";
             this.SerialNumberTextBox.Size = new System.Drawing.Size(121, 20);
             this.SerialNumberTextBox.TabIndex = 23;
@@ -186,16 +170,44 @@
             this.CloseFurnitureButton.UseVisualStyleBackColor = true;
             this.CloseFurnitureButton.Click += new System.EventHandler(this.CloseFurnitureButton_Click);
             // 
+            // CategoryDescriptionComboBox
+            // 
+            this.CategoryDescriptionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoryBindingSource, "CategoryDescription", true));
+            this.CategoryDescriptionComboBox.FormattingEnabled = true;
+            this.CategoryDescriptionComboBox.Location = new System.Drawing.Point(420, 51);
+            this.CategoryDescriptionComboBox.Name = "CategoryDescriptionComboBox";
+            this.CategoryDescriptionComboBox.Size = new System.Drawing.Size(121, 21);
+            this.CategoryDescriptionComboBox.TabIndex = 26;
+            this.CategoryDescriptionComboBox.SelectedIndexChanged += new System.EventHandler(this.categoryComboBox_SelectedIndexChanged);
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(FurnitureRentals.Model.Category);
+            // 
+            // styleBindingSource
+            // 
+            this.styleBindingSource.DataSource = typeof(FurnitureRentals.Model.Style);
+            // 
+            // StyleDescriptionComboBox
+            // 
+            this.StyleDescriptionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.styleBindingSource, "StyleDescription", true));
+            this.StyleDescriptionComboBox.FormattingEnabled = true;
+            this.StyleDescriptionComboBox.Location = new System.Drawing.Point(420, 51);
+            this.StyleDescriptionComboBox.Name = "StyleDescriptionComboBox";
+            this.StyleDescriptionComboBox.Size = new System.Drawing.Size(121, 21);
+            this.StyleDescriptionComboBox.TabIndex = 27;
+            this.StyleDescriptionComboBox.SelectedIndexChanged += new System.EventHandler(this.furnitureStyleComboBox_SelectedIndexChanged);
+            // 
             // FurnitureSearchFormDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 409);
+            this.ClientSize = new System.Drawing.Size(756, 410);
+            this.Controls.Add(this.StyleDescriptionComboBox);
+            this.Controls.Add(this.CategoryDescriptionComboBox);
             this.Controls.Add(this.CloseFurnitureButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.SerialNumberTextBox);
-            this.Controls.Add(this.categoryComboBox);
-            this.Controls.Add(this.furnitureStyleComboBox);
             this.Controls.Add(this.FurnitureDataGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.StyleLabel);
@@ -206,6 +218,8 @@
             this.Text = "FurnitureSearchForm";
             ((System.ComponentModel.ISupportInitialize)(this.FurnitureDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.styleBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,8 +233,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource furnitureBindingSource;
         private System.Windows.Forms.DataGridView FurnitureDataGridView;
-        private System.Windows.Forms.ComboBox furnitureStyleComboBox;
-        private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.TextBox SerialNumberTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
@@ -228,5 +240,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button CloseFurnitureButton;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
+        private System.Windows.Forms.ComboBox CategoryDescriptionComboBox;
+        private System.Windows.Forms.BindingSource styleBindingSource;
+        private System.Windows.Forms.ComboBox StyleDescriptionComboBox;
     }
 }

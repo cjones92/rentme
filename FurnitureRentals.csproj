@@ -146,9 +146,11 @@
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\FurnitureRentals.Model.Category.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.Customer.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.Employee.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.Furniture.datasource" />
+    <None Include="Properties\DataSources\FurnitureRentals.Model.Style.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
