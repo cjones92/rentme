@@ -400,5 +400,13 @@ namespace FurnitureRentals.User_Controls
 
             return false;
         }
+
+        private void cbxSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.clearAllFields();
+            txtSearch.Text = "";
+            btnRegister.Enabled = true;
+            btnUpdate.Enabled = false;
+        }
     }
 }
