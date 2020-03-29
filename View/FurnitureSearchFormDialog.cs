@@ -107,6 +107,7 @@ namespace FurnitureRentals.View
                     furnitureBindingSource.DataSource = furnitureList;
                     if (furnitureList.Count == 0 && this.CategoryDescriptionComboBox.SelectedIndex != 0)
                     {
+                        this.CategoryDescriptionComboBox.SelectedIndex = 0;
                         MessageBox.Show("There are no items matching this category");
                     }
 
@@ -119,6 +120,7 @@ namespace FurnitureRentals.View
 
                     if (furnitureList.Count == 0 && this.StyleDescriptionComboBox.SelectedIndex != 0)
                     {
+                        this.StyleDescriptionComboBox.SelectedIndex = 0;
                         MessageBox.Show("There are no items matching this style");
                     }
 
@@ -178,12 +180,12 @@ namespace FurnitureRentals.View
             }
         }
 
-        private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void CategoryDescriptionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.LoadFurnitureGridView();
         }
 
-        private void furnitureStyleComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void StyleDescriptionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.LoadFurnitureGridView();
         }
