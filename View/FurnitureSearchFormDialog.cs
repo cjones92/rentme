@@ -53,7 +53,7 @@ namespace FurnitureRentals.View
                 this.CategoryDescriptionComboBox.DisplayMember = "CategoryDescription";
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 MessageBox.Show("There was a problem reaching the database. Please check the database connection.");
             }
@@ -74,7 +74,7 @@ namespace FurnitureRentals.View
                 this.StyleDescriptionComboBox.DisplayMember = "StyleDescription";
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("There was a problem reaching the database. Please check the database connection.");
             }
@@ -130,7 +130,7 @@ namespace FurnitureRentals.View
 
                 }
 
-            } catch (Exception ex)
+            } catch (Exception)
             {
                 MessageBox.Show("There was an issue reaching the database. Please try again later");
             }

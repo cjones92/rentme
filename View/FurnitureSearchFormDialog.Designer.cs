@@ -181,24 +181,28 @@
             this.dataGridViewTextBoxColumn1.DataPropertyName = "SerialNumber";
             this.dataGridViewTextBoxColumn1.HeaderText = "SerialNumber";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "ItemDescription";
             this.dataGridViewTextBoxColumn6.HeaderText = "ItemDescription";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "FurnitureStyle";
             this.dataGridViewTextBoxColumn3.HeaderText = "FurnitureStyle";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Quantity";
             this.dataGridViewTextBoxColumn2.HeaderText = "Quantity";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // FurnitureSearchFormDialog
             // 
@@ -236,15 +240,15 @@
         private System.Windows.Forms.BindingSource furnitureBindingSource;
         private System.Windows.Forms.DataGridView FurnitureDataGridView;
         private System.Windows.Forms.TextBox SerialNumberTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button CloseFurnitureButton;
         private System.Windows.Forms.BindingSource categoryBindingSource;
         private System.Windows.Forms.ComboBox CategoryDescriptionComboBox;
         private System.Windows.Forms.BindingSource styleBindingSource;
         private System.Windows.Forms.ComboBox StyleDescriptionComboBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }
