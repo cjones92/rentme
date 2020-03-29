@@ -19,6 +19,7 @@ namespace FurnitureRentals.User_Controls
         private bool dateChosen;
         private List<Employee> employeeList;
         private int employeeId;
+        private ToolTip toolTip;
 
         public ManageEmployeeUserControl()
         {
@@ -29,6 +30,7 @@ namespace FurnitureRentals.User_Controls
             txtSearch.Focus();
             // employeeId = 0;
             employeeList = new List<Employee>();
+            toolTip = new ToolTip();
         }
 
 
@@ -78,18 +80,14 @@ namespace FurnitureRentals.User_Controls
             employeeId = 0;
             string searchCriteria = cbxSearch.SelectedItem.ToString();
             string searchString = txtSearch.Text;
-           
+
             string errorMessage = "";
             if (searchString.Trim().Length == 0)
             {
                 errorMessage = "Please enter " + searchCriteria;
                 txtSearch.Focus();
             }
-            // else if (searchCriteria == "First Name Last Name")
-            // {
-            //this.employee = this.employeeController.GetEmployee(txtSearch.Text, "", 0);
-            // employeeList = EmployeeController.GetEmployee(txtSearch.Text, "", 0);
-            //}
+          
             else if (searchCriteria == "Phone Number")
             {
                 try
@@ -109,7 +107,6 @@ namespace FurnitureRentals.User_Controls
                     txtSearch.Focus();
                 }
             }
-
             else if (searchCriteria == "Employee ID")
             {
                 try
@@ -129,44 +126,54 @@ namespace FurnitureRentals.User_Controls
                     txtSearch.Focus();
                 }
             }
-            //else
-            //{
-            //  employeeList = this.employeeController.GetEmployees(txtSearch.Text, "", 0);
-            //}
-
-            else if (searchCriteria == "First Name Last Name")
+            else
             {
-                //this.employee = this.employeeController.GetEmployee(txtSearch.Text, "", 0);
-                // employeeList = EmployeeController.GetEmployee(txtSearch.Text, "", 0);
                 employeeList = this.employeeController.GetEmployees(txtSearch.Text, "", 0);
-                //}
+            }
+            if (errorMessage.Length > 0)
+            {
+                MessageBox.Show(errorMessage, "Error");
+            }
+            else if (employeeList.Count == 0)
+            {
+                MessageBox.Show("Employee doesn't exist. Please check your information.", "Error");
+                btnRegister.Enabled = true;
+                btnUpdate.Enabled = false;
+            }
+            else if (employeeList.Count == 1)
+            {
+                this.populateEmployeeData(employeeList[0]);
+            }
+            else if (employeeList.Count > 1)
+            {
+                View.EmployeeTableView employeeTableView = new View.EmployeeTableView();
+                employeeTableView.RefreshEmployeesDataView(employeeList);
+                employeeTableView.StartPosition = FormStartPosition.CenterParent;
+                employeeTableView.ShowDialog();
+                int selectedIndex = employeeTableView.GetSelectedRowIndex();
+                if (employeeTableView.DialogResult == DialogResult.OK && selectedIndex > -1)
+                {
+                    this.populateEmployeeData(employeeList[selectedIndex]);
+                }
+            }
+        }
 
-                if (errorMessage.Length > 0)
-                {
-                    MessageBox.Show(errorMessage, "Error");
-                }
-                else if (employeeList.Count == 0)
-                {
-                    MessageBox.Show("Employee doesn't exist. Please check your information.", "Error");
-                    btnRegister.Enabled = true;
-                    btnUpdate.Enabled = false;
-                }
-                else if (employeeList.Count == 1)
-                {
-                    this.populateEmployeeData(employeeList[0]);
-                }
-                else if (employeeList.Count > 1)
-                {
-                    View.EmployeeTableView employeeTableView = new View.EmployeeTableView();
-                    employeeTableView.RefreshEmployeesDataView(employeeList);
-                    employeeTableView.StartPosition = FormStartPosition.CenterParent;
-                    employeeTableView.ShowDialog();
-                    int selectedIndex = employeeTableView.GetSelectedRowIndex();
-                    if (employeeTableView.DialogResult == DialogResult.OK && selectedIndex > -1)
-                    {
-                        this.populateEmployeeData(employeeList[selectedIndex]);
-                    }
-                }
+
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchCriteria = cbxSearch.SelectedItem.ToString();
+            if (searchCriteria == "Phone Number")
+            {
+                toolTip.Show("Please enter only number without any dashes", txtSearch);
+            }
+            else if (searchCriteria == "Employee ID")
+            {
+                toolTip.Show("Please enter only numbers", txtSearch);
+            }
+            else
+            {
+                toolTip.Show("Please leave a space between first name and last name", txtSearch);
             }
 
         }
