@@ -13,6 +13,10 @@ namespace FurnitureRentals.DAL
     /// </summary>
     class CategoryDBDAL
     {
+        /// <summary>
+        /// Method gets categories 
+        /// </summary>
+        /// <returns>list of categories</returns>
         public List<Category> GetCategories()
         {
             List<Category> categories = new List<Category>();

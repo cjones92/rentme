@@ -8,8 +8,15 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.DAL
 {
+    /// <summary>
+    /// Accesses information related to style table from the databas
+    /// </summary>
     class StyleDBDAL
     {
+        /// <summary>
+        /// Returns list of styles
+        /// </summary>
+        /// <returns>list of styles</returns>
         public List<Style> GetStyles()
         {
             List<Style> styles = new List<Style>();

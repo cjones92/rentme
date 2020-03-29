@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.DAL
 {
+    /// <summary>
+    /// Accesses information regarding the Customer table from the database
+    /// </summary>
     class CustomerDAL
     {
         /// <summary>
