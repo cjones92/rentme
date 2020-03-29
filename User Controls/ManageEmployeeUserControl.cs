@@ -92,7 +92,7 @@ namespace FurnitureRentals.User_Controls
             {
                 try
                 {
-                    employeeId = Convert.ToInt32(txtSearch.Text);
+                    int employeeId = Convert.ToInt32(txtSearch.Text);
                     if (txtSearch.Text.Length < 10 || txtSearch.Text.Length > 10)
                     {
                         errorMessage = "Please enter valid phone number.";
@@ -250,15 +250,14 @@ namespace FurnitureRentals.User_Controls
                     employee.Status = cbxStatus.Text;
 
                     String name = employee.FirstName + " " + employee.LastName;
-                    // String phoneNumber = this.employee.Phone;
-                    // if (this.isEmployeeExist(name))
-                    // {
-                    //     MessageBox.Show("Employee already exists.", "Info");
-                    // }
 
+                    if (this.isEmployeeExist(employee.Phone))
+                    {
+                        MessageBox.Show("Employee already exists.", "Info");
+                        return;
+                    }
 
                     bool isRegistered = this.employeeController.RegisterEmployee(employee);
-
                     if (isRegistered)
                     {
                         MessageBox.Show("Employee has been created successfully.", "Registration Complete");
@@ -296,42 +295,61 @@ namespace FurnitureRentals.User_Controls
                 return false;
             }
 
-            else if (txtFirstName.Text.Length > 45)
+            else if (txtFirstName.Text.Trim().Length > 45)
             {
                 MessageBox.Show("First Name cannot be longer than 45 characters.", "Invalid First Name");
                 return false;
             }
-            else if (txtLastName.Text.Length > 45)
+            else if (txtLastName.Text.Trim().Length > 45)
             {
                 MessageBox.Show("Last Name cannot be longer than 45 characters.", "Invalid Last Name");
                 return false;
             }
-            else if (txtAddress1.Text.Length > 250)
+            else if (txtAddress1.Text.Trim().Length > 250)
             {
                 MessageBox.Show("Street Address cannot be longer than 250 characters.", "Invalid Street Address");
                 return false;
             }
 
-            else if (txtCity.Text.Length > 45)
+            else if (txtCity.Text.Trim().Length > 45)
             {
                 MessageBox.Show("City cannot be longer than 45 characters.", "Invalid City");
                 return false;
             }
-            else if (txtPostalCode.Text.Length < 5 || txtPostalCode.Text.Length > 10)
+            else if (txtPostalCode.Text.Trim().Length == 0 ||
+                txtPostalCode.Text.Trim().Length < 5 ||
+                txtPostalCode.Text.Trim().Length == 6 ||
+                (txtPostalCode.Text.Trim().Length > 6 && txtPostalCode.Text.Trim().Length < 10))
             {
-                MessageBox.Show("Zip code must be at least 5 digits and no more than 10.", "Invalid Zip Code");
+                txtPostalCode.Focus();
+                MessageBox.Show("Please enter valid postal code.", "Invalid Zip Code");
                 return false;
             }
 
-            else if (txtUsername.Text.Length > 45)
+            else if (txtUsername.Text.Trim().Length > 45)
             {
                 MessageBox.Show("Username cannot be longer than 45 characters", "Invalid Username");
                 return false;
             }
-            else if (txtPassword.Text.Length > 45)
+            else if (txtPassword.Text.Trim().Length > 45)
             {
                 MessageBox.Show("Password cannot be longer than 45 characters", "Invalid Password");
                 return false;
+            }
+
+            else if (txtHomePhone.Text.Trim().Length > 0)
+            {
+                try
+                {
+                    Convert.ToInt64(employee.Phone);
+                    return true;
+                }
+                catch (FormatException)
+                {
+                    txtHomePhone.Focus();
+                    MessageBox.Show("Please enter valid phone number", "Invalid Phone Number");
+                    return false;
+                }
             }
             else
 
@@ -345,12 +363,10 @@ namespace FurnitureRentals.User_Controls
             dateChosen = true;
         }
 
-        private bool isEmployeeExist(String name)
+        private bool isEmployeeExist(String phoneNumber)
         {
-            //String phonenumber = txtHomePhone.Text;
-            List<Employee> customerList = this.employeeController.GetEmployees(name, "", 0);
+            List<Employee> customerList = this.employeeController.GetEmployees("", phoneNumber, 0);
 
-            //  this.employee = this.employeeController.GetEmployee(name, phonenumber, 0);
             if (employeeList.Count > 0)
             {
                 return true;
