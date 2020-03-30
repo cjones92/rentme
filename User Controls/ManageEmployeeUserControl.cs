@@ -305,7 +305,7 @@ namespace FurnitureRentals.User_Controls
                 }
                 catch (FormatException)
                 {
-                    txtHomePhone.Focus();
+                    txtPostalCode.Focus();
                     errorMessage = "Please enter valid postal code.";
                     return errorMessage;
                 }
@@ -316,7 +316,7 @@ namespace FurnitureRentals.User_Controls
                     secondPart = postalCode.Substring(5, 1);
                     if (secondPart != "-")
                     {
-                        txtHomePhone.Focus();
+                        txtPostalCode.Focus();
                         errorMessage = "Please enter valid postal code.";
                         return errorMessage;
                     }
@@ -332,7 +332,7 @@ namespace FurnitureRentals.User_Controls
                     }
                     catch (FormatException)
                     {
-                        txtHomePhone.Focus();
+                        txtPostalCode.Focus();
                         errorMessage = "Please enter valid postal code.";
                         return errorMessage;
                     }

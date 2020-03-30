@@ -120,7 +120,7 @@ namespace FurnitureRentals.DAL
                             employee.MiddleName = reader["middle_name"].ToString();
                             employee.LastName = reader["last_name"].ToString();
                             employee.Sex = reader["sex"].ToString();
-                            employee.PostalCode = reader["phone_number"].ToString();
+                            employee.Phone = reader["phone_number"].ToString();
                             employee.Address1 = reader["address1"].ToString();
                             employee.Address2 = reader["address2"].ToString();
                             employee.City = reader["city"].ToString();
