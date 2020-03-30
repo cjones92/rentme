@@ -506,6 +506,7 @@
             this.cbxSearch.Name = "cbxSearch";
             this.cbxSearch.Size = new System.Drawing.Size(195, 30);
             this.cbxSearch.TabIndex = 1;
+            this.cbxSearch.SelectedIndexChanged += new System.EventHandler(this.cbxSearch_SelectedIndexChanged);
             // 
             // dtDateOfBirth
             // 

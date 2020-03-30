@@ -25,7 +25,7 @@ namespace FurnitureRentals.User_Controls
         private ToolTip toolTip;
 
         /// <summary>
-        /// Constructor
+        /// Class constructor.
         /// </summary>
         public ManageEmployeeUserControl()
         {
@@ -34,7 +34,6 @@ namespace FurnitureRentals.User_Controls
             this.employee = new Employee();
             this.dateChosen = false;
             txtSearch.Focus();
-            // employeeId = 0;
             employeeList = new List<Employee>();
             toolTip = new ToolTip();
         }
@@ -255,12 +254,7 @@ namespace FurnitureRentals.User_Controls
                     employee.Password = txtPassword.Text;
                     employee.Status = cbxStatus.Text;
 
-                    
-                    if (this.isEmployeeExist(employee.Phone))
-                    {
-                        MessageBox.Show("Employee already exists.", "Info");
-                        return;
-                    }
+                    String name = employee.FirstName + " " + employee.LastName;
 
                     bool isRegistered = this.employeeController.RegisterEmployee(employee);
                     if (isRegistered)
@@ -368,18 +362,26 @@ namespace FurnitureRentals.User_Controls
             dateChosen = true;
         }
 
-        private bool isEmployeeExist(String phoneNumber)
+        private void clearAllFields()
         {
-            List<Employee> customerList = this.employeeController.GetEmployees("", phoneNumber, 0);
-
-            if (employeeList.Count > 0)
-            {
-                return true;
-            }
-
-            return false;
+            txtSearch.Text = "";
+            txtFirstName.Text = "";
+            txtMiddleName.Text = "";
+            txtLastName.Text = "";
+            cbxGender.SelectedIndex = 0;
+            dtDateOfBirth.Value = DateTime.Today;
+            txtHomePhone.Text = "";
+            txtAddress1.Text = "";
+            txtAddress2.Text = "";
+            txtCity.Text = "";
+            txtPostalCode.Text = "";
+            txtUsername.Text = "";
+            txtPassword.Text = "";
+            cbxStatus.SelectedIndex = 0;
+            btnRegister.Enabled = true;
+            btnUpdate.Enabled = false;
+            btnClear.Enabled = true;
         }
-
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -421,6 +423,9 @@ namespace FurnitureRentals.User_Controls
             }
         }
 
-
+        private void cbxSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            clearAllFields();
+        }
     }
 }
