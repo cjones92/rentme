@@ -92,7 +92,7 @@ namespace FurnitureRentals.User_Controls
                 errorMessage = "Please enter " + searchCriteria;
                 txtSearch.Focus();
             }
-          
+
             else if (searchCriteria == "Phone Number")
             {
                 try
@@ -255,6 +255,12 @@ namespace FurnitureRentals.User_Controls
                     employee.Status = cbxStatus.Text;
 
                     String name = employee.FirstName + " " + employee.LastName;
+                    string errorMessage = isValidPhoneNumberAndZip(employee);
+                    if (errorMessage.Length > 0)
+                    {
+                        MessageBox.Show(errorMessage, "Error");
+                        return;
+                    }
 
                     bool isRegistered = this.employeeController.RegisterEmployee(employee);
                     if (isRegistered)
@@ -273,6 +279,69 @@ namespace FurnitureRentals.User_Controls
             }
         }
 
+        private string isValidPhoneNumberAndZip(Employee employee)
+        {
+            string errorMessage = "";
+            if (employee.Phone.Trim().Length > 0)
+            {
+                try
+                {
+                    Convert.ToInt64(employee.Phone);
+                }
+                catch (FormatException)
+                {
+                    txtHomePhone.Focus();
+                    errorMessage = "Please enter valid phone number.";
+                }
+            }
+
+            if (employee.PostalCode.Trim().Length > 0)
+            {
+                string postalCode = employee.PostalCode.Trim();
+                String firstPart = postalCode.Substring(0, 5);
+                try
+                {
+                    Convert.ToInt64(firstPart);
+                }
+                catch (FormatException)
+                {
+                    txtHomePhone.Focus();
+                    errorMessage = "Please enter valid postal code.";
+                    return errorMessage;
+                }
+
+                String secondPart = "";
+                if (postalCode.Length > 5)
+                {
+                    secondPart = postalCode.Substring(5, 1);
+                    if (secondPart != "-")
+                    {
+                        txtHomePhone.Focus();
+                        errorMessage = "Please enter valid postal code.";
+                        return errorMessage;
+                    }
+                }
+
+                String thirdPart = "";
+                if (postalCode.Length == 10)
+                {
+                    thirdPart = postalCode.Substring(6);
+                    try
+                    {
+                        Convert.ToInt64(thirdPart);
+                    }
+                    catch (FormatException)
+                    {
+                        txtHomePhone.Focus();
+                        errorMessage = "Please enter valid postal code.";
+                        return errorMessage;
+                    }
+                }
+            }
+
+            return errorMessage;
+
+        }
 
         private bool IsValidData()
         {
@@ -335,21 +404,6 @@ namespace FurnitureRentals.User_Controls
                 MessageBox.Show("Password cannot be longer than 45 characters", "Invalid Password");
                 return false;
             }
-
-            else if (txtHomePhone.Text.Trim().Length > 0)
-            {
-                try
-                {
-                    Convert.ToInt64(employee.Phone);
-                    return true;
-                }
-                catch (FormatException)
-                {
-                    txtHomePhone.Focus();
-                    MessageBox.Show("Please enter valid phone number", "Invalid Phone Number");
-                    return false;
-                }
-            }
             else
 
             {
@@ -403,6 +457,14 @@ namespace FurnitureRentals.User_Controls
                     this.employee.UserName = txtUsername.Text;
                     this.employee.Password = txtPassword.Text;
                     this.employee.Status = cbxStatus.Text;
+
+                    string errorMessage = isValidPhoneNumberAndZip(employee);
+                    if (errorMessage.Length > 0)
+                    {
+                        MessageBox.Show(errorMessage, "Error");
+                        return;
+                    }
+
 
                     bool isUpdated = EmployeeController.UpdateEmployee(this.employee);
 
