@@ -42,6 +42,7 @@
             // 
             // SignInComboBox
             // 
+            this.SignInComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SignInComboBox.FormattingEnabled = true;
             this.SignInComboBox.Location = new System.Drawing.Point(165, 65);
             this.SignInComboBox.Name = "SignInComboBox";

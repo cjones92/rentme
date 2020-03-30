@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace FurnitureRentals.User_Controls
 {
     /// <summary>
-    /// Class adds a new incident to the in-memory database
+    /// Logic for Manage customer user control
     /// </summary>
     public partial class ManageCustomerUserControl : UserControl
     {
@@ -399,6 +399,14 @@ namespace FurnitureRentals.User_Controls
             }
 
             return false;
+        }
+
+        private void cbxSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.clearAllFields();
+            txtSearch.Text = "";
+            btnRegister.Enabled = true;
+            btnUpdate.Enabled = false;
         }
     }
 }

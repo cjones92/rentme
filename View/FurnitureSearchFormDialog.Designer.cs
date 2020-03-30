@@ -56,7 +56,7 @@
             // SearchOptionsComboBox
             // 
             this.SearchOptionsComboBox.FormattingEnabled = true;
-            this.SearchOptionsComboBox.Location = new System.Drawing.Point(156, 54);
+            this.SearchOptionsComboBox.Location = new System.Drawing.Point(156, 34);
             this.SearchOptionsComboBox.Name = "SearchOptionsComboBox";
             this.SearchOptionsComboBox.Size = new System.Drawing.Size(121, 21);
             this.SearchOptionsComboBox.TabIndex = 12;
@@ -65,7 +65,7 @@
             // SerialNumberLabel
             // 
             this.SerialNumberLabel.AutoSize = true;
-            this.SerialNumberLabel.Location = new System.Drawing.Point(321, 54);
+            this.SerialNumberLabel.Location = new System.Drawing.Point(338, 42);
             this.SerialNumberLabel.Name = "SerialNumberLabel";
             this.SerialNumberLabel.Size = new System.Drawing.Size(76, 13);
             this.SerialNumberLabel.TabIndex = 16;
@@ -74,7 +74,7 @@
             // CategoryLabel
             // 
             this.CategoryLabel.AutoSize = true;
-            this.CategoryLabel.Location = new System.Drawing.Point(345, 54);
+            this.CategoryLabel.Location = new System.Drawing.Point(362, 41);
             this.CategoryLabel.Name = "CategoryLabel";
             this.CategoryLabel.Size = new System.Drawing.Size(52, 13);
             this.CategoryLabel.TabIndex = 17;
@@ -83,7 +83,7 @@
             // StyleLabel
             // 
             this.StyleLabel.AutoSize = true;
-            this.StyleLabel.Location = new System.Drawing.Point(364, 54);
+            this.StyleLabel.Location = new System.Drawing.Point(381, 41);
             this.StyleLabel.Name = "StyleLabel";
             this.StyleLabel.Size = new System.Drawing.Size(33, 13);
             this.StyleLabel.TabIndex = 18;
@@ -92,7 +92,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(92, 54);
+            this.label1.Location = new System.Drawing.Point(92, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 19;
@@ -108,7 +108,7 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn2});
             this.FurnitureDataGridView.DataSource = this.furnitureBindingSource;
-            this.FurnitureDataGridView.Location = new System.Drawing.Point(95, 126);
+            this.FurnitureDataGridView.Location = new System.Drawing.Point(95, 93);
             this.FurnitureDataGridView.Name = "FurnitureDataGridView";
             this.FurnitureDataGridView.Size = new System.Drawing.Size(446, 220);
             this.FurnitureDataGridView.TabIndex = 20;
@@ -116,7 +116,7 @@
             // SerialNumberTextBox
             // 
             this.SerialNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureBindingSource, "SerialNumber", true));
-            this.SerialNumberTextBox.Location = new System.Drawing.Point(420, 51);
+            this.SerialNumberTextBox.Location = new System.Drawing.Point(420, 35);
             this.SerialNumberTextBox.Name = "SerialNumberTextBox";
             this.SerialNumberTextBox.Size = new System.Drawing.Size(121, 20);
             this.SerialNumberTextBox.TabIndex = 23;
@@ -124,7 +124,7 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(335, 367);
+            this.AddButton.Location = new System.Drawing.Point(365, 333);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(75, 23);
             this.AddButton.TabIndex = 24;
@@ -134,7 +134,7 @@
             // 
             // CloseFurnitureButton
             // 
-            this.CloseFurnitureButton.Location = new System.Drawing.Point(438, 367);
+            this.CloseFurnitureButton.Location = new System.Drawing.Point(466, 333);
             this.CloseFurnitureButton.Name = "CloseFurnitureButton";
             this.CloseFurnitureButton.Size = new System.Drawing.Size(75, 23);
             this.CloseFurnitureButton.TabIndex = 25;
@@ -145,8 +145,9 @@
             // CategoryDescriptionComboBox
             // 
             this.CategoryDescriptionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoryBindingSource, "CategoryDescription", true));
+            this.CategoryDescriptionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CategoryDescriptionComboBox.FormattingEnabled = true;
-            this.CategoryDescriptionComboBox.Location = new System.Drawing.Point(420, 51);
+            this.CategoryDescriptionComboBox.Location = new System.Drawing.Point(420, 34);
             this.CategoryDescriptionComboBox.Name = "CategoryDescriptionComboBox";
             this.CategoryDescriptionComboBox.Size = new System.Drawing.Size(121, 21);
             this.CategoryDescriptionComboBox.TabIndex = 26;
@@ -155,8 +156,9 @@
             // StyleDescriptionComboBox
             // 
             this.StyleDescriptionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.styleBindingSource, "StyleDescription", true));
+            this.StyleDescriptionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.StyleDescriptionComboBox.FormattingEnabled = true;
-            this.StyleDescriptionComboBox.Location = new System.Drawing.Point(420, 99);
+            this.StyleDescriptionComboBox.Location = new System.Drawing.Point(420, 34);
             this.StyleDescriptionComboBox.Name = "StyleDescriptionComboBox";
             this.StyleDescriptionComboBox.Size = new System.Drawing.Size(121, 21);
             this.StyleDescriptionComboBox.TabIndex = 27;
@@ -179,30 +181,34 @@
             this.dataGridViewTextBoxColumn1.DataPropertyName = "SerialNumber";
             this.dataGridViewTextBoxColumn1.HeaderText = "SerialNumber";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "ItemDescription";
             this.dataGridViewTextBoxColumn6.HeaderText = "ItemDescription";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "FurnitureStyle";
             this.dataGridViewTextBoxColumn3.HeaderText = "FurnitureStyle";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Quantity";
             this.dataGridViewTextBoxColumn2.HeaderText = "Quantity";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // FurnitureSearchFormDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 410);
+            this.ClientSize = new System.Drawing.Size(648, 392);
             this.Controls.Add(this.StyleDescriptionComboBox);
             this.Controls.Add(this.CategoryDescriptionComboBox);
             this.Controls.Add(this.CloseFurnitureButton);
@@ -234,15 +240,15 @@
         private System.Windows.Forms.BindingSource furnitureBindingSource;
         private System.Windows.Forms.DataGridView FurnitureDataGridView;
         private System.Windows.Forms.TextBox SerialNumberTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button CloseFurnitureButton;
         private System.Windows.Forms.BindingSource categoryBindingSource;
         private System.Windows.Forms.ComboBox CategoryDescriptionComboBox;
         private System.Windows.Forms.BindingSource styleBindingSource;
         private System.Windows.Forms.ComboBox StyleDescriptionComboBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

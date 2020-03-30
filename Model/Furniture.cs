@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.Model
 {
+    /// <summary>
+    /// Class for furniture objects
+    /// </summary>
     class Furniture
     {
        public string SerialNumber { get; set; }

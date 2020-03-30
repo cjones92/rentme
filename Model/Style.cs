@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.Model
 {
+    /// <summary>
+    /// Class for style objects
+    /// </summary>
     class Style
     {
         public int StyleID { get; set; }
