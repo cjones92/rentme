@@ -147,6 +147,9 @@ namespace FurnitureRentals.DAL
         public static bool RegisterEmployee(Employee employee)
         {
 
+            var convertedPassword = System.Text.Encoding.UTF8.GetBytes(employee.Password);
+            string encodedPassword = System.Convert.ToBase64String(convertedPassword);
+
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
             {
                 string insertStatement =
@@ -155,7 +158,7 @@ namespace FurnitureRentals.DAL
                 "city, state, zipcode, phone_number, username, password, status) " +
                 "VALUES (@first_name, @middle_name, @last_name, @sex, @date_of_birth, @address1, " +
                 "@address2, @city, @state, @zipcode, @phone_number, @username, @password, @status)";
-
+                
 
                 connection.Open();
 
@@ -173,7 +176,7 @@ namespace FurnitureRentals.DAL
                     insertCommand.Parameters.AddWithValue("@zipcode", employee.PostalCode);
                     insertCommand.Parameters.AddWithValue("@phone_number", employee.Phone);
                     insertCommand.Parameters.AddWithValue("@username", employee.UserName);
-                    insertCommand.Parameters.AddWithValue("@password", employee.Password);
+                    insertCommand.Parameters.AddWithValue("@password", encodedPassword);
                     insertCommand.Parameters.AddWithValue("@status", employee.Status);
 
                     insertCommand.ExecuteNonQuery();

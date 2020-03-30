@@ -249,8 +249,7 @@ namespace FurnitureRentals.User_Controls
                     employee.Password = txtPassword.Text;
                     employee.Status = cbxStatus.Text;
 
-                    String name = employee.FirstName + " " + employee.LastName;
-
+                    
                     if (this.isEmployeeExist(employee.Phone))
                     {
                         MessageBox.Show("Employee already exists.", "Info");
