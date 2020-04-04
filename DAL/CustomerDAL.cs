@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FurnitureRentals.DAL
 {
@@ -97,7 +98,7 @@ namespace FurnitureRentals.DAL
                 string sqlStatement = "INSERT INTO CUSTOMER (first_name, middle_name, last_name, sex, " +
                 "date_of_birth, phone_number, address1, address2, city, state, zipcode) " +
                 "VALUES (@FirstName, @MiddleName, @LastName, @Gender, @DateOfBirth, @PhoneNumber, @Address1," +
-                "@Address2, @City, @State, @PostalCode)";
+                "@Address2, @City, @State, @PostalCode); SELECT SCOPE_IDENTITY() ";
 
                 connection.Open();
 
@@ -115,8 +116,8 @@ namespace FurnitureRentals.DAL
                     insertCommand.Parameters.AddWithValue("@City", customer.City);
                     insertCommand.Parameters.AddWithValue("@State", customer.State);
                     insertCommand.Parameters.AddWithValue("@PostalCode", customer.PostalCode);
+                    customer.CustomerId = Convert.ToInt32(insertCommand.ExecuteScalar());
 
-                    insertCommand.ExecuteNonQuery();
                     return true;
                 }
             }

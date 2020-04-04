@@ -208,7 +208,7 @@ namespace FurnitureRentals.User_Controls
                 }
                 else if (this.customerController.RegisterCustomer(customer))
                 {
-                    MessageBox.Show("Customer registered successfully!", "Success");
+                    MessageBox.Show("Customer (ID: "+ customer.CustomerId + ") registered successfully!", "Success");
                 }
                 else
                 {
