@@ -254,7 +254,7 @@ namespace FurnitureRentals.User_Controls
                 }
                 else if (this.customerController.UpdateCustomer(customer))
                 {
-                    MessageBox.Show("Customer updated successfully!", "Success");
+                    MessageBox.Show("Customer (ID: "+customer.CustomerId+") updated successfully!", "Success");
                 }
                 else
                 {
@@ -306,7 +306,29 @@ namespace FurnitureRentals.User_Controls
                 txtLastName.Focus();
                 errorMessage = "Please enter valid last name!";
             }
-            else if (customer.HomePhone.Trim().Length == 0)
+            else {
+                if(dtDateOfBirth.Value >= DateTime.Now)
+                {
+                    errorMessage = "Customer needs to be atleast 18 years old!";
+                } 
+                else
+                {
+                    DateTime dateOfBirth = dtDateOfBirth.Value;
+                    DateTime dateOfBirth18 = new DateTime(dateOfBirth.Year + 18, dateOfBirth.Month, dateOfBirth.Day);
+
+                    if (dateOfBirth18 > DateTime.Now)
+                    {
+                        errorMessage = "Customer needs to be atleast 18 years old!";
+                    }
+                }
+            }
+
+            if(errorMessage.Length>0)
+            {
+                return errorMessage;
+            } 
+            
+            if (customer.HomePhone.Trim().Length == 0)
             {
                 txtHomePhone.Focus();
                 errorMessage = "Please enter valid phone number!";
@@ -333,8 +355,8 @@ namespace FurnitureRentals.User_Controls
             if(errorMessage.Length>0)
             {
                 return errorMessage;
-            }
-
+            } 
+            
             if (customer.HomePhone.Trim().Length != 10)
             {
                 txtHomePhone.Focus();

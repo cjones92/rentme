@@ -132,16 +132,17 @@ namespace FurnitureRentals.DAL
         {
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
             {
-                string sqlStatement = "UPDATE CUSTOMER SET middle_name = @MiddleName, sex = @Gender, " +
-                "date_of_birth = @DateOfBirth, phone_number=@PhoneNumber, address1=@Address1, address2=@Address2, " +
-                "city=@City, state=@State, zipcode=@PostalCode " +
-                "WHERE first_name=@FirstName and last_name=@LastName";
+                string sqlStatement = "UPDATE CUSTOMER SET first_name=@FirstName, middle_name = @MiddleName, " +
+                    "last_name = @LastName, sex = @Gender, date_of_birth = @DateOfBirth, phone_number=@PhoneNumber, " +
+                    "address1=@Address1, address2=@Address2, city=@City, state=@State, zipcode=@PostalCode " +
+                    "WHERE customer_id=@CustomerId";
 
                 connection.Open();
 
                 using (SqlCommand updateCommand = new SqlCommand(sqlStatement, connection))
                 {
                     updateCommand.Connection = connection;
+                    updateCommand.Parameters.AddWithValue("@CustomerId", customer.CustomerId);
                     updateCommand.Parameters.AddWithValue("@FirstName", customer.FirstName);
                     updateCommand.Parameters.AddWithValue("@MiddleName", customer.MiddleName);
                     updateCommand.Parameters.AddWithValue("@LastName", customer.LastName);
