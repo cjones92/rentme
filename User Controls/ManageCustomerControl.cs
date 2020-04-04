@@ -92,7 +92,7 @@ namespace FurnitureRentals.User_Controls
             {
                 try
                 {
-                    int customerId = Convert.ToInt32(txtSearch.Text);
+                    long phoneNumber = Convert.ToInt64(txtSearch.Text);
                     if (txtSearch.Text.Length < 10 || txtSearch.Text.Length > 10)
                     {
                         errorMessage = "Please enter valid phone number!";
@@ -330,7 +330,17 @@ namespace FurnitureRentals.User_Controls
                 errorMessage = "Please enter valid postal code!";
             }
 
-            if (customer.HomePhone.Trim().Length > 0)
+            if(errorMessage.Length>0)
+            {
+                return errorMessage;
+            }
+
+            if (customer.HomePhone.Trim().Length != 10)
+            {
+                txtHomePhone.Focus();
+                errorMessage = "Please enter valid phone number!";
+            }
+            else
             {
                 try
                 {
@@ -343,48 +353,61 @@ namespace FurnitureRentals.User_Controls
                 }
             }
 
-            if (customer.PostalCode.Trim().Length > 0)
+            if (errorMessage.Length > 0)
+            {
+                return errorMessage;
+            }
+
+            if (customer.PostalCode.Trim().Length == 5)
+            {
+                string postalCode = customer.PostalCode.Trim();
+                try
+                {
+                    Convert.ToInt64(postalCode);
+                }
+                catch (FormatException)
+                {
+                    txtPostalCode.Focus();
+                    errorMessage = "Please enter valid postal code!";
+                }
+            }
+            else if (customer.PostalCode.Trim().Length == 10)
             {
                 string postalCode = customer.PostalCode.Trim();
                 String firstPart = postalCode.Substring(0, 5);
+                String secondPart = postalCode.Substring(5, 1);
+                String thirdPart = postalCode.Substring(6);
+
                 try
                 {
                     Convert.ToInt64(firstPart);
                 }
                 catch (FormatException)
                 {
-                    txtHomePhone.Focus();
+                    txtPostalCode.Focus();
                     errorMessage = "Please enter valid postal code!";
-                    return errorMessage;
                 }
 
-                String secondPart = "";
-                if (postalCode.Length > 5)
+                if (secondPart != "-")
                 {
-                    secondPart = postalCode.Substring(5, 1);
-                    if (secondPart != "-")
-                    {
-                        txtHomePhone.Focus();
-                        errorMessage = "Please enter valid postal code!";
-                        return errorMessage;
-                    }
+                    txtPostalCode.Focus();
+                    errorMessage = "Please enter valid postal code!";
                 }
 
-                String thirdPart = "";
-                if (postalCode.Length == 10)
+                try
                 {
-                    thirdPart = postalCode.Substring(6);
-                    try
-                    {
-                        Convert.ToInt64(thirdPart);
-                    }
-                    catch (FormatException)
-                    {
-                        txtHomePhone.Focus();
-                        errorMessage = "Please enter valid postal code!";
-                        return errorMessage;
-                    }
+                    Convert.ToInt64(thirdPart);
                 }
+                catch (FormatException)
+                {
+                    txtPostalCode.Focus();
+                    errorMessage = "Please enter valid postal code!";
+                }
+            }
+            else
+            {
+                txtPostalCode.Focus();
+                errorMessage = "Please enter valid postal code!";
             }
 
             return errorMessage;
