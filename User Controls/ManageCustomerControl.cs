@@ -17,6 +17,7 @@ namespace FurnitureRentals.User_Controls
         private readonly CustomerController customerController;
         private List<Customer> customerList = new List<Customer>();
         private int customerId = 0;
+        private string phoneNumber = "";
 
         private string[] states = new string[]
         {
@@ -164,6 +165,7 @@ namespace FurnitureRentals.User_Controls
             btnRegister.Enabled = false;
             btnUpdate.Enabled = true;
 
+            phoneNumber = customer.HomePhone;
             customerId = customer.CustomerId;
             txtFirstName.Text = customer.FirstName;
             txtMiddleName.Text = customer.MiddleName;
@@ -247,7 +249,7 @@ namespace FurnitureRentals.User_Controls
                     return;
                 }
 
-                if (this.isCustomerExist(customer.HomePhone))
+                if (phoneNumber!= customer.HomePhone && this.isCustomerExist(customer.HomePhone))
                 {
                     MessageBox.Show("Phone number associated with different customer!", "Error");
                     txtHomePhone.Focus();
