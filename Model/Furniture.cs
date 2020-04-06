@@ -9,11 +9,13 @@ namespace FurnitureRentals.Model
     /// <summary>
     /// Class for furniture objects
     /// </summary>
-    class Furniture
+   public class Furniture
     {
        public string SerialNumber { get; set; }
 
        public int Quantity { get; set; }
+
+        public int QuantityAvailable { get; set; }
 
        public string FurnitureStyle { get; set; }
 

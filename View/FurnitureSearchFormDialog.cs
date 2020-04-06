@@ -83,7 +83,7 @@ namespace FurnitureRentals.View
         private void LoadFurnitureGridView()
         {
             List<Furniture> furnitureList;
-
+            
             FurnitureDataGridView.AllowUserToAddRows = false;
 
             try
@@ -204,6 +204,88 @@ namespace FurnitureRentals.View
         private void CloseFurnitureButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.No;
+        }
+
+        /// <summary>
+        /// This method returns the furniture chosen to be added to the cart.
+        /// </summary>
+        /// <returns></returns>
+        public List<Furniture> GetSelectedFurniture()
+        {
+            List<Furniture> furnitureList = new List<Furniture>();
+            foreach(DataGridViewRow row in this.FurnitureDataGridView.SelectedRows )
+            {
+                string serialNumber = row.Cells[0].Value.ToString();
+                Furniture selectedFurniture = this.furnitureController.GetFurnitureBySerialNumber(serialNumber)[0];
+                selectedFurniture.QuantityAvailable = int.Parse(row.Cells[4].Value.ToString());
+                furnitureList.Add(selectedFurniture);
+            }
+
+            return furnitureList;
+        }
+
+        public List<int> GetOrderedValues()
+        {
+            List<int> quantityList = new List<int>();
+            foreach (DataGridViewRow row in this.FurnitureDataGridView.SelectedRows)
+            {
+                
+                int quantityToBeOrdered = int.Parse(row.Cells[4].Value.ToString());
+                int quantityAvailable = int.Parse(row.Cells[3].Value.ToString());
+
+                if (quantityAvailable <= quantityToBeOrdered)
+                {
+                    quantityList.Add(quantityToBeOrdered);
+                }
+                else
+                {
+                    MessageBox.Show("You cannot order more than the amount available.");
+                }
+            }
+
+            return quantityList;
+        }
+
+        private void FurnitureDataGridView_CellValidating(object sender,
+                                          DataGridViewCellValidatingEventArgs e)
+        {
+            int quantityToBeOrdered = 0;
+            if (FurnitureDataGridView.SelectedRows.Count > 0 && FurnitureDataGridView.SelectedRows[0].Cells[4].Value != null) {
+                 quantityToBeOrdered = int.Parse(FurnitureDataGridView.SelectedRows[0].Cells[4].Value.ToString());
+            } 
+            int quantityAvailable = int.Parse(FurnitureDataGridView.SelectedRows[0].Cells[3].Value.ToString());
+
+            if (e.ColumnIndex == 4) // 1 should be your column index
+            {
+                int i;
+
+                if (string.IsNullOrEmpty(e.FormattedValue.ToString())) {
+
+                }
+
+                else if (!int.TryParse(Convert.ToString(e.FormattedValue), out i))
+                {
+                    e.Cancel = true;
+                    MessageBox.Show("Please enter a numeric value");
+                }
+                else if (quantityToBeOrdered > quantityAvailable)
+                {
+                    e.Cancel = true;
+                    MessageBox.Show("You cannot order more than the amount available.");
+                } else
+                {
+
+                }
+            }
+        }
+
+        void FurnitureDataGridView_CurrentCellDirtyStateChanged(object sender,
+    EventArgs e)
+        {
+            if (FurnitureDataGridView.IsCurrentCellDirty)
+            {
+                FurnitureDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
         }
     }
 }

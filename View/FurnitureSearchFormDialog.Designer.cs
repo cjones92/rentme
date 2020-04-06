@@ -40,6 +40,7 @@
             this.CloseFurnitureButton = new System.Windows.Forms.Button();
             this.CategoryDescriptionComboBox = new System.Windows.Forms.ComboBox();
             this.StyleDescriptionComboBox = new System.Windows.Forms.ComboBox();
+            this.QuantityBeingOrdered = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.styleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.furnitureBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -106,12 +107,16 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn2});
+            this.dataGridViewTextBoxColumn2,
+            this.QuantityBeingOrdered});
             this.FurnitureDataGridView.DataSource = this.furnitureBindingSource;
-            this.FurnitureDataGridView.Location = new System.Drawing.Point(95, 93);
+            this.FurnitureDataGridView.Location = new System.Drawing.Point(127, 92);
             this.FurnitureDataGridView.Name = "FurnitureDataGridView";
+            this.FurnitureDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.FurnitureDataGridView.Size = new System.Drawing.Size(446, 220);
             this.FurnitureDataGridView.TabIndex = 20;
+            this.FurnitureDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.FurnitureDataGridView_CellValidating);
+            this.FurnitureDataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.FurnitureDataGridView_CurrentCellDirtyStateChanged);
             // 
             // SerialNumberTextBox
             // 
@@ -163,6 +168,11 @@
             this.StyleDescriptionComboBox.Size = new System.Drawing.Size(121, 21);
             this.StyleDescriptionComboBox.TabIndex = 27;
             this.StyleDescriptionComboBox.SelectedIndexChanged += new System.EventHandler(this.StyleDescriptionComboBox_SelectedIndexChanged);
+            // 
+            // QuantityBeingOrdered
+            // 
+            this.QuantityBeingOrdered.HeaderText = "Quantity Being Ordered";
+            this.QuantityBeingOrdered.Name = "QuantityBeingOrdered";
             // 
             // styleBindingSource
             // 
@@ -250,5 +260,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuantityBeingOrdered;
     }
 }
