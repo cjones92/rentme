@@ -97,7 +97,7 @@ namespace FurnitureRentals.User_Controls
             {
                 try
                 {
-                    int employeeId = Convert.ToInt32(txtSearch.Text);
+                    long phoneNumber = Convert.ToInt64(txtSearch.Text);
                     if (txtSearch.Text.Length < 10 || txtSearch.Text.Length > 10)
                     {
                         errorMessage = "Please enter valid phone number.";
