@@ -345,6 +345,8 @@ namespace FurnitureRentals.User_Controls
 
         private bool IsValidData()
         {
+            DateTime dateOfBirth = dtDateOfBirth.Value;
+            DateTime dateOfBirth18 = new DateTime(dateOfBirth.Year + 18, dateOfBirth.Month, dateOfBirth.Day);
 
             if (txtFirstName.Text == "" ||
                 txtLastName.Text == "" ||
@@ -373,12 +375,16 @@ namespace FurnitureRentals.User_Controls
                 MessageBox.Show("Last Name cannot be longer than 45 characters.", "Invalid Last Name");
                 return false;
             }
+            else if (dateOfBirth18 > DateTime.Today)
+            {
+                MessageBox.Show("Employee must be at least 18 years old.", "Invalid Date Of Birth");
+                return false;
+            }
             else if (txtAddress1.Text.Trim().Length > 250)
             {
                 MessageBox.Show("Street Address cannot be longer than 250 characters.", "Invalid Street Address");
                 return false;
             }
-
             else if (txtCity.Text.Trim().Length > 45)
             {
                 MessageBox.Show("City cannot be longer than 45 characters.", "Invalid City");
@@ -393,7 +399,6 @@ namespace FurnitureRentals.User_Controls
                 MessageBox.Show("Please enter valid postal code.", "Invalid Zip Code");
                 return false;
             }
-
             else if (txtUsername.Text.Trim().Length > 45)
             {
                 MessageBox.Show("Username cannot be longer than 45 characters", "Invalid Username");
