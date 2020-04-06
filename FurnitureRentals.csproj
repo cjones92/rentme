@@ -63,6 +63,12 @@
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Furniture.cs" />
     <Compile Include="Model\Style.cs" />
+    <Compile Include="User Controls\CustomerRentalShoppingCartUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\CustomerRentalShoppingCartUserControl.Designer.cs">
+      <DependentUpon>CustomerRentalShoppingCartUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Controls\ManageCustomerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,6 +128,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="User Controls\CustomerRentalShoppingCartUserControl.resx">
+      <DependentUpon>CustomerRentalShoppingCartUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User Controls\ManageCustomerControl.resx">
       <DependentUpon>ManageCustomerControl.cs</DependentUpon>
     </EmbeddedResource>
