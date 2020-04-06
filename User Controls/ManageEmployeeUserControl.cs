@@ -287,7 +287,7 @@ namespace FurnitureRentals.User_Controls
                 if (employee.Phone.Trim().Length != 10)
                 {
                     txtHomePhone.Focus();
-                    errorMessage = "Please enter valid phone number!;
+                    errorMessage = "Please enter valid phone number";
                 }
                 else
                 {
