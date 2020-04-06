@@ -13,10 +13,13 @@ using FurnitureRentals.View;
 namespace FurnitureRentals.User_Controls
 {
     public partial class CustomerRentalShoppingCartUserControl : UserControl
+
     {
+        List<Furniture> furnitureList;
         public CustomerRentalShoppingCartUserControl()
         {
             InitializeComponent();
+            this.furnitureList = new List<Furniture>();
         }
 
        private void LoadRentalDataGridView()
@@ -25,8 +28,9 @@ namespace FurnitureRentals.User_Controls
             {
                 RentalDataGridView.AllowUserToAddRows = false;
                 RentalDataGridView.RowHeadersVisible = false;
-                List<Furniture> rentalList = new List<Furniture>();
-                RentalDataGridView.DataSource = rentalList;
+              
+                
+                RentalDataGridView.DataSource = furnitureList;
                
 
                 foreach (DataGridViewRow row in RentalDataGridView.Rows)
@@ -61,7 +65,8 @@ namespace FurnitureRentals.User_Controls
 
             if (addedResult == DialogResult.OK)
             {
-                ///Code will go here to add items chosen in furniture search to shopping cart when it is created
+                furnitureList = furnitureSearchForm.GetSelectedFurniture();
+                this.LoadRentalDataGridView();
             }
 
         }

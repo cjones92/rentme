@@ -213,7 +213,7 @@ namespace FurnitureRentals.View
         public List<Furniture> GetSelectedFurniture()
         {
             List<Furniture> furnitureList = new List<Furniture>();
-            foreach(DataGridViewRow row in this.FurnitureDataGridView.SelectedRows )
+            foreach(DataGridViewRow row in this.FurnitureDataGridView.Rows )
             {
                 string serialNumber = row.Cells[0].Value.ToString();
                 Furniture selectedFurniture = this.furnitureController.GetFurnitureBySerialNumber(serialNumber)[0];
