@@ -284,15 +284,24 @@ namespace FurnitureRentals.User_Controls
             string errorMessage = "";
             if (employee.Phone.Trim().Length > 0)
             {
-                try
-                {
-                    Convert.ToInt64(employee.Phone);
-                }
-                catch (FormatException)
+                if (employee.Phone.Trim().Length != 10)
                 {
                     txtHomePhone.Focus();
-                    errorMessage = "Please enter valid phone number.";
+                    errorMessage = "Please enter valid phone number!;
                 }
+                else
+                {
+                    try
+                    {
+                        Convert.ToInt64(employee.Phone);
+                    }
+                    catch (FormatException)
+                    {
+                        txtHomePhone.Focus();
+                        errorMessage = "Please enter valid phone number.";
+                    }
+                }
+
             }
 
             if (employee.PostalCode.Trim().Length > 0)
