@@ -105,16 +105,16 @@ namespace FurnitureRentals.DAL
                 using (SqlCommand insertCommand = new SqlCommand(sqlStatement, connection))
                 {
                     insertCommand.Connection = connection;
-                    insertCommand.Parameters.AddWithValue("@FirstName", customer.FirstName);
-                    insertCommand.Parameters.AddWithValue("@MiddleName", customer.MiddleName);
-                    insertCommand.Parameters.AddWithValue("@LastName", customer.LastName);
+                    insertCommand.Parameters.AddWithValue("@FirstName", customer.FirstName.Trim());
+                    insertCommand.Parameters.AddWithValue("@MiddleName", customer.MiddleName.Trim());
+                    insertCommand.Parameters.AddWithValue("@LastName", customer.LastName.Trim());
                     insertCommand.Parameters.AddWithValue("@Gender", customer.Gender);
                     insertCommand.Parameters.AddWithValue("@DateOfBirth", customer.DateOfBirth);
                     insertCommand.Parameters.AddWithValue("@PhoneNumber", customer.HomePhone);
-                    insertCommand.Parameters.AddWithValue("@Address1", customer.Address1);
-                    insertCommand.Parameters.AddWithValue("@Address2", customer.Address2);
-                    insertCommand.Parameters.AddWithValue("@City", customer.City);
-                    insertCommand.Parameters.AddWithValue("@State", customer.State);
+                    insertCommand.Parameters.AddWithValue("@Address1", customer.Address1.Trim());
+                    insertCommand.Parameters.AddWithValue("@Address2", customer.Address2.Trim());
+                    insertCommand.Parameters.AddWithValue("@City", customer.City.Trim());
+                    insertCommand.Parameters.AddWithValue("@State", customer.State.Trim());
                     insertCommand.Parameters.AddWithValue("@PostalCode", customer.PostalCode);
                     customer.CustomerId = Convert.ToInt32(insertCommand.ExecuteScalar());
 
@@ -143,15 +143,15 @@ namespace FurnitureRentals.DAL
                 {
                     updateCommand.Connection = connection;
                     updateCommand.Parameters.AddWithValue("@CustomerId", customer.CustomerId);
-                    updateCommand.Parameters.AddWithValue("@FirstName", customer.FirstName);
-                    updateCommand.Parameters.AddWithValue("@MiddleName", customer.MiddleName);
-                    updateCommand.Parameters.AddWithValue("@LastName", customer.LastName);
+                    updateCommand.Parameters.AddWithValue("@FirstName", customer.FirstName.Trim());
+                    updateCommand.Parameters.AddWithValue("@MiddleName", customer.MiddleName.Trim());
+                    updateCommand.Parameters.AddWithValue("@LastName", customer.LastName.Trim());
                     updateCommand.Parameters.AddWithValue("@Gender", customer.Gender);
                     updateCommand.Parameters.AddWithValue("@DateOfBirth", customer.DateOfBirth);
                     updateCommand.Parameters.AddWithValue("@PhoneNumber", customer.HomePhone);
-                    updateCommand.Parameters.AddWithValue("@Address1", customer.Address1);
-                    updateCommand.Parameters.AddWithValue("@Address2", customer.Address2);
-                    updateCommand.Parameters.AddWithValue("@City", customer.City);
+                    updateCommand.Parameters.AddWithValue("@Address1", customer.Address1.Trim());
+                    updateCommand.Parameters.AddWithValue("@Address2", customer.Address2.Trim());
+                    updateCommand.Parameters.AddWithValue("@City", customer.City.Trim());
                     updateCommand.Parameters.AddWithValue("@State", customer.State);
                     updateCommand.Parameters.AddWithValue("@PostalCode", customer.PostalCode);
 
