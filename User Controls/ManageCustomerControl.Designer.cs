@@ -55,18 +55,18 @@
             this.txtMiddleName = new System.Windows.Forms.TextBox();
             this.lblPhoneInfo = new System.Windows.Forms.Label();
             this.lblPostalInfo = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblPostalCode = new System.Windows.Forms.Label();
+            this.txtPostalCode = new System.Windows.Forms.TextBox();
+            this.cbxState = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.cbxState = new System.Windows.Forms.ComboBox();
-            this.txtPostalCode = new System.Windows.Forms.TextBox();
-            this.lblPostalCode = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -74,7 +74,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.43478F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.56522F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 176F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
             this.tableLayoutPanel1.Controls.Add(this.cbxGender, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtFirstName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblLastName, 0, 3);
@@ -128,7 +128,7 @@
             this.cbxGender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.cbxGender.Location = new System.Drawing.Point(247, 189);
+            this.cbxGender.Location = new System.Drawing.Point(247, 188);
             this.cbxGender.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.cbxGender.Name = "cbxGender";
             this.cbxGender.Size = new System.Drawing.Size(169, 30);
@@ -351,14 +351,14 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(513, 44);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(512, 44);
             this.tableLayoutPanel4.TabIndex = 33;
             // 
             // txtSearch
             // 
             this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtSearch.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(249, 7);
+            this.txtSearch.Location = new System.Drawing.Point(248, 7);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(20, 2, 3, 2);
             this.txtSearch.Multiline = true;
             this.txtSearch.Name = "txtSearch";
@@ -377,7 +377,7 @@
             "First Name Last Name",
             "Phone Number",
             "Customer ID"});
-            this.cbxSearch.Location = new System.Drawing.Point(18, 7);
+            this.cbxSearch.Location = new System.Drawing.Point(18, 6);
             this.cbxSearch.Margin = new System.Windows.Forms.Padding(18, 2, 3, 2);
             this.cbxSearch.Name = "cbxSearch";
             this.cbxSearch.Size = new System.Drawing.Size(195, 30);
@@ -398,7 +398,7 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnSearch.Location = new System.Drawing.Point(749, 6);
+            this.btnSearch.Location = new System.Drawing.Point(748, 6);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(131, 38);
@@ -423,7 +423,7 @@
             // 
             this.lblPhoneInfo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblPhoneInfo.AutoSize = true;
-            this.lblPhoneInfo.Location = new System.Drawing.Point(749, 287);
+            this.lblPhoneInfo.Location = new System.Drawing.Point(748, 287);
             this.lblPhoneInfo.Name = "lblPhoneInfo";
             this.lblPhoneInfo.Size = new System.Drawing.Size(156, 17);
             this.lblPhoneInfo.TabIndex = 34;
@@ -433,11 +433,63 @@
             // 
             this.lblPostalInfo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblPostalInfo.AutoSize = true;
-            this.lblPostalInfo.Location = new System.Drawing.Point(749, 476);
+            this.lblPostalInfo.Location = new System.Drawing.Point(748, 476);
             this.lblPostalInfo.Name = "lblPostalInfo";
             this.lblPostalInfo.Size = new System.Drawing.Size(156, 17);
             this.lblPostalInfo.TabIndex = 35;
             this.lblPostalInfo.Text = "(00000-0000 or 00000)";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.95122F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.04878F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 204F));
+            this.tableLayoutPanel2.Controls.Add(this.lblPostalCode, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtPostalCode, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cbxState, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(230, 463);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(512, 44);
+            this.tableLayoutPanel2.TabIndex = 112;
+            // 
+            // lblPostalCode
+            // 
+            this.lblPostalCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblPostalCode.AutoSize = true;
+            this.lblPostalCode.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPostalCode.Location = new System.Drawing.Point(183, 11);
+            this.lblPostalCode.Name = "lblPostalCode";
+            this.lblPostalCode.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblPostalCode.Size = new System.Drawing.Size(121, 21);
+            this.lblPostalCode.TabIndex = 113;
+            this.lblPostalCode.Text = "Postal Code :";
+            // 
+            // txtPostalCode
+            // 
+            this.txtPostalCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtPostalCode.Font = new System.Drawing.Font("Calibri", 10.2F);
+            this.txtPostalCode.Location = new System.Drawing.Point(327, 7);
+            this.txtPostalCode.Margin = new System.Windows.Forms.Padding(20, 2, 8, 2);
+            this.txtPostalCode.MaxLength = 45;
+            this.txtPostalCode.Multiline = true;
+            this.txtPostalCode.Name = "txtPostalCode";
+            this.txtPostalCode.Size = new System.Drawing.Size(176, 30);
+            this.txtPostalCode.TabIndex = 113;
+            // 
+            // cbxState
+            // 
+            this.cbxState.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbxState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxState.Font = new System.Drawing.Font("Calibri", 10.8F);
+            this.cbxState.FormattingEnabled = true;
+            this.cbxState.Location = new System.Drawing.Point(18, 6);
+            this.cbxState.Margin = new System.Windows.Forms.Padding(18, 2, 3, 2);
+            this.cbxState.Name = "cbxState";
+            this.cbxState.Size = new System.Drawing.Size(121, 30);
+            this.cbxState.TabIndex = 0;
             // 
             // tableLayoutPanel3
             // 
@@ -490,58 +542,6 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.95122F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.04878F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 203F));
-            this.tableLayoutPanel2.Controls.Add(this.lblPostalCode, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.txtPostalCode, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cbxState, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(230, 463);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(513, 44);
-            this.tableLayoutPanel2.TabIndex = 112;
-            // 
-            // cbxState
-            // 
-            this.cbxState.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbxState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxState.Font = new System.Drawing.Font("Calibri", 10.8F);
-            this.cbxState.FormattingEnabled = true;
-            this.cbxState.Location = new System.Drawing.Point(18, 9);
-            this.cbxState.Margin = new System.Windows.Forms.Padding(18, 2, 3, 2);
-            this.cbxState.Name = "cbxState";
-            this.cbxState.Size = new System.Drawing.Size(121, 30);
-            this.cbxState.TabIndex = 0;
-            // 
-            // txtPostalCode
-            // 
-            this.txtPostalCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPostalCode.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.txtPostalCode.Location = new System.Drawing.Point(329, 7);
-            this.txtPostalCode.Margin = new System.Windows.Forms.Padding(20, 2, 8, 2);
-            this.txtPostalCode.MaxLength = 45;
-            this.txtPostalCode.Multiline = true;
-            this.txtPostalCode.Name = "txtPostalCode";
-            this.txtPostalCode.Size = new System.Drawing.Size(176, 30);
-            this.txtPostalCode.TabIndex = 113;
-            // 
-            // lblPostalCode
-            // 
-            this.lblPostalCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblPostalCode.AutoSize = true;
-            this.lblPostalCode.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPostalCode.Location = new System.Drawing.Point(185, 11);
-            this.lblPostalCode.Name = "lblPostalCode";
-            this.lblPostalCode.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.lblPostalCode.Size = new System.Drawing.Size(121, 21);
-            this.lblPostalCode.TabIndex = 113;
-            this.lblPostalCode.Text = "Postal Code :";
-            // 
             // ManageCustomerUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -556,9 +556,9 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
