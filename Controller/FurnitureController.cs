@@ -18,6 +18,7 @@ namespace FurnitureRentals.Controller
         FurnitureDBDAL furnitureDBDAL;
         CategoryDBDAL categoryDBDAL;
         RentalTransactionDBDAL rentalTransactionDBDAL;
+        RentalItemDBDAL rentalItemDBDAL;
 
         /// <summary>
         /// Class controller
@@ -28,6 +29,8 @@ namespace FurnitureRentals.Controller
             this.furnitureDBDAL = new FurnitureDBDAL();
             this.styleDBDAL = new StyleDBDAL();
             this.categoryDBDAL = new CategoryDBDAL();
+            this.rentalItemDBDAL = new RentalItemDBDAL();
+
         }
 
         /// <summary>
@@ -78,10 +81,12 @@ namespace FurnitureRentals.Controller
             return this.furnitureDBDAL.GetFurnitureByStyle(styleID);
         }
 
-        public void EnterRentalTransaction(RentalTransaction transaction)
+        public string EnterRentalTransaction(RentalTransaction transaction, List<Furniture> furnitureList)
         {
-            this.rentalTransactionDBDAL.EnterRentalTransaction(transaction);
+           return this.rentalTransactionDBDAL.EnterRentalTransaction(transaction, furnitureList);
         }
+
+
 
     }
 }

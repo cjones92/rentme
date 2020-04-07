@@ -34,5 +34,9 @@ namespace FurnitureRentals.Model
        public string Category { get; set; }
 
        public int CategoryID { get; set; }
+
+       public int RentalTransactionID { get; set; }
+
+       public int RentalItemID { get; set; }
     }
 }

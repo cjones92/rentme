@@ -106,7 +106,8 @@ namespace FurnitureRentals.User_Controls
             transaction.CheckedOutByID = this.currentEmployee.EmployeeID;
             MessageBox.Show(this.currentEmployee.EmployeeID + "");
             transaction.Status = "Pending";
-            this.furnitureController.EnterRentalTransaction(transaction);
+            MessageBox.Show(this.furnitureController.EnterRentalTransaction(transaction, furnitureList));
+             
             
         }
     }

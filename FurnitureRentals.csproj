@@ -65,6 +65,7 @@
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Furniture.cs" />
+    <Compile Include="Model\RentalItem.cs" />
     <Compile Include="Model\RentalTransaction.cs" />
     <Compile Include="Model\Style.cs" />
     <Compile Include="User Controls\CustomerRentalShoppingCartUserControl.cs">

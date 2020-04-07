@@ -25,7 +25,7 @@ namespace FurnitureRentals.DAL
             List<Furniture> furnitureList = new List<Furniture>();
             chosenFurniture.SerialNumber = serialNumber;
 
-            string selectStatement = "SELECT serial_no AS 'Serial Number', furniture.description AS Item, furniture_style.description AS Style, total_available AS 'Total Available', daily_rental_rate AS 'Daily Rental Rate' " +
+            string selectStatement = "SELECT furniture.furniture_id as FurnitureID, serial_no AS 'Serial Number', furniture.description AS Item, furniture_style.description AS Style, total_available AS 'Total Available', daily_rental_rate AS 'Daily Rental Rate' " +
 "FROM furniture JOIN furniture_style ON furniture.style_id = furniture_style.style_id JOIN inventory ON furniture.furniture_id = inventory.furniture_id WHERE furniture.serial_no = @SerialNumber";
             ;
 
@@ -42,7 +42,7 @@ namespace FurnitureRentals.DAL
 
                         while (reader.Read())
                         {
-
+                            chosenFurniture.FurnitureID = (int)reader["FurnitureID"];
                             chosenFurniture.SerialNumber = reader["Serial Number"].ToString();
                             chosenFurniture.ItemDescription = reader["Item"].ToString();
                             chosenFurniture.FurnitureStyle = reader["Style"].ToString();
