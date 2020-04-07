@@ -74,5 +74,11 @@ namespace FurnitureRentals
             }
 
         }
+
+        private void ShareCustomerInformation()
+        {
+            
+            this.customerRentalShoppingCartUserControl1.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
+        }
     }
 }

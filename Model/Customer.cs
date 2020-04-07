@@ -9,7 +9,7 @@ namespace FurnitureRentals.Model
     /// <summary>
     /// Model class for Customer
     /// </summary>
-    class Customer
+    public class Customer
     {
         public int CustomerId { get; set; }
         public string FirstName { get; set; }

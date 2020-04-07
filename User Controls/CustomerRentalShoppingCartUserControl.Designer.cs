@@ -34,12 +34,16 @@
             this.TotalLabel = new System.Windows.Forms.Label();
             this.RentalDataGridView = new System.Windows.Forms.DataGridView();
             this.SubmitRentalButton = new System.Windows.Forms.Button();
+            this.CustomerName = new System.Windows.Forms.Label();
+            this.MemberIDLabel = new System.Windows.Forms.Label();
+            this.ActualNameLabel = new System.Windows.Forms.Label();
+            this.ActualIDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.RentalDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // FurnitureSearchButton
             // 
-            this.FurnitureSearchButton.Location = new System.Drawing.Point(35, 37);
+            this.FurnitureSearchButton.Location = new System.Drawing.Point(35, 55);
             this.FurnitureSearchButton.Name = "FurnitureSearchButton";
             this.FurnitureSearchButton.Size = new System.Drawing.Size(101, 23);
             this.FurnitureSearchButton.TabIndex = 0;
@@ -49,7 +53,7 @@
             // 
             // EmptyCartButton
             // 
-            this.EmptyCartButton.Location = new System.Drawing.Point(142, 37);
+            this.EmptyCartButton.Location = new System.Drawing.Point(142, 55);
             this.EmptyCartButton.Name = "EmptyCartButton";
             this.EmptyCartButton.Size = new System.Drawing.Size(75, 23);
             this.EmptyCartButton.TabIndex = 1;
@@ -75,7 +79,7 @@
             // RentalDataGridView
             // 
             this.RentalDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RentalDataGridView.Location = new System.Drawing.Point(35, 87);
+            this.RentalDataGridView.Location = new System.Drawing.Point(35, 98);
             this.RentalDataGridView.Name = "RentalDataGridView";
             this.RentalDataGridView.Size = new System.Drawing.Size(467, 215);
             this.RentalDataGridView.TabIndex = 4;
@@ -89,10 +93,50 @@
             this.SubmitRentalButton.Text = "Submit Order";
             this.SubmitRentalButton.UseVisualStyleBackColor = true;
             // 
+            // CustomerName
+            // 
+            this.CustomerName.AutoSize = true;
+            this.CustomerName.Location = new System.Drawing.Point(35, 15);
+            this.CustomerName.Name = "CustomerName";
+            this.CustomerName.Size = new System.Drawing.Size(85, 13);
+            this.CustomerName.TabIndex = 6;
+            this.CustomerName.Text = "Customer Name:";
+            // 
+            // MemberIDLabel
+            // 
+            this.MemberIDLabel.AutoSize = true;
+            this.MemberIDLabel.Location = new System.Drawing.Point(38, 36);
+            this.MemberIDLabel.Name = "MemberIDLabel";
+            this.MemberIDLabel.Size = new System.Drawing.Size(65, 13);
+            this.MemberIDLabel.TabIndex = 7;
+            this.MemberIDLabel.Text = "Member ID: ";
+            // 
+            // ActualNameLabel
+            // 
+            this.ActualNameLabel.AutoSize = true;
+            this.ActualNameLabel.Location = new System.Drawing.Point(126, 15);
+            this.ActualNameLabel.Name = "ActualNameLabel";
+            this.ActualNameLabel.Size = new System.Drawing.Size(35, 13);
+            this.ActualNameLabel.TabIndex = 8;
+            this.ActualNameLabel.Text = "label1";
+            // 
+            // ActualIDLabel
+            // 
+            this.ActualIDLabel.AutoSize = true;
+            this.ActualIDLabel.Location = new System.Drawing.Point(110, 36);
+            this.ActualIDLabel.Name = "ActualIDLabel";
+            this.ActualIDLabel.Size = new System.Drawing.Size(35, 13);
+            this.ActualIDLabel.TabIndex = 9;
+            this.ActualIDLabel.Text = "label2";
+            // 
             // CustomerRentalShoppingCartUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ActualIDLabel);
+            this.Controls.Add(this.ActualNameLabel);
+            this.Controls.Add(this.MemberIDLabel);
+            this.Controls.Add(this.CustomerName);
             this.Controls.Add(this.SubmitRentalButton);
             this.Controls.Add(this.RentalDataGridView);
             this.Controls.Add(this.TotalLabel);
@@ -115,5 +159,9 @@
         private System.Windows.Forms.Label TotalLabel;
         private System.Windows.Forms.DataGridView RentalDataGridView;
         private System.Windows.Forms.Button SubmitRentalButton;
+        private System.Windows.Forms.Label CustomerName;
+        private System.Windows.Forms.Label MemberIDLabel;
+        private System.Windows.Forms.Label ActualNameLabel;
+        private System.Windows.Forms.Label ActualIDLabel;
     }
 }

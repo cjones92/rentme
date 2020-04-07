@@ -13,6 +13,7 @@ namespace FurnitureRentals.User_Controls
     /// </summary>
     public partial class ManageCustomerUserControl : UserControl
     {
+        private Customer currentCustomer;
         private ToolTip toolTip = new ToolTip();
         private readonly CustomerController customerController;
         private List<Customer> customerList = new List<Customer>();
@@ -39,10 +40,21 @@ namespace FurnitureRentals.User_Controls
         public ManageCustomerUserControl()
         {
             InitializeComponent();
+            this.currentCustomer = new Customer();
             this.customerController = new CustomerController();
             btnRegister.Enabled = true;
             btnUpdate.Enabled = false;
             txtSearch.Focus();
+        }
+
+        public Customer GetCurrentCustomer()
+        {
+            return this.currentCustomer;
+        }
+
+        public void SetCurrentCustomer(Customer customer)
+        {
+            this.currentCustomer = customer;
         }
 
         private void ManageCustomerUserControl_Load(object sender, EventArgs e)
@@ -145,6 +157,7 @@ namespace FurnitureRentals.User_Controls
             else if (customerList.Count == 1)
             {
                 this.populateCustomerData(customerList[0]);
+                this.SetCurrentCustomer(customerList[0]);
             }
             else if (customerList.Count > 1)
             {

@@ -15,11 +15,21 @@ namespace FurnitureRentals.User_Controls
     public partial class CustomerRentalShoppingCartUserControl : UserControl
 
     {
+        Customer currentCustomer;
         List<Furniture> furnitureList;
         public CustomerRentalShoppingCartUserControl()
         {
             InitializeComponent();
             this.furnitureList = new List<Furniture>();
+            this.currentCustomer = new Customer();
+            
+        }
+
+        public void SetCurrentCustomer(Customer customer)
+        {
+            this.currentCustomer = customer;
+            this.ActualNameLabel.Text = customer.FirstName + " " + customer.LastName;
+            this.ActualIDLabel.Text = customer.CustomerId + "";
         }
 
        private void LoadRentalDataGridView()

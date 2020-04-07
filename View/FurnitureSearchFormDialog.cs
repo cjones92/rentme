@@ -214,11 +214,13 @@ namespace FurnitureRentals.View
             List<Furniture> furnitureList = new List<Furniture>();
             foreach(DataGridViewRow row in this.FurnitureDataGridView.Rows )
             {
+                
                 string serialNumber = row.Cells[0].Value.ToString();
                 Furniture selectedFurniture = this.furnitureController.GetFurnitureBySerialNumber(serialNumber)[0];
                 selectedFurniture.QuantityAvailable = int.Parse(row.Cells[4].Value.ToString());
-                selectedFurniture.TotalRentalCost = decimal.Parse(row.Cells[6].Value.ToString());
-                selectedFurniture.DaysRented = int.Parse(row.Cells[5].Value.ToString());
+                selectedFurniture.DaysRented = int.Parse(this.DaysRentingTextBox.Text);
+                decimal rentalRate = this.furnitureList[row.Index].DailyRentalRate;
+                selectedFurniture.TotalRentalCost = selectedFurniture.QuantityAvailable * selectedFurniture.DaysRented * rentalRate; 
                 furnitureList.Add(selectedFurniture);
             }
 
@@ -268,26 +270,7 @@ namespace FurnitureRentals.View
             }
         }
 
-        private void FurnitureDataGridView_CellsValidated(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex > -1)
-            {
-                DataGridViewRow row = FurnitureDataGridView.Rows[e.RowIndex];
-                decimal rentalRate = this.furnitureList[e.RowIndex].DailyRentalRate;
-                int daysRenting = 0;
-                int quantity = 0;
-                if (FurnitureDataGridView.SelectedRows[0].Cells[5].Value != null && FurnitureDataGridView.SelectedRows[0].Cells[4].Value != null)
-                {
-                    quantity = int.Parse(row.Cells[4].Value.ToString());
-                    daysRenting = int.Parse(row.Cells[5].Value.ToString());
-                    row.Cells[6].Value = quantity * rentalRate * daysRenting;
-                    
-                }
-               
-
-            }
-
-        }
+       
     }
 }
 
