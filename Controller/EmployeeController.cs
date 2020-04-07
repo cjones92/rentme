@@ -31,7 +31,7 @@ namespace FurnitureRentals.Controller
         /// <param name="UserName">Employee username<param>
         /// <param name="Password">Employee password</param>
         /// <returns>Whether login credentials are valid</returns>
-        public bool EmployeeLogin(string UserName, string Password)
+        public Employee EmployeeLogin(string UserName, string Password)
         {
             return this.employeeDBDAL.CheckPassword(UserName, Password);
         }

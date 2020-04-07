@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,12 +57,15 @@
     <Compile Include="DAL\EmployeeDBDAL.cs" />
     <Compile Include="DAL\FurnitureDBDAL.cs" />
     <Compile Include="DAL\FurnitureRentalsDBConnection.cs" />
+    <Compile Include="DAL\RentalItemDBDAL.cs" />
+    <Compile Include="DAL\RentalTransactionDBDAL.cs" />
     <Compile Include="DAL\StyleDBDAL.cs" />
     <Compile Include="Model\Administrator.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Furniture.cs" />
+    <Compile Include="Model\RentalTransaction.cs" />
     <Compile Include="Model\Style.cs" />
     <Compile Include="User Controls\CustomerRentalShoppingCartUserControl.cs">
       <SubType>UserControl</SubType>

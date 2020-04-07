@@ -92,6 +92,7 @@
             this.SubmitRentalButton.TabIndex = 5;
             this.SubmitRentalButton.Text = "Submit Order";
             this.SubmitRentalButton.UseVisualStyleBackColor = true;
+            this.SubmitRentalButton.Click += new System.EventHandler(this.SubmitRentalButton_Click);
             // 
             // CustomerName
             // 

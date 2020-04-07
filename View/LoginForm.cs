@@ -1,4 +1,5 @@
 ﻿using FurnitureRentals.Controller;
+using FurnitureRentals.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace FurnitureRentals.View
     /// </summary>
     public partial class LoginForm : Form
     {
+        private Employee loggedInEmployee;
         private EmployeeController employeeController;
         private AdminstratorController adminstratorController;
         private MainForm CurrentMainForm;
@@ -29,6 +31,7 @@ namespace FurnitureRentals.View
         {
             InitializeComponent();
             this.LoadSignInComboBox();
+            this.loggedInEmployee = new Employee();
             this.employeeController = new EmployeeController();
             this.adminstratorController = new AdminstratorController();
             this.CurrentAdminForm = new AdminMainFormWithUserControls();
@@ -41,9 +44,14 @@ namespace FurnitureRentals.View
             this.SignInComboBox.DataSource = signInList;
         }
 
+        public Employee GetCurrentEmployee()
+        {
+            return this.loggedInEmployee;
+        }
+
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            if (((string)this.SignInComboBox.SelectedValue == "Employee" && this.employeeController.EmployeeLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text)) ||
+            if (((string)this.SignInComboBox.SelectedValue == "Employee" && !string.IsNullOrEmpty(this.employeeController.EmployeeLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text).FirstName)) ||
                 (string)this.SignInComboBox.SelectedValue == "Administrator" && this.adminstratorController.AdministratorLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text))
             {
 
@@ -52,9 +60,11 @@ namespace FurnitureRentals.View
                     if (this.CurrentMainForm == null)
                     {
                         this.CurrentMainForm = new MainForm();
+                        
                     }
-
-                    this.CurrentMainForm.SetLoggedInLabelText(this.UserNameTextBox.Text);
+                    loggedInEmployee = this.employeeController.EmployeeLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text);
+                    this.CurrentMainForm.SetCurrentEmployee(this.GetCurrentEmployee());
+                    this.CurrentMainForm.SetLoggedInLabelText(loggedInEmployee.FirstName + " " + loggedInEmployee.LastName);
                     this.Hide();
                     DialogResult exitMethodResult = this.CurrentMainForm.ShowDialog();
 

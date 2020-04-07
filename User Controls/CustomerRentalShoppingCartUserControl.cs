@@ -9,20 +9,31 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FurnitureRentals.Model;
 using FurnitureRentals.View;
+using Microsoft.VisualBasic.ApplicationServices;
+using FurnitureRentals.Controller;
 
 namespace FurnitureRentals.User_Controls
 {
     public partial class CustomerRentalShoppingCartUserControl : UserControl
 
     {
+        FurnitureController furnitureController;
+        Employee currentEmployee;
         Customer currentCustomer;
         List<Furniture> furnitureList;
         public CustomerRentalShoppingCartUserControl()
         {
             InitializeComponent();
+            this.furnitureController = new FurnitureController();
             this.furnitureList = new List<Furniture>();
             this.currentCustomer = new Customer();
             
+            
+        }
+
+        public void SetCurrentEmployee(Employee employee)
+        {
+            this.currentEmployee = employee;
         }
 
         public void SetCurrentCustomer(Customer customer)
@@ -83,6 +94,20 @@ namespace FurnitureRentals.User_Controls
             }
 
             this.RentalTotalTextBox.Text = "$ " + total;
+        }
+
+        private void SubmitRentalButton_Click(object sender, EventArgs e)
+        {
+            RentalTransaction transaction = new RentalTransaction();
+            transaction.CustomerID = this.currentCustomer.CustomerId;
+            transaction.RentalDate = DateTime.Today;
+            transaction.DueDate = transaction.RentalDate.AddDays(furnitureList[0].DaysRented);
+            transaction.TotalDue = decimal.Parse(this.RentalTotalTextBox.Text.Substring(2));
+            transaction.CheckedOutByID = this.currentEmployee.EmployeeID;
+            MessageBox.Show(this.currentEmployee.EmployeeID + "");
+            transaction.Status = "Pending";
+            this.furnitureController.EnterRentalTransaction(transaction);
+            
         }
     }
 }

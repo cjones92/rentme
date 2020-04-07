@@ -17,12 +17,14 @@ namespace FurnitureRentals.Controller
         StyleDBDAL styleDBDAL;
         FurnitureDBDAL furnitureDBDAL;
         CategoryDBDAL categoryDBDAL;
+        RentalTransactionDBDAL rentalTransactionDBDAL;
 
         /// <summary>
         /// Class controller
         /// </summary>
         public FurnitureController()
         {
+            this.rentalTransactionDBDAL = new RentalTransactionDBDAL();
             this.furnitureDBDAL = new FurnitureDBDAL();
             this.styleDBDAL = new StyleDBDAL();
             this.categoryDBDAL = new CategoryDBDAL();
@@ -74,6 +76,11 @@ namespace FurnitureRentals.Controller
         public List<Furniture> GetFurnitureByStyleID(int styleID)
         {
             return this.furnitureDBDAL.GetFurnitureByStyle(styleID);
+        }
+
+        public void EnterRentalTransaction(RentalTransaction transaction)
+        {
+            this.rentalTransactionDBDAL.EnterRentalTransaction(transaction);
         }
 
     }

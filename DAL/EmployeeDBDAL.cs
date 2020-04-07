@@ -19,15 +19,16 @@ namespace FurnitureRentals.DAL
         /// <param name="userName">Employee's username</param>
         /// <param name="password">Employee's password</param>
         /// <returns>whether credentials are valid</returns>
-        public bool CheckPassword(string userName, string password)
+        public Employee CheckPassword(string userName, string password)
         {
+            Employee loggedInEmployee = new Employee();
             int foundLogins = 0;
             var convertedPassword = System.Text.Encoding.UTF8.GetBytes(password);
             string encodedPassword = System.Convert.ToBase64String(convertedPassword);
 
 
 
-            string selectStatement = "SELECT COUNT(*) AS Login FROM employee WHERE username = @UserName AND password = @Password";
+            string selectStatement = "SELECT COUNT(*) AS Login,first_name, last_name, employee_id FROM employee WHERE username = @UserName AND password = @Password GROUP BY first_name, last_name, employee_id";
 
 
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
@@ -44,8 +45,13 @@ namespace FurnitureRentals.DAL
 
                         while (reader.Read())
                         {
+                            
                             foundLogins = (int)reader["Login"];
+                            loggedInEmployee.EmployeeID = (int)reader["employee_id"];
+                            loggedInEmployee.FirstName = reader["first_name"].ToString();
+                            loggedInEmployee.LastName = reader["last_name"].ToString();
 
+                            
                         }
 
                     }
@@ -55,11 +61,11 @@ namespace FurnitureRentals.DAL
             }
             if (foundLogins == 1)
             {
-                return true;
+                return loggedInEmployee;
             }
             else
             {
-                return false;
+                return null;
             }
         }
 

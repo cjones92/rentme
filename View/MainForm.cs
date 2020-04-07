@@ -1,4 +1,5 @@
-﻿using FurnitureRentals.View;
+﻿using FurnitureRentals.Model;
+using FurnitureRentals.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,7 @@ namespace FurnitureRentals
     /// </summary>
     public partial class MainForm : Form
     {
-        
+        Employee loggedInEmployee;
 
         /// <summary>
         /// Class constructor
@@ -24,6 +25,7 @@ namespace FurnitureRentals
         public MainForm()
         {
             InitializeComponent();
+            this.loggedInEmployee = new Employee();
         }
 
         /// <summary>
@@ -75,10 +77,19 @@ namespace FurnitureRentals
 
         }
 
-        private void ShareCustomerInformation()
+        public void SetCurrentEmployee(Employee employee)
         {
-            
+            this.loggedInEmployee = employee;
+            MessageBox.Show("" + employee.EmployeeID);
+            this.customerRentalShoppingCartUserControl1.SetCurrentEmployee(employee);
+        }
+
+       
+
+        private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
+        {
             this.customerRentalShoppingCartUserControl1.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
+            
         }
     }
 }
