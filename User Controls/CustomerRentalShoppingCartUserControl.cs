@@ -24,19 +24,16 @@ namespace FurnitureRentals.User_Controls
 
        private void LoadRentalDataGridView()
         {
-            try
-            {
+            
                 RentalDataGridView.AllowUserToAddRows = false;
                 RentalDataGridView.RowHeadersVisible = false;
               
                 
-                RentalDataGridView.DataSource = furnitureList;
+                RentalDataGridView.DataSource = furnitureList.Select(o => new
+                { Column1 = o.ItemDescription, Column2 = o.FurnitureStyle, Column3 = o.QuantityAvailable, Column4 = o.TotalRentalCost
+                }).ToList(); ;
                
 
-                foreach (DataGridViewRow row in RentalDataGridView.Rows)
-                {
-                    Furniture furniture = (Furniture)row.DataBoundItem;
-                }
 
                 RentalDataGridView.AutoResizeColumns();
                 RentalDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -50,12 +47,8 @@ namespace FurnitureRentals.User_Controls
                     width += column.Width;
                 }
                 RentalDataGridView.Width = width;
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("There was a problem reaching the database. Please check the database connection.");
-            }
+            this.FillInTotal();
+          
         }
 
         private void FurnitureSearchButton_Click(object sender, EventArgs e)
@@ -69,6 +62,17 @@ namespace FurnitureRentals.User_Controls
                 this.LoadRentalDataGridView();
             }
 
+        }
+
+        private void FillInTotal()
+        {
+            decimal total = 0;
+            foreach (DataGridViewRow row in RentalDataGridView.Rows)
+            {
+               total = total + decimal.Parse(row.Cells[3].Value.ToString());
+            }
+
+            this.RentalTotalTextBox.Text = "$ " + total;
         }
     }
 }

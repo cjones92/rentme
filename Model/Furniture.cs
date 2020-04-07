@@ -23,6 +23,12 @@ namespace FurnitureRentals.Model
 
        public int FurnitureID { get; set; }
 
+       public decimal DailyRentalRate { get; set; }
+
+      public decimal TotalRentalCost { get; set; }
+
+        public int DaysRented { get; set; }
+
        public string ItemDescription { get; set; }
 
        public string Category { get; set; }

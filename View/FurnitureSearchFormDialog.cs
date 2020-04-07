@@ -18,6 +18,7 @@ namespace FurnitureRentals.View
     public partial class FurnitureSearchFormDialog : Form
     {
         FurnitureController furnitureController;
+        List<Furniture> furnitureList;
 
         /// <summary>
         /// Controller for class
@@ -29,6 +30,7 @@ namespace FurnitureRentals.View
             this.LoadSearchOptionsComboBox();
             this.LoadCategoryDescriptionComboBox();
             this.LoadStyleComboBox();
+            this.furnitureList = new List<Furniture>();
 
         }
 
@@ -82,12 +84,12 @@ namespace FurnitureRentals.View
 
         private void LoadFurnitureGridView()
         {
-            List<Furniture> furnitureList;
+            
             
             FurnitureDataGridView.AllowUserToAddRows = false;
 
-            try
-            {
+            
+            
 
                 string searchChoice = (string)this.SearchOptionsComboBox.SelectedValue;
                 if (searchChoice == "Serial Number" && this.SerialNumberTextBox.TextLength > 3)
@@ -130,10 +132,7 @@ namespace FurnitureRentals.View
 
                 }
 
-            } catch (Exception)
-            {
-                MessageBox.Show("There was an issue reaching the database. Please try again later");
-            }
+            
 
            
         }
@@ -218,33 +217,14 @@ namespace FurnitureRentals.View
                 string serialNumber = row.Cells[0].Value.ToString();
                 Furniture selectedFurniture = this.furnitureController.GetFurnitureBySerialNumber(serialNumber)[0];
                 selectedFurniture.QuantityAvailable = int.Parse(row.Cells[4].Value.ToString());
+                selectedFurniture.TotalRentalCost = decimal.Parse(row.Cells[6].Value.ToString());
+                selectedFurniture.DaysRented = int.Parse(row.Cells[5].Value.ToString());
                 furnitureList.Add(selectedFurniture);
             }
 
             return furnitureList;
         }
 
-        public List<int> GetOrderedValues()
-        {
-            List<int> quantityList = new List<int>();
-            foreach (DataGridViewRow row in this.FurnitureDataGridView.SelectedRows)
-            {
-                
-                int quantityToBeOrdered = int.Parse(row.Cells[4].Value.ToString());
-                int quantityAvailable = int.Parse(row.Cells[3].Value.ToString());
-
-                if (quantityAvailable <= quantityToBeOrdered)
-                {
-                    quantityList.Add(quantityToBeOrdered);
-                }
-                else
-                {
-                    MessageBox.Show("You cannot order more than the amount available.");
-                }
-            }
-
-            return quantityList;
-        }
 
         private void FurnitureDataGridView_CellValidating(object sender,
                                           DataGridViewCellValidatingEventArgs e)
@@ -286,6 +266,27 @@ namespace FurnitureRentals.View
             {
                 FurnitureDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
+        }
+
+        private void FurnitureDataGridView_CellsValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                DataGridViewRow row = FurnitureDataGridView.Rows[e.RowIndex];
+                decimal rentalRate = this.furnitureList[e.RowIndex].DailyRentalRate;
+                int daysRenting = 0;
+                int quantity = 0;
+                if (FurnitureDataGridView.SelectedRows[0].Cells[5].Value != null && FurnitureDataGridView.SelectedRows[0].Cells[4].Value != null)
+                {
+                    quantity = int.Parse(row.Cells[4].Value.ToString());
+                    daysRenting = int.Parse(row.Cells[5].Value.ToString());
+                    row.Cells[6].Value = quantity * rentalRate * daysRenting;
+                    
+                }
+               
+
+            }
+
         }
     }
 }
