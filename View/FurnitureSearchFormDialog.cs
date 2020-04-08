@@ -19,6 +19,7 @@ namespace FurnitureRentals.View
     {
         FurnitureController furnitureController;
         List<Furniture> furnitureList;
+        List<Furniture> currentFurnitureList;
 
         /// <summary>
         /// Controller for class
@@ -31,6 +32,7 @@ namespace FurnitureRentals.View
             this.LoadCategoryDescriptionComboBox();
             this.LoadStyleComboBox();
             this.furnitureList = new List<Furniture>();
+           
 
         }
 
@@ -87,6 +89,7 @@ namespace FurnitureRentals.View
             
             
             FurnitureDataGridView.AllowUserToAddRows = false;
+            FurnitureDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             
             
@@ -195,9 +198,25 @@ namespace FurnitureRentals.View
         }
 
         private void AddButton_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
+        { 
             
+
+            if (this.GetSelectedFurniture().Count > 0)
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+            
+        }
+
+        public void SetCurrentFurnitureList(List<Furniture> mainformFurnitureList)
+        {
+            this.currentFurnitureList = mainformFurnitureList;
+            
+        }
+
+        public List<Furniture> GetCurrentFurnitureList()
+        {
+            return this.currentFurnitureList;
         }
 
         private void CloseFurnitureButton_Click(object sender, EventArgs e)
@@ -212,19 +231,31 @@ namespace FurnitureRentals.View
         public List<Furniture> GetSelectedFurniture()
         {
             List<Furniture> furnitureList = new List<Furniture>();
-            foreach(DataGridViewRow row in this.FurnitureDataGridView.Rows )
+            if (this.FurnitureDataGridView.SelectedRows.Count == 0)
             {
-                
-                string serialNumber = row.Cells[0].Value.ToString();
-                Furniture selectedFurniture = this.furnitureController.GetFurnitureBySerialNumber(serialNumber)[0];
-                selectedFurniture.QuantityAvailable = int.Parse(row.Cells[4].Value.ToString());
-                selectedFurniture.DaysRented = int.Parse(this.DaysRentingTextBox.Text);
-                decimal rentalRate = this.furnitureList[row.Index].DailyRentalRate;
-                selectedFurniture.TotalRentalCost = selectedFurniture.QuantityAvailable * selectedFurniture.DaysRented * rentalRate; 
-                furnitureList.Add(selectedFurniture);
+                MessageBox.Show("Please select at least one row");
+            }
+            else
+            {
+                foreach (DataGridViewRow row in this.FurnitureDataGridView.SelectedRows)
+                {
+                    if (row.Cells[4].Value == null)
+                    {
+                        MessageBox.Show("Please enter a value for quantity wanted in row " + row.Index);
+                    } else { 
+                    string serialNumber = row.Cells[0].Value.ToString();
+                    Furniture selectedFurniture = this.furnitureController.GetFurnitureBySerialNumber(serialNumber)[0];
+                    selectedFurniture.QuantityAvailable = int.Parse(row.Cells[4].Value.ToString());
+                    selectedFurniture.DaysRented = int.Parse(this.DaysRentingTextBox.Text);
+                    decimal rentalRate = this.furnitureList[row.Index].DailyRentalRate;
+                    selectedFurniture.TotalRentalCost = selectedFurniture.QuantityAvailable * selectedFurniture.DaysRented * rentalRate;
+                    furnitureList.Add(selectedFurniture);
+                    }
+                }
             }
 
             return furnitureList;
+
         }
 
 

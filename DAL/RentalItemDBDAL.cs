@@ -10,31 +10,46 @@ namespace FurnitureRentals.DAL
 {
     class RentalItemDBDAL
     {
-        public Boolean EnterRentalItem(Furniture furniture)
+
+        public List<Furniture> GetRentalItemByTransactionID(int transactionID)
         {
+            Furniture rentalItem = new Furniture();
+            List<Furniture> rentalItemList = new List<Furniture>();
+            rentalItem.RentalTransactionID = transactionID;
+
+            string selectStatement = "SELECT rental_item.quantity AS Quantity, furniture.description AS Item, furniture_style.description AS Style " +
+"FROM rental_item JOIN furniture ON rental_item.furniture_id = furniture.furniture_id JOIN furniture_style ON furniture.style_id = furniture_style.style_id WHERE rental_id = @RentalTransactionID";
+            ;
+
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
             {
-                string sqlStatement = "INSERT INTO RENTAL_item (rental_id, furniture_id, quantity) " +
-                "VALUES (@RentalID, @FurnitureID, @Quantity); SELECT SCOPE_IDENTITY() ";
-
                 connection.Open();
-                
 
-                using (SqlCommand insertCommand = new SqlCommand(sqlStatement, connection))
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
-                    insertCommand.Connection = connection;
-                    
+                    selectCommand.Parameters.AddWithValue("@RentalTransactionID", rentalItem.RentalTransactionID);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
 
-                    insertCommand.Parameters.AddWithValue("@RentalID", furniture.RentalTransactionID);
-                    insertCommand.Parameters.AddWithValue("@FurnitureID", furniture.FurnitureID);
-                    insertCommand.Parameters.AddWithValue("@Quantity", furniture.QuantityAvailable);
-                    
 
-                    furniture.RentalItemID = Convert.ToInt32(insertCommand.ExecuteScalar());
+                        while (reader.Read())
+                        {
+                            Furniture rentedFurniture = new Furniture();
+                            rentedFurniture.QuantityAvailable = (int)reader["Quantity"];
+                            rentedFurniture.ItemDescription = reader["Item"].ToString();
+                            rentedFurniture.FurnitureStyle = reader["Style"].ToString();
+                            
+                            rentalItemList.Add(rentedFurniture);
 
-                    return true;
+
+                        }
+
+                    }
+
                 }
+
             }
+            return rentalItemList;
         }
     }
 }

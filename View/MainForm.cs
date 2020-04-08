@@ -65,22 +65,11 @@ namespace FurnitureRentals
 
         }
 
-        private void FurnitureSearchButton_Click(object sender, EventArgs e)
-        {
-            FurnitureSearchFormDialog furnitureSearchForm = new FurnitureSearchFormDialog();
-            DialogResult addedResult = furnitureSearchForm.ShowDialog();
-
-            if (addedResult == DialogResult.OK)
-            {
-                ///Code will go here to add items chosen in furniture search to shopping cart when it is created
-            }
-
-        }
+      
 
         public void SetCurrentEmployee(Employee employee)
         {
             this.loggedInEmployee = employee;
-            MessageBox.Show("" + employee.EmployeeID);
             this.customerRentalShoppingCartUserControl1.SetCurrentEmployee(employee);
         }
 
@@ -89,7 +78,8 @@ namespace FurnitureRentals
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.customerRentalShoppingCartUserControl1.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
-            
+            this.viewCustomerRentalTransactionsUserControl1.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
+            this.viewCustomerRentalTransactionsUserControl1.LoadIncidentGridView();
         }
     }
 }

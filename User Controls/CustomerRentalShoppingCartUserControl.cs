@@ -72,14 +72,26 @@ namespace FurnitureRentals.User_Controls
           
         }
 
+        
+
         private void FurnitureSearchButton_Click(object sender, EventArgs e)
         {
             FurnitureSearchFormDialog furnitureSearchForm = new FurnitureSearchFormDialog();
+          
             DialogResult addedResult = furnitureSearchForm.ShowDialog();
 
             if (addedResult == DialogResult.OK)
             {
-                furnitureList = furnitureSearchForm.GetSelectedFurniture();
+                List<Furniture> addedItems = furnitureSearchForm.GetSelectedFurniture();
+
+
+
+                foreach (Furniture furniture in addedItems)
+                {
+                   
+                    furnitureList.Add(furniture);
+
+                }
                 this.LoadRentalDataGridView();
             }
 
@@ -106,7 +118,7 @@ namespace FurnitureRentals.User_Controls
             transaction.CheckedOutByID = this.currentEmployee.EmployeeID;
             MessageBox.Show(this.currentEmployee.EmployeeID + "");
             transaction.Status = "Pending";
-            MessageBox.Show(this.furnitureController.EnterRentalTransaction(transaction, furnitureList));
+            this.furnitureController.EnterRentalTransaction(transaction, furnitureList);
              
             
         }

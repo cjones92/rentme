@@ -169,6 +169,7 @@ namespace FurnitureRentals.User_Controls
                 if (customerTableView.DialogResult == DialogResult.OK && selectedIndex > -1)
                 {
                     this.populateCustomerData(customerList[selectedIndex]);
+                    this.SetCurrentCustomer(customerList[selectedIndex]);
                 }
             }
         }

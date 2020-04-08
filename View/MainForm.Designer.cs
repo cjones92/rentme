@@ -30,22 +30,26 @@
         {
             this.tabManageCustomerUserControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.manageCustomerUserControl1 = new FurnitureRentals.User_Controls.ManageCustomerUserControl();
             this.ShoppingCartTab = new System.Windows.Forms.TabPage();
-            this.customerRentalShoppingCartUserControl1 = new FurnitureRentals.User_Controls.CustomerRentalShoppingCartUserControl();
             this.TemporaryShoppingCartLabel = new System.Windows.Forms.Label();
             this.LoggedInLabel = new System.Windows.Forms.Label();
             this.LogoutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.UserLoggedInLabel = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.manageCustomerUserControl1 = new FurnitureRentals.User_Controls.ManageCustomerUserControl();
+            this.customerRentalShoppingCartUserControl1 = new FurnitureRentals.User_Controls.CustomerRentalShoppingCartUserControl();
+            this.viewCustomerRentalTransactionsUserControl1 = new FurnitureRentals.User_Controls.ViewCustomerRentalTransactionsUserControl();
             this.tabManageCustomerUserControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.ShoppingCartTab.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabManageCustomerUserControl
             // 
             this.tabManageCustomerUserControl.Controls.Add(this.tabPage1);
             this.tabManageCustomerUserControl.Controls.Add(this.ShoppingCartTab);
+            this.tabManageCustomerUserControl.Controls.Add(this.tabPage2);
             this.tabManageCustomerUserControl.Location = new System.Drawing.Point(9, 26);
             this.tabManageCustomerUserControl.Margin = new System.Windows.Forms.Padding(2);
             this.tabManageCustomerUserControl.Name = "tabManageCustomerUserControl";
@@ -66,14 +70,6 @@
             this.tabPage1.Text = "Manage Customer";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // manageCustomerUserControl1
-            // 
-            this.manageCustomerUserControl1.Location = new System.Drawing.Point(26, 3);
-            this.manageCustomerUserControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.manageCustomerUserControl1.Name = "manageCustomerUserControl1";
-            this.manageCustomerUserControl1.Size = new System.Drawing.Size(685, 513);
-            this.manageCustomerUserControl1.TabIndex = 0;
-            // 
             // ShoppingCartTab
             // 
             this.ShoppingCartTab.Controls.Add(this.customerRentalShoppingCartUserControl1);
@@ -85,13 +81,6 @@
             this.ShoppingCartTab.TabIndex = 1;
             this.ShoppingCartTab.Text = "Shopping Cart";
             this.ShoppingCartTab.UseVisualStyleBackColor = true;
-            // 
-            // customerRentalShoppingCartUserControl1
-            // 
-            this.customerRentalShoppingCartUserControl1.Location = new System.Drawing.Point(34, 25);
-            this.customerRentalShoppingCartUserControl1.Name = "customerRentalShoppingCartUserControl1";
-            this.customerRentalShoppingCartUserControl1.Size = new System.Drawing.Size(555, 399);
-            this.customerRentalShoppingCartUserControl1.TabIndex = 2;
             // 
             // TemporaryShoppingCartLabel
             // 
@@ -130,6 +119,39 @@
             this.UserLoggedInLabel.TabIndex = 4;
             this.UserLoggedInLabel.Text = "Logged In As: ";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.viewCustomerRentalTransactionsUserControl1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(809, 505);
+            this.tabPage2.TabIndex = 2;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // manageCustomerUserControl1
+            // 
+            this.manageCustomerUserControl1.Location = new System.Drawing.Point(26, 3);
+            this.manageCustomerUserControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.manageCustomerUserControl1.Name = "manageCustomerUserControl1";
+            this.manageCustomerUserControl1.Size = new System.Drawing.Size(685, 513);
+            this.manageCustomerUserControl1.TabIndex = 0;
+            // 
+            // customerRentalShoppingCartUserControl1
+            // 
+            this.customerRentalShoppingCartUserControl1.Location = new System.Drawing.Point(34, 25);
+            this.customerRentalShoppingCartUserControl1.Name = "customerRentalShoppingCartUserControl1";
+            this.customerRentalShoppingCartUserControl1.Size = new System.Drawing.Size(555, 399);
+            this.customerRentalShoppingCartUserControl1.TabIndex = 2;
+            // 
+            // viewCustomerRentalTransactionsUserControl1
+            // 
+            this.viewCustomerRentalTransactionsUserControl1.Location = new System.Drawing.Point(7, 17);
+            this.viewCustomerRentalTransactionsUserControl1.Name = "viewCustomerRentalTransactionsUserControl1";
+            this.viewCustomerRentalTransactionsUserControl1.Size = new System.Drawing.Size(711, 363);
+            this.viewCustomerRentalTransactionsUserControl1.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,6 +169,7 @@
             this.tabPage1.ResumeLayout(false);
             this.ShoppingCartTab.ResumeLayout(false);
             this.ShoppingCartTab.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,6 +186,8 @@
         private System.Windows.Forms.TabPage ShoppingCartTab;
         private System.Windows.Forms.Label TemporaryShoppingCartLabel;
         private User_Controls.CustomerRentalShoppingCartUserControl customerRentalShoppingCartUserControl1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private User_Controls.ViewCustomerRentalTransactionsUserControl viewCustomerRentalTransactionsUserControl1;
     }
 }
 

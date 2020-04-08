@@ -10,7 +10,7 @@ namespace FurnitureRentals.DAL
 {
     class RentalTransactionDBDAL
     {
-        public string EnterRentalTransaction(RentalTransaction transaction, List<Furniture> furnitureList)
+        public bool EnterRentalTransaction(RentalTransaction transaction, List<Furniture> furnitureList)
         {
             List<Furniture> addedFurnitureItems = new List<Furniture>();
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
@@ -30,7 +30,7 @@ namespace FurnitureRentals.DAL
                 using (SqlCommand insertTransactionCommand = new SqlCommand(sqlTransactionStatement, connection, rentalTransaction),  insertCommand = new SqlCommand(sqlItemStatement, connection, rentalTransaction) )
                 {
                     insertTransactionCommand.Connection = connection;
-
+                    
                     insertTransactionCommand.Parameters.AddWithValue("@CustomerID", transaction.CustomerID);
                     insertTransactionCommand.Parameters.AddWithValue("@RentedOn", transaction.RentalDate);
                     insertTransactionCommand.Parameters.AddWithValue("@DueDate", transaction.DueDate);
@@ -45,7 +45,7 @@ namespace FurnitureRentals.DAL
                 {
                     rentalTransaction.Rollback();
                     
-                    return "TransactionIssue";
+                    return false;
                 }
 
                 ///foreach (Furniture furniture in furnitureList)
@@ -53,6 +53,7 @@ namespace FurnitureRentals.DAL
                 {
                         furnitureList[index].RentalTransactionID = transaction.RentalID;
                         insertCommand.Connection = connection;
+                        insertCommand.Parameters.Clear();
                         insertCommand.Parameters.AddWithValue("@RentalID", furnitureList[index].RentalTransactionID);
                         insertCommand.Parameters.AddWithValue("@FurnitureID", furnitureList[index].FurnitureID);
                         insertCommand.Parameters.AddWithValue("@Quantity", furnitureList[index].QuantityAvailable);
@@ -63,13 +64,13 @@ namespace FurnitureRentals.DAL
                         if (addedFurnitureItems.Count <= 0) { 
                         
                             rentalTransaction.Rollback();
-                            return "ItemIssue";
+                            return false;
                         }
 
                     }
                 }
                 rentalTransaction.Commit();
-                return "Successful";
+                return true;
 
 
             }
@@ -77,5 +78,48 @@ namespace FurnitureRentals.DAL
 
 
         }
+
+        public List<RentalTransaction> GetCustomerTransactionsByCustomerID(int customerID)
+        {
+            RentalTransaction transaction = new RentalTransaction();
+            List<RentalTransaction> transactionList = new List<RentalTransaction>();
+            transaction.CustomerID = customerID;
+
+            string selectStatement = "SELECT rental_id as RentalTransactionID, rented_on AS RentedOn, total_due AS TotalDue, status AS Status " +
+"FROM rental_transaction WHERE customer_id = @CustomerID";
+            ;
+
+            using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@CustomerID", transaction.CustomerID);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+
+
+                        while (reader.Read())
+                        {
+                            RentalTransaction newTransaction = new RentalTransaction();
+                            newTransaction.RentalID = (int)reader["RentalTransactionID"];
+                            newTransaction.RentalDate = (DateTime)reader["RentedOn"];
+                            newTransaction.TotalDue = (Decimal)reader["TotalDue"];
+                            newTransaction.Status = reader["Status"].ToString();
+                            transactionList.Add(newTransaction);
+                            
+
+                        }
+
+                    }
+
+                }
+
+            }
+            return transactionList;
+        }
+
     }
-}
+    }
+
