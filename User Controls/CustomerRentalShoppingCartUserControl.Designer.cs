@@ -38,6 +38,8 @@
             this.MemberIDLabel = new System.Windows.Forms.Label();
             this.ActualNameLabel = new System.Windows.Forms.Label();
             this.ActualIDLabel = new System.Windows.Forms.Label();
+            this.DaysRentingTextBox = new System.Windows.Forms.TextBox();
+            this.DaysRentingLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.RentalDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,10 +132,29 @@
             this.ActualIDLabel.TabIndex = 9;
             this.ActualIDLabel.Text = "label2";
             // 
+            // DaysRentingTextBox
+            // 
+            this.DaysRentingTextBox.Location = new System.Drawing.Point(401, 57);
+            this.DaysRentingTextBox.Name = "DaysRentingTextBox";
+            this.DaysRentingTextBox.Size = new System.Drawing.Size(100, 20);
+            this.DaysRentingTextBox.TabIndex = 10;
+            this.DaysRentingTextBox.TextChanged += new System.EventHandler(this.DaysRentingTextBox_TextChanged);
+            // 
+            // DaysRentingLabel
+            // 
+            this.DaysRentingLabel.AutoSize = true;
+            this.DaysRentingLabel.Location = new System.Drawing.Point(272, 64);
+            this.DaysRentingLabel.Name = "DaysRentingLabel";
+            this.DaysRentingLabel.Size = new System.Drawing.Size(124, 13);
+            this.DaysRentingLabel.TabIndex = 11;
+            this.DaysRentingLabel.Text = "Number of Days Rented:";
+            // 
             // CustomerRentalShoppingCartUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.DaysRentingLabel);
+            this.Controls.Add(this.DaysRentingTextBox);
             this.Controls.Add(this.ActualIDLabel);
             this.Controls.Add(this.ActualNameLabel);
             this.Controls.Add(this.MemberIDLabel);
@@ -164,5 +185,7 @@
         private System.Windows.Forms.Label MemberIDLabel;
         private System.Windows.Forms.Label ActualNameLabel;
         private System.Windows.Forms.Label ActualIDLabel;
+        private System.Windows.Forms.TextBox DaysRentingTextBox;
+        private System.Windows.Forms.Label DaysRentingLabel;
     }
 }

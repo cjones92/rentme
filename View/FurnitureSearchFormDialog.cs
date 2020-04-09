@@ -238,13 +238,12 @@ namespace FurnitureRentals.View
             else
             {
                 foreach (DataGridViewRow row in this.FurnitureDataGridView.SelectedRows)
-                { int value;
+                { 
                     if (row.Cells[4].Value == null)
                     {
-                        MessageBox.Show("Please enter a value for quantity wanted in row " + row.Index);
+                        MessageBox.Show("Please enter a value for quantity wanted in row " + (row.Index + 1));
 
-                    } else if (!int.TryParse(this.DaysRentingTextBox.Text, out value)) {
-                        MessageBox.Show("Please enter an integer for the days value.");
+                   
                     }
                     
                     
@@ -252,9 +251,9 @@ namespace FurnitureRentals.View
                     string serialNumber = row.Cells[0].Value.ToString();
                     Furniture selectedFurniture = this.furnitureController.GetFurnitureBySerialNumber(serialNumber)[0];
                     selectedFurniture.QuantityAvailable = int.Parse(row.Cells[4].Value.ToString());
-                    selectedFurniture.DaysRented = int.Parse(this.DaysRentingTextBox.Text);
+                    
                     decimal rentalRate = this.furnitureList[row.Index].DailyRentalRate;
-                    selectedFurniture.TotalRentalCost = selectedFurniture.QuantityAvailable * selectedFurniture.DaysRented * rentalRate;
+                    selectedFurniture.TotalRentalCost = selectedFurniture.QuantityAvailable * rentalRate;
                     furnitureList.Add(selectedFurniture);
                     }
                 }

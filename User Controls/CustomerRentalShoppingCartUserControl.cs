@@ -27,6 +27,7 @@ namespace FurnitureRentals.User_Controls
             this.furnitureController = new FurnitureController();
             this.furnitureList = new List<Furniture>();
             this.currentCustomer = new Customer();
+            this.DaysRentingTextBox.Text = "0";
             
             
         }
@@ -48,7 +49,11 @@ namespace FurnitureRentals.User_Controls
             
                 RentalDataGridView.AllowUserToAddRows = false;
                 RentalDataGridView.RowHeadersVisible = false;
-              
+            MessageBox.Show(this.DaysRentingTextBox.Text);
+            foreach (Furniture furniture in furnitureList)
+            {
+                furniture.TotalRentalCost += furniture.TotalRentalCost * int.Parse(this.DaysRentingTextBox.Text);
+            }
                 
                 RentalDataGridView.DataSource = furnitureList.Select(o => new
                 { Column1 = o.ItemDescription, Column2 = o.FurnitureStyle, Column3 = o.QuantityAvailable, Column4 = o.TotalRentalCost
@@ -130,6 +135,17 @@ namespace FurnitureRentals.User_Controls
                 this.furnitureController.EnterRentalTransaction(transaction, furnitureList);
             }
             
+        }
+
+        private void DaysRentingTextBox_TextChanged(object sender, EventArgs e)
+        {
+            int value;
+            if (int.TryParse(this.DaysRentingTextBox.Text, out value)) {
+                    this.LoadRentalDataGridView();
+           } else if (!int.TryParse(this.DaysRentingTextBox.Text, out value) && this.DaysRentingTextBox.Text.Length > 1)
+            {
+                MessageBox.Show("Please enter integers (single numbers without decimal places) for the number of days rented");
+            }
         }
     }
 }

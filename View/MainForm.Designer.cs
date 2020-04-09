@@ -32,10 +32,10 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ShoppingCartTab = new System.Windows.Forms.TabPage();
             this.TemporaryShoppingCartLabel = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.LoggedInLabel = new System.Windows.Forms.Label();
             this.LogoutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.UserLoggedInLabel = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.manageCustomerUserControl1 = new FurnitureRentals.User_Controls.ManageCustomerUserControl();
             this.customerRentalShoppingCartUserControl1 = new FurnitureRentals.User_Controls.CustomerRentalShoppingCartUserControl();
             this.viewCustomerRentalTransactionsUserControl1 = new FurnitureRentals.User_Controls.ViewCustomerRentalTransactionsUserControl();
@@ -90,6 +90,17 @@
             this.TemporaryShoppingCartLabel.Size = new System.Drawing.Size(0, 13);
             this.TemporaryShoppingCartLabel.TabIndex = 1;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.viewCustomerRentalTransactionsUserControl1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(809, 505);
+            this.tabPage2.TabIndex = 2;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // LoggedInLabel
             // 
             this.LoggedInLabel.AutoSize = true;
@@ -119,17 +130,6 @@
             this.UserLoggedInLabel.TabIndex = 4;
             this.UserLoggedInLabel.Text = "Logged In As: ";
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.viewCustomerRentalTransactionsUserControl1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(809, 505);
-            this.tabPage2.TabIndex = 2;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // manageCustomerUserControl1
             // 
             this.manageCustomerUserControl1.Location = new System.Drawing.Point(26, 3);
@@ -147,7 +147,7 @@
             // 
             // viewCustomerRentalTransactionsUserControl1
             // 
-            this.viewCustomerRentalTransactionsUserControl1.Location = new System.Drawing.Point(7, 17);
+            this.viewCustomerRentalTransactionsUserControl1.Location = new System.Drawing.Point(6, 0);
             this.viewCustomerRentalTransactionsUserControl1.Name = "viewCustomerRentalTransactionsUserControl1";
             this.viewCustomerRentalTransactionsUserControl1.Size = new System.Drawing.Size(711, 363);
             this.viewCustomerRentalTransactionsUserControl1.TabIndex = 0;
