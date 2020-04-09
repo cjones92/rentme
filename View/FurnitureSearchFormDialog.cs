@@ -238,11 +238,17 @@ namespace FurnitureRentals.View
             else
             {
                 foreach (DataGridViewRow row in this.FurnitureDataGridView.SelectedRows)
-                {
+                { int value;
                     if (row.Cells[4].Value == null)
                     {
                         MessageBox.Show("Please enter a value for quantity wanted in row " + row.Index);
-                    } else { 
+
+                    } else if (!int.TryParse(this.DaysRentingTextBox.Text, out value)) {
+                        MessageBox.Show("Please enter an integer for the days value.");
+                    }
+                    
+                    
+                    else { 
                     string serialNumber = row.Cells[0].Value.ToString();
                     Furniture selectedFurniture = this.furnitureController.GetFurnitureBySerialNumber(serialNumber)[0];
                     selectedFurniture.QuantityAvailable = int.Parse(row.Cells[4].Value.ToString());
