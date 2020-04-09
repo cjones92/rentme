@@ -110,16 +110,25 @@ namespace FurnitureRentals.User_Controls
 
         private void SubmitRentalButton_Click(object sender, EventArgs e)
         {
-            RentalTransaction transaction = new RentalTransaction();
-            transaction.CustomerID = this.currentCustomer.CustomerId;
-            transaction.RentalDate = DateTime.Today;
-            transaction.DueDate = transaction.RentalDate.AddDays(furnitureList[0].DaysRented);
-            transaction.TotalDue = decimal.Parse(this.RentalTotalTextBox.Text.Substring(2));
-            transaction.CheckedOutByID = this.currentEmployee.EmployeeID;
-            MessageBox.Show(this.currentEmployee.EmployeeID + "");
-            transaction.Status = "Pending";
-            this.furnitureController.EnterRentalTransaction(transaction, furnitureList);
-             
+            if (this.currentCustomer.CustomerId <= 0)
+            {
+                MessageBox.Show("Please select a customer before adding items to the cart feature.");
+            }
+            else if (string.IsNullOrEmpty(this.RentalTotalTextBox.Text)) {
+                MessageBox.Show("Please add items to the order before submitting it.");
+            }
+            else
+            {
+                RentalTransaction transaction = new RentalTransaction();
+                transaction.CustomerID = this.currentCustomer.CustomerId;
+                transaction.RentalDate = DateTime.Today;
+                transaction.DueDate = transaction.RentalDate.AddDays(furnitureList[0].DaysRented);
+                transaction.TotalDue = decimal.Parse(this.RentalTotalTextBox.Text.Substring(2));
+                transaction.CheckedOutByID = this.currentEmployee.EmployeeID;
+                MessageBox.Show(this.currentEmployee.EmployeeID + "");
+                transaction.Status = "Pending";
+                this.furnitureController.EnterRentalTransaction(transaction, furnitureList);
+            }
             
         }
     }
