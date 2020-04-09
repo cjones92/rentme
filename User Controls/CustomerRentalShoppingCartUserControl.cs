@@ -138,7 +138,7 @@ namespace FurnitureRentals.User_Controls
                 transaction.DueDate = transaction.RentalDate.AddDays(furnitureList[0].DaysRented);
                 transaction.TotalDue = decimal.Parse(this.RentalTotalTextBox.Text.Substring(2));
                 transaction.CheckedOutByID = this.currentEmployee.EmployeeID;
-                MessageBox.Show(this.currentEmployee.EmployeeID + "");
+                
                 transaction.Status = "Pending";
                 this.furnitureController.EnterRentalTransaction(transaction, furnitureList);
             }
