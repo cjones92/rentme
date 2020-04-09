@@ -55,7 +55,11 @@ namespace FurnitureRentals.User_Controls
                    
                     int daysSinceRental = (int)(DateTime.Today - transaction.RentalDate).TotalDays;
                    
-                    transaction.CurrentAmountDue = dailyRate * daysSinceRental;
+                       transaction.CurrentAmountDue = dailyRate * daysSinceRental;
+                      if (transaction.CurrentAmountDue > transaction.TotalDue || daysSinceRental == 0)
+                {
+                    transaction.CurrentAmountDue = transaction.TotalDue;
+                } 
                 }
 
                 rentalTransactionBindingSource.DataSource = transactionList;
