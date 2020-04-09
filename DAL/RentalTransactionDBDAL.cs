@@ -56,7 +56,7 @@ namespace FurnitureRentals.DAL
                         insertCommand.Parameters.Clear();
                         insertCommand.Parameters.AddWithValue("@RentalID", furnitureList[index].RentalTransactionID);
                         insertCommand.Parameters.AddWithValue("@FurnitureID", furnitureList[index].FurnitureID);
-                        insertCommand.Parameters.AddWithValue("@Quantity", furnitureList[index].QuantityAvailable);
+                        insertCommand.Parameters.AddWithValue("@Quantity", furnitureList[index].QuantityOrdered);
 
                         
                         furnitureList[index].RentalItemID = Convert.ToInt32(insertCommand.ExecuteScalar());
@@ -85,7 +85,7 @@ namespace FurnitureRentals.DAL
             List<RentalTransaction> transactionList = new List<RentalTransaction>();
             transaction.CustomerID = customerID;
 
-            string selectStatement = "SELECT rental_id as RentalTransactionID, rented_on AS RentedOn, total_due AS TotalDue, status AS Status " +
+            string selectStatement = "SELECT rental_id as RentalTransactionID, rented_on AS RentedOn, due_date AS DueDate, total_due AS TotalDue, status AS Status " +
 "FROM rental_transaction WHERE customer_id = @CustomerID";
             ;
 
@@ -105,6 +105,7 @@ namespace FurnitureRentals.DAL
                             RentalTransaction newTransaction = new RentalTransaction();
                             newTransaction.RentalID = (int)reader["RentalTransactionID"];
                             newTransaction.RentalDate = (DateTime)reader["RentedOn"];
+                            newTransaction.DueDate = (DateTime)reader["DueDate"];
                             newTransaction.TotalDue = (Decimal)reader["TotalDue"];
                             newTransaction.Status = reader["Status"].ToString();
                             transactionList.Add(newTransaction);

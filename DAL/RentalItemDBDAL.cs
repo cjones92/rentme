@@ -35,7 +35,7 @@ namespace FurnitureRentals.DAL
                         while (reader.Read())
                         {
                             Furniture rentedFurniture = new Furniture();
-                            rentedFurniture.QuantityAvailable = (int)reader["Quantity"];
+                            rentedFurniture.QuantityOrdered = (int)reader["Quantity"];
                             rentedFurniture.ItemDescription = reader["Item"].ToString();
                             rentedFurniture.FurnitureStyle = reader["Style"].ToString();
                             

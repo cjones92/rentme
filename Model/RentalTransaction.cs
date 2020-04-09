@@ -20,6 +20,8 @@ namespace FurnitureRentals.Model
 
         public int CheckedOutByID { get; set; }
 
+        public decimal CurrentAmountDue { get; set; }
+
         public string Status { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace FurnitureRentals.Model
 
        public int Quantity { get; set; }
 
-        public int QuantityAvailable { get; set; }
+        public int QuantityOrdered { get; set; }
 
        public string FurnitureStyle { get; set; }
 
@@ -38,5 +38,7 @@ namespace FurnitureRentals.Model
        public int RentalTransactionID { get; set; }
 
        public int RentalItemID { get; set; }
+
+      
     }
 }

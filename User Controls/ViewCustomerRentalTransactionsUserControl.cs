@@ -37,12 +37,27 @@ namespace FurnitureRentals.User_Controls
 
         public void LoadIncidentGridView()
         {
-            try
-            {
+            
+    
                 RentalTransactionDataGridView.AllowUserToAddRows = false;
                 RentalTransactionDataGridView.RowHeadersVisible = false;
 
                 transactionList = this.furnitureController.GetRentalTransactionsByCustomerID(this.currentCustomer.CustomerId);
+
+                foreach (RentalTransaction transaction in transactionList)
+                {
+                int totalRentalSpan = (int)(transaction.DueDate - transaction.RentalDate).TotalDays;
+                  if (totalRentalSpan == 0)
+                {
+                    totalRentalSpan = 1;
+                }
+                    decimal dailyRate = transaction.TotalDue / totalRentalSpan;
+                   
+                    int daysSinceRental = (int)(DateTime.Today - transaction.RentalDate).TotalDays;
+                   
+                    transaction.CurrentAmountDue = dailyRate * daysSinceRental;
+                }
+
                 rentalTransactionBindingSource.DataSource = transactionList;
 
                 foreach (DataGridViewRow row in RentalTransactionDataGridView.Rows)
@@ -63,15 +78,7 @@ namespace FurnitureRentals.User_Controls
                 }
                 RentalTransactionDataGridView.Width = width;
 
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("There was a problem reaching the database. Please check the database connection.");
-            }
-
-
-
-
+            
         }
 
         private void RentalTransactionDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)

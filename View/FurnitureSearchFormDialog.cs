@@ -250,10 +250,10 @@ namespace FurnitureRentals.View
                     else { 
                     string serialNumber = row.Cells[0].Value.ToString();
                     Furniture selectedFurniture = this.furnitureController.GetFurnitureBySerialNumber(serialNumber)[0];
-                    selectedFurniture.QuantityAvailable = int.Parse(row.Cells[4].Value.ToString());
+                    selectedFurniture.QuantityOrdered = int.Parse(row.Cells[4].Value.ToString());
                     
                     decimal rentalRate = this.furnitureList[row.Index].DailyRentalRate;
-                    selectedFurniture.TotalRentalCost = selectedFurniture.QuantityAvailable * rentalRate;
+                    selectedFurniture.TotalRentalCost = selectedFurniture.QuantityOrdered * rentalRate;
                     furnitureList.Add(selectedFurniture);
                     }
                 }
