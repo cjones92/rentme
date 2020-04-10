@@ -61,10 +61,11 @@
             this.EmptyCartButton.TabIndex = 1;
             this.EmptyCartButton.Text = "Clear Cart";
             this.EmptyCartButton.UseVisualStyleBackColor = true;
+            this.EmptyCartButton.Click += new System.EventHandler(this.EmptyCartButton_Click);
             // 
             // RentalTotalTextBox
             // 
-            this.RentalTotalTextBox.Location = new System.Drawing.Point(402, 337);
+            this.RentalTotalTextBox.Location = new System.Drawing.Point(362, 341);
             this.RentalTotalTextBox.Name = "RentalTotalTextBox";
             this.RentalTotalTextBox.Size = new System.Drawing.Size(100, 20);
             this.RentalTotalTextBox.TabIndex = 2;
@@ -72,7 +73,7 @@
             // TotalLabel
             // 
             this.TotalLabel.AutoSize = true;
-            this.TotalLabel.Location = new System.Drawing.Point(362, 344);
+            this.TotalLabel.Location = new System.Drawing.Point(322, 348);
             this.TotalLabel.Name = "TotalLabel";
             this.TotalLabel.Size = new System.Drawing.Size(34, 13);
             this.TotalLabel.TabIndex = 3;
@@ -88,7 +89,7 @@
             // 
             // SubmitRentalButton
             // 
-            this.SubmitRentalButton.Location = new System.Drawing.Point(402, 370);
+            this.SubmitRentalButton.Location = new System.Drawing.Point(387, 367);
             this.SubmitRentalButton.Name = "SubmitRentalButton";
             this.SubmitRentalButton.Size = new System.Drawing.Size(75, 23);
             this.SubmitRentalButton.TabIndex = 5;
@@ -134,7 +135,7 @@
             // 
             // DaysRentingTextBox
             // 
-            this.DaysRentingTextBox.Location = new System.Drawing.Point(401, 57);
+            this.DaysRentingTextBox.Location = new System.Drawing.Point(362, 58);
             this.DaysRentingTextBox.Name = "DaysRentingTextBox";
             this.DaysRentingTextBox.Size = new System.Drawing.Size(100, 20);
             this.DaysRentingTextBox.TabIndex = 10;
@@ -143,7 +144,7 @@
             // DaysRentingLabel
             // 
             this.DaysRentingLabel.AutoSize = true;
-            this.DaysRentingLabel.Location = new System.Drawing.Point(272, 64);
+            this.DaysRentingLabel.Location = new System.Drawing.Point(232, 64);
             this.DaysRentingLabel.Name = "DaysRentingLabel";
             this.DaysRentingLabel.Size = new System.Drawing.Size(124, 13);
             this.DaysRentingLabel.TabIndex = 11;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FurnitureRentals.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,12 +16,14 @@ namespace FurnitureRentals.View
     /// </summary>
     public partial class AdminMainFormWithUserControls : Form
     {
+        Administrator loggedInAdministrator;
         /// <summary>
         /// Constructor
         /// </summary>
         public AdminMainFormWithUserControls()
         {
             InitializeComponent();
+            this.loggedInAdministrator = new Administrator();
         }
 
         /// <summary>
@@ -34,6 +37,12 @@ namespace FurnitureRentals.View
                 throw new ArgumentNullException("Name cannot be null");
             }
             this.LoggedInLabel.Text = name;
+        }
+
+        public void SetCurrentAdministrator(Administrator administrator)
+        {
+            this.loggedInAdministrator = administrator;
+            
         }
 
         /// <summary>

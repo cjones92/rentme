@@ -18,6 +18,7 @@ namespace FurnitureRentals.View
     public partial class LoginForm : Form
     {
         private Employee loggedInEmployee;
+        private Administrator loggedInAdministrator;
         private EmployeeController employeeController;
         private AdminstratorController adminstratorController;
         private MainForm CurrentMainForm;
@@ -32,6 +33,7 @@ namespace FurnitureRentals.View
             InitializeComponent();
             this.LoadSignInComboBox();
             this.loggedInEmployee = new Employee();
+            this.loggedInAdministrator = new Administrator();
             this.employeeController = new EmployeeController();
             this.adminstratorController = new AdminstratorController();
             this.CurrentAdminForm = new AdminMainFormWithUserControls();
@@ -50,57 +52,68 @@ namespace FurnitureRentals.View
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
-        {
-            if (((string)this.SignInComboBox.SelectedValue == "Employee" && !string.IsNullOrEmpty(this.employeeController.EmployeeLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text).FirstName)) ||
-                (string)this.SignInComboBox.SelectedValue == "Administrator" && this.adminstratorController.AdministratorLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text))
+        {  if (string.IsNullOrEmpty(this.UserNameTextBox.Text) || string.IsNullOrEmpty(this.PasswordMaskedTextBox.Text))
             {
-
-                if ((string)this.SignInComboBox.SelectedValue == "Employee")
-                {
-                    if (this.CurrentMainForm == null)
-                    {
-                        this.CurrentMainForm = new MainForm();
-                        
-                    }
-                    loggedInEmployee = this.employeeController.EmployeeLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text);
-                    this.CurrentMainForm.SetCurrentEmployee(this.GetCurrentEmployee());
-                    this.CurrentMainForm.SetLoggedInLabelText(loggedInEmployee.FirstName + " " + loggedInEmployee.LastName);
-                    this.Hide();
-                    DialogResult exitMethodResult = this.CurrentMainForm.ShowDialog();
-
-                    this.UserNameTextBox.ResetText();
-                    this.PasswordMaskedTextBox.ResetText();
-
-                    if (this.CurrentMainForm.DialogResult == DialogResult.OK)
-                    {
-                        this.Show();
-                    }
-                } else
-                {
-                    if (this.CurrentAdminForm == null)
-                    {
-                        this.CurrentAdminForm = new AdminMainFormWithUserControls();
-                    }
-
-                    this.CurrentAdminForm.SetLoggedInLabelText(this.UserNameTextBox.Text);
-                    this.Hide();
-                    DialogResult exitMethodResult = this.CurrentAdminForm.ShowDialog();
-
-                    this.UserNameTextBox.ResetText();
-                    this.PasswordMaskedTextBox.ResetText();
-                }
-
-                if (this.CurrentAdminForm.DialogResult == DialogResult.OK)
-                {
-                    this.Show();
-                }
-
+                MessageBox.Show("Please fill out both the user name and password text boxes before submitting");
             }
             else
             {
-                ErrorLabel.ForeColor = Color.Red;
-                ErrorLabel.Text = "Invalid username/password";
 
+
+                if (((string)this.SignInComboBox.SelectedValue == "Employee" && (this.employeeController.EmployeeLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text) != null)) ||
+                    (string)this.SignInComboBox.SelectedValue == "Administrator" && this.adminstratorController.AdministratorLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text) != null)
+                {
+
+                    if ((string)this.SignInComboBox.SelectedValue == "Employee")
+                    {
+                        if (this.CurrentMainForm == null)
+                        {
+                            this.CurrentMainForm = new MainForm();
+
+                        }
+                        loggedInEmployee = this.employeeController.EmployeeLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text);
+                        this.CurrentMainForm.SetCurrentEmployee(this.GetCurrentEmployee());
+                        this.CurrentMainForm.SetLoggedInLabelText(loggedInEmployee.FirstName + " " + loggedInEmployee.LastName);
+                        this.Hide();
+                        DialogResult exitMethodResult = this.CurrentMainForm.ShowDialog();
+
+                        this.UserNameTextBox.ResetText();
+                        this.PasswordMaskedTextBox.ResetText();
+
+                        if (this.CurrentMainForm.DialogResult == DialogResult.OK)
+                        {
+                            this.Show();
+                        }
+                    }
+                    else
+                    {
+                        if (this.CurrentAdminForm == null)
+                        {
+                            this.CurrentAdminForm = new AdminMainFormWithUserControls();
+                        }
+
+                        this.loggedInAdministrator = this.adminstratorController.AdministratorLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text);
+
+                        this.CurrentAdminForm.SetLoggedInLabelText(loggedInAdministrator.FirstName + " " + loggedInAdministrator.LastName);
+                        this.Hide();
+                        DialogResult exitMethodResult = this.CurrentAdminForm.ShowDialog();
+
+                        this.UserNameTextBox.ResetText();
+                        this.PasswordMaskedTextBox.ResetText();
+                    }
+
+                    if (this.CurrentAdminForm.DialogResult == DialogResult.OK)
+                    {
+                        this.Show();
+                    }
+
+                }
+                else
+                {
+                    ErrorLabel.ForeColor = Color.Red;
+                    ErrorLabel.Text = "Invalid username/password";
+
+                }
             }
 
         }

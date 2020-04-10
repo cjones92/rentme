@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FurnitureRentals.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -18,15 +19,16 @@ namespace FurnitureRentals.DAL
         /// <param name="userName">admin user name</param>
         /// <param name="password">admin password</param>
         /// <returns>whether credentials are valid</returns>
-        public bool CheckPassword(string userName, string password)
+        public Model.Administrator CheckPassword(string userName, string password)
         {
             int foundLogins = 0;
+            Administrator loggedInAdministrator = new Administrator();
             var convertedPassword = System.Text.Encoding.UTF8.GetBytes(password);
             string encodedPassword = System.Convert.ToBase64String(convertedPassword);
 
 
 
-            string selectStatement = "SELECT COUNT(*) AS Login FROM administrator WHERE username = @UserName AND password = @Password";
+            string selectStatement = "SELECT COUNT(*) AS Login, first_name, last_name, admin_id FROM administrator WHERE username = @UserName AND password = @Password GROUP BY first_name, last_name, admin_id";
 
 
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
@@ -44,7 +46,9 @@ namespace FurnitureRentals.DAL
                         while (reader.Read())
                         {
                             foundLogins = (int)reader["Login"];
-
+                            loggedInAdministrator.AdminstratorID = (int)reader["admin_id"];
+                            loggedInAdministrator.FirstName = reader["first_name"].ToString();
+                            loggedInAdministrator.LastName = reader["last_name"].ToString();
                         }
 
                     }
@@ -54,11 +58,11 @@ namespace FurnitureRentals.DAL
             }
             if (foundLogins == 1)
             {
-                return true;
+                return loggedInAdministrator;
             }
             else
             {
-                return false;
+                return null;
             }
         }
     }

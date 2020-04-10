@@ -9,7 +9,7 @@ namespace FurnitureRentals.Model
     /// <summary>
     /// Class for administrator objects
     /// </summary>
-    class Administrator
+    public class Administrator
     {
         public int AdminstratorID {get; set;}
 

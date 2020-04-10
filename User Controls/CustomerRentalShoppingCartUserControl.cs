@@ -49,7 +49,7 @@ namespace FurnitureRentals.User_Controls
             
                 RentalDataGridView.AllowUserToAddRows = false;
                 RentalDataGridView.RowHeadersVisible = false;
-            MessageBox.Show(this.DaysRentingTextBox.Text);
+           
             foreach (Furniture furniture in furnitureList)
             {   if (int.Parse(this.DaysRentingTextBox.Text) == 0)
                 {
@@ -59,12 +59,17 @@ namespace FurnitureRentals.User_Controls
             }
                 
                 RentalDataGridView.DataSource = furnitureList.Select(o => new
-                { Column1 = o.ItemDescription, Column2 = o.FurnitureStyle, Column3 = o.QuantityOrdered, Column4 = o.TotalRentalCost
+                { Column1 = o.ItemDescription, Column2 = o.FurnitureStyle, Column3 = o.QuantityOrdered, Column4 = o.TotalRentalCost, Column5 = "X"
                 }).ToList(); ;
-               
+            RentalDataGridView.Columns[0].HeaderText = "Item";
+            RentalDataGridView.Columns[1].HeaderText = "Style";
+            RentalDataGridView.Columns[2].HeaderText = "Quantity Ordered";
+            RentalDataGridView.Columns[3].HeaderText = "Total Rental Cost";
+            RentalDataGridView.Columns[4].HeaderText = "Remove";
 
 
-                RentalDataGridView.AutoResizeColumns();
+
+            RentalDataGridView.AutoResizeColumns();
                 RentalDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 RentalDataGridView.AutoResizeRows();
                 RentalDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
@@ -157,6 +162,14 @@ namespace FurnitureRentals.User_Controls
             {
                 MessageBox.Show("Please enter integers (single numbers without decimal places) for the number of days rented");
             }
+        }
+
+        private void EmptyCartButton_Click(object sender, EventArgs e)
+        {
+            this.DaysRentingTextBox.Text = "1";
+            this.RentalTotalTextBox.ResetText();
+            furnitureList.Clear();
+            this.RentalDataGridView.DataSource = null;
         }
     }
 }
