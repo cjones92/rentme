@@ -46,7 +46,8 @@ namespace FurnitureRentals.User_Controls
 
        private void LoadRentalDataGridView()
         {
-            
+
+            RentalDataGridView.AutoGenerateColumns = false;
                 RentalDataGridView.AllowUserToAddRows = false;
                 RentalDataGridView.RowHeadersVisible = false;
            
@@ -59,15 +60,8 @@ namespace FurnitureRentals.User_Controls
             }
                 
                 RentalDataGridView.DataSource = furnitureList.Select(o => new
-                { Column1 = o.ItemDescription, Column2 = o.FurnitureStyle, Column3 = o.QuantityOrdered, Column4 = o.TotalRentalCost, Column5 = "X"
+                { Item = o.ItemDescription, Style = o.FurnitureStyle, Quantity = o.QuantityOrdered, TotalCost = o.TotalRentalCost, Remove = "X"
                 }).ToList(); ;
-            RentalDataGridView.Columns[0].HeaderText = "Item";
-            RentalDataGridView.Columns[1].HeaderText = "Style";
-            RentalDataGridView.Columns[2].HeaderText = "Quantity Ordered";
-            RentalDataGridView.Columns[3].HeaderText = "Total Rental Cost";
-            RentalDataGridView.Columns[4].HeaderText = "Remove";
-
-
 
             RentalDataGridView.AutoResizeColumns();
                 RentalDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -118,10 +112,12 @@ namespace FurnitureRentals.User_Controls
 
         private void FillInTotal()
         {
+            
             decimal total = 0;
             foreach (DataGridViewRow row in RentalDataGridView.Rows)
             {
-               total = total + decimal.Parse(row.Cells[3].Value.ToString());
+                MessageBox.Show("" + row.Cells[3].Value.ToString());
+                total = total + decimal.Parse(row.Cells[3].Value.ToString());
             }
 
             this.RentalTotalTextBox.Text = "$ " + total;
@@ -161,6 +157,15 @@ namespace FurnitureRentals.User_Controls
            } else if (!int.TryParse(this.DaysRentingTextBox.Text, out value) && this.DaysRentingTextBox.Text.Length > 1)
             {
                 MessageBox.Show("Please enter integers (single numbers without decimal places) for the number of days rented");
+            }
+        }
+
+        private void RentalDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (RentalDataGridView.CurrentCell.ColumnIndex.Equals(4) && e.RowIndex != -1)
+            {
+                furnitureList.RemoveAt(RentalDataGridView.CurrentCell.RowIndex);
+                this.LoadRentalDataGridView();
             }
         }
 
