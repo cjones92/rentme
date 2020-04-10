@@ -86,6 +86,12 @@
     <Compile Include="User Controls\ManageEmployeeUserControl.Designer.cs">
       <DependentUpon>ManageEmployeeUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Controls\ReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\ReportUserControl.Designer.cs">
+      <DependentUpon>ReportUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Controls\ViewCustomerRentalTransactionsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\ManageEmployeeUserControl.resx">
       <DependentUpon>ManageEmployeeUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\ReportUserControl.resx">
+      <DependentUpon>ReportUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\ViewCustomerRentalTransactionsUserControl.resx">
       <DependentUpon>ViewCustomerRentalTransactionsUserControl.cs</DependentUpon>
