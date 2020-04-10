@@ -110,7 +110,7 @@
             this.dataGridViewTextBoxColumn2,
             this.QuantityBeingOrdered});
             this.FurnitureDataGridView.DataSource = this.furnitureBindingSource;
-            this.FurnitureDataGridView.Location = new System.Drawing.Point(95, 77);
+            this.FurnitureDataGridView.Location = new System.Drawing.Point(95, 95);
             this.FurnitureDataGridView.Name = "FurnitureDataGridView";
             this.FurnitureDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.FurnitureDataGridView.Size = new System.Drawing.Size(446, 220);

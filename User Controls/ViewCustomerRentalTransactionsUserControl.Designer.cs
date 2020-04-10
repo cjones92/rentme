@@ -47,18 +47,18 @@
             this.ActualNameLabel = new System.Windows.Forms.Label();
             this.MemberIDLabel = new System.Windows.Forms.Label();
             this.ActualIDLabel = new System.Windows.Forms.Label();
-            this.rentalTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.RentalTransactionDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rentalTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingNavigator)).BeginInit();
             this.rentalTransactionBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RentalTransactionDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // rentalTransactionBindingNavigator
@@ -222,10 +222,6 @@
             this.ActualIDLabel.TabIndex = 11;
             this.ActualIDLabel.Text = "label2";
             // 
-            // rentalTransactionBindingSource
-            // 
-            this.rentalTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.RentalTransaction);
-            // 
             // RentalTransactionDataGridView
             // 
             this.RentalTransactionDataGridView.AutoGenerateColumns = false;
@@ -242,12 +238,15 @@
             this.RentalTransactionDataGridView.Name = "RentalTransactionDataGridView";
             this.RentalTransactionDataGridView.Size = new System.Drawing.Size(644, 220);
             this.RentalTransactionDataGridView.TabIndex = 11;
+            this.RentalTransactionDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RentalTransactionDataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "RentalID";
             this.dataGridViewTextBoxColumn1.HeaderText = "RentalID";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -279,6 +278,10 @@
             this.dataGridViewTextBoxColumn8.HeaderText = "Status";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
+            // rentalTransactionBindingSource
+            // 
+            this.rentalTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.RentalTransaction);
+            // 
             // ViewCustomerRentalTransactionsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,8 +297,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingNavigator)).EndInit();
             this.rentalTransactionBindingNavigator.ResumeLayout(false);
             this.rentalTransactionBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RentalTransactionDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,7 +325,7 @@
         private System.Windows.Forms.Label MemberIDLabel;
         private System.Windows.Forms.Label ActualIDLabel;
         private System.Windows.Forms.DataGridView RentalTransactionDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;

@@ -64,7 +64,7 @@
             // 
             // RentalTotalTextBox
             // 
-            this.RentalTotalTextBox.Location = new System.Drawing.Point(402, 330);
+            this.RentalTotalTextBox.Location = new System.Drawing.Point(402, 337);
             this.RentalTotalTextBox.Name = "RentalTotalTextBox";
             this.RentalTotalTextBox.Size = new System.Drawing.Size(100, 20);
             this.RentalTotalTextBox.TabIndex = 2;
@@ -72,7 +72,7 @@
             // TotalLabel
             // 
             this.TotalLabel.AutoSize = true;
-            this.TotalLabel.Location = new System.Drawing.Point(362, 337);
+            this.TotalLabel.Location = new System.Drawing.Point(362, 344);
             this.TotalLabel.Name = "TotalLabel";
             this.TotalLabel.Size = new System.Drawing.Size(34, 13);
             this.TotalLabel.TabIndex = 3;
@@ -88,7 +88,7 @@
             // 
             // SubmitRentalButton
             // 
-            this.SubmitRentalButton.Location = new System.Drawing.Point(427, 356);
+            this.SubmitRentalButton.Location = new System.Drawing.Point(402, 370);
             this.SubmitRentalButton.Name = "SubmitRentalButton";
             this.SubmitRentalButton.Size = new System.Drawing.Size(75, 23);
             this.SubmitRentalButton.TabIndex = 5;
@@ -166,7 +166,7 @@
             this.Controls.Add(this.EmptyCartButton);
             this.Controls.Add(this.FurnitureSearchButton);
             this.Name = "CustomerRentalShoppingCartUserControl";
-            this.Size = new System.Drawing.Size(555, 399);
+            this.Size = new System.Drawing.Size(555, 415);
             ((System.ComponentModel.ISupportInitialize)(this.RentalDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -92,6 +92,7 @@ namespace FurnitureRentals.User_Controls
             FurnitureSearchFormDialog furnitureSearchForm = new FurnitureSearchFormDialog();
           
             DialogResult addedResult = furnitureSearchForm.ShowDialog();
+            furnitureSearchForm.SetCurrentFurnitureList(furnitureList);
 
             if (addedResult == DialogResult.OK)
             {

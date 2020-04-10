@@ -2,12 +2,6 @@
 using FurnitureRentals.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FurnitureRentals.View
@@ -32,6 +26,7 @@ namespace FurnitureRentals.View
             this.LoadCategoryDescriptionComboBox();
             this.LoadStyleComboBox();
             this.furnitureList = new List<Furniture>();
+            this.currentFurnitureList = new List<Furniture>();
            
 
         }
@@ -91,9 +86,6 @@ namespace FurnitureRentals.View
             FurnitureDataGridView.AllowUserToAddRows = false;
             FurnitureDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            
-            
-
                 string searchChoice = (string)this.SearchOptionsComboBox.SelectedValue;
                 if (searchChoice == "Serial Number" && this.SerialNumberTextBox.TextLength > 3)
                 {
@@ -134,9 +126,6 @@ namespace FurnitureRentals.View
                 {
 
                 }
-
-            
-
            
         }
 
@@ -197,6 +186,18 @@ namespace FurnitureRentals.View
             this.LoadFurnitureGridView();
         }
 
+        private bool CheckListValues(int furnitureID, List<Furniture> furnitureList)
+        {
+            foreach(Furniture furniture in furnitureList)
+            {
+                if (furniture.FurnitureID == furnitureID)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void AddButton_Click(object sender, EventArgs e)
         { 
             
@@ -219,6 +220,45 @@ namespace FurnitureRentals.View
             return this.currentFurnitureList;
         }
 
+        private bool DoesListIncludeFurniture(int furnitureID, List<Furniture> furnitureList)
+        {
+            foreach(Furniture furniture in furnitureList)
+            {
+                if (furniture.FurnitureID == furnitureID)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool CompareFurnitureLists(List<Furniture> firstFurnitureList, List<Furniture> secondFurnitureList)
+        {
+            if (firstFurnitureList.Count >= secondFurnitureList.Count)
+            {
+                for (int index = 0; index < secondFurnitureList.Count; index++)
+                {
+                    if (this.DoesListIncludeFurniture(secondFurnitureList[index].FurnitureID, firstFurnitureList))
+                    {
+                        return true;
+
+                    }
+                }
+                             
+                
+            } else
+            {
+                for (int index = 0; index < firstFurnitureList.Count; index++)
+                    if (this.DoesListIncludeFurniture(firstFurnitureList[index].FurnitureID, secondFurnitureList))
+                    {
+                        return true;
+
+                    }
+            }
+            return false;
+        }
+
+
         private void CloseFurnitureButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.No;
@@ -235,7 +275,10 @@ namespace FurnitureRentals.View
             {
                 MessageBox.Show("Please select at least one row");
             }
-            else
+            else if (CompareFurnitureLists(this.furnitureList, this.GetCurrentFurnitureList()))
+            {
+                MessageBox.Show("List can not have same furniture item twice");
+            } else
             {
                 foreach (DataGridViewRow row in this.FurnitureDataGridView.SelectedRows)
                 { 
