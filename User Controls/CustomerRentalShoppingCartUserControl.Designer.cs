@@ -99,6 +99,7 @@
             this.RentalDataGridView.Size = new System.Drawing.Size(467, 215);
             this.RentalDataGridView.TabIndex = 4;
             this.RentalDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RentalDataGridView_CellContentClick);
+            this.RentalDataGridView.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.RentalDataGridView_CellValidated);
             this.RentalDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.RentalDataGridView_CellValidating);
             this.RentalDataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.RentalDataGridView_CurrentCellDirtyStateChanged);
             // 
@@ -186,10 +187,8 @@
             // 
             // TotalCost
             // 
-            this.TotalCost.DataPropertyName = "TotalCost";
             this.TotalCost.HeaderText = "Total Cost";
             this.TotalCost.Name = "TotalCost";
-            this.TotalCost.ReadOnly = true;
             // 
             // Remove
             // 
