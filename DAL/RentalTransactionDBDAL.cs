@@ -30,10 +30,10 @@ namespace FurnitureRentals.DAL
                 connection.Open();
                 rentalTransaction = connection.BeginTransaction();
 
-                using (SqlCommand insertTransactionCommand = new SqlCommand(sqlTransactionStatement, connection, rentalTransaction), updateInventoryCommand = new SqlCommand(sqlQuantityStatement, connection, rentalTransaction),  insertItemCommand = new SqlCommand(sqlItemStatement, connection, rentalTransaction) )
+                using (SqlCommand insertTransactionCommand = new SqlCommand(sqlTransactionStatement, connection, rentalTransaction), updateInventoryCommand = new SqlCommand(sqlQuantityStatement, connection, rentalTransaction), insertItemCommand = new SqlCommand(sqlItemStatement, connection, rentalTransaction))
                 {
                     insertTransactionCommand.Connection = connection;
-                    
+
                     insertTransactionCommand.Parameters.AddWithValue("@CustomerID", transaction.CustomerID);
                     insertTransactionCommand.Parameters.AddWithValue("@RentedOn", transaction.RentalDate);
                     insertTransactionCommand.Parameters.AddWithValue("@DueDate", transaction.DueDate);
@@ -43,25 +43,25 @@ namespace FurnitureRentals.DAL
 
                     transaction.RentalID = Convert.ToInt32(insertTransactionCommand.ExecuteScalar());
 
-                
-                   if (transaction.RentalID <= 0)
-                {
-                    rentalTransaction.Rollback();
-                    
-                    return false;
-                }
 
-                ///foreach (Furniture furniture in furnitureList)
-                for(int index = 0; index < furnitureList.Count; index++)
+                    if (transaction.RentalID <= 0)
+                    {
+                        rentalTransaction.Rollback();
 
-                {
+                        return false;
+                    }
+
+                    ///foreach (Furniture furniture in furnitureList)
+                    for (int index = 0; index < furnitureList.Count; index++)
+
+                    {
                         updateInventoryCommand.Connection = connection;
                         updateInventoryCommand.Parameters.Clear();
                         updateInventoryCommand.Parameters.AddWithValue("@AvailableQuantity", furnitureList[index].Quantity);
                         updateInventoryCommand.Parameters.AddWithValue("@QuantityOrdered", furnitureList[index].QuantityOrdered);
                         updateInventoryCommand.Parameters.AddWithValue("@FurnitureID", furnitureList[index].FurnitureID);
 
-                        
+
 
                         int count = updateInventoryCommand.ExecuteNonQuery();
 
@@ -77,15 +77,16 @@ namespace FurnitureRentals.DAL
                         insertItemCommand.Parameters.AddWithValue("@RentalID", furnitureList[index].RentalTransactionID);
                         insertItemCommand.Parameters.AddWithValue("@FurnitureID", furnitureList[index].FurnitureID);
                         insertItemCommand.Parameters.AddWithValue("@QuantityOrdered", furnitureList[index].QuantityOrdered);
-                        
-                       
+
+
 
 
 
                         furnitureList[index].RentalItemID = Convert.ToInt32(insertItemCommand.ExecuteScalar());
                         addedFurnitureItems.Add(furnitureList[index]);
-                        if (addedFurnitureItems.Count <= 0) { 
-                        
+                        if (addedFurnitureItems.Count <= 0)
+                        {
+
                             rentalTransaction.Rollback();
                             return false;
                         }
@@ -132,7 +133,7 @@ namespace FurnitureRentals.DAL
                             newTransaction.TotalDue = (Decimal)reader["TotalDue"];
                             newTransaction.Status = reader["Status"].ToString();
                             transactionList.Add(newTransaction);
-                            
+
 
                         }
 
@@ -144,6 +145,36 @@ namespace FurnitureRentals.DAL
             return transactionList;
         }
 
+        public RentalTransaction GetRentalTransactionsByID(int rentalID)
+        {
+            RentalTransaction transaction = new RentalTransaction();
+
+            string selectStatement = "SELECT rental_id as RentalTransactionID, rented_on AS RentedOn, " +
+                "due_date AS DueDate, total_due AS TotalDue, status AS Status " +
+                "FROM rental_transaction WHERE rental_id = @RentalID;";
+
+            using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@RentalID", rentalID);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            transaction.RentalID = (int)reader["RentalTransactionID"];
+                            transaction.RentalDate = (DateTime)reader["RentedOn"];
+                            transaction.DueDate = (DateTime)reader["DueDate"];
+                            transaction.TotalDue = (Decimal)reader["TotalDue"];
+                            transaction.Status = reader["Status"].ToString();
+                        }
+                    }
+                }
+            }
+            return transaction;
+        }
     }
-    }
+}
 
