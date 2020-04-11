@@ -58,6 +58,7 @@
     <Compile Include="DAL\FurnitureDBDAL.cs" />
     <Compile Include="DAL\FurnitureRentalsDBConnection.cs" />
     <Compile Include="DAL\RentalItemDBDAL.cs" />
+    <Compile Include="DAL\ReturnTransactionDBDAL.cs" />
     <Compile Include="DAL\RentalTransactionDBDAL.cs" />
     <Compile Include="DAL\StyleDBDAL.cs" />
     <Compile Include="Model\Administrator.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Model\Furniture.cs" />
     <Compile Include="Model\RentalItem.cs" />
     <Compile Include="Model\RentalTransaction.cs" />
+    <Compile Include="Model\ReturnTransaction.cs" />
     <Compile Include="Model\Style.cs" />
     <Compile Include="User Controls\CustomerRentalShoppingCartUserControl.cs">
       <SubType>UserControl</SubType>
@@ -97,6 +99,12 @@
     </Compile>
     <Compile Include="User Controls\ViewCustomerRentalTransactionsUserControl.Designer.cs">
       <DependentUpon>ViewCustomerRentalTransactionsUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\ViewReturnTransactionsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\ViewReturnTransactionsUserControl.Designer.cs">
+      <DependentUpon>ViewReturnTransactionsUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AdminMainFormWithUserControls.cs">
       <SubType>Form</SubType>
@@ -142,13 +150,18 @@
     <Compile Include="View\RentalItemsFormDialog.Designer.cs">
       <DependentUpon>RentalItemsFormDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="_cs6232_g1_DataSetWithStoredProcedure.Designer.cs">
+    <Compile Include="View\SubmitTransactionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SubmitTransactionDialog.Designer.cs">
+      <DependentUpon>SubmitTransactionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cs6232_g1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>_cs6232_g1_DataSetWithStoredProcedure.xsd</DependentUpon>
+      <DependentUpon>_cs6232_g1DataSet.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FurnitureRentalsReport.rdlc" />
-    <EmbeddedResource Include="FurnitureRentalsReportWithStoredProcedure.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -173,6 +186,9 @@
     <EmbeddedResource Include="User Controls\ViewCustomerRentalTransactionsUserControl.resx">
       <DependentUpon>ViewCustomerRentalTransactionsUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\ViewReturnTransactionsUserControl.resx">
+      <DependentUpon>ViewReturnTransactionsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AdminMainFormWithUserControls.resx">
       <DependentUpon>AdminMainFormWithUserControls.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,11 +210,15 @@
     <EmbeddedResource Include="View\RentalItemsFormDialog.resx">
       <DependentUpon>RentalItemsFormDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\SubmitTransactionDialog.resx">
+      <DependentUpon>SubmitTransactionDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\FurnitureRentals.Model.Category.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.Customer.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.Employee.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.Furniture.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.RentalTransaction.datasource" />
+    <None Include="Properties\DataSources\FurnitureRentals.Model.ReturnItem.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.Style.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -209,21 +229,23 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="_cs6232_g1_DataSetWithStoredProcedure.xsc">
-      <DependentUpon>_cs6232_g1_DataSetWithStoredProcedure.xsd</DependentUpon>
+    <None Include="_cs6232_g1DataSet.xsc">
+      <DependentUpon>_cs6232_g1DataSet.xsd</DependentUpon>
     </None>
-    <None Include="_cs6232_g1_DataSetWithStoredProcedure.xsd">
+    <None Include="_cs6232_g1DataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_cs6232_g1_DataSetWithStoredProcedure.Designer.cs</LastGenOutput>
+      <LastGenOutput>_cs6232_g1DataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="_cs6232_g1_DataSetWithStoredProcedure.xss">
-      <DependentUpon>_cs6232_g1_DataSetWithStoredProcedure.xsd</DependentUpon>
+    <None Include="_cs6232_g1DataSet.xss">
+      <DependentUpon>_cs6232_g1DataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

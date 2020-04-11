@@ -270,6 +270,16 @@ namespace FurnitureRentals.View
         /// <returns></returns>
         public List<Furniture> GetSelectedFurniture()
         {
+            foreach (DataGridViewRow row in FurnitureDataGridView.Rows)
+            {
+                if (row.Cells[4].Value != null )
+                {
+                    row.Selected = true;
+                } else
+                {
+                    row.Selected = false;
+                }
+            }
             List<Furniture> furnitureList = new List<Furniture>();
             if (this.FurnitureDataGridView.SelectedRows.Count == 0)
             {
@@ -311,12 +321,13 @@ namespace FurnitureRentals.View
                                           DataGridViewCellValidatingEventArgs e)
         {
             int quantityToBeOrdered = 0;
-            if (FurnitureDataGridView.SelectedRows.Count > 0 && FurnitureDataGridView.SelectedRows[0].Cells[4].Value != null) {
+            if (FurnitureDataGridView.SelectedRows.Count > 0 && FurnitureDataGridView.Rows[FurnitureDataGridView.CurrentCell.RowIndex].Cells[4].Value != null) {
                  quantityToBeOrdered = int.Parse(FurnitureDataGridView.SelectedRows[0].Cells[4].Value.ToString());
+                FurnitureDataGridView.Rows[FurnitureDataGridView.CurrentCell.RowIndex].Selected = true;
             } 
             int quantityAvailable = int.Parse(FurnitureDataGridView.SelectedRows[0].Cells[3].Value.ToString());
 
-            if (e.ColumnIndex == 4) // 1 should be your column index
+            if (e.ColumnIndex == 4) 
             {
                 int i;
 
@@ -335,7 +346,7 @@ namespace FurnitureRentals.View
                     MessageBox.Show("You cannot order more than the amount available.");
                 } else
                 {
-
+                    
                 }
             }
         }
@@ -346,6 +357,8 @@ namespace FurnitureRentals.View
             if (FurnitureDataGridView.IsCurrentCellDirty)
             {
                 FurnitureDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
+
+
             }
         }
 

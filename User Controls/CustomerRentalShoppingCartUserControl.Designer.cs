@@ -93,11 +93,14 @@
             this.Quantity,
             this.TotalCost,
             this.Remove});
+            this.RentalDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.RentalDataGridView.Location = new System.Drawing.Point(35, 98);
             this.RentalDataGridView.Name = "RentalDataGridView";
             this.RentalDataGridView.Size = new System.Drawing.Size(467, 215);
             this.RentalDataGridView.TabIndex = 4;
             this.RentalDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RentalDataGridView_CellContentClick);
+            this.RentalDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.RentalDataGridView_CellValidating);
+            this.RentalDataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.RentalDataGridView_CurrentCellDirtyStateChanged);
             // 
             // SubmitRentalButton
             // 
@@ -167,16 +170,17 @@
             this.Item.DataPropertyName = "Item";
             this.Item.HeaderText = "Item";
             this.Item.Name = "Item";
+            this.Item.ReadOnly = true;
             // 
             // Style
             // 
             this.Style.DataPropertyName = "Style";
             this.Style.HeaderText = "Style";
             this.Style.Name = "Style";
+            this.Style.ReadOnly = true;
             // 
             // Quantity
             // 
-            this.Quantity.DataPropertyName = "Quantity";
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.Name = "Quantity";
             // 
@@ -185,12 +189,14 @@
             this.TotalCost.DataPropertyName = "TotalCost";
             this.TotalCost.HeaderText = "Total Cost";
             this.TotalCost.Name = "TotalCost";
+            this.TotalCost.ReadOnly = true;
             // 
             // Remove
             // 
             this.Remove.DataPropertyName = "Remove";
             this.Remove.HeaderText = "Remove";
             this.Remove.Name = "Remove";
+            this.Remove.ReadOnly = true;
             this.Remove.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Remove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Remove.Text = "X";

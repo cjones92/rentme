@@ -47,11 +47,17 @@ namespace FurnitureRentals.User_Controls
             txtSearch.Focus();
         }
 
+        /// <summary>
+        /// Method that returns the currently selected customer
+        /// </summary>
         public Customer GetCurrentCustomer()
         {
             return this.currentCustomer;
         }
 
+        /// <summary>
+        /// Method that sets the currently selected customer
+        /// </summary>
         public void SetCurrentCustomer(Customer customer)
         {
             this.currentCustomer = customer;
@@ -224,7 +230,7 @@ namespace FurnitureRentals.User_Controls
                 }
                 else if (this.customerController.RegisterCustomer(customer))
                 {
-                    MessageBox.Show("Customer (ID: "+ customer.CustomerId + ") registered successfully!", "Success");
+                    MessageBox.Show("Customer (ID: " + customer.CustomerId + ") registered successfully!", "Success");
                 }
                 else
                 {
@@ -263,14 +269,14 @@ namespace FurnitureRentals.User_Controls
                     return;
                 }
 
-                if (phoneNumber!= customer.HomePhone && this.isCustomerExist(customer.HomePhone))
+                if (phoneNumber != customer.HomePhone && this.isCustomerExist(customer.HomePhone))
                 {
                     MessageBox.Show("Phone number associated with different customer!", "Error");
                     txtHomePhone.Focus();
                 }
                 else if (this.customerController.UpdateCustomer(customer))
                 {
-                    MessageBox.Show("Customer (ID: "+customer.CustomerId+") updated successfully!", "Success");
+                    MessageBox.Show("Customer (ID: " + customer.CustomerId + ") updated successfully!", "Success");
                 }
                 else
                 {
@@ -322,11 +328,12 @@ namespace FurnitureRentals.User_Controls
                 txtLastName.Focus();
                 errorMessage = "Please enter valid last name!";
             }
-            else {
-                if(dtDateOfBirth.Value >= DateTime.Now)
+            else
+            {
+                if (dtDateOfBirth.Value >= DateTime.Now)
                 {
                     errorMessage = "Customer needs to be atleast 18 years old!";
-                } 
+                }
                 else
                 {
                     DateTime dateOfBirth = dtDateOfBirth.Value;
@@ -339,11 +346,11 @@ namespace FurnitureRentals.User_Controls
                 }
             }
 
-            if(errorMessage.Length>0)
+            if (errorMessage.Length > 0)
             {
                 return errorMessage;
-            } 
-            
+            }
+
             if (customer.HomePhone.Trim().Length == 0)
             {
                 txtHomePhone.Focus();
@@ -368,11 +375,11 @@ namespace FurnitureRentals.User_Controls
                 errorMessage = "Please enter valid postal code!";
             }
 
-            if(errorMessage.Length>0)
+            if (errorMessage.Length > 0)
             {
                 return errorMessage;
-            } 
-            
+            }
+
             if (customer.HomePhone.Trim().Length != 10)
             {
                 txtHomePhone.Focus();
