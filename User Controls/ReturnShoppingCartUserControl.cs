@@ -16,8 +16,8 @@ namespace FurnitureRentals.User_Controls
     {
         Customer currentCustomer;
         FurnitureController furnitureController;
-        List<ReturnItem> transactionList = new List<ReturnItem>();
-        DataGridViewComboBoxColumn cbxRemoveReturnItem = new DataGridViewComboBoxColumn();
+        List<ReturnCart> transactionList = new List<ReturnCart>();
+        DataGridViewButtonColumn btnRemove = new DataGridViewButtonColumn();
 
         public ReturnShoppingCartUserControl()
         {
@@ -34,11 +34,8 @@ namespace FurnitureRentals.User_Controls
             dgvCartReturn.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvCartReturn.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-            cbxRemoveReturnItem.Name = "Remove";
-            dgvCartReturn.Columns.Add(cbxRemoveReturnItem);
-            //cmb.MaxDropDownItems = 4;
-            //cmb.Items.Add("True");
-            //cmb.Items.Add("False");
+            btnRemove.Text = "Remove";
+            dgvCartReturn.Columns.Add(btnRemove);
         }
 
         /// <summary>
@@ -59,17 +56,18 @@ namespace FurnitureRentals.User_Controls
         public void addReturn(int rentalId, int furnitureId, String serialNo, int returnQuantity)
         {
             Furniture furniture = this.furnitureController.GetFurnitureByID(furnitureId);
+            /*rentalId
 
-            ReturnItem returnItem = new ReturnItem();
+            ReturnCart returnItem = new ReturnCart();
             returnItem.RentalID = rentalId;
             returnItem.SerialNo = serialNo;
             returnItem.ItemRented = furniture.ItemDescription;
             returnItem.Style = furniture.FurnitureStyle;
-            returnItem.ReturnQuantity = returnQuantity;
+            returnItem.Quantity = returnQuantity;
             returnItem.LateFee = 0;
             returnItem.Refund = 0;
 
-            transactionList.Add(returnItem);
+            transactionList.Add(returnItem);*/
             returnItemBindingSource.DataSource = transactionList;
         }
     }

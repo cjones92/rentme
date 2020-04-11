@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.Model
 {
-    class ReturnItem
+    class ReturnCart
     {
         public int RentalID { get; set; }
 
@@ -16,7 +16,7 @@ namespace FurnitureRentals.Model
 
         public String Style { get; set; }
 
-        public int ReturnQuantity { get; set; }
+        public int Quantity { get; set; }
 
         public decimal LateFee { get; set; }
 

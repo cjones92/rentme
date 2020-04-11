@@ -267,7 +267,7 @@
             // 
             // returnItemBindingSource
             // 
-            this.returnItemBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnItem);
+            this.returnItemBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnCart);
             // 
             // ReturnShoppingCartUserControl
             // 

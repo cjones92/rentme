@@ -69,6 +69,8 @@
     <Compile Include="Controller\CustomerController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
     <Compile Include="Controller\FurnitureController.cs" />
+    <Compile Include="Controller\RentalTransactionController.cs" />
+    <Compile Include="Controller\ReturnTransactionController.cs" />
     <Compile Include="DAL\AdministratorDBDAL.cs" />
     <Compile Include="DAL\CategoryDBDAL.cs" />
     <Compile Include="DAL\CustomerDAL.cs" />
@@ -86,7 +88,7 @@
     <Compile Include="Model\Furniture.cs" />
     <Compile Include="Model\RentalItem.cs" />
     <Compile Include="Model\RentalTransaction.cs" />
-    <Compile Include="Model\ReturnItem.cs" />
+    <Compile Include="Model\ReturnCart.cs" />
     <Compile Include="Model\ReturnTransaction.cs" />
     <Compile Include="Model\Style.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />

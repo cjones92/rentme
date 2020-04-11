@@ -15,7 +15,7 @@ namespace FurnitureRentals.User_Controls
     public partial class ViewReturnTransactionsUserControl : UserControl
     {
         Customer currentCustomer;
-        FurnitureController furnitureController;
+        ReturnTransactionController returnTransactionController;
 
         public ViewReturnTransactionsUserControl()
         {
@@ -30,7 +30,7 @@ namespace FurnitureRentals.User_Controls
             dgvViewReturns.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             this.currentCustomer = new Customer();
-            this.furnitureController = new FurnitureController();
+            this.returnTransactionController = new ReturnTransactionController();
             this.RefreshDataGrid();
         }
 
@@ -57,7 +57,7 @@ namespace FurnitureRentals.User_Controls
             returnTransactionBindingSource.DataSource = new List<ReturnTransaction>();
             if (currentCustomer.CustomerId > 0)
             {
-                List<ReturnTransaction> transactionList = this.furnitureController.GetAllReturnTransactions(currentCustomer.CustomerId);
+                List<ReturnTransaction> transactionList = this.returnTransactionController.GetAllReturnTransactions(currentCustomer.CustomerId);
                 returnTransactionBindingSource.DataSource = transactionList;
             }
 
