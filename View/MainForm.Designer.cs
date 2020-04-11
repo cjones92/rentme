@@ -200,7 +200,7 @@
             // 
             this.UserLoggedInLabel.AutoSize = true;
             this.UserLoggedInLabel.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.UserLoggedInLabel.Location = new System.Drawing.Point(788, 6);
+            this.UserLoggedInLabel.Location = new System.Drawing.Point(776, 6);
             this.UserLoggedInLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.UserLoggedInLabel.Name = "UserLoggedInLabel";
             this.UserLoggedInLabel.Size = new System.Drawing.Size(108, 21);
