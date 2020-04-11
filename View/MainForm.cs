@@ -65,21 +65,20 @@ namespace FurnitureRentals
 
         }
 
-      
-
         public void SetCurrentEmployee(Employee employee)
         {
             this.loggedInEmployee = employee;
             this.customerRentalShoppingCartUserControl1.SetCurrentEmployee(employee);
         }
 
-       
-
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.customerRentalShoppingCartUserControl1.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
             this.viewCustomerRentalTransactionsUserControl1.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
             this.viewCustomerRentalTransactionsUserControl1.LoadIncidentGridView();
+
+            this.viewReturnTransactionsUserControl1.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
+            this.viewReturnTransactionsUserControl1.RefreshDataGrid();
         }
     }
 }

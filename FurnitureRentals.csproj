@@ -58,6 +58,7 @@
     <Compile Include="DAL\FurnitureDBDAL.cs" />
     <Compile Include="DAL\FurnitureRentalsDBConnection.cs" />
     <Compile Include="DAL\RentalItemDBDAL.cs" />
+    <Compile Include="DAL\ReturnTransactionDBDAL.cs" />
     <Compile Include="DAL\RentalTransactionDBDAL.cs" />
     <Compile Include="DAL\StyleDBDAL.cs" />
     <Compile Include="Model\Administrator.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Model\Furniture.cs" />
     <Compile Include="Model\RentalItem.cs" />
     <Compile Include="Model\RentalTransaction.cs" />
+    <Compile Include="Model\ReturnTransaction.cs" />
     <Compile Include="Model\Style.cs" />
     <Compile Include="User Controls\CustomerRentalShoppingCartUserControl.cs">
       <SubType>UserControl</SubType>
@@ -97,6 +99,12 @@
     </Compile>
     <Compile Include="User Controls\ViewCustomerRentalTransactionsUserControl.Designer.cs">
       <DependentUpon>ViewCustomerRentalTransactionsUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\ViewReturnTransactionsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\ViewReturnTransactionsUserControl.Designer.cs">
+      <DependentUpon>ViewReturnTransactionsUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AdminMainFormWithUserControls.cs">
       <SubType>Form</SubType>
@@ -178,6 +186,9 @@
     <EmbeddedResource Include="User Controls\ViewCustomerRentalTransactionsUserControl.resx">
       <DependentUpon>ViewCustomerRentalTransactionsUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\ViewReturnTransactionsUserControl.resx">
+      <DependentUpon>ViewReturnTransactionsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AdminMainFormWithUserControls.resx">
       <DependentUpon>AdminMainFormWithUserControls.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,6 +218,7 @@
     <None Include="Properties\DataSources\FurnitureRentals.Model.Employee.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.Furniture.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.RentalTransaction.datasource" />
+    <None Include="Properties\DataSources\FurnitureRentals.Model.ReturnItem.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.Style.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -232,6 +244,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
