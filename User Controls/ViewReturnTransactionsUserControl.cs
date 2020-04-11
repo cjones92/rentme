@@ -45,8 +45,7 @@ namespace FurnitureRentals.User_Controls
         }
 
         /// <summary>
-        /// Method that refrehes the incidents.
-        /// This gets invoked automatically when a new incident is added
+        /// Method that refrehes the return transactions.
         /// </summary>
         public void RefreshDataGrid()
         {

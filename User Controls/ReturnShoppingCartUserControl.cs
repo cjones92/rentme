@@ -17,12 +17,28 @@ namespace FurnitureRentals.User_Controls
         Customer currentCustomer;
         FurnitureController furnitureController;
         List<ReturnItem> transactionList = new List<ReturnItem>();
+        DataGridViewComboBoxColumn cbxRemoveReturnItem = new DataGridViewComboBoxColumn();
 
         public ReturnShoppingCartUserControl()
         {
             InitializeComponent();
             this.currentCustomer = new Customer();
             this.furnitureController = new FurnitureController();
+
+            dgvCartReturn.AllowUserToAddRows = false;
+            dgvCartReturn.RowHeadersVisible = false;
+            dgvCartReturn.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
+            dgvCartReturn.AutoResizeColumns();
+            dgvCartReturn.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvCartReturn.AutoResizeRows();
+            dgvCartReturn.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvCartReturn.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            cbxRemoveReturnItem.Name = "Remove";
+            dgvCartReturn.Columns.Add(cbxRemoveReturnItem);
+            //cmb.MaxDropDownItems = 4;
+            //cmb.Items.Add("True");
+            //cmb.Items.Add("False");
         }
 
         /// <summary>
@@ -33,19 +49,27 @@ namespace FurnitureRentals.User_Controls
             this.currentCustomer = customer;
             this.lblCustomerName.Text = customer.FirstName + " " + customer.LastName;
             this.lblMemberId.Text = customer.CustomerId + "";
+            this.addReturn(1, 1, "T001", 1);
         }
 
         /// <summary>
         /// Method that refrehes the incidents.
         /// This gets invoked automatically when a new incident is added
         /// </summary>
-        public void RefreshDataGrid()
+        public void addReturn(int rentalId, int furnitureId, String serialNo, int returnQuantity)
         {
-            this.GetAllReturnCartTransactions();
-        }
+            Furniture furniture = this.furnitureController.GetFurnitureByID(furnitureId);
 
-        private void GetAllReturnCartTransactions()
-        {
+            ReturnItem returnItem = new ReturnItem();
+            returnItem.RentalID = rentalId;
+            returnItem.SerialNo = serialNo;
+            returnItem.ItemRented = furniture.ItemDescription;
+            returnItem.Style = furniture.FurnitureStyle;
+            returnItem.ReturnQuantity = returnQuantity;
+            returnItem.LateFee = 0;
+            returnItem.Refund = 0;
+
+            transactionList.Add(returnItem);
             returnItemBindingSource.DataSource = transactionList;
         }
     }

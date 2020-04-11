@@ -32,6 +32,7 @@ namespace FurnitureRentals.Controller
             this.categoryDBDAL = new CategoryDBDAL();
             this.rentalItemDBDAL = new RentalItemDBDAL();
             this.returnTransactionDBDAL = new ReturnTransactionDBDAL();
+
         }
 
         /// <summary>
@@ -106,6 +107,11 @@ namespace FurnitureRentals.Controller
         public List<ReturnTransaction> GetAllReturnTransactions(int customerId)
         {
             return this.returnTransactionDBDAL.GetAllReturnTransactions(customerId);
+        }
+
+        public Furniture GetFurnitureByID(int furnitureId)
+        {
+            return this.furnitureDBDAL.GetFurnitureByID(furnitureId);
         }
     }
 }
