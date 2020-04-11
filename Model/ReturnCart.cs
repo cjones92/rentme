@@ -6,21 +6,17 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.Model
 {
-    class ReturnTransaction
+    class ReturnCart
     {
-        public int ReturnID { get; set; }
-
-        public DateTime ReturnDate { get; set; }
-
         public int RentalID { get; set; }
+
+        public String SerialNo { get; set; }
 
         public String ItemRented { get; set; }
 
         public String Style { get; set; }
 
-        public int TotalQuantity { get; set; }
-
-        public int ReturnedQuantity { get; set; }
+        public int Quantity { get; set; }
 
         public decimal LateFee { get; set; }
 

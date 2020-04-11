@@ -19,7 +19,6 @@ namespace FurnitureRentals.Controller
         CategoryDBDAL categoryDBDAL;
         RentalTransactionDBDAL rentalTransactionDBDAL;
         RentalItemDBDAL rentalItemDBDAL;
-        ReturnTransactionDBDAL returnTransactionDBDAL;
 
         /// <summary>
         /// Class controller
@@ -31,7 +30,6 @@ namespace FurnitureRentals.Controller
             this.styleDBDAL = new StyleDBDAL();
             this.categoryDBDAL = new CategoryDBDAL();
             this.rentalItemDBDAL = new RentalItemDBDAL();
-            this.returnTransactionDBDAL = new ReturnTransactionDBDAL();
         }
 
         /// <summary>
@@ -97,15 +95,9 @@ namespace FurnitureRentals.Controller
             return this.rentalItemDBDAL.GetRentalItemByTransactionID(transactionID);
         }
 
-
-        /// <summary>
-        /// Method that returns all the return transactions for a given customer
-        /// </summary>
-        /// <param name="customerId">customer id of the customer</param>
-        /// <returns>list of return transactions</returns>
-        public List<ReturnTransaction> GetAllReturnTransactions(int customerId)
+        public Furniture GetFurnitureByID(int furnitureId)
         {
-            return this.returnTransactionDBDAL.GetAllReturnTransactions(customerId);
+            return this.furnitureDBDAL.GetFurnitureByID(furnitureId);
         }
     }
 }

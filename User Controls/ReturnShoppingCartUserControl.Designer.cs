@@ -35,23 +35,23 @@
             this.lblCustomerName = new System.Windows.Forms.Label();
             this.CustomerName = new System.Windows.Forms.Label();
             this.dgvCartReturn = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.TotalLateFee = new System.Windows.Forms.Label();
-            this.TotalRefund = new System.Windows.Forms.Label();
-            this.txtLateFee = new System.Windows.Forms.TextBox();
-            this.txtRefundTotal = new System.Windows.Forms.TextBox();
             this.rentalIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serialNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemRentedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.styleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returnQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lateFeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.refundDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returnItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtRefundTotal = new System.Windows.Forms.TextBox();
+            this.TotalLateFee = new System.Windows.Forms.Label();
+            this.TotalRefund = new System.Windows.Forms.Label();
+            this.txtLateFee = new System.Windows.Forms.TextBox();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCartReturn)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.returnItemBindingSource)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -131,7 +131,6 @@
             this.serialNoDataGridViewTextBoxColumn,
             this.itemRentedDataGridViewTextBoxColumn,
             this.styleDataGridViewTextBoxColumn,
-            this.returnQuantityDataGridViewTextBoxColumn,
             this.lateFeeDataGridViewTextBoxColumn,
             this.refundDataGridViewTextBoxColumn});
             this.dgvCartReturn.DataSource = this.returnItemBindingSource;
@@ -140,67 +139,8 @@
             this.dgvCartReturn.ReadOnly = true;
             this.dgvCartReturn.RowHeadersWidth = 51;
             this.dgvCartReturn.RowTemplate.Height = 24;
-            this.dgvCartReturn.Size = new System.Drawing.Size(994, 366);
+            this.dgvCartReturn.Size = new System.Drawing.Size(994, 313);
             this.dgvCartReturn.TabIndex = 18;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.txtRefundTotal, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.TotalLateFee, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.TotalRefund, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.txtLateFee, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(667, 482);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(352, 70);
-            this.tableLayoutPanel2.TabIndex = 20;
-            // 
-            // TotalLateFee
-            // 
-            this.TotalLateFee.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.TotalLateFee.AutoSize = true;
-            this.TotalLateFee.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.TotalLateFee.Location = new System.Drawing.Point(33, 7);
-            this.TotalLateFee.Name = "TotalLateFee";
-            this.TotalLateFee.Size = new System.Drawing.Size(140, 21);
-            this.TotalLateFee.TabIndex = 0;
-            this.TotalLateFee.Text = "Total Late Fee ($) : ";
-            // 
-            // TotalRefund
-            // 
-            this.TotalRefund.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.TotalRefund.AutoSize = true;
-            this.TotalRefund.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.TotalRefund.Location = new System.Drawing.Point(41, 42);
-            this.TotalRefund.Name = "TotalRefund";
-            this.TotalRefund.Size = new System.Drawing.Size(132, 21);
-            this.TotalRefund.TabIndex = 1;
-            this.TotalRefund.Text = "Total Refund ($) : ";
-            // 
-            // txtLateFee
-            // 
-            this.txtLateFee.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtLateFee.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.txtLateFee.Location = new System.Drawing.Point(186, 3);
-            this.txtLateFee.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.txtLateFee.Name = "txtLateFee";
-            this.txtLateFee.Size = new System.Drawing.Size(163, 28);
-            this.txtLateFee.TabIndex = 2;
-            // 
-            // txtRefundTotal
-            // 
-            this.txtRefundTotal.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtRefundTotal.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.txtRefundTotal.Location = new System.Drawing.Point(186, 38);
-            this.txtRefundTotal.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.txtRefundTotal.Name = "txtRefundTotal";
-            this.txtRefundTotal.Size = new System.Drawing.Size(163, 28);
-            this.txtRefundTotal.TabIndex = 3;
             // 
             // rentalIDDataGridViewTextBoxColumn
             // 
@@ -238,15 +178,6 @@
             this.styleDataGridViewTextBoxColumn.ReadOnly = true;
             this.styleDataGridViewTextBoxColumn.Width = 125;
             // 
-            // returnQuantityDataGridViewTextBoxColumn
-            // 
-            this.returnQuantityDataGridViewTextBoxColumn.DataPropertyName = "ReturnQuantity";
-            this.returnQuantityDataGridViewTextBoxColumn.HeaderText = "ReturnQuantity";
-            this.returnQuantityDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.returnQuantityDataGridViewTextBoxColumn.Name = "returnQuantityDataGridViewTextBoxColumn";
-            this.returnQuantityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.returnQuantityDataGridViewTextBoxColumn.Width = 125;
-            // 
             // lateFeeDataGridViewTextBoxColumn
             // 
             this.lateFeeDataGridViewTextBoxColumn.DataPropertyName = "LateFee";
@@ -267,12 +198,83 @@
             // 
             // returnItemBindingSource
             // 
-            this.returnItemBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnItem);
+            this.returnItemBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnCart);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.txtRefundTotal, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.TotalLateFee, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.TotalRefund, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtLateFee, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(667, 436);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(352, 70);
+            this.tableLayoutPanel2.TabIndex = 20;
+            // 
+            // txtRefundTotal
+            // 
+            this.txtRefundTotal.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtRefundTotal.Font = new System.Drawing.Font("Calibri", 10.2F);
+            this.txtRefundTotal.Location = new System.Drawing.Point(186, 38);
+            this.txtRefundTotal.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.txtRefundTotal.Name = "txtRefundTotal";
+            this.txtRefundTotal.Size = new System.Drawing.Size(163, 28);
+            this.txtRefundTotal.TabIndex = 3;
+            // 
+            // TotalLateFee
+            // 
+            this.TotalLateFee.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.TotalLateFee.AutoSize = true;
+            this.TotalLateFee.Font = new System.Drawing.Font("Calibri", 10.2F);
+            this.TotalLateFee.Location = new System.Drawing.Point(33, 7);
+            this.TotalLateFee.Name = "TotalLateFee";
+            this.TotalLateFee.Size = new System.Drawing.Size(140, 21);
+            this.TotalLateFee.TabIndex = 0;
+            this.TotalLateFee.Text = "Total Late Fee ($) : ";
+            // 
+            // TotalRefund
+            // 
+            this.TotalRefund.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.TotalRefund.AutoSize = true;
+            this.TotalRefund.Font = new System.Drawing.Font("Calibri", 10.2F);
+            this.TotalRefund.Location = new System.Drawing.Point(41, 42);
+            this.TotalRefund.Name = "TotalRefund";
+            this.TotalRefund.Size = new System.Drawing.Size(132, 21);
+            this.TotalRefund.TabIndex = 1;
+            this.TotalRefund.Text = "Total Refund ($) : ";
+            // 
+            // txtLateFee
+            // 
+            this.txtLateFee.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtLateFee.Font = new System.Drawing.Font("Calibri", 10.2F);
+            this.txtLateFee.Location = new System.Drawing.Point(186, 3);
+            this.txtLateFee.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.txtLateFee.Name = "txtLateFee";
+            this.txtLateFee.Size = new System.Drawing.Size(163, 28);
+            this.txtLateFee.TabIndex = 2;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Font = new System.Drawing.Font("Calibri", 10.2F);
+            this.btnSubmit.Location = new System.Drawing.Point(853, 528);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(163, 46);
+            this.btnSubmit.TabIndex = 21;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // ReturnShoppingCartUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.dgvCartReturn);
@@ -281,9 +283,9 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCartReturn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.returnItemBindingSource)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.returnItemBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -309,5 +311,6 @@
         private System.Windows.Forms.Label TotalLateFee;
         private System.Windows.Forms.Label TotalRefund;
         private System.Windows.Forms.TextBox txtLateFee;
+        private System.Windows.Forms.Button btnSubmit;
     }
 }
