@@ -16,6 +16,8 @@ namespace FurnitureRentals.User_Controls
     {
         Customer currentCustomer;
         FurnitureController furnitureController;
+        RentalTransactionController rentalTransactionController;
+
         List<ReturnCart> transactionList = new List<ReturnCart>();
         DataGridViewButtonColumn btnRemove = new DataGridViewButtonColumn();
 
@@ -24,6 +26,7 @@ namespace FurnitureRentals.User_Controls
             InitializeComponent();
             this.currentCustomer = new Customer();
             this.furnitureController = new FurnitureController();
+            this.rentalTransactionController = new RentalTransactionController();
 
             dgvCartReturn.AllowUserToAddRows = false;
             dgvCartReturn.RowHeadersVisible = false;
@@ -56,7 +59,27 @@ namespace FurnitureRentals.User_Controls
         public void addReturn(int rentalId, int furnitureId, String serialNo, int returnQuantity)
         {
             Furniture furniture = this.furnitureController.GetFurnitureByID(furnitureId);
-            /*rentalId
+            RentalTransaction rentalTransaction = this.rentalTransactionController.GetRentalTransactionsByID(rentalId);
+
+            decimal dailyRentalRate = furniture.DailyRentalRate;
+            decimal dailyFineRate = furniture.DailyFineRate;
+
+            DateTime rentedOn = rentalTransaction.RentalDate;
+            DateTime dueDate = rentalTransaction.DueDate;
+
+            decimal lateFee = 0;
+            decimal refundAmount = 0;
+
+            if (dueDate > DateTime.Now) // refund amount
+            {
+                int days = (dueDate - DateTime.Now).Days;
+                refundAmount = dailyRentalRate * days;
+            }
+            else if (dueDate < DateTime.Now) // late fee
+            {
+                int days = (DateTime.Now - dueDate).Days;
+                lateFee = dailyFineRate * days;
+            }
 
             ReturnCart returnItem = new ReturnCart();
             returnItem.RentalID = rentalId;
@@ -64,11 +87,36 @@ namespace FurnitureRentals.User_Controls
             returnItem.ItemRented = furniture.ItemDescription;
             returnItem.Style = furniture.FurnitureStyle;
             returnItem.Quantity = returnQuantity;
-            returnItem.LateFee = 0;
-            returnItem.Refund = 0;
+            returnItem.LateFee = lateFee;
+            returnItem.Refund = refundAmount;
 
-            transactionList.Add(returnItem);*/
+            transactionList.Add(returnItem);
             returnItemBindingSource.DataSource = transactionList;
+
+            txtLateFee.Text = Convert.ToString(CalculateLateFee());
+            txtRefundTotal.Text = Convert.ToString(CalculateRefundAmount());
+        }
+
+        private decimal CalculateLateFee()
+        {
+            decimal totalLateFee = 0;
+            foreach (ReturnCart returnItem in transactionList)
+            {
+                totalLateFee = totalLateFee + returnItem.LateFee;
+            }
+
+            return totalLateFee;
+        }
+
+        private decimal CalculateRefundAmount()
+        {
+            decimal totalRefundAmount = 0;
+            foreach (ReturnCart returnItem in transactionList)
+            {
+                totalRefundAmount = totalRefundAmount + returnItem.Refund;
+            }
+
+            return totalRefundAmount;
         }
     }
 }
