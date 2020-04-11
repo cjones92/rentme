@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="_cs6232_g1DataSet" targetNamespace="http://tempuri.org/_cs6232_g1DataSet.xsd" xmlns:mstns="http://tempuri.org/_cs6232_g1DataSet.xsd" xmlns="http://tempuri.org/_cs6232_g1DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="cs6232_g1ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="cs6232_g1ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FurnitureRentals.Properties.Settings.GlobalReference.Default.cs6232_g1ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FurnitureRentalsReportingDataSetTableAdapter" GeneratorDataComponentClassName="FurnitureRentalsReportingDataSetTableAdapter" Name="FurnitureRentalsReportingDataSet" UserDataComponentName="FurnitureRentalsReportingDataSetTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="cs6232_g1ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT furniture.furniture_id, furniture.serial_no, furniture.category_id, furniture.description, furniture_category.description AS cat_description, rental_item.rental_item_id, rental_item.rental_id, rental_transaction.customer_id, 
+                  rental_transaction.rented_on, customer.date_of_birth
+FROM     furniture INNER JOIN
+                  furniture_category ON furniture.category_id = furniture_category.category_id INNER JOIN
+                  rental_item ON furniture.furniture_id = rental_item.furniture_id INNER JOIN
+                  rental_transaction ON rental_item.rental_id = rental_transaction.rental_id INNER JOIN
+                  customer ON rental_transaction.customer_id = customer.customer_id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="furniture_id" DataSetColumn="furniture_id" />
+              <Mapping SourceColumn="serial_no" DataSetColumn="serial_no" />
+              <Mapping SourceColumn="category_id" DataSetColumn="category_id" />
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+              <Mapping SourceColumn="cat_description" DataSetColumn="cat_description" />
+              <Mapping SourceColumn="rental_item_id" DataSetColumn="rental_item_id" />
+              <Mapping SourceColumn="rental_id" DataSetColumn="rental_id" />
+              <Mapping SourceColumn="customer_id" DataSetColumn="customer_id" />
+              <Mapping SourceColumn="rented_on" DataSetColumn="rented_on" />
+              <Mapping SourceColumn="date_of_birth" DataSetColumn="date_of_birth" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="_cs6232_g1DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="_cs6232_g1DataSet" msprop:Generator_UserDSName="_cs6232_g1DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="FurnitureRentalsReportingDataSet" msprop:Generator_TableClassName="FurnitureRentalsReportingDataSetDataTable" msprop:Generator_TableVarName="tableFurnitureRentalsReportingDataSet" msprop:Generator_RowChangedName="FurnitureRentalsReportingDataSetRowChanged" msprop:Generator_TablePropName="FurnitureRentalsReportingDataSet" msprop:Generator_RowDeletingName="FurnitureRentalsReportingDataSetRowDeleting" msprop:Generator_RowChangingName="FurnitureRentalsReportingDataSetRowChanging" msprop:Generator_RowEvHandlerName="FurnitureRentalsReportingDataSetRowChangeEventHandler" msprop:Generator_RowDeletedName="FurnitureRentalsReportingDataSetRowDeleted" msprop:Generator_RowClassName="FurnitureRentalsReportingDataSetRow" msprop:Generator_UserTableName="FurnitureRentalsReportingDataSet" msprop:Generator_RowEvArgName="FurnitureRentalsReportingDataSetRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="furniture_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnfurniture_id" msprop:Generator_ColumnPropNameInRow="furniture_id" msprop:Generator_ColumnPropNameInTable="furniture_idColumn" msprop:Generator_UserColumnName="furniture_id" type="xs:int" />
+              <xs:element name="serial_no" msprop:Generator_ColumnVarNameInTable="columnserial_no" msprop:Generator_ColumnPropNameInRow="serial_no" msprop:Generator_ColumnPropNameInTable="serial_noColumn" msprop:Generator_UserColumnName="serial_no">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="category_id" msprop:Generator_ColumnVarNameInTable="columncategory_id" msprop:Generator_ColumnPropNameInRow="category_id" msprop:Generator_ColumnPropNameInTable="category_idColumn" msprop:Generator_UserColumnName="category_id" type="xs:int" />
+              <xs:element name="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_UserColumnName="description">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cat_description" msprop:Generator_ColumnVarNameInTable="columncat_description" msprop:Generator_ColumnPropNameInRow="cat_description" msprop:Generator_ColumnPropNameInTable="cat_descriptionColumn" msprop:Generator_UserColumnName="cat_description">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rental_item_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnrental_item_id" msprop:Generator_ColumnPropNameInRow="rental_item_id" msprop:Generator_ColumnPropNameInTable="rental_item_idColumn" msprop:Generator_UserColumnName="rental_item_id" type="xs:int" />
+              <xs:element name="rental_id" msprop:Generator_ColumnVarNameInTable="columnrental_id" msprop:Generator_ColumnPropNameInRow="rental_id" msprop:Generator_ColumnPropNameInTable="rental_idColumn" msprop:Generator_UserColumnName="rental_id" type="xs:int" />
+              <xs:element name="customer_id" msprop:Generator_ColumnVarNameInTable="columncustomer_id" msprop:Generator_ColumnPropNameInRow="customer_id" msprop:Generator_ColumnPropNameInTable="customer_idColumn" msprop:Generator_UserColumnName="customer_id" type="xs:int" />
+              <xs:element name="rented_on" msprop:Generator_ColumnVarNameInTable="columnrented_on" msprop:Generator_ColumnPropNameInRow="rented_on" msprop:Generator_ColumnPropNameInTable="rented_onColumn" msprop:Generator_UserColumnName="rented_on" type="xs:dateTime" />
+              <xs:element name="date_of_birth" msprop:Generator_ColumnVarNameInTable="columndate_of_birth" msprop:Generator_ColumnPropNameInRow="date_of_birth" msprop:Generator_ColumnPropNameInTable="date_of_birthColumn" msprop:Generator_UserColumnName="date_of_birth" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:FurnitureRentalsReportingDataSet" />
+      <xs:field xpath="mstns:furniture_id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

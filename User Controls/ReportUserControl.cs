@@ -16,5 +16,21 @@ namespace FurnitureRentals.User_Controls
         {
             InitializeComponent();
         }
+
+        private void Report_Load(object sender, EventArgs e)
+        {
+            startDateTimePicker.MaxDate = DateTime.Today;
+            endDateTimePicker.MaxDate = DateTime.Today;
+        }
+
+        private void btnRunReport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

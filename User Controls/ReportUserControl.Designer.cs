@@ -33,7 +33,7 @@
             this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.endDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.btnRunReport = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelBeginDate
@@ -78,21 +78,23 @@
             this.btnRunReport.TabIndex = 4;
             this.btnRunReport.Text = "Generate Report";
             this.btnRunReport.UseVisualStyleBackColor = true;
+            this.btnRunReport.Click += new System.EventHandler(this.btnRunReport_Click);
             // 
-            // btnClose
+            // btnClear
             // 
-            this.btnClose.Location = new System.Drawing.Point(401, 256);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 5;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClear.Location = new System.Drawing.Point(401, 256);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // ReportUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnRunReport);
             this.Controls.Add(this.endDateTimePicker);
             this.Controls.Add(this.startDateTimePicker);
@@ -100,6 +102,7 @@
             this.Controls.Add(this.labelBeginDate);
             this.Name = "ReportUserControl";
             this.Size = new System.Drawing.Size(556, 291);
+            this.Load += new System.EventHandler(this.Report_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,6 +115,6 @@
         private System.Windows.Forms.DateTimePicker startDateTimePicker;
         private System.Windows.Forms.DateTimePicker endDateTimePicker;
         private System.Windows.Forms.Button btnRunReport;
-        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnClear;
     }
 }
