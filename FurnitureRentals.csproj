@@ -142,12 +142,13 @@
     <Compile Include="View\RentalItemsFormDialog.Designer.cs">
       <DependentUpon>RentalItemsFormDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="_cs6232_g1DataSet.Designer.cs">
+    <Compile Include="_cs6232_g1_DataSetWithStoredProcedure.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>_cs6232_g1DataSet.xsd</DependentUpon>
+      <DependentUpon>_cs6232_g1_DataSetWithStoredProcedure.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FurnitureRentalsReport.rdlc" />
+    <EmbeddedResource Include="FurnitureRentalsReportWithStoredProcedure.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -208,16 +209,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="_cs6232_g1DataSet.xsc">
-      <DependentUpon>_cs6232_g1DataSet.xsd</DependentUpon>
+    <None Include="_cs6232_g1_DataSetWithStoredProcedure.xsc">
+      <DependentUpon>_cs6232_g1_DataSetWithStoredProcedure.xsd</DependentUpon>
     </None>
-    <None Include="_cs6232_g1DataSet.xsd">
+    <None Include="_cs6232_g1_DataSetWithStoredProcedure.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_cs6232_g1DataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>_cs6232_g1_DataSetWithStoredProcedure.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="_cs6232_g1DataSet.xss">
-      <DependentUpon>_cs6232_g1DataSet.xsd</DependentUpon>
+    <None Include="_cs6232_g1_DataSetWithStoredProcedure.xss">
+      <DependentUpon>_cs6232_g1_DataSetWithStoredProcedure.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
