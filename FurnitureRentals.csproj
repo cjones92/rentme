@@ -142,6 +142,12 @@
     <Compile Include="View\RentalItemsFormDialog.Designer.cs">
       <DependentUpon>RentalItemsFormDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\SubmitTransactionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SubmitTransactionDialog.Designer.cs">
+      <DependentUpon>SubmitTransactionDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="_cs6232_g1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\RentalItemsFormDialog.resx">
       <DependentUpon>RentalItemsFormDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SubmitTransactionDialog.resx">
+      <DependentUpon>SubmitTransactionDialog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\FurnitureRentals.Model.Category.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.Customer.datasource" />

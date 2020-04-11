@@ -134,15 +134,27 @@ namespace FurnitureRentals.User_Controls
             }
             else
             {
-                RentalTransaction transaction = new RentalTransaction();
-                transaction.CustomerID = this.currentCustomer.CustomerId;
-                transaction.RentalDate = DateTime.Today;
-                transaction.DueDate = transaction.RentalDate.AddDays(furnitureList[0].DaysRented);
-                transaction.TotalDue = decimal.Parse(this.RentalTotalTextBox.Text.Substring(2));
-                transaction.CheckedOutByID = this.currentEmployee.EmployeeID;
-                
-                transaction.Status = "Pending";
-                this.furnitureController.EnterRentalTransaction(transaction, furnitureList);
+                SubmitTransactionDialog confirmTransactionForm = new SubmitTransactionDialog();
+
+                DialogResult addedResult = confirmTransactionForm.ShowDialog();
+
+                if (addedResult == DialogResult.OK)
+                {
+
+                    RentalTransaction transaction = new RentalTransaction();
+                    transaction.CustomerID = this.currentCustomer.CustomerId;
+                    transaction.RentalDate = DateTime.Today;
+                    transaction.DueDate = transaction.RentalDate.AddDays(furnitureList[0].DaysRented);
+                    transaction.TotalDue = decimal.Parse(this.RentalTotalTextBox.Text.Substring(2));
+                    transaction.CheckedOutByID = this.currentEmployee.EmployeeID;
+
+                    transaction.Status = "Pending";
+                    this.furnitureController.EnterRentalTransaction(transaction, furnitureList);
+                    MessageBox.Show("The transaction was successfully processed");
+                } else
+                {
+
+                }
             }
             
         }
