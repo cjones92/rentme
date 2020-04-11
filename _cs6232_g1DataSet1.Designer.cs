@@ -20,9 +20,9 @@ namespace FurnitureRentals {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("_cs6232_g1_DataSetWithStoredProcedure")]
+    [global::System.Xml.Serialization.XmlRootAttribute("_cs6232_g1DataSet1")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class _cs6232_g1_DataSetWithStoredProcedure : global::System.Data.DataSet {
+    public partial class _cs6232_g1DataSet1 : global::System.Data.DataSet {
         
         private sp_mostPopularFurnitureRentedDuringDatesDataTable tablesp_mostPopularFurnitureRentedDuringDates;
         
@@ -30,7 +30,7 @@ namespace FurnitureRentals {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public _cs6232_g1_DataSetWithStoredProcedure() {
+        public _cs6232_g1DataSet1() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace FurnitureRentals {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected _cs6232_g1_DataSetWithStoredProcedure(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected _cs6232_g1DataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace FurnitureRentals {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            _cs6232_g1_DataSetWithStoredProcedure cln = ((_cs6232_g1_DataSetWithStoredProcedure)(base.Clone()));
+            _cs6232_g1DataSet1 cln = ((_cs6232_g1DataSet1)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace FurnitureRentals {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "_cs6232_g1_DataSetWithStoredProcedure";
+            this.DataSetName = "_cs6232_g1DataSet1";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/_cs6232_g1_DataSetWithStoredProcedure.xsd";
+            this.Namespace = "http://tempuri.org/_cs6232_g1DataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tablesp_mostPopularFurnitureRentedDuringDates = new sp_mostPopularFurnitureRentedDuringDatesDataTable();
@@ -225,7 +225,7 @@ namespace FurnitureRentals {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            _cs6232_g1_DataSetWithStoredProcedure ds = new _cs6232_g1_DataSetWithStoredProcedure();
+            _cs6232_g1DataSet1 ds = new _cs6232_g1DataSet1();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -279,19 +279,19 @@ namespace FurnitureRentals {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class sp_mostPopularFurnitureRentedDuringDatesDataTable : global::System.Data.TypedTableBase<sp_mostPopularFurnitureRentedDuringDatesRow> {
             
-            private global::System.Data.DataColumn columnserialNo;
+            private global::System.Data.DataColumn columnserial_no;
             
-            private global::System.Data.DataColumn columnCategory;
+            private global::System.Data.DataColumn columncategory;
             
-            private global::System.Data.DataColumn columnDescription;
+            private global::System.Data.DataColumn columndescription;
             
-            private global::System.Data.DataColumn columnTimes_QF_Rented;
+            private global::System.Data.DataColumn columntimes_qf_rented;
             
-            private global::System.Data.DataColumn columntotalRentals;
+            private global::System.Data.DataColumn columntotal_rentals;
             
-            private global::System.Data.DataColumn _column__All_Furniture;
+            private global::System.Data.DataColumn columnpercentAllFurniture;
             
-            private global::System.Data.DataColumn _column__Members_Age_18_29;
+            private global::System.Data.DataColumn columnpercentMembersAge18_29;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -328,57 +328,57 @@ namespace FurnitureRentals {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn serialNoColumn {
+            public global::System.Data.DataColumn serial_noColumn {
                 get {
-                    return this.columnserialNo;
+                    return this.columnserial_no;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CategoryColumn {
+            public global::System.Data.DataColumn categoryColumn {
                 get {
-                    return this.columnCategory;
+                    return this.columncategory;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DescriptionColumn {
+            public global::System.Data.DataColumn descriptionColumn {
                 get {
-                    return this.columnDescription;
+                    return this.columndescription;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Times_QF_RentedColumn {
+            public global::System.Data.DataColumn times_qf_rentedColumn {
                 get {
-                    return this.columnTimes_QF_Rented;
+                    return this.columntimes_qf_rented;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn totalRentalsColumn {
+            public global::System.Data.DataColumn total_rentalsColumn {
                 get {
-                    return this.columntotalRentals;
+                    return this.columntotal_rentals;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ___All_FurnitureColumn {
+            public global::System.Data.DataColumn percentAllFurnitureColumn {
                 get {
-                    return this._column__All_Furniture;
+                    return this.columnpercentAllFurniture;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ___Members_Age_18_29Column {
+            public global::System.Data.DataColumn percentMembersAge18_29Column {
                 get {
-                    return this._column__Members_Age_18_29;
+                    return this.columnpercentMembersAge18_29;
                 }
             }
             
@@ -419,16 +419,16 @@ namespace FurnitureRentals {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_mostPopularFurnitureRentedDuringDatesRow Addsp_mostPopularFurnitureRentedDuringDatesRow(string serialNo, string Category, string Description, int Times_QF_Rented, int totalRentals, int ___All_Furniture, int ___Members_Age_18_29) {
+            public sp_mostPopularFurnitureRentedDuringDatesRow Addsp_mostPopularFurnitureRentedDuringDatesRow(string serial_no, string category, string description, int times_qf_rented, int total_rentals, int percentAllFurniture, int percentMembersAge18_29) {
                 sp_mostPopularFurnitureRentedDuringDatesRow rowsp_mostPopularFurnitureRentedDuringDatesRow = ((sp_mostPopularFurnitureRentedDuringDatesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        serialNo,
-                        Category,
-                        Description,
-                        Times_QF_Rented,
-                        totalRentals,
-                        ___All_Furniture,
-                        ___Members_Age_18_29};
+                        serial_no,
+                        category,
+                        description,
+                        times_qf_rented,
+                        total_rentals,
+                        percentAllFurniture,
+                        percentMembersAge18_29};
                 rowsp_mostPopularFurnitureRentedDuringDatesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_mostPopularFurnitureRentedDuringDatesRow);
                 return rowsp_mostPopularFurnitureRentedDuringDatesRow;
@@ -451,46 +451,42 @@ namespace FurnitureRentals {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnserialNo = base.Columns["serialNo"];
-                this.columnCategory = base.Columns["Category"];
-                this.columnDescription = base.Columns["Description"];
-                this.columnTimes_QF_Rented = base.Columns["Times QF Rented"];
-                this.columntotalRentals = base.Columns["totalRentals"];
-                this._column__All_Furniture = base.Columns["% All Furniture"];
-                this._column__Members_Age_18_29 = base.Columns["% Members Age 18-29"];
+                this.columnserial_no = base.Columns["serial_no"];
+                this.columncategory = base.Columns["category"];
+                this.columndescription = base.Columns["description"];
+                this.columntimes_qf_rented = base.Columns["times_qf_rented"];
+                this.columntotal_rentals = base.Columns["total_rentals"];
+                this.columnpercentAllFurniture = base.Columns["percentAllFurniture"];
+                this.columnpercentMembersAge18_29 = base.Columns["percentMembersAge18_29"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnserialNo = new global::System.Data.DataColumn("serialNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnserialNo);
-                this.columnCategory = new global::System.Data.DataColumn("Category", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCategory);
-                this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDescription);
-                this.columnTimes_QF_Rented = new global::System.Data.DataColumn("Times QF Rented", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTimes_QF_Rented);
-                this.columntotalRentals = new global::System.Data.DataColumn("totalRentals", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotalRentals);
-                this._column__All_Furniture = new global::System.Data.DataColumn("% All Furniture", typeof(int), null, global::System.Data.MappingType.Element);
-                this._column__All_Furniture.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column__All_Furniture");
-                this._column__All_Furniture.ExtendedProperties.Add("Generator_UserColumnName", "% All Furniture");
-                base.Columns.Add(this._column__All_Furniture);
-                this._column__Members_Age_18_29 = new global::System.Data.DataColumn("% Members Age 18-29", typeof(int), null, global::System.Data.MappingType.Element);
-                this._column__Members_Age_18_29.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column__Members_Age_18_29");
-                this._column__Members_Age_18_29.ExtendedProperties.Add("Generator_UserColumnName", "% Members Age 18-29");
-                base.Columns.Add(this._column__Members_Age_18_29);
-                this.columnserialNo.AllowDBNull = false;
-                this.columnserialNo.MaxLength = 45;
-                this.columnCategory.ReadOnly = true;
-                this.columnCategory.MaxLength = 45;
-                this.columnDescription.ReadOnly = true;
-                this.columnDescription.MaxLength = 45;
-                this.columnTimes_QF_Rented.ReadOnly = true;
-                this.columntotalRentals.ReadOnly = true;
-                this._column__All_Furniture.ReadOnly = true;
-                this._column__Members_Age_18_29.ReadOnly = true;
+                this.columnserial_no = new global::System.Data.DataColumn("serial_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnserial_no);
+                this.columncategory = new global::System.Data.DataColumn("category", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncategory);
+                this.columndescription = new global::System.Data.DataColumn("description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescription);
+                this.columntimes_qf_rented = new global::System.Data.DataColumn("times_qf_rented", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntimes_qf_rented);
+                this.columntotal_rentals = new global::System.Data.DataColumn("total_rentals", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotal_rentals);
+                this.columnpercentAllFurniture = new global::System.Data.DataColumn("percentAllFurniture", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpercentAllFurniture);
+                this.columnpercentMembersAge18_29 = new global::System.Data.DataColumn("percentMembersAge18_29", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpercentMembersAge18_29);
+                this.columnserial_no.AllowDBNull = false;
+                this.columnserial_no.MaxLength = 45;
+                this.columncategory.ReadOnly = true;
+                this.columncategory.MaxLength = 45;
+                this.columndescription.ReadOnly = true;
+                this.columndescription.MaxLength = 45;
+                this.columntimes_qf_rented.ReadOnly = true;
+                this.columntotal_rentals.ReadOnly = true;
+                this.columnpercentAllFurniture.ReadOnly = true;
+                this.columnpercentMembersAge18_29.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -558,7 +554,7 @@ namespace FurnitureRentals {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                _cs6232_g1_DataSetWithStoredProcedure ds = new _cs6232_g1_DataSetWithStoredProcedure();
+                _cs6232_g1DataSet1 ds = new _cs6232_g1DataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -633,187 +629,187 @@ namespace FurnitureRentals {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string serialNo {
+            public string serial_no {
                 get {
-                    return ((string)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.serialNoColumn]));
+                    return ((string)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.serial_noColumn]));
                 }
                 set {
-                    this[this.tablesp_mostPopularFurnitureRentedDuringDates.serialNoColumn] = value;
+                    this[this.tablesp_mostPopularFurnitureRentedDuringDates.serial_noColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Category {
+            public string category {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.CategoryColumn]));
+                        return ((string)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.categoryColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Category\' in table \'sp_mostPopularFurnitureRentedDuringDate" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'category\' in table \'sp_mostPopularFurnitureRentedDuringDate" +
                                 "s\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_mostPopularFurnitureRentedDuringDates.CategoryColumn] = value;
+                    this[this.tablesp_mostPopularFurnitureRentedDuringDates.categoryColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Description {
+            public string description {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.DescriptionColumn]));
+                        return ((string)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.descriptionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'sp_mostPopularFurnitureRentedDuringD" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'description\' in table \'sp_mostPopularFurnitureRentedDuringD" +
                                 "ates\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_mostPopularFurnitureRentedDuringDates.DescriptionColumn] = value;
+                    this[this.tablesp_mostPopularFurnitureRentedDuringDates.descriptionColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Times_QF_Rented {
+            public int times_qf_rented {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.Times_QF_RentedColumn]));
+                        return ((int)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.times_qf_rentedColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Times QF Rented\' in table \'sp_mostPopularFurnitureRentedDur" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'times_qf_rented\' in table \'sp_mostPopularFurnitureRentedDur" +
                                 "ingDates\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_mostPopularFurnitureRentedDuringDates.Times_QF_RentedColumn] = value;
+                    this[this.tablesp_mostPopularFurnitureRentedDuringDates.times_qf_rentedColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int totalRentals {
+            public int total_rentals {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.totalRentalsColumn]));
+                        return ((int)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.total_rentalsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'totalRentals\' in table \'sp_mostPopularFurnitureRentedDuring" +
-                                "Dates\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'total_rentals\' in table \'sp_mostPopularFurnitureRentedDurin" +
+                                "gDates\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_mostPopularFurnitureRentedDuringDates.totalRentalsColumn] = value;
+                    this[this.tablesp_mostPopularFurnitureRentedDuringDates.total_rentalsColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ___All_Furniture {
+            public int percentAllFurniture {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.___All_FurnitureColumn]));
+                        return ((int)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.percentAllFurnitureColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'% All Furniture\' in table \'sp_mostPopularFurnitureRentedDur" +
-                                "ingDates\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_mostPopularFurnitureRentedDuringDates.___All_FurnitureColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ___Members_Age_18_29 {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.___Members_Age_18_29Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'% Members Age 18-29\' in table \'sp_mostPopularFurnitureRente" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'percentAllFurniture\' in table \'sp_mostPopularFurnitureRente" +
                                 "dDuringDates\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_mostPopularFurnitureRentedDuringDates.___Members_Age_18_29Column] = value;
+                    this[this.tablesp_mostPopularFurnitureRentedDuringDates.percentAllFurnitureColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCategoryNull() {
-                return this.IsNull(this.tablesp_mostPopularFurnitureRentedDuringDates.CategoryColumn);
+            public int percentMembersAge18_29 {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.percentMembersAge18_29Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'percentMembersAge18_29\' in table \'sp_mostPopularFurnitureRe" +
+                                "ntedDuringDates\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_mostPopularFurnitureRentedDuringDates.percentMembersAge18_29Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCategoryNull() {
-                this[this.tablesp_mostPopularFurnitureRentedDuringDates.CategoryColumn] = global::System.Convert.DBNull;
+            public bool IscategoryNull() {
+                return this.IsNull(this.tablesp_mostPopularFurnitureRentedDuringDates.categoryColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDescriptionNull() {
-                return this.IsNull(this.tablesp_mostPopularFurnitureRentedDuringDates.DescriptionColumn);
+            public void SetcategoryNull() {
+                this[this.tablesp_mostPopularFurnitureRentedDuringDates.categoryColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDescriptionNull() {
-                this[this.tablesp_mostPopularFurnitureRentedDuringDates.DescriptionColumn] = global::System.Convert.DBNull;
+            public bool IsdescriptionNull() {
+                return this.IsNull(this.tablesp_mostPopularFurnitureRentedDuringDates.descriptionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTimes_QF_RentedNull() {
-                return this.IsNull(this.tablesp_mostPopularFurnitureRentedDuringDates.Times_QF_RentedColumn);
+            public void SetdescriptionNull() {
+                this[this.tablesp_mostPopularFurnitureRentedDuringDates.descriptionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTimes_QF_RentedNull() {
-                this[this.tablesp_mostPopularFurnitureRentedDuringDates.Times_QF_RentedColumn] = global::System.Convert.DBNull;
+            public bool Istimes_qf_rentedNull() {
+                return this.IsNull(this.tablesp_mostPopularFurnitureRentedDuringDates.times_qf_rentedColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IstotalRentalsNull() {
-                return this.IsNull(this.tablesp_mostPopularFurnitureRentedDuringDates.totalRentalsColumn);
+            public void Settimes_qf_rentedNull() {
+                this[this.tablesp_mostPopularFurnitureRentedDuringDates.times_qf_rentedColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SettotalRentalsNull() {
-                this[this.tablesp_mostPopularFurnitureRentedDuringDates.totalRentalsColumn] = global::System.Convert.DBNull;
+            public bool Istotal_rentalsNull() {
+                return this.IsNull(this.tablesp_mostPopularFurnitureRentedDuringDates.total_rentalsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Is___All_FurnitureNull() {
-                return this.IsNull(this.tablesp_mostPopularFurnitureRentedDuringDates.___All_FurnitureColumn);
+            public void Settotal_rentalsNull() {
+                this[this.tablesp_mostPopularFurnitureRentedDuringDates.total_rentalsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Set___All_FurnitureNull() {
-                this[this.tablesp_mostPopularFurnitureRentedDuringDates.___All_FurnitureColumn] = global::System.Convert.DBNull;
+            public bool IspercentAllFurnitureNull() {
+                return this.IsNull(this.tablesp_mostPopularFurnitureRentedDuringDates.percentAllFurnitureColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Is___Members_Age_18_29Null() {
-                return this.IsNull(this.tablesp_mostPopularFurnitureRentedDuringDates.___Members_Age_18_29Column);
+            public void SetpercentAllFurnitureNull() {
+                this[this.tablesp_mostPopularFurnitureRentedDuringDates.percentAllFurnitureColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Set___Members_Age_18_29Null() {
-                this[this.tablesp_mostPopularFurnitureRentedDuringDates.___Members_Age_18_29Column] = global::System.Convert.DBNull;
+            public bool IspercentMembersAge18_29Null() {
+                return this.IsNull(this.tablesp_mostPopularFurnitureRentedDuringDates.percentMembersAge18_29Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetpercentMembersAge18_29Null() {
+                this[this.tablesp_mostPopularFurnitureRentedDuringDates.percentMembersAge18_29Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -852,7 +848,7 @@ namespace FurnitureRentals {
         }
     }
 }
-namespace FurnitureRentals._cs6232_g1_DataSetWithStoredProcedureTableAdapters {
+namespace FurnitureRentals._cs6232_g1DataSet1TableAdapters {
     
     
     /// <summary>
@@ -976,13 +972,13 @@ namespace FurnitureRentals._cs6232_g1_DataSetWithStoredProcedureTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "sp_mostPopularFurnitureRentedDuringDates";
-            tableMapping.ColumnMappings.Add("Serial No", "serialNo");
-            tableMapping.ColumnMappings.Add("Category", "Category");
-            tableMapping.ColumnMappings.Add("Description", "Description");
-            tableMapping.ColumnMappings.Add("Times QF Rented", "Times QF Rented");
-            tableMapping.ColumnMappings.Add("Total Rentals", "totalRentals");
-            tableMapping.ColumnMappings.Add("% All Furniture", "% All Furniture");
-            tableMapping.ColumnMappings.Add("% Members Age 18-29", "% Members Age 18-29");
+            tableMapping.ColumnMappings.Add("serial_no", "serial_no");
+            tableMapping.ColumnMappings.Add("category", "category");
+            tableMapping.ColumnMappings.Add("description", "description");
+            tableMapping.ColumnMappings.Add("times_qf_rented", "times_qf_rented");
+            tableMapping.ColumnMappings.Add("total_rentals", "total_rentals");
+            tableMapping.ColumnMappings.Add("percentAllFurniture", "percentAllFurniture");
+            tableMapping.ColumnMappings.Add("percentMembersAge18_29", "percentMembersAge18_29");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1010,7 +1006,7 @@ namespace FurnitureRentals._cs6232_g1_DataSetWithStoredProcedureTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(_cs6232_g1_DataSetWithStoredProcedure.sp_mostPopularFurnitureRentedDuringDatesDataTable dataTable, global::System.Nullable<global::System.DateTime> startDate, global::System.Nullable<global::System.DateTime> endDate) {
+        public virtual int Fill(_cs6232_g1DataSet1.sp_mostPopularFurnitureRentedDuringDatesDataTable dataTable, global::System.Nullable<global::System.DateTime> startDate, global::System.Nullable<global::System.DateTime> endDate) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((startDate.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(startDate.Value));
@@ -1035,7 +1031,7 @@ namespace FurnitureRentals._cs6232_g1_DataSetWithStoredProcedureTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual _cs6232_g1_DataSetWithStoredProcedure.sp_mostPopularFurnitureRentedDuringDatesDataTable GetData(global::System.Nullable<global::System.DateTime> startDate, global::System.Nullable<global::System.DateTime> endDate) {
+        public virtual _cs6232_g1DataSet1.sp_mostPopularFurnitureRentedDuringDatesDataTable GetData(global::System.Nullable<global::System.DateTime> startDate, global::System.Nullable<global::System.DateTime> endDate) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((startDate.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(startDate.Value));
@@ -1049,7 +1045,7 @@ namespace FurnitureRentals._cs6232_g1_DataSetWithStoredProcedureTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            _cs6232_g1_DataSetWithStoredProcedure.sp_mostPopularFurnitureRentedDuringDatesDataTable dataTable = new _cs6232_g1_DataSetWithStoredProcedure.sp_mostPopularFurnitureRentedDuringDatesDataTable();
+            _cs6232_g1DataSet1.sp_mostPopularFurnitureRentedDuringDatesDataTable dataTable = new _cs6232_g1DataSet1.sp_mostPopularFurnitureRentedDuringDatesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1123,7 +1119,7 @@ namespace FurnitureRentals._cs6232_g1_DataSetWithStoredProcedureTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(_cs6232_g1_DataSetWithStoredProcedure dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(_cs6232_g1DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1133,7 +1129,7 @@ namespace FurnitureRentals._cs6232_g1_DataSetWithStoredProcedureTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(_cs6232_g1_DataSetWithStoredProcedure dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(_cs6232_g1DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1143,7 +1139,7 @@ namespace FurnitureRentals._cs6232_g1_DataSetWithStoredProcedureTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(_cs6232_g1_DataSetWithStoredProcedure dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(_cs6232_g1DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1177,7 +1173,7 @@ namespace FurnitureRentals._cs6232_g1_DataSetWithStoredProcedureTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(_cs6232_g1_DataSetWithStoredProcedure dataSet) {
+        public virtual int UpdateAll(_cs6232_g1DataSet1 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

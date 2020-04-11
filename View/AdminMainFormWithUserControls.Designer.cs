@@ -35,8 +35,10 @@
             this.LogoutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.LoggedInLabel = new System.Windows.Forms.Label();
             this.manageEmployeeUserControl1 = new FurnitureRentals.User_Controls.ManageEmployeeUserControl();
+            this.reportUserControl1 = new FurnitureRentals.User_Controls.ReportUserControl();
             this.tbCtrlAdminForm.SuspendLayout();
             this.tbPgEmployee.SuspendLayout();
+            this.tbPgReport.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbCtrlAdminForm
@@ -65,6 +67,7 @@
             // 
             // tbPgReport
             // 
+            this.tbPgReport.Controls.Add(this.reportUserControl1);
             this.tbPgReport.Location = new System.Drawing.Point(4, 25);
             this.tbPgReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPgReport.Name = "tbPgReport";
@@ -114,6 +117,13 @@
             this.manageEmployeeUserControl1.Size = new System.Drawing.Size(1523, 1031);
             this.manageEmployeeUserControl1.TabIndex = 0;
             // 
+            // reportUserControl1
+            // 
+            this.reportUserControl1.Location = new System.Drawing.Point(3, 0);
+            this.reportUserControl1.Name = "reportUserControl1";
+            this.reportUserControl1.Size = new System.Drawing.Size(1018, 576);
+            this.reportUserControl1.TabIndex = 0;
+            // 
             // AdminMainFormWithUserControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -129,6 +139,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminMainFormWithUserControls_FormClosing);
             this.tbCtrlAdminForm.ResumeLayout(false);
             this.tbPgEmployee.ResumeLayout(false);
+            this.tbPgReport.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +154,6 @@
         private System.Windows.Forms.Label UserLoggedInLabel;
         private System.Windows.Forms.LinkLabel LogoutLinkLabel;
         private System.Windows.Forms.Label LoggedInLabel;
+        private User_Controls.ReportUserControl reportUserControl1;
     }
 }

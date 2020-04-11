@@ -37,7 +37,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Category</Value>
+                              <Value>category</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -78,7 +78,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Description</Value>
+                              <Value>description</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -119,7 +119,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Times QF Rented</Value>
+                              <Value>times qf rented</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -160,7 +160,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Total Rentals</Value>
+                              <Value>total rentals</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -201,7 +201,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>% All Furniture</Value>
+                              <Value>percent All Furniture</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -242,7 +242,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>% Members Age 18-29</Value>
+                              <Value>percent Members Age18 29</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -281,14 +281,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Category">
+                    <Textbox Name="category">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Category.Value</Value>
+                              <Value>=Fields!category.Value</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -298,7 +298,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Category</rd:DefaultName>
+                      <rd:DefaultName>category</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -314,14 +314,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Description">
+                    <Textbox Name="description">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Description.Value</Value>
+                              <Value>=Fields!description.Value</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -331,7 +331,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Description</rd:DefaultName>
+                      <rd:DefaultName>description</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -347,14 +347,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="TimesQFRented">
+                    <Textbox Name="times_qf_rented">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=CountDistinct(Fields!Times QF Rented.Value)</Value>
+                              <Value>=Sum(Fields!times_qf_rented.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -364,7 +364,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>TimesQFRented</rd:DefaultName>
+                      <rd:DefaultName>times_qf_rented</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -380,14 +380,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="TotalRentals">
+                    <Textbox Name="total_rentals">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Total Rentals.Value</Value>
+                              <Value>=Sum(Fields!total_rentals.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -397,7 +397,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>TotalRentals</rd:DefaultName>
+                      <rd:DefaultName>total_rentals</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -413,14 +413,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="IDAllFurniture">
+                    <Textbox Name="percentAllFurniture">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=CountDistinct(Fields!% All Furniture.Value)</Value>
+                              <Value>=Sum(Fields!percentAllFurniture.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -430,7 +430,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>IDAllFurniture</rd:DefaultName>
+                      <rd:DefaultName>percentAllFurniture</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -446,14 +446,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="IDMembersAge1829">
+                    <Textbox Name="percentMembersAge18_29">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=CountDistinct(Fields!% Members Age 18-29.Value)</Value>
+                              <Value>=Sum(Fields!percentMembersAge18_29.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -463,7 +463,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>IDMembersAge1829</rd:DefaultName>
+                      <rd:DefaultName>percentMembersAge18_29</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -567,7 +567,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=CountDistinct(Fields!Times QF Rented.Value)</Value>
+                              <Value>=Sum(Fields!times_qf_rented.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -605,7 +605,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=Sum(Fields!total_rentals.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -643,7 +643,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=CountDistinct(Fields!% All Furniture.Value)</Value>
+                              <Value>=Sum(Fields!percentAllFurniture.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -681,7 +681,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=CountDistinct(Fields!% Members Age 18-29.Value)</Value>
+                              <Value>=Sum(Fields!percentMembersAge18_29.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -790,7 +790,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=CountDistinct(Fields!Times QF Rented.Value)</Value>
+                              <Value>=Sum(Fields!times_qf_rented.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#333333</Color>
@@ -823,7 +823,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=Sum(Fields!total_rentals.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#333333</Color>
@@ -856,7 +856,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=CountDistinct(Fields!% All Furniture.Value)</Value>
+                              <Value>=Sum(Fields!percentAllFurniture.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#333333</Color>
@@ -889,7 +889,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=CountDistinct(Fields!% Members Age 18-29.Value)</Value>
+                              <Value>=Sum(Fields!percentMembersAge18_29.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#333333</Color>
@@ -940,7 +940,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Serial No</Value>
+                            <Value>serial no</Value>
                             <Style>
                               <FontSize>11pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -978,27 +978,27 @@
               <KeepWithGroup>After</KeepWithGroup>
             </TablixMember>
             <TablixMember>
-              <Group Name="SerialNo">
+              <Group Name="serial_no">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!Serial No.Value</GroupExpression>
+                  <GroupExpression>=Fields!serial_no.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!Serial No.Value</Value>
+                  <Value>=Fields!serial_no.Value</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
                 <Size>1in</Size>
                 <CellContents>
-                  <Textbox Name="SerialNo">
+                  <Textbox Name="serial_no">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Fields!Serial No.Value</Value>
+                            <Value>=Fields!serial_no.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                               <Color>#333333</Color>
@@ -1008,7 +1008,7 @@
                         <Style />
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>SerialNo</rd:DefaultName>
+                    <rd:DefaultName>serial_no</rd:DefaultName>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1030,10 +1030,6 @@
               <TablixMembers>
                 <TablixMember>
                   <Group Name="Details" />
-                  <Visibility>
-                    <Hidden>true</Hidden>
-                    <ToggleItem>SerialNo</ToggleItem>
-                  </Visibility>
                 </TablixMember>
                 <TablixMember>
                   <KeepWithGroup>Before</KeepWithGroup>
@@ -1079,7 +1075,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>FurnitureRentalsDataSetWithStoredProcedure</DataSetName>
+        <DataSetName>ReportDataSet</DataSetName>
         <Height>1in</Height>
         <Width>7in</Width>
         <Style>
@@ -1102,53 +1098,53 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="ID_cs6232_g1_DataSetWithStoredProcedure">
+    <DataSource Name="ID_cs6232_g1DataSet1">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>effb1325-5b30-43f3-b875-f7d1861cba98</rd:DataSourceID>
+      <rd:DataSourceID>bb310366-736d-43aa-b03e-a0f29f6e9884</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="FurnitureRentalsDataSetWithStoredProcedure">
+    <DataSet Name="ReportDataSet">
       <Query>
-        <DataSourceName>ID_cs6232_g1_DataSetWithStoredProcedure</DataSourceName>
+        <DataSourceName>ID_cs6232_g1DataSet1</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Serial No">
-          <DataField>Serial No</DataField>
+        <Field Name="serial_no">
+          <DataField>serial_no</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Category">
-          <DataField>Category</DataField>
+        <Field Name="category">
+          <DataField>category</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
+        <Field Name="description">
+          <DataField>description</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Times QF Rented">
-          <DataField>Times QF Rented</DataField>
+        <Field Name="times_qf_rented">
+          <DataField>times_qf_rented</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Total Rentals">
-          <DataField>Total Rentals</DataField>
+        <Field Name="total_rentals">
+          <DataField>total_rentals</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="% All Furniture">
-          <DataField>% All Furniture</DataField>
+        <Field Name="percentAllFurniture">
+          <DataField>percentAllFurniture</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="% Members Age 18-29">
-          <DataField>% Members Age 18-29</DataField>
+        <Field Name="percentMembersAge18_29">
+          <DataField>percentMembersAge18_29</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>_cs6232_g1_DataSetWithStoredProcedure</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\sofiy\Desktop\CS\CS6232\RentMeProject\_cs6232_g1_DataSetWithStoredProcedure.xsd</rd:SchemaPath>
+        <rd:DataSetName>_cs6232_g1DataSet1</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\sofiy\Desktop\CS\CS6232\RentMeProject\_cs6232_g1DataSet1.xsd</rd:SchemaPath>
         <rd:TableName>sp_mostPopularFurnitureRentedDuringDates</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -1157,5 +1153,5 @@
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>78a62e00-f38b-44b3-a13f-6c76d5ebc5d8</rd:ReportID>
+  <rd:ReportID>040f5d8d-2448-477e-b419-e5e5568d6fc3</rd:ReportID>
 </Report>
