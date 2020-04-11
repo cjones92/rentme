@@ -122,8 +122,6 @@ namespace FurnitureRentals.DAL
                     selectCommand.Parameters.AddWithValue("@CustomerID", transaction.CustomerID);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-
-
                         while (reader.Read())
                         {
                             RentalTransaction newTransaction = new RentalTransaction();
@@ -133,8 +131,6 @@ namespace FurnitureRentals.DAL
                             newTransaction.TotalDue = (Decimal)reader["TotalDue"];
                             newTransaction.Status = reader["Status"].ToString();
                             transactionList.Add(newTransaction);
-
-
                         }
 
                     }
@@ -145,6 +141,11 @@ namespace FurnitureRentals.DAL
             return transactionList;
         }
 
+        /// <summary>
+        /// Method that returns the transaction by rental id
+        /// </summary>
+        /// <param name="rentalID">rentalId</param>
+        /// <returns>a rental transaction</returns>
         public RentalTransaction GetRentalTransactionsByID(int rentalID)
         {
             RentalTransaction transaction = new RentalTransaction();
