@@ -19,7 +19,7 @@ namespace FurnitureRentals.DAL
         /// <returns>a list of return transactions</returns
         public List<ReturnTransactionView> GetAllReturnTransactions(int customerId)
         {
-            string selectStatement = " SELECT return_transaction.return_transaction_id ReturnID, " +
+            string sqlStatement = " SELECT return_transaction.return_transaction_id ReturnID, " +
                 "return_date ReturnDate, rental_item.rental_id RentalId, furniture.description ItemRented, " +
                 "furniture_style.description Style, rental_item.quantity TotalQuantity, " +
                 "return_item.quantity as ReturnedQuantity, late_fee LateFee, refund_amount RefundAmount " +
@@ -27,12 +27,7 @@ namespace FurnitureRentals.DAL
                 "where return_item.return_transaction_id = return_transaction.return_transaction_id " +
                 "and rental_item.furniture_id = furniture.furniture_id " +
                 "and furniture.style_id = furniture_style.style_id and return_transaction.customer_id=@CustomerId;";
-
-            return this.execute(selectStatement, customerId);
-        }
-
-        private List<ReturnTransactionView> execute(string sqlStatement, int customerId)
-        {
+            
             List<ReturnTransactionView> transactionList = new List<ReturnTransactionView>();
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
             {
@@ -64,6 +59,18 @@ namespace FurnitureRentals.DAL
             }
 
             return transactionList;
+        }
+
+        /// <summary>
+        /// Method that posts the return transactions of a given customer
+        /// </summary>
+        /// <param name="returnTransaction">return transaction</param>
+        /// <param name="transactionList">list of items</param>
+        /// <returns>true if successfull otherwise false</returns>
+        public bool PostReturnTransaction(ReturnTransaction returnTransaction, List<ReturnCart> transactionList)
+        {
+
+            return true;
         }
     }
 }

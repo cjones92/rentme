@@ -31,13 +31,14 @@ namespace FurnitureRentals.Controller
         }
 
         /// <summary>
-        /// Method that returns all the return transactions for a given customer
+        /// Method that posts the return transactions of a given customer
         /// </summary>
-        /// <param name="customerId">customer id of the customer</param>
-        /// <returns>list of return transactions</returns>
-        public bool PostReturnTransaction(List<ReturnCart> transactionList)
+        /// <param name="returnTransaction">return transaction</param>
+        /// <param name="transactionList">list of items</param>
+        /// <returns>true if successfull otherwise false</returns>
+        public bool PostReturnTransaction(ReturnTransaction returnTransaction, List<ReturnCart> transactionList)
         {
-            return true;// this.returnTransactionDBDAL.GetAllReturnTransactions(customerId);
+            return this.returnTransactionDBDAL.PostReturnTransaction(returnTransaction, transactionList);
         }
 
     }

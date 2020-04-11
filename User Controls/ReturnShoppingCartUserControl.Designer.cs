@@ -35,12 +35,6 @@
             this.lblCustomerName = new System.Windows.Forms.Label();
             this.CustomerName = new System.Windows.Forms.Label();
             this.dgvCartReturn = new System.Windows.Forms.DataGridView();
-            this.rentalIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serialNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemRentedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.styleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lateFeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.refundDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returnItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtRefundTotal = new System.Windows.Forms.TextBox();
@@ -48,6 +42,13 @@
             this.TotalRefund = new System.Windows.Forms.Label();
             this.txtLateFee = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.rentalIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serialNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemRentedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.styleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lateFeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.refundDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCartReturn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.returnItemBindingSource)).BeginInit();
@@ -131,6 +132,7 @@
             this.serialNoDataGridViewTextBoxColumn,
             this.itemRentedDataGridViewTextBoxColumn,
             this.styleDataGridViewTextBoxColumn,
+            this.returnQuantityDataGridViewTextBoxColumn,
             this.lateFeeDataGridViewTextBoxColumn,
             this.refundDataGridViewTextBoxColumn});
             this.dgvCartReturn.DataSource = this.returnItemBindingSource;
@@ -141,60 +143,6 @@
             this.dgvCartReturn.RowTemplate.Height = 24;
             this.dgvCartReturn.Size = new System.Drawing.Size(994, 313);
             this.dgvCartReturn.TabIndex = 18;
-            // 
-            // rentalIDDataGridViewTextBoxColumn
-            // 
-            this.rentalIDDataGridViewTextBoxColumn.DataPropertyName = "RentalID";
-            this.rentalIDDataGridViewTextBoxColumn.HeaderText = "RentalID";
-            this.rentalIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.rentalIDDataGridViewTextBoxColumn.Name = "rentalIDDataGridViewTextBoxColumn";
-            this.rentalIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.rentalIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // serialNoDataGridViewTextBoxColumn
-            // 
-            this.serialNoDataGridViewTextBoxColumn.DataPropertyName = "SerialNo";
-            this.serialNoDataGridViewTextBoxColumn.HeaderText = "SerialNo";
-            this.serialNoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.serialNoDataGridViewTextBoxColumn.Name = "serialNoDataGridViewTextBoxColumn";
-            this.serialNoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.serialNoDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // itemRentedDataGridViewTextBoxColumn
-            // 
-            this.itemRentedDataGridViewTextBoxColumn.DataPropertyName = "ItemRented";
-            this.itemRentedDataGridViewTextBoxColumn.HeaderText = "ItemRented";
-            this.itemRentedDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.itemRentedDataGridViewTextBoxColumn.Name = "itemRentedDataGridViewTextBoxColumn";
-            this.itemRentedDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemRentedDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // styleDataGridViewTextBoxColumn
-            // 
-            this.styleDataGridViewTextBoxColumn.DataPropertyName = "Style";
-            this.styleDataGridViewTextBoxColumn.HeaderText = "Style";
-            this.styleDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.styleDataGridViewTextBoxColumn.Name = "styleDataGridViewTextBoxColumn";
-            this.styleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.styleDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // lateFeeDataGridViewTextBoxColumn
-            // 
-            this.lateFeeDataGridViewTextBoxColumn.DataPropertyName = "LateFee";
-            this.lateFeeDataGridViewTextBoxColumn.HeaderText = "LateFee";
-            this.lateFeeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.lateFeeDataGridViewTextBoxColumn.Name = "lateFeeDataGridViewTextBoxColumn";
-            this.lateFeeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lateFeeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // refundDataGridViewTextBoxColumn
-            // 
-            this.refundDataGridViewTextBoxColumn.DataPropertyName = "Refund";
-            this.refundDataGridViewTextBoxColumn.HeaderText = "Refund";
-            this.refundDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.refundDataGridViewTextBoxColumn.Name = "refundDataGridViewTextBoxColumn";
-            this.refundDataGridViewTextBoxColumn.ReadOnly = true;
-            this.refundDataGridViewTextBoxColumn.Width = 125;
             // 
             // returnItemBindingSource
             // 
@@ -270,6 +218,69 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // rentalIDDataGridViewTextBoxColumn
+            // 
+            this.rentalIDDataGridViewTextBoxColumn.DataPropertyName = "RentalID";
+            this.rentalIDDataGridViewTextBoxColumn.HeaderText = "RentalID";
+            this.rentalIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.rentalIDDataGridViewTextBoxColumn.Name = "rentalIDDataGridViewTextBoxColumn";
+            this.rentalIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rentalIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // serialNoDataGridViewTextBoxColumn
+            // 
+            this.serialNoDataGridViewTextBoxColumn.DataPropertyName = "SerialNo";
+            this.serialNoDataGridViewTextBoxColumn.HeaderText = "SerialNo";
+            this.serialNoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.serialNoDataGridViewTextBoxColumn.Name = "serialNoDataGridViewTextBoxColumn";
+            this.serialNoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.serialNoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemRentedDataGridViewTextBoxColumn
+            // 
+            this.itemRentedDataGridViewTextBoxColumn.DataPropertyName = "ItemRented";
+            this.itemRentedDataGridViewTextBoxColumn.HeaderText = "ItemRented";
+            this.itemRentedDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemRentedDataGridViewTextBoxColumn.Name = "itemRentedDataGridViewTextBoxColumn";
+            this.itemRentedDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemRentedDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // styleDataGridViewTextBoxColumn
+            // 
+            this.styleDataGridViewTextBoxColumn.DataPropertyName = "Style";
+            this.styleDataGridViewTextBoxColumn.HeaderText = "Style";
+            this.styleDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.styleDataGridViewTextBoxColumn.Name = "styleDataGridViewTextBoxColumn";
+            this.styleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.styleDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // Quantity
+            // 
+            this.returnQuantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.returnQuantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.returnQuantityDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.returnQuantityDataGridViewTextBoxColumn.Name = "Quantity";
+            this.returnQuantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.returnQuantityDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // lateFeeDataGridViewTextBoxColumn
+            // 
+            this.lateFeeDataGridViewTextBoxColumn.DataPropertyName = "LateFee";
+            this.lateFeeDataGridViewTextBoxColumn.HeaderText = "LateFee($)";
+            this.lateFeeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.lateFeeDataGridViewTextBoxColumn.Name = "lateFeeDataGridViewTextBoxColumn";
+            this.lateFeeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lateFeeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // refundDataGridViewTextBoxColumn
+            // 
+            this.refundDataGridViewTextBoxColumn.DataPropertyName = "Refund";
+            this.refundDataGridViewTextBoxColumn.HeaderText = "Refund($)";
+            this.refundDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.refundDataGridViewTextBoxColumn.Name = "refundDataGridViewTextBoxColumn";
+            this.refundDataGridViewTextBoxColumn.ReadOnly = true;
+            this.refundDataGridViewTextBoxColumn.Width = 125;
+            // 
             // ReturnShoppingCartUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -298,13 +309,6 @@
         private System.Windows.Forms.Label lblCustomerName;
         private System.Windows.Forms.Label CustomerName;
         private System.Windows.Forms.DataGridView dgvCartReturn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rentalIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn serialNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemRentedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn styleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn returnQuantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lateFeeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn refundDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource returnItemBindingSource;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TextBox txtRefundTotal;
@@ -312,5 +316,12 @@
         private System.Windows.Forms.Label TotalRefund;
         private System.Windows.Forms.TextBox txtLateFee;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rentalIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn serialNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemRentedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn styleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn returnQuantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lateFeeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn refundDataGridViewTextBoxColumn;
     }
 }
