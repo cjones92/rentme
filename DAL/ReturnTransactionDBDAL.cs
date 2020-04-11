@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.DAL
 {
+    /// <summary>
+    /// This class interacts with the database and executes the necessary SQL operations
+    /// </summary>
     class ReturnTransactionDBDAL
     {
         /// <summary>

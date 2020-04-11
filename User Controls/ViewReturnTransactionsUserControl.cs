@@ -33,6 +33,10 @@ namespace FurnitureRentals.User_Controls
             this.furnitureController = new FurnitureController();
             this.RefreshDataGrid();
         }
+
+        /// <summary>
+        /// Method that sets the current customer
+        /// </summary>
         public void SetCurrentCustomer(Customer customer)
         {
             this.currentCustomer = customer;
