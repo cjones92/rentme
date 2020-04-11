@@ -68,6 +68,7 @@
     <Compile Include="Model\Furniture.cs" />
     <Compile Include="Model\RentalItem.cs" />
     <Compile Include="Model\RentalTransaction.cs" />
+    <Compile Include="Model\ReturnItem.cs" />
     <Compile Include="Model\ReturnTransaction.cs" />
     <Compile Include="Model\Style.cs" />
     <Compile Include="User Controls\CustomerRentalShoppingCartUserControl.cs">
@@ -93,6 +94,12 @@
     </Compile>
     <Compile Include="User Controls\ReportUserControl.Designer.cs">
       <DependentUpon>ReportUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\ReturnShoppingCartUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\ReturnShoppingCartUserControl.Designer.cs">
+      <DependentUpon>ReturnShoppingCartUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\ViewCustomerRentalTransactionsUserControl.cs">
       <SubType>UserControl</SubType>
@@ -182,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\ReportUserControl.resx">
       <DependentUpon>ReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\ReturnShoppingCartUserControl.resx">
+      <DependentUpon>ReturnShoppingCartUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\ViewCustomerRentalTransactionsUserControl.resx">
       <DependentUpon>ViewCustomerRentalTransactionsUserControl.cs</DependentUpon>
