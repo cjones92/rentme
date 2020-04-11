@@ -54,10 +54,11 @@
             // 
             this.lblMemberId.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblMemberId.AutoSize = true;
-            this.lblMemberId.Location = new System.Drawing.Point(138, 28);
+            this.lblMemberId.Font = new System.Drawing.Font("Calibri", 10.2F);
+            this.lblMemberId.Location = new System.Drawing.Point(159, 26);
             this.lblMemberId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMemberId.Name = "lblMemberId";
-            this.lblMemberId.Size = new System.Drawing.Size(46, 17);
+            this.lblMemberId.Size = new System.Drawing.Size(52, 21);
             this.lblMemberId.TabIndex = 15;
             this.lblMemberId.Text = "label2";
             // 
@@ -65,10 +66,11 @@
             // 
             this.MemberIDLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.MemberIDLabel.AutoSize = true;
-            this.MemberIDLabel.Location = new System.Drawing.Point(42, 28);
+            this.MemberIDLabel.Font = new System.Drawing.Font("Calibri", 10.2F);
+            this.MemberIDLabel.Location = new System.Drawing.Point(50, 26);
             this.MemberIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MemberIDLabel.Name = "MemberIDLabel";
-            this.MemberIDLabel.Size = new System.Drawing.Size(88, 17);
+            this.MemberIDLabel.Size = new System.Drawing.Size(101, 21);
             this.MemberIDLabel.TabIndex = 14;
             this.MemberIDLabel.Text = "Member ID : ";
             // 
@@ -76,10 +78,11 @@
             // 
             this.lblCustomerName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblCustomerName.AutoSize = true;
-            this.lblCustomerName.Location = new System.Drawing.Point(138, 3);
+            this.lblCustomerName.Font = new System.Drawing.Font("Calibri", 10.2F);
+            this.lblCustomerName.Location = new System.Drawing.Point(159, 1);
             this.lblCustomerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCustomerName.Name = "lblCustomerName";
-            this.lblCustomerName.Size = new System.Drawing.Size(46, 17);
+            this.lblCustomerName.Size = new System.Drawing.Size(52, 21);
             this.lblCustomerName.TabIndex = 13;
             this.lblCustomerName.Text = "label1";
             // 
@@ -105,14 +108,14 @@
             this.dgvViewReturns.ReadOnly = true;
             this.dgvViewReturns.RowHeadersWidth = 51;
             this.dgvViewReturns.RowTemplate.Height = 24;
-            this.dgvViewReturns.Size = new System.Drawing.Size(994, 274);
+            this.dgvViewReturns.Size = new System.Drawing.Size(994, 338);
             this.dgvViewReturns.TabIndex = 16;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.42857F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.04904F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.95096F));
             this.tableLayoutPanel1.Controls.Add(this.MemberIDLabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblMemberId, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblCustomerName, 1, 0);
@@ -129,10 +132,11 @@
             // 
             this.CustomerName.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.CustomerName.AutoSize = true;
-            this.CustomerName.Location = new System.Drawing.Point(13, 3);
+            this.CustomerName.Font = new System.Drawing.Font("Calibri", 10.2F);
+            this.CustomerName.Location = new System.Drawing.Point(19, 1);
             this.CustomerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CustomerName.Name = "CustomerName";
-            this.CustomerName.Size = new System.Drawing.Size(117, 17);
+            this.CustomerName.Size = new System.Drawing.Size(132, 21);
             this.CustomerName.TabIndex = 18;
             this.CustomerName.Text = "Customer Name :";
             // 

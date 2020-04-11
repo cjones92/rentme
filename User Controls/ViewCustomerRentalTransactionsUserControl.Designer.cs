@@ -144,7 +144,6 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(65, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -190,40 +189,44 @@
             // CustomerName
             // 
             this.CustomerName.AutoSize = true;
+            this.CustomerName.Font = new System.Drawing.Font("Calibri", 10.2F);
             this.CustomerName.Location = new System.Drawing.Point(25, 53);
             this.CustomerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CustomerName.Name = "CustomerName";
-            this.CustomerName.Size = new System.Drawing.Size(113, 17);
+            this.CustomerName.Size = new System.Drawing.Size(128, 21);
             this.CustomerName.TabIndex = 7;
             this.CustomerName.Text = "Customer Name:";
             // 
             // ActualNameLabel
             // 
             this.ActualNameLabel.AutoSize = true;
-            this.ActualNameLabel.Location = new System.Drawing.Point(147, 53);
+            this.ActualNameLabel.Font = new System.Drawing.Font("Calibri", 10.2F);
+            this.ActualNameLabel.Location = new System.Drawing.Point(163, 55);
             this.ActualNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ActualNameLabel.Name = "ActualNameLabel";
-            this.ActualNameLabel.Size = new System.Drawing.Size(46, 17);
+            this.ActualNameLabel.Size = new System.Drawing.Size(52, 21);
             this.ActualNameLabel.TabIndex = 9;
             this.ActualNameLabel.Text = "label1";
             // 
             // MemberIDLabel
             // 
             this.MemberIDLabel.AutoSize = true;
+            this.MemberIDLabel.Font = new System.Drawing.Font("Calibri", 10.2F);
             this.MemberIDLabel.Location = new System.Drawing.Point(52, 82);
             this.MemberIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MemberIDLabel.Name = "MemberIDLabel";
-            this.MemberIDLabel.Size = new System.Drawing.Size(84, 17);
+            this.MemberIDLabel.Size = new System.Drawing.Size(97, 21);
             this.MemberIDLabel.TabIndex = 10;
             this.MemberIDLabel.Text = "Member ID: ";
             // 
             // ActualIDLabel
             // 
             this.ActualIDLabel.AutoSize = true;
-            this.ActualIDLabel.Location = new System.Drawing.Point(147, 82);
+            this.ActualIDLabel.Font = new System.Drawing.Font("Calibri", 10.2F);
+            this.ActualIDLabel.Location = new System.Drawing.Point(163, 82);
             this.ActualIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ActualIDLabel.Name = "ActualIDLabel";
-            this.ActualIDLabel.Size = new System.Drawing.Size(46, 17);
+            this.ActualIDLabel.Size = new System.Drawing.Size(52, 21);
             this.ActualIDLabel.TabIndex = 11;
             this.ActualIDLabel.Text = "label2";
             // 
