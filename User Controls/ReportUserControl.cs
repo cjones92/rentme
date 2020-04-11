@@ -12,6 +12,7 @@ namespace FurnitureRentals.User_Controls
 {
     public partial class ReportUserControl : UserControl
     {
+        
         public ReportUserControl()
         {
             InitializeComponent();
