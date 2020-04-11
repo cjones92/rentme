@@ -103,7 +103,7 @@ namespace FurnitureRentals.User_Controls
                 {
                    
                     furnitureList.Add(furniture);
-
+                    
                 }
                 this.LoadRentalDataGridView();
             }
@@ -116,7 +116,7 @@ namespace FurnitureRentals.User_Controls
             decimal total = 0;
             foreach (DataGridViewRow row in RentalDataGridView.Rows)
             {
-                MessageBox.Show("" + row.Cells[3].Value.ToString());
+               
                 total = total + decimal.Parse(row.Cells[3].Value.ToString());
             }
 

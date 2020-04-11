@@ -21,13 +21,16 @@ namespace FurnitureRentals.DAL
                 "VALUES (@CustomerID, @RentedOn, @DueDate, @TotalDue, @CheckedOutBy, @Status " +
                 "); SELECT SCOPE_IDENTITY() ";
 
+                string sqlQuantityStatement = "UPDATE inventory SET total_available = total_available - @QuantityOrdered " +
+                    "WHERE inventory.furniture_id = @FurnitureID AND total_available = @AvailableQuantity ";
+
                 string sqlItemStatement = "INSERT INTO RENTAL_item (rental_id, furniture_id, quantity) " +
-                "VALUES (@RentalID, @FurnitureID, @Quantity); SELECT SCOPE_IDENTITY() ";
+                "VALUES (@RentalID, @FurnitureID, @QuantityOrdered); SELECT SCOPE_IDENTITY() ";
 
                 connection.Open();
                 rentalTransaction = connection.BeginTransaction();
 
-                using (SqlCommand insertTransactionCommand = new SqlCommand(sqlTransactionStatement, connection, rentalTransaction),  insertCommand = new SqlCommand(sqlItemStatement, connection, rentalTransaction) )
+                using (SqlCommand insertTransactionCommand = new SqlCommand(sqlTransactionStatement, connection, rentalTransaction), updateInventoryCommand = new SqlCommand(sqlQuantityStatement, connection, rentalTransaction),  insertItemCommand = new SqlCommand(sqlItemStatement, connection, rentalTransaction) )
                 {
                     insertTransactionCommand.Connection = connection;
                     
@@ -50,16 +53,36 @@ namespace FurnitureRentals.DAL
 
                 ///foreach (Furniture furniture in furnitureList)
                 for(int index = 0; index < furnitureList.Count; index++)
+
                 {
-                        furnitureList[index].RentalTransactionID = transaction.RentalID;
-                        insertCommand.Connection = connection;
-                        insertCommand.Parameters.Clear();
-                        insertCommand.Parameters.AddWithValue("@RentalID", furnitureList[index].RentalTransactionID);
-                        insertCommand.Parameters.AddWithValue("@FurnitureID", furnitureList[index].FurnitureID);
-                        insertCommand.Parameters.AddWithValue("@Quantity", furnitureList[index].QuantityOrdered);
+                        updateInventoryCommand.Connection = connection;
+                        updateInventoryCommand.Parameters.Clear();
+                        updateInventoryCommand.Parameters.AddWithValue("@AvailableQuantity", furnitureList[index].Quantity);
+                        updateInventoryCommand.Parameters.AddWithValue("@QuantityOrdered", furnitureList[index].QuantityOrdered);
+                        updateInventoryCommand.Parameters.AddWithValue("@FurnitureID", furnitureList[index].FurnitureID);
 
                         
-                        furnitureList[index].RentalItemID = Convert.ToInt32(insertCommand.ExecuteScalar());
+
+                        int count = updateInventoryCommand.ExecuteNonQuery();
+
+                        if (count <= 0)
+                        {
+                            rentalTransaction.Rollback();
+                            return false;
+                        }
+
+                        furnitureList[index].RentalTransactionID = transaction.RentalID;
+                        insertItemCommand.Connection = connection;
+                        insertItemCommand.Parameters.Clear();
+                        insertItemCommand.Parameters.AddWithValue("@RentalID", furnitureList[index].RentalTransactionID);
+                        insertItemCommand.Parameters.AddWithValue("@FurnitureID", furnitureList[index].FurnitureID);
+                        insertItemCommand.Parameters.AddWithValue("@QuantityOrdered", furnitureList[index].QuantityOrdered);
+                        
+                       
+
+
+
+                        furnitureList[index].RentalItemID = Convert.ToInt32(insertItemCommand.ExecuteScalar());
                         addedFurnitureItems.Add(furnitureList[index]);
                         if (addedFurnitureItems.Count <= 0) { 
                         
