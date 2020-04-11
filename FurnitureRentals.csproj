@@ -89,7 +89,7 @@
     <Compile Include="Model\RentalItem.cs" />
     <Compile Include="Model\RentalTransaction.cs" />
     <Compile Include="Model\ReturnCart.cs" />
-    <Compile Include="Model\ReturnTransaction.cs" />
+    <Compile Include="Model\ReturnTransactionView.cs" />
     <Compile Include="Model\Style.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="User Controls\CustomerRentalShoppingCartUserControl.cs">

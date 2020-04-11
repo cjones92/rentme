@@ -17,7 +17,7 @@ namespace FurnitureRentals.DAL
         /// Method that returns all the return transactions
         /// </summary>
         /// <returns>a list of return transactions</returns
-        public List<ReturnTransaction> GetAllReturnTransactions(int customerId)
+        public List<ReturnTransactionView> GetAllReturnTransactions(int customerId)
         {
             string selectStatement = " SELECT return_transaction.return_transaction_id ReturnID, " +
                 "return_date ReturnDate, rental_item.rental_id RentalId, furniture.description ItemRented, " +
@@ -31,9 +31,9 @@ namespace FurnitureRentals.DAL
             return this.execute(selectStatement, customerId);
         }
 
-        private List<ReturnTransaction> execute(string sqlStatement, int customerId)
+        private List<ReturnTransactionView> execute(string sqlStatement, int customerId)
         {
-            List<ReturnTransaction> transactionList = new List<ReturnTransaction>();
+            List<ReturnTransactionView> transactionList = new List<ReturnTransactionView>();
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
             {
                 connection.Open();
@@ -46,7 +46,7 @@ namespace FurnitureRentals.DAL
                     {
                         while (reader.Read())
                         {
-                            ReturnTransaction transaction = new ReturnTransaction();
+                            ReturnTransactionView transaction = new ReturnTransactionView();
                             transaction.ReturnID = (int)reader["ReturnID"];
                             transaction.ReturnDate = (DateTime)reader["ReturnDate"];
                             transaction.RentalID = (int)reader["RentalId"];

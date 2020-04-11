@@ -20,15 +20,24 @@ namespace FurnitureRentals.Controller
             this.returnTransactionDBDAL = new ReturnTransactionDBDAL();
         }
 
+        /// <summary>
+        /// Method that returns all the return transactions for a given customer
+        /// </summary>
+        /// <param name="customerId">customer id of the customer</param>
+        /// <returns>list of return transactions</returns>
+        public List<ReturnTransactionView> GetAllReturnTransactions(int customerId)
+        {
+            return this.returnTransactionDBDAL.GetAllReturnTransactions(customerId);
+        }
 
         /// <summary>
         /// Method that returns all the return transactions for a given customer
         /// </summary>
         /// <param name="customerId">customer id of the customer</param>
         /// <returns>list of return transactions</returns>
-        public List<ReturnTransaction> GetAllReturnTransactions(int customerId)
+        public bool PostReturnTransaction(List<ReturnCart> transactionList)
         {
-            return this.returnTransactionDBDAL.GetAllReturnTransactions(customerId);
+            return true;// this.returnTransactionDBDAL.GetAllReturnTransactions(customerId);
         }
 
     }

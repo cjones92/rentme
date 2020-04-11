@@ -54,10 +54,10 @@ namespace FurnitureRentals.User_Controls
 
         private void GetAllReturnTransactions()
         {
-            returnTransactionBindingSource.DataSource = new List<ReturnTransaction>();
+            returnTransactionBindingSource.DataSource = new List<ReturnTransactionView>();
             if (currentCustomer.CustomerId > 0)
             {
-                List<ReturnTransaction> transactionList = this.returnTransactionController.GetAllReturnTransactions(currentCustomer.CustomerId);
+                List<ReturnTransactionView> transactionList = this.returnTransactionController.GetAllReturnTransactions(currentCustomer.CustomerId);
                 returnTransactionBindingSource.DataSource = transactionList;
             }
 

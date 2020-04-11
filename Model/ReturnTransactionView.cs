@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.Model
 {
-    class ReturnTransaction
+    class ReturnTransactionView
     {
         public int ReturnID { get; set; }
 

@@ -17,6 +17,8 @@ namespace FurnitureRentals.User_Controls
         Customer currentCustomer;
         FurnitureController furnitureController;
         RentalTransactionController rentalTransactionController;
+        ReturnTransactionController returnTransactionController;
+        //ReturnTransaction returnTransaction = new ReturnTransaction();
 
         List<ReturnCart> transactionList = new List<ReturnCart>();
         DataGridViewButtonColumn btnRemove = new DataGridViewButtonColumn();
@@ -27,6 +29,7 @@ namespace FurnitureRentals.User_Controls
             this.currentCustomer = new Customer();
             this.furnitureController = new FurnitureController();
             this.rentalTransactionController = new RentalTransactionController();
+            this.returnTransactionController = new ReturnTransactionController();
 
             dgvCartReturn.AllowUserToAddRows = false;
             dgvCartReturn.RowHeadersVisible = false;
@@ -93,8 +96,11 @@ namespace FurnitureRentals.User_Controls
             transactionList.Add(returnItem);
             returnItemBindingSource.DataSource = transactionList;
 
-            txtLateFee.Text = Convert.ToString(CalculateLateFee());
-            txtRefundTotal.Text = Convert.ToString(CalculateRefundAmount());
+            //returnTransaction.LateFee = CalculateLateFee();
+            //returnTransaction.Refund = CalculateRefundAmount();
+
+            //txtLateFee.Text = Convert.ToString(returnTransaction.LateFee);
+            //txtRefundTotal.Text = Convert.ToString(returnTransaction.Refund);
         }
 
         private decimal CalculateLateFee()
@@ -117,6 +123,17 @@ namespace FurnitureRentals.User_Controls
             }
 
             return totalRefundAmount;
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            DialogResult RentalConfirmDialog = MessageBox.Show("Are you ready to submit?", "Return Confirmation", MessageBoxButtons.YesNo);
+            if(RentalConfirmDialog == DialogResult.Yes)
+            {
+                //returnTransaction.cu
+                //this.returnTransactionController.
+                this.transactionList.Clear();
+            }
         }
     }
 }

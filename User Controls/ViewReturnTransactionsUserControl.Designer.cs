@@ -231,7 +231,7 @@
             // 
             // returnTransactionBindingSource
             // 
-            this.returnTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnTransaction);
+            this.returnTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnTransactionView);
             // 
             // ViewReturnTransactionsUserControl
             // 
