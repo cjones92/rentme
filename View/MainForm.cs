@@ -26,6 +26,10 @@ namespace FurnitureRentals
         {
             InitializeComponent();
             this.loggedInEmployee = new Employee();
+            //this.tabManageCustomerUserControl.TabPages.Remove(this.ShoppingCartTab);
+            //this.tabManageCustomerUserControl.TabPages.Remove(this.CustomerRentalCartTab);
+            //this.tabManageCustomerUserControl.TabPages.Remove(this.ViewReturnsTab);
+            //this.tabManageCustomerUserControl.TabPages.Remove(this.ReturnsCartTab);
         }
 
         /// <summary>
@@ -69,6 +73,10 @@ namespace FurnitureRentals
         {
             this.loggedInEmployee = employee;
             this.customerRentalShoppingCartUserControl1.SetCurrentEmployee(employee);
+            //this.tabManageCustomerUserControl.TabPages.Add(this.ShoppingCartTab);
+            //this.tabManageCustomerUserControl.TabPages.Add(this.CustomerRentalCartTab);
+            //this.tabManageCustomerUserControl.TabPages.Add(this.ViewReturnsTab);
+            //this.tabManageCustomerUserControl.TabPages.Add(this.ReturnsCartTab);
         }
 
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
