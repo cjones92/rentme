@@ -265,7 +265,7 @@ namespace FurnitureRentals.User_Controls
                     bool isRegistered = this.employeeController.RegisterEmployee(employee);
                     if (isRegistered)
                     {
-                        MessageBox.Show("Employee has been created successfully.", "Registration Complete");
+                        MessageBox.Show("Employee has been created successfully. EmployeeID: "+ employee.EmployeeID, "Registration Complete");
                     }
                     else
                     {

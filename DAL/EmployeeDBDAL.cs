@@ -163,7 +163,8 @@ namespace FurnitureRentals.DAL
                 "(first_name, middle_name, last_name, sex, date_of_birth, address1, address2, " +
                 "city, state, zipcode, phone_number, username, password, status) " +
                 "VALUES (@first_name, @middle_name, @last_name, @sex, @date_of_birth, @address1, " +
-                "@address2, @city, @state, @zipcode, @phone_number, @username, @password, @status)";
+                "@address2, @city, @state, @zipcode, @phone_number, @username, @password, @status); " +
+                "SELECT CAST(scope_identity() AS int)";
                 
 
                 connection.Open();
@@ -184,8 +185,8 @@ namespace FurnitureRentals.DAL
                     insertCommand.Parameters.AddWithValue("@username", employee.UserName);
                     insertCommand.Parameters.AddWithValue("@password", encodedPassword);
                     insertCommand.Parameters.AddWithValue("@status", employee.Status);
+                    employee.EmployeeID = Convert.ToInt32(insertCommand.ExecuteScalar());
 
-                    insertCommand.ExecuteNonQuery();
                     return true;
                 }
             }
