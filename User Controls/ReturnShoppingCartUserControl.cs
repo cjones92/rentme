@@ -9,20 +9,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FurnitureRentals.Model;
 using FurnitureRentals.Controller;
+using System.Diagnostics;
 
 namespace FurnitureRentals.User_Controls
 {
     public partial class ReturnShoppingCartUserControl : UserControl
     {
-        Customer currentCustomer;
-        FurnitureController furnitureController;
-        RentalTransactionController rentalTransactionController;
-        ReturnTransactionController returnTransactionController;
-        ReturnTransaction returnTransaction = new ReturnTransaction();
+        private Customer currentCustomer;
+        private FurnitureController furnitureController;
+        private RentalTransactionController rentalTransactionController;
+        private ReturnTransactionController returnTransactionController;
+        private ReturnTransaction returnTransaction = new ReturnTransaction();
+        private List<ReturnCart> returnCartItemList = new List<ReturnCart>();
+        private DataGridViewButtonColumn btnRemove = new DataGridViewButtonColumn();
 
-        List<ReturnCart> returnCartItemList = new List<ReturnCart>();
-        DataGridViewButtonColumn btnRemove = new DataGridViewButtonColumn();
-
+        /// <summary>
+        /// Contructor of Return Shopping cart
+        /// </summary>
         public ReturnShoppingCartUserControl()
         {
             InitializeComponent();
@@ -40,8 +43,10 @@ namespace FurnitureRentals.User_Controls
             dgvCartReturn.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvCartReturn.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-            btnRemove.Text = "Remove";
-            dgvCartReturn.Columns.Add(btnRemove);
+            this.txtLateFee.ReadOnly = true;
+            this.txtRefundTotal.ReadOnly = true;
+
+            returnItemBindingSource.DataSource = returnCartItemList;
         }
 
         /// <summary>
@@ -55,7 +60,6 @@ namespace FurnitureRentals.User_Controls
             this.currentCustomer = customer;
             this.lblCustomerName.Text = customer.FirstName + " " + customer.LastName;
             this.lblMemberId.Text = customer.CustomerId + "";
-            this.addReturn(1, 1, 1);
         }
 
         /// <summary>
@@ -67,6 +71,7 @@ namespace FurnitureRentals.User_Controls
         public void addReturn(int rentalId, int furnitureId, int returnQuantity)
         {
             Furniture furniture = this.furnitureController.GetFurnitureByID(furnitureId);
+
             RentalTransaction rentalTransaction = this.rentalTransactionController.GetRentalTransactionsByID(rentalId);
 
             decimal dailyRentalRate = furniture.DailyRentalRate;
@@ -75,50 +80,63 @@ namespace FurnitureRentals.User_Controls
             DateTime rentedOn = rentalTransaction.RentalDate;
             DateTime dueDate = rentalTransaction.DueDate;
 
-            decimal lateFee = 0;
-            decimal refundAmount = 0;
-
-            if (dueDate > DateTime.Now) // refund amount
-            {
-                int days = (dueDate - DateTime.Now).Days;
-                refundAmount = dailyRentalRate * days;
-            }
-            else if (dueDate < DateTime.Now) // late fee
-            {
-                int days = (DateTime.Now - dueDate).Days;
-                lateFee = dailyFineRate * days;
-            }
-
             ReturnCart returnCartItem = new ReturnCart();
             returnCartItem.RentalID = rentalId;
+            returnCartItem.SerialNo = furniture.SerialNumber;
             returnCartItem.ItemRented = furniture.ItemDescription;
             returnCartItem.Style = furniture.FurnitureStyle;
             returnCartItem.Quantity = returnQuantity;
-            returnCartItem.LateFee = lateFee;
-            returnCartItem.Refund = refundAmount;
+            returnCartItem.LateFee = 0;
+            returnCartItem.Refund = 0;
 
+            int totalQuantity = returnQuantity;
             bool itemNotFoundInCart = true;
             foreach(ReturnCart returnItem in returnCartItemList)
             {
-                if(returnItem.RentalID == rentalId && furniture.FurnitureID == furnitureId)
+                if (returnItem.RentalID == rentalId && furniture.FurnitureID == furnitureId)
                 {
-                    returnItem.Quantity = returnQuantity;
+                    returnItem.Quantity += returnQuantity;
+                    totalQuantity = returnItem.Quantity;
                     itemNotFoundInCart = false;
+
+                    if (dueDate > DateTime.Now) // refund amount
+                    {
+                        int days = (dueDate - DateTime.Now).Days;
+                        returnItem.Refund = (dailyRentalRate * days * totalQuantity);
+                    }
+                    else if (dueDate < DateTime.Now) // late fee
+                    {
+                        int days = (DateTime.Now - dueDate).Days;
+                        returnItem.LateFee = (dailyFineRate * days * totalQuantity);
+                    }
                 }
             }
+            
 
-            if(itemNotFoundInCart)
+            if (itemNotFoundInCart)
             {
+                if (dueDate > DateTime.Now) // refund amount
+                {
+                    int days = (dueDate - DateTime.Now).Days;
+                    returnCartItem.Refund = (dailyRentalRate * days * totalQuantity);
+                }
+                else if (dueDate < DateTime.Now) // late fee
+                {
+                    int days = (DateTime.Now - dueDate).Days;
+                    returnCartItem.LateFee = (dailyFineRate * days * totalQuantity);
+                }
+
                 returnCartItemList.Add(returnCartItem);
             }
-            
-            returnItemBindingSource.DataSource = returnCartItemList;
 
             returnTransaction.LateFee = CalculateLateFee();
             returnTransaction.RefundAmount = CalculateRefundAmount();
 
             txtLateFee.Text = Convert.ToString(returnTransaction.LateFee);
             txtRefundTotal.Text = Convert.ToString(returnTransaction.RefundAmount);
+
+            returnItemBindingSource.DataSource = null;
+            returnItemBindingSource.DataSource = this.returnCartItemList;
         }
 
         private decimal CalculateLateFee()
@@ -145,6 +163,11 @@ namespace FurnitureRentals.User_Controls
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            if (this.returnCartItemList.Count==0)
+            {
+                MessageBox.Show("Return cart is empty!", "Warning");
+                return;
+            }
             DialogResult RentalConfirmDialog = MessageBox.Show("Are you ready to submit?", "Return Confirmation", MessageBoxButtons.YesNo);
             if (RentalConfirmDialog == DialogResult.Yes)
             {
@@ -155,6 +178,25 @@ namespace FurnitureRentals.User_Controls
                 returnItemBindingSource.DataSource = new List<ReturnCart>();
             }
         }
+
+        private void dgvCartReturn_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvCartReturn.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {                
+                this.dgvCartReturn.Rows.RemoveAt(e.RowIndex);
+                returnTransaction.LateFee = CalculateLateFee();
+                returnTransaction.RefundAmount = CalculateRefundAmount();
+
+                txtLateFee.Text = Convert.ToString(returnTransaction.LateFee);
+                txtRefundTotal.Text = Convert.ToString(returnTransaction.RefundAmount);
+            }
+        }
+
+        /*
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int count = this.returnCartItemList.Count + 1;
+            this.addReturn(1, 1, 1);
+        }*/
     }
 }
-;

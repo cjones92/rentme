@@ -25,7 +25,8 @@ namespace FurnitureRentals.DAL
 
             string selectStatement = "SELECT furniture.furniture_id as FurnitureID, serial_no AS 'Serial Number', " +
                 "furniture.description AS Item, furniture_style.description AS Style, " +
-                "total_available AS 'Total Available', daily_rental_rate AS 'Daily Rental Rate' " +
+                "total_available AS 'Total Available', daily_rental_rate AS 'Daily Rental Rate', " +
+                "daily_fine_rate AS 'Daily Fine Rate'  " +
                 "FROM furniture JOIN furniture_style ON furniture.style_id = furniture_style.style_id JOIN " +
                 "inventory ON furniture.furniture_id = inventory.furniture_id WHERE furniture.furniture_id = @FurnitureID;";
 
@@ -40,11 +41,13 @@ namespace FurnitureRentals.DAL
                     {
                         if (reader.Read())
                         {
+                            furniture.FurnitureID = (int)reader["FurnitureID"];
                             furniture.SerialNumber = reader["Serial Number"].ToString();
                             furniture.ItemDescription = reader["Item"].ToString();
                             furniture.FurnitureStyle = reader["Style"].ToString();
                             furniture.Quantity = (int)reader["Total Available"];
                             furniture.DailyRentalRate = (decimal)reader["Daily Rental Rate"];
+                            furniture.DailyFineRate = (decimal)reader["Daily Fine Rate"];
                         }
                     }
                 }
