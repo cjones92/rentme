@@ -320,16 +320,21 @@ namespace FurnitureRentals.View
         private void FurnitureDataGridView_CellValidating(object sender,
                                           DataGridViewCellValidatingEventArgs e)
         {
+            int i;
             int quantityToBeOrdered = 0;
-            if (FurnitureDataGridView.SelectedRows.Count > 0 && FurnitureDataGridView.Rows[FurnitureDataGridView.CurrentCell.RowIndex].Cells[4].Value != null) {
-                 quantityToBeOrdered = int.Parse(FurnitureDataGridView.SelectedRows[0].Cells[4].Value.ToString());
+            int quantityAvailable = 0;
+            if (FurnitureDataGridView.SelectedRows.Count > 0 && FurnitureDataGridView.Rows[FurnitureDataGridView.CurrentCell.RowIndex].Cells[4].Value != null && int.TryParse(Convert.ToString(e.FormattedValue), out i)) {
+                 quantityToBeOrdered = int.Parse(FurnitureDataGridView.Rows[FurnitureDataGridView.CurrentCell.RowIndex].Cells[4].Value.ToString());
                 FurnitureDataGridView.Rows[FurnitureDataGridView.CurrentCell.RowIndex].Selected = true;
-            } 
-            int quantityAvailable = int.Parse(FurnitureDataGridView.SelectedRows[0].Cells[3].Value.ToString());
+            }
+
+            if ((int.TryParse(Convert.ToString(e.FormattedValue), out i)) && (!string.IsNullOrEmpty(e.FormattedValue.ToString()))){
+                 quantityAvailable = int.Parse(FurnitureDataGridView.Rows[FurnitureDataGridView.CurrentCell.RowIndex].Cells[3].Value.ToString());
+            }
 
             if (e.ColumnIndex == 4) 
             {
-                int i;
+               
 
                 if (string.IsNullOrEmpty(e.FormattedValue.ToString())) {
 
