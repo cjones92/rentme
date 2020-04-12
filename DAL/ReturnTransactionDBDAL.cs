@@ -42,7 +42,7 @@ namespace FurnitureRentals.DAL
                             ReturnTransaction transaction = new ReturnTransaction();
                             transaction.ReturnTransactionID = (int)reader["ReturnTransactionID"];
                             transaction.ReturnDate = (DateTime)reader["ReturnDate"];
-                            transaction.CheckedinBy = reader["CheckedinBy"].ToString();
+                            transaction.CheckedinBy = (int)reader["CheckedinBy"];
                             transaction.LateFee = (decimal)reader["LateFee"];
                             transaction.RefundAmount = (decimal)reader["RefundAmount"];
 
@@ -101,10 +101,52 @@ namespace FurnitureRentals.DAL
         /// <param name="returnTransaction">return transaction</param>
         /// <param name="transactionList">list of items</param>
         /// <returns>true if successfull otherwise false</returns>
-        public bool PostReturnTransaction(ReturnTransaction returnTransaction, List<ReturnCart> transactionList)
+        public bool PostReturnTransaction(ReturnTransaction returnTransaction, List<ReturnCart> ReturnItemList)
         {
-            
-            return true;
+            using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
+            {
+                string sqlStatement = "INSERT INTO Return_Transaction (customer_id, return_date, " +
+                "checked_in_by, late_fee, refund_amount) " +
+                "VALUES (@CustomerID, @ReturnDate, @CheckedinBy, @LateFee, @RefundAmount); SELECT SCOPE_IDENTITY() ";
+
+                connection.Open();
+
+                using (SqlCommand insertCommand = new SqlCommand(sqlStatement, connection))
+                {
+                    insertCommand.Connection = connection;
+                    insertCommand.Parameters.AddWithValue("@CustomerID", returnTransaction.CustomerID);
+                    insertCommand.Parameters.AddWithValue("@ReturnDate", returnTransaction.ReturnDate);
+                    insertCommand.Parameters.AddWithValue("@CheckedinBy", returnTransaction.CheckedinBy);
+                    insertCommand.Parameters.AddWithValue("@LateFee", returnTransaction.LateFee);
+                    insertCommand.Parameters.AddWithValue("@RefundAmount", returnTransaction.RefundAmount);
+                    returnTransaction.ReturnTransactionID = Convert.ToInt32(insertCommand.ExecuteScalar());
+
+                    if (returnTransaction.ReturnTransactionID > 0)
+                    {
+                        this.InsertReturnItem(connection, returnTransaction, ReturnItemList);
+                    }
+
+                    return true;
+                }
+            }
+        }
+
+        private void InsertReturnItem(SqlConnection connection, ReturnTransaction returnTransaction, List<ReturnCart> ReturnItemList)
+        {
+            string insertReturnItemStatement = "INSERT INTO Return_Item (return_transaction_id, " +
+                            "rental_item_id, quantity) VALUES (@ReturnTransactionID, @RentalItemID, @Quantity); " +
+                            "SELECT SCOPE_IDENTITY() ";
+            using (SqlCommand insertCommand = new SqlCommand(insertReturnItemStatement, connection))
+            {
+                insertCommand.Connection = connection;
+                foreach (ReturnCart returnItem in ReturnItemList)
+                {
+                    insertCommand.Parameters.AddWithValue("@ReturnTransactionID", returnTransaction.ReturnTransactionID);
+                    insertCommand.Parameters.AddWithValue("@RentalItemID", returnItem.RentalID);
+                    insertCommand.Parameters.AddWithValue("@Quantity", returnItem.Quantity);
+                    insertCommand.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

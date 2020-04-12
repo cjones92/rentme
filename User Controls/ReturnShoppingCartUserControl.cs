@@ -20,7 +20,7 @@ namespace FurnitureRentals.User_Controls
         ReturnTransactionController returnTransactionController;
         ReturnTransaction returnTransaction = new ReturnTransaction();
 
-        List<ReturnCart> transactionList = new List<ReturnCart>();
+        List<ReturnCart> returnCartItemList = new List<ReturnCart>();
         DataGridViewButtonColumn btnRemove = new DataGridViewButtonColumn();
 
         public ReturnShoppingCartUserControl()
@@ -47,22 +47,24 @@ namespace FurnitureRentals.User_Controls
         /// <summary>
         /// Method that sets the current customer
         /// </summary>
-        public void SetCurrentCustomer(Customer customer)
+        public void SetCurrentCustomer(int employeeId, Customer customer)
         {
             this.returnTransaction.CustomerID = customer.CustomerId;
             this.returnTransaction.ReturnDate = DateTime.Now;
-
+            this.returnTransaction.CheckedinBy = employeeId;
             this.currentCustomer = customer;
             this.lblCustomerName.Text = customer.FirstName + " " + customer.LastName;
             this.lblMemberId.Text = customer.CustomerId + "";
-            this.addReturn(1, 1, "T001", 1);
+            this.addReturn(1, 1, 1);
         }
 
         /// <summary>
-        /// Method that refrehes the incidents.
-        /// This gets invoked automatically when a new incident is added
+        /// Method that adds an return item to the cart
         /// </summary>
-        public void addReturn(int rentalId, int furnitureId, String serialNo, int returnQuantity)
+        /// <param name="rentalId">rental id of the returning item</param>
+        /// <param name="furnitureId">furniture id of the returning item</param>
+        /// <param name="returnQuantity">return quantity of the returning item"></param>
+        public void addReturn(int rentalId, int furnitureId, int returnQuantity)
         {
             Furniture furniture = this.furnitureController.GetFurnitureByID(furnitureId);
             RentalTransaction rentalTransaction = this.rentalTransactionController.GetRentalTransactionsByID(rentalId);
@@ -87,17 +89,16 @@ namespace FurnitureRentals.User_Controls
                 lateFee = dailyFineRate * days;
             }
 
-            ReturnCart returnItem = new ReturnCart();
-            returnItem.RentalID = rentalId;
-            returnItem.SerialNo = serialNo;
-            returnItem.ItemRented = furniture.ItemDescription;
-            returnItem.Style = furniture.FurnitureStyle;
-            returnItem.Quantity = returnQuantity;
-            returnItem.LateFee = lateFee;
-            returnItem.Refund = refundAmount;
+            ReturnCart returnCartItem = new ReturnCart();
+            returnCartItem.RentalID = rentalId;
+            returnCartItem.ItemRented = furniture.ItemDescription;
+            returnCartItem.Style = furniture.FurnitureStyle;
+            returnCartItem.Quantity = returnQuantity;
+            returnCartItem.LateFee = lateFee;
+            returnCartItem.Refund = refundAmount;
 
-            transactionList.Add(returnItem);
-            returnItemBindingSource.DataSource = transactionList;
+            returnCartItemList.Add(returnCartItem);
+            returnItemBindingSource.DataSource = returnCartItemList;
 
             returnTransaction.LateFee = CalculateLateFee();
             returnTransaction.RefundAmount = CalculateRefundAmount();
@@ -109,7 +110,7 @@ namespace FurnitureRentals.User_Controls
         private decimal CalculateLateFee()
         {
             decimal totalLateFee = 0;
-            foreach (ReturnCart returnItem in transactionList)
+            foreach (ReturnCart returnItem in returnCartItemList)
             {
                 totalLateFee = totalLateFee + returnItem.LateFee;
             }
@@ -120,7 +121,7 @@ namespace FurnitureRentals.User_Controls
         private decimal CalculateRefundAmount()
         {
             decimal totalRefundAmount = 0;
-            foreach (ReturnCart returnItem in transactionList)
+            foreach (ReturnCart returnItem in returnCartItemList)
             {
                 totalRefundAmount = totalRefundAmount + returnItem.Refund;
             }
@@ -131,10 +132,13 @@ namespace FurnitureRentals.User_Controls
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             DialogResult RentalConfirmDialog = MessageBox.Show("Are you ready to submit?", "Return Confirmation", MessageBoxButtons.YesNo);
-            if(RentalConfirmDialog == DialogResult.Yes)
+            if (RentalConfirmDialog == DialogResult.Yes)
             {
-                this.returnTransactionController.PostReturnTransaction(this.returnTransaction, this.transactionList);
-                this.transactionList.Clear();
+                this.returnTransactionController.PostReturnTransaction(this.returnTransaction, this.returnCartItemList);
+                MessageBox.Show("Return transaction (ID: " + this.returnTransaction.ReturnTransactionID + ") " +
+                    "are successfully posted", "Success");
+                this.returnCartItemList.Clear();
+                returnItemBindingSource.DataSource = new List<ReturnCart>();
             }
         }
     }
