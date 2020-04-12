@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FurnitureRentals.Model;
 using FurnitureRentals.Controller;
+using FurnitureRentals.View;
 
 namespace FurnitureRentals.User_Controls
 {
@@ -67,10 +68,9 @@ namespace FurnitureRentals.User_Controls
         {
             if (dgvViewReturns.CurrentCell.ColumnIndex.Equals(0) && e.RowIndex != -1)
             {
-                //MessageBox.Show("ASD", dgvViewReturns.CurrentCell.Value.ToString());
-                //RentalItemsFormDialog formDialog = new RentalItemsFormDialog(int.Parse(RentalTransactionDataGridView.CurrentCell.Value.ToString()));
-
-                //DialogResult addedResult = formDialog.ShowDialog();
+                string rentalTransactionId = dgvViewReturns.CurrentCell.Value.ToString();
+                ReturnTransactionItemsDialog returnTransactionDialog = new ReturnTransactionItemsDialog(this.currentCustomer, rentalTransactionId);
+                returnTransactionDialog.ShowDialog();
             }
         }
 

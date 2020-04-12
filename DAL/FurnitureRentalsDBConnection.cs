@@ -18,7 +18,7 @@ namespace FurnitureRentals.DAL
         public static SqlConnection GetConnection()
         {
             string connectionString =
-                "Data Source=localhost;Initial Catalog=RentMe;" +
+                "Data Source=localhost;Initial Catalog=cs6232-g1;" +
                 "Integrated Security=True";
 
             SqlConnection connection = new SqlConnection(connectionString);
