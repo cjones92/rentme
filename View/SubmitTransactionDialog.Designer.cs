@@ -35,7 +35,7 @@
             // 
             // ReturnButton
             // 
-            this.ReturnButton.Location = new System.Drawing.Point(431, 239);
+            this.ReturnButton.Location = new System.Drawing.Point(252, 91);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(75, 23);
             this.ReturnButton.TabIndex = 5;
@@ -45,7 +45,7 @@
             // 
             // ConfirmButton
             // 
-            this.ConfirmButton.Location = new System.Drawing.Point(337, 239);
+            this.ConfirmButton.Location = new System.Drawing.Point(87, 91);
             this.ConfirmButton.Name = "ConfirmButton";
             this.ConfirmButton.Size = new System.Drawing.Size(75, 23);
             this.ConfirmButton.TabIndex = 4;
@@ -56,7 +56,7 @@
             // SubmitTransactionLabel
             // 
             this.SubmitTransactionLabel.AutoSize = true;
-            this.SubmitTransactionLabel.Location = new System.Drawing.Point(295, 189);
+            this.SubmitTransactionLabel.Location = new System.Drawing.Point(84, 53);
             this.SubmitTransactionLabel.Name = "SubmitTransactionLabel";
             this.SubmitTransactionLabel.Size = new System.Drawing.Size(243, 13);
             this.SubmitTransactionLabel.TabIndex = 3;
@@ -67,7 +67,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(425, 193);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.ConfirmButton);
             this.Controls.Add(this.SubmitTransactionLabel);
