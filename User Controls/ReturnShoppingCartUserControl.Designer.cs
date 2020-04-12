@@ -35,7 +35,7 @@
             this.lblCustomerName = new System.Windows.Forms.Label();
             this.CustomerName = new System.Windows.Forms.Label();
             this.dgvCartReturn = new System.Windows.Forms.DataGridView();
-            this.returnItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtRefundTotal = new System.Windows.Forms.TextBox();
             this.TotalLateFee = new System.Windows.Forms.Label();
@@ -46,13 +46,14 @@
             this.serialNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemRentedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.styleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returnQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lateFeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.refundDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCartReturn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.returnItemBindingSource)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.returnItemBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -132,9 +133,10 @@
             this.serialNoDataGridViewTextBoxColumn,
             this.itemRentedDataGridViewTextBoxColumn,
             this.styleDataGridViewTextBoxColumn,
-            this.returnQuantityDataGridViewTextBoxColumn,
+            this.Quantity,
             this.lateFeeDataGridViewTextBoxColumn,
-            this.refundDataGridViewTextBoxColumn});
+            this.refundDataGridViewTextBoxColumn,
+            this.Remove});
             this.dgvCartReturn.DataSource = this.returnItemBindingSource;
             this.dgvCartReturn.Location = new System.Drawing.Point(25, 110);
             this.dgvCartReturn.Name = "dgvCartReturn";
@@ -143,10 +145,19 @@
             this.dgvCartReturn.RowTemplate.Height = 24;
             this.dgvCartReturn.Size = new System.Drawing.Size(994, 313);
             this.dgvCartReturn.TabIndex = 18;
+            this.dgvCartReturn.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCartReturn_CellContentClick);
             // 
-            // returnItemBindingSource
+            // Remove
             // 
-            this.returnItemBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnCart);
+            this.Remove.DataPropertyName = "RentalID";
+            this.Remove.HeaderText = "X";
+            this.Remove.MinimumWidth = 6;
+            this.Remove.Name = "Remove";
+            this.Remove.ReadOnly = true;
+            this.Remove.Text = "X";
+            this.Remove.ToolTipText = "Click to remove from cart";
+            this.Remove.UseColumnTextForButtonValue = true;
+            this.Remove.Width = 125;
             // 
             // tableLayoutPanel2
             // 
@@ -256,12 +267,12 @@
             // 
             // Quantity
             // 
-            this.returnQuantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.returnQuantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.returnQuantityDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.returnQuantityDataGridViewTextBoxColumn.Name = "Quantity";
-            this.returnQuantityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.returnQuantityDataGridViewTextBoxColumn.Width = 125;
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            this.Quantity.Width = 125;
             // 
             // lateFeeDataGridViewTextBoxColumn
             // 
@@ -281,6 +292,10 @@
             this.refundDataGridViewTextBoxColumn.ReadOnly = true;
             this.refundDataGridViewTextBoxColumn.Width = 125;
             // 
+            // returnItemBindingSource
+            // 
+            this.returnItemBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnCart);
+            // 
             // ReturnShoppingCartUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -294,9 +309,9 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCartReturn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.returnItemBindingSource)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.returnItemBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -316,12 +331,14 @@
         private System.Windows.Forms.Label TotalRefund;
         private System.Windows.Forms.TextBox txtLateFee;
         private System.Windows.Forms.Button btnSubmit;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn returnQuantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rentalIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn serialNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemRentedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn styleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn returnQuantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn lateFeeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn refundDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Remove;
     }
 }

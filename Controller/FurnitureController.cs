@@ -99,5 +99,16 @@ namespace FurnitureRentals.Controller
         {
             return this.furnitureDBDAL.GetFurnitureByID(furnitureId);
         }
+
+        /// <summary>
+        /// Method that updates the inventory
+        /// </summary>
+        /// <param name="furnitureId">furniture id that was returned</param>
+        /// <param name="quantity">quantity that was the returned</param>
+        /// <returns>true if successfull otherwise false</returns>
+        public bool UpdateInventory(int furnitureId, int quantity)
+        {
+            return this.furnitureDBDAL.UpdateInventory(furnitureId, quantity);
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace FurnitureRentals.Model
 
         public DateTime ReturnDate { get; set; }
 
-        public string CheckedinBy { get; set; }
+        public int CheckedinBy { get; set; }
 
         public decimal LateFee { get; set; }
 

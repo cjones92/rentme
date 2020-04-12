@@ -9,20 +9,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FurnitureRentals.Model;
 using FurnitureRentals.Controller;
+using System.Diagnostics;
 
 namespace FurnitureRentals.User_Controls
 {
     public partial class ReturnShoppingCartUserControl : UserControl
     {
-        Customer currentCustomer;
-        FurnitureController furnitureController;
-        RentalTransactionController rentalTransactionController;
-        ReturnTransactionController returnTransactionController;
-        ReturnTransaction returnTransaction = new ReturnTransaction();
+        private Customer currentCustomer;
+        private FurnitureController furnitureController;
+        private RentalTransactionController rentalTransactionController;
+        private ReturnTransactionController returnTransactionController;
+        private ReturnTransaction returnTransaction = new ReturnTransaction();
+        private List<ReturnCart> returnCartItemList = new List<ReturnCart>();
+        private DataGridViewButtonColumn btnRemove = new DataGridViewButtonColumn();
 
-        List<ReturnCart> transactionList = new List<ReturnCart>();
-        DataGridViewButtonColumn btnRemove = new DataGridViewButtonColumn();
-
+        /// <summary>
+        /// Contructor of Return Shopping cart
+        /// </summary>
         public ReturnShoppingCartUserControl()
         {
             InitializeComponent();
@@ -40,31 +43,36 @@ namespace FurnitureRentals.User_Controls
             dgvCartReturn.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvCartReturn.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-            btnRemove.Text = "Remove";
-            dgvCartReturn.Columns.Add(btnRemove);
+            this.txtLateFee.ReadOnly = true;
+            this.txtRefundTotal.ReadOnly = true;
+
+            returnItemBindingSource.DataSource = returnCartItemList;
+            //this.addReturn(1, 1, 1);
         }
 
         /// <summary>
         /// Method that sets the current customer
         /// </summary>
-        public void SetCurrentCustomer(Customer customer)
+        public void SetCurrentCustomer(int employeeId, Customer customer)
         {
             this.returnTransaction.CustomerID = customer.CustomerId;
             this.returnTransaction.ReturnDate = DateTime.Now;
-
+            this.returnTransaction.CheckedinBy = employeeId;
             this.currentCustomer = customer;
             this.lblCustomerName.Text = customer.FirstName + " " + customer.LastName;
             this.lblMemberId.Text = customer.CustomerId + "";
-            this.addReturn(1, 1, "T001", 1);
         }
 
         /// <summary>
-        /// Method that refrehes the incidents.
-        /// This gets invoked automatically when a new incident is added
+        /// Method that adds an return item to the cart
         /// </summary>
-        public void addReturn(int rentalId, int furnitureId, String serialNo, int returnQuantity)
+        /// <param name="rentalId">rental id of the returning item</param>
+        /// <param name="furnitureId">furniture id of the returning item</param>
+        /// <param name="returnQuantity">return quantity of the returning item"></param>
+        public void addReturn(int rentalId, int furnitureId, int returnQuantity)
         {
             Furniture furniture = this.furnitureController.GetFurnitureByID(furnitureId);
+
             RentalTransaction rentalTransaction = this.rentalTransactionController.GetRentalTransactionsByID(rentalId);
 
             decimal dailyRentalRate = furniture.DailyRentalRate;
@@ -73,43 +81,70 @@ namespace FurnitureRentals.User_Controls
             DateTime rentedOn = rentalTransaction.RentalDate;
             DateTime dueDate = rentalTransaction.DueDate;
 
-            decimal lateFee = 0;
-            decimal refundAmount = 0;
+            ReturnCart returnCartItem = new ReturnCart();
+            returnCartItem.RentalID = rentalId;
+            returnCartItem.FurnitureID = furniture.FurnitureID;
+            returnCartItem.SerialNo = furniture.SerialNumber;
+            returnCartItem.ItemRented = furniture.ItemDescription;
+            returnCartItem.Style = furniture.FurnitureStyle;
+            returnCartItem.Quantity = returnQuantity;
+            returnCartItem.LateFee = 0;
+            returnCartItem.Refund = 0;
 
-            if (dueDate > DateTime.Now) // refund amount
+            int totalQuantity = returnQuantity;
+            bool itemNotFoundInCart = true;
+            foreach(ReturnCart returnItem in returnCartItemList)
             {
-                int days = (dueDate - DateTime.Now).Days;
-                refundAmount = dailyRentalRate * days;
+                if (returnItem.RentalID == rentalId && furniture.FurnitureID == furnitureId)
+                {
+                    returnItem.Quantity += returnQuantity;
+                    totalQuantity = returnItem.Quantity;
+                    itemNotFoundInCart = false;
+
+                    if (dueDate > DateTime.Now) // refund amount
+                    {
+                        int days = (dueDate - DateTime.Now).Days;
+                        returnItem.Refund = (dailyRentalRate * days * totalQuantity);
+                    }
+                    else if (dueDate < DateTime.Now) // late fee
+                    {
+                        int days = (DateTime.Now - dueDate).Days;
+                        returnItem.LateFee = (dailyFineRate * days * totalQuantity);
+                    }
+                }
             }
-            else if (dueDate < DateTime.Now) // late fee
+            
+
+            if (itemNotFoundInCart)
             {
-                int days = (DateTime.Now - dueDate).Days;
-                lateFee = dailyFineRate * days;
+                if (dueDate > DateTime.Now) // refund amount
+                {
+                    int days = (dueDate - DateTime.Now).Days;
+                    returnCartItem.Refund = (dailyRentalRate * days * totalQuantity);
+                }
+                else if (dueDate < DateTime.Now) // late fee
+                {
+                    int days = (DateTime.Now - dueDate).Days;
+                    returnCartItem.LateFee = (dailyFineRate * days * totalQuantity);
+                }
+
+                returnCartItemList.Add(returnCartItem);
             }
-
-            ReturnCart returnItem = new ReturnCart();
-            returnItem.RentalID = rentalId;
-            returnItem.SerialNo = serialNo;
-            returnItem.ItemRented = furniture.ItemDescription;
-            returnItem.Style = furniture.FurnitureStyle;
-            returnItem.Quantity = returnQuantity;
-            returnItem.LateFee = lateFee;
-            returnItem.Refund = refundAmount;
-
-            transactionList.Add(returnItem);
-            returnItemBindingSource.DataSource = transactionList;
 
             returnTransaction.LateFee = CalculateLateFee();
             returnTransaction.RefundAmount = CalculateRefundAmount();
 
             txtLateFee.Text = Convert.ToString(returnTransaction.LateFee);
             txtRefundTotal.Text = Convert.ToString(returnTransaction.RefundAmount);
+
+            returnItemBindingSource.DataSource = null;
+            returnItemBindingSource.DataSource = this.returnCartItemList;
         }
 
         private decimal CalculateLateFee()
         {
             decimal totalLateFee = 0;
-            foreach (ReturnCart returnItem in transactionList)
+            foreach (ReturnCart returnItem in returnCartItemList)
             {
                 totalLateFee = totalLateFee + returnItem.LateFee;
             }
@@ -120,7 +155,7 @@ namespace FurnitureRentals.User_Controls
         private decimal CalculateRefundAmount()
         {
             decimal totalRefundAmount = 0;
-            foreach (ReturnCart returnItem in transactionList)
+            foreach (ReturnCart returnItem in returnCartItemList)
             {
                 totalRefundAmount = totalRefundAmount + returnItem.Refund;
             }
@@ -130,13 +165,52 @@ namespace FurnitureRentals.User_Controls
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            DialogResult RentalConfirmDialog = MessageBox.Show("Are you ready to submit?", "Return Confirmation", MessageBoxButtons.YesNo);
-            if(RentalConfirmDialog == DialogResult.Yes)
+            if (this.returnCartItemList.Count==0)
             {
-                this.returnTransactionController.PostReturnTransaction(this.returnTransaction, this.transactionList);
-                this.transactionList.Clear();
+                MessageBox.Show("Return cart is empty!", "Warning");
+                return;
+            }
+            DialogResult RentalConfirmDialog = MessageBox.Show("Are you ready to submit?", "Return Confirmation", MessageBoxButtons.YesNo);
+            if (RentalConfirmDialog == DialogResult.Yes)
+            {
+                bool result = this.returnTransactionController.PostReturnTransaction(this.returnTransaction, this.returnCartItemList);
+                MessageBox.Show("Return transaction (ID: " + this.returnTransaction.ReturnTransactionID + ") " +
+                    "are successfully posted", "Success");
+
+                // update inventory
+                if (result)
+                {
+                    foreach (ReturnCart returnItem in this.returnCartItemList)
+                    {
+                        this.furnitureController.UpdateInventory(returnItem.FurnitureID, returnItem.Quantity);
+                    }
+                }
+
+                this.returnCartItemList.Clear();
+                returnItemBindingSource.DataSource = new List<ReturnCart>();
+                txtLateFee.Text = "0";
+                txtRefundTotal.Text = "0";
             }
         }
+
+        private void dgvCartReturn_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvCartReturn.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {                
+                this.dgvCartReturn.Rows.RemoveAt(e.RowIndex);
+                returnTransaction.LateFee = CalculateLateFee();
+                returnTransaction.RefundAmount = CalculateRefundAmount();
+
+                txtLateFee.Text = Convert.ToString(returnTransaction.LateFee);
+                txtRefundTotal.Text = Convert.ToString(returnTransaction.RefundAmount);
+            }
+        }
+
+        /*
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int count = this.returnCartItemList.Count + 1;
+            this.addReturn(1, 1, 1);
+        }*/
     }
 }
-;

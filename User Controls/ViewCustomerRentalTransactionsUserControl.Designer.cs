@@ -144,6 +144,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(65, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -243,7 +244,7 @@
             this.dataGridViewTextBoxColumn8});
             this.RentalTransactionDataGridView.DataSource = this.rentalTransactionBindingSource;
             this.RentalTransactionDataGridView.Location = new System.Drawing.Point(55, 167);
-            this.RentalTransactionDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RentalTransactionDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.RentalTransactionDataGridView.Name = "RentalTransactionDataGridView";
             this.RentalTransactionDataGridView.RowHeadersWidth = 51;
             this.RentalTransactionDataGridView.Size = new System.Drawing.Size(859, 271);
@@ -314,7 +315,7 @@
             this.Controls.Add(this.ActualNameLabel);
             this.Controls.Add(this.CustomerName);
             this.Controls.Add(this.rentalTransactionBindingNavigator);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ViewCustomerRentalTransactionsUserControl";
             this.Size = new System.Drawing.Size(948, 463);
             ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingNavigator)).EndInit();

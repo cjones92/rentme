@@ -49,7 +49,9 @@ namespace FurnitureRentals.User_Controls
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-
+            startDateTimePicker.Value = DateTime.Today;
+            endDateTimePicker.Value = DateTime.Today;
+            reportViewer.Clear();
         }
     }
 }

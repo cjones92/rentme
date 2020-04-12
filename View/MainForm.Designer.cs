@@ -36,9 +36,9 @@
             this.TemporaryShoppingCartLabel = new System.Windows.Forms.Label();
             this.CustomerRentalCartTab = new System.Windows.Forms.TabPage();
             this.viewCustomerRentalTransactionsUserControl1 = new FurnitureRentals.User_Controls.ViewCustomerRentalTransactionsUserControl();
-            this.viewReturnsTab = new System.Windows.Forms.TabPage();
+            this.ViewReturnsTab = new System.Windows.Forms.TabPage();
             this.viewReturnTransactionsUserControl1 = new FurnitureRentals.User_Controls.ViewReturnTransactionsUserControl();
-            this.tabReturnCart = new System.Windows.Forms.TabPage();
+            this.ReturnsCartTab = new System.Windows.Forms.TabPage();
             this.returnShoppingCartUserControl1 = new FurnitureRentals.User_Controls.ReturnShoppingCartUserControl();
             this.LoggedInLabel = new System.Windows.Forms.Label();
             this.LogoutLinkLabel = new System.Windows.Forms.LinkLabel();
@@ -47,8 +47,8 @@
             this.ManageCustomerTab.SuspendLayout();
             this.ShoppingCartTab.SuspendLayout();
             this.CustomerRentalCartTab.SuspendLayout();
-            this.viewReturnsTab.SuspendLayout();
-            this.tabReturnCart.SuspendLayout();
+            this.ViewReturnsTab.SuspendLayout();
+            this.ReturnsCartTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabManageCustomerUserControl
@@ -56,8 +56,8 @@
             this.tabManageCustomerUserControl.Controls.Add(this.ManageCustomerTab);
             this.tabManageCustomerUserControl.Controls.Add(this.ShoppingCartTab);
             this.tabManageCustomerUserControl.Controls.Add(this.CustomerRentalCartTab);
-            this.tabManageCustomerUserControl.Controls.Add(this.viewReturnsTab);
-            this.tabManageCustomerUserControl.Controls.Add(this.tabReturnCart);
+            this.tabManageCustomerUserControl.Controls.Add(this.ViewReturnsTab);
+            this.tabManageCustomerUserControl.Controls.Add(this.ReturnsCartTab);
             this.tabManageCustomerUserControl.Location = new System.Drawing.Point(9, 37);
             this.tabManageCustomerUserControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabManageCustomerUserControl.Name = "tabManageCustomerUserControl";
@@ -133,17 +133,17 @@
             this.viewCustomerRentalTransactionsUserControl1.Size = new System.Drawing.Size(711, 363);
             this.viewCustomerRentalTransactionsUserControl1.TabIndex = 0;
             // 
-            // viewReturnsTab
+            // ViewReturnsTab
             // 
-            this.viewReturnsTab.Controls.Add(this.viewReturnTransactionsUserControl1);
-            this.viewReturnsTab.Location = new System.Drawing.Point(4, 22);
-            this.viewReturnsTab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.viewReturnsTab.Name = "viewReturnsTab";
-            this.viewReturnsTab.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.viewReturnsTab.Size = new System.Drawing.Size(809, 509);
-            this.viewReturnsTab.TabIndex = 3;
-            this.viewReturnsTab.Text = "View Returns";
-            this.viewReturnsTab.UseVisualStyleBackColor = true;
+            this.ViewReturnsTab.Controls.Add(this.viewReturnTransactionsUserControl1);
+            this.ViewReturnsTab.Location = new System.Drawing.Point(4, 22);
+            this.ViewReturnsTab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ViewReturnsTab.Name = "ViewReturnsTab";
+            this.ViewReturnsTab.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ViewReturnsTab.Size = new System.Drawing.Size(809, 509);
+            this.ViewReturnsTab.TabIndex = 3;
+            this.ViewReturnsTab.Text = "View Returns";
+            this.ViewReturnsTab.UseVisualStyleBackColor = true;
             // 
             // viewReturnTransactionsUserControl1
             // 
@@ -153,17 +153,17 @@
             this.viewReturnTransactionsUserControl1.Size = new System.Drawing.Size(772, 448);
             this.viewReturnTransactionsUserControl1.TabIndex = 0;
             // 
-            // tabReturnCart
+            // ReturnsCartTab
             // 
-            this.tabReturnCart.Controls.Add(this.returnShoppingCartUserControl1);
-            this.tabReturnCart.Location = new System.Drawing.Point(4, 22);
-            this.tabReturnCart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabReturnCart.Name = "tabReturnCart";
-            this.tabReturnCart.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabReturnCart.Size = new System.Drawing.Size(809, 509);
-            this.tabReturnCart.TabIndex = 4;
-            this.tabReturnCart.Text = "Return Cart";
-            this.tabReturnCart.UseVisualStyleBackColor = true;
+            this.ReturnsCartTab.Controls.Add(this.returnShoppingCartUserControl1);
+            this.ReturnsCartTab.Location = new System.Drawing.Point(4, 22);
+            this.ReturnsCartTab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ReturnsCartTab.Name = "ReturnsCartTab";
+            this.ReturnsCartTab.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ReturnsCartTab.Size = new System.Drawing.Size(809, 509);
+            this.ReturnsCartTab.TabIndex = 4;
+            this.ReturnsCartTab.Text = "Return Cart";
+            this.ReturnsCartTab.UseVisualStyleBackColor = true;
             // 
             // returnShoppingCartUserControl1
             // 
@@ -223,8 +223,8 @@
             this.ShoppingCartTab.ResumeLayout(false);
             this.ShoppingCartTab.PerformLayout();
             this.CustomerRentalCartTab.ResumeLayout(false);
-            this.viewReturnsTab.ResumeLayout(false);
-            this.tabReturnCart.ResumeLayout(false);
+            this.ViewReturnsTab.ResumeLayout(false);
+            this.ReturnsCartTab.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,9 +243,9 @@
         private User_Controls.CustomerRentalShoppingCartUserControl customerRentalShoppingCartUserControl1;
         private System.Windows.Forms.TabPage CustomerRentalCartTab;
         private User_Controls.ViewCustomerRentalTransactionsUserControl viewCustomerRentalTransactionsUserControl1;
-        private System.Windows.Forms.TabPage viewReturnsTab;
+        private System.Windows.Forms.TabPage ViewReturnsTab;
         private User_Controls.ViewReturnTransactionsUserControl viewReturnTransactionsUserControl1;
-        private System.Windows.Forms.TabPage tabReturnCart;
+        private System.Windows.Forms.TabPage ReturnsCartTab;
         private User_Controls.ReturnShoppingCartUserControl returnShoppingCartUserControl1;
     }
 }
