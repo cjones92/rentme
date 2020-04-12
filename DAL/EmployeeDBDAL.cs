@@ -206,13 +206,14 @@ namespace FurnitureRentals.DAL
                 "date_of_birth = @DateOfBirth, phone_number=@PhoneNumber, address1=@Address1, address2=@Address2, " +
                 "city=@City, state=@State, zipcode=@PostalCode, username = @UserName, password = @Password, status = @Status " +
 
-                "WHERE first_name=@FirstName and last_name=@LastName";
+                "WHERE employee_id=@EmployeeID";
 
                 connection.Open();
 
                 using (SqlCommand updateCommand = new SqlCommand(sqlStatement, connection))
                 {
                     updateCommand.Connection = connection;
+                    updateCommand.Parameters.AddWithValue("@EmployeeID", employee.EmployeeID);
                     updateCommand.Parameters.AddWithValue("@FirstName", employee.FirstName);
                     updateCommand.Parameters.AddWithValue("@MiddleName", employee.MiddleName);
                     updateCommand.Parameters.AddWithValue("@LastName", employee.LastName);

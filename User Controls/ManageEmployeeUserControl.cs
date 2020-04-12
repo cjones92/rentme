@@ -36,6 +36,7 @@ namespace FurnitureRentals.User_Controls
             txtSearch.Focus();
             employeeList = new List<Employee>();
             toolTip = new ToolTip();
+            this.employeeId = 0;
         }
 
 
@@ -265,7 +266,7 @@ namespace FurnitureRentals.User_Controls
                     bool isRegistered = this.employeeController.RegisterEmployee(employee);
                     if (isRegistered)
                     {
-                        MessageBox.Show("Employee has been created successfully. EmployeeID: "+ employee.EmployeeID, "Registration Complete");
+                        MessageBox.Show("Employee has been created successfully. EmployeeID: " + employee.EmployeeID, "Registration Complete");
                     }
                     else
                     {
@@ -457,20 +458,22 @@ namespace FurnitureRentals.User_Controls
             {
                 try
                 {
-                    this.employee.FirstName = txtFirstName.Text;
-                    this.employee.MiddleName = txtMiddleName.Text;
-                    this.employee.LastName = txtLastName.Text;
-                    this.employee.Sex = cbxGender.SelectedItem.ToString();
-                    this.employee.DateOfBirth = dtDateOfBirth.Value;
-                    this.employee.Address1 = txtAddress1.Text;
-                    this.employee.Address2 = txtAddress2.Text;
-                    this.employee.City = txtCity.Text;
-                    this.employee.State = cbxState.Text;
-                    this.employee.PostalCode = txtPostalCode.Text;
-                    this.employee.Phone = txtHomePhone.Text;
-                    this.employee.UserName = txtUsername.Text;
-                    this.employee.Password = txtPassword.Text;
-                    this.employee.Status = cbxStatus.Text;
+                    Employee employee = new Employee();
+                    employee.EmployeeID = this.employeeId;
+                    employee.FirstName = txtFirstName.Text;
+                    employee.MiddleName = txtMiddleName.Text;
+                    employee.LastName = txtLastName.Text;
+                    employee.Sex = cbxGender.SelectedItem.ToString();
+                    employee.DateOfBirth = dtDateOfBirth.Value;
+                    employee.Address1 = txtAddress1.Text;
+                    employee.Address2 = txtAddress2.Text;
+                    employee.City = txtCity.Text;
+                    employee.State = cbxState.Text;
+                    employee.PostalCode = txtPostalCode.Text;
+                    employee.Phone = txtHomePhone.Text;
+                    employee.UserName = txtUsername.Text;
+                    employee.Password = txtPassword.Text;
+                    employee.Status = cbxStatus.Text;
 
                     string errorMessage = isValidPhoneNumberAndZip(employee);
                     if (errorMessage.Length > 0)
@@ -480,12 +483,12 @@ namespace FurnitureRentals.User_Controls
                     }
 
 
-                    bool isUpdated = EmployeeController.UpdateEmployee(this.employee);
+                    bool isUpdated = EmployeeController.UpdateEmployee(employee);
 
 
                     if (isUpdated)
                     {
-                        MessageBox.Show("Employee is updated successfully!", "Success");
+                        MessageBox.Show("Employee is updated successfully! EmployeeID: " + employee.EmployeeID, "Success");
                     }
                     else
                     {
