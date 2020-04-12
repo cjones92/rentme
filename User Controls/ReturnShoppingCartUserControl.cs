@@ -97,7 +97,21 @@ namespace FurnitureRentals.User_Controls
             returnCartItem.LateFee = lateFee;
             returnCartItem.Refund = refundAmount;
 
-            returnCartItemList.Add(returnCartItem);
+            bool itemNotFoundInCart = true;
+            foreach(ReturnCart returnItem in returnCartItemList)
+            {
+                if(returnItem.RentalID == rentalId && furniture.FurnitureID == furnitureId)
+                {
+                    returnItem.Quantity = returnQuantity;
+                    itemNotFoundInCart = false;
+                }
+            }
+
+            if(itemNotFoundInCart)
+            {
+                returnCartItemList.Add(returnCartItem);
+            }
+            
             returnItemBindingSource.DataSource = returnCartItemList;
 
             returnTransaction.LateFee = CalculateLateFee();

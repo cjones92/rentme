@@ -123,7 +123,7 @@ namespace FurnitureRentals.DAL
 
                     if (returnTransaction.ReturnTransactionID > 0)
                     {
-                        this.InsertReturnItem(connection, returnTransaction, ReturnItemList);
+                        this.InsertReturnItem(connection, returnTransaction.ReturnTransactionID, ReturnItemList);
                     }
 
                     return true;
@@ -131,7 +131,7 @@ namespace FurnitureRentals.DAL
             }
         }
 
-        private void InsertReturnItem(SqlConnection connection, ReturnTransaction returnTransaction, List<ReturnCart> ReturnItemList)
+        private void InsertReturnItem(SqlConnection connection, int returnTxnId, List<ReturnCart> ReturnItemList)
         {
             string insertReturnItemStatement = "INSERT INTO Return_Item (return_transaction_id, " +
                             "rental_item_id, quantity) VALUES (@ReturnTransactionID, @RentalItemID, @Quantity); " +
@@ -141,7 +141,8 @@ namespace FurnitureRentals.DAL
                 insertCommand.Connection = connection;
                 foreach (ReturnCart returnItem in ReturnItemList)
                 {
-                    insertCommand.Parameters.AddWithValue("@ReturnTransactionID", returnTransaction.ReturnTransactionID);
+                    insertCommand.Parameters.Clear();
+                    insertCommand.Parameters.AddWithValue("@ReturnTransactionID", returnTxnId);
                     insertCommand.Parameters.AddWithValue("@RentalItemID", returnItem.RentalID);
                     insertCommand.Parameters.AddWithValue("@Quantity", returnItem.Quantity);
                     insertCommand.ExecuteNonQuery();
