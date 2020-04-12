@@ -163,7 +163,8 @@ namespace FurnitureRentals.DAL
                 "(first_name, middle_name, last_name, sex, date_of_birth, address1, address2, " +
                 "city, state, zipcode, phone_number, username, password, status) " +
                 "VALUES (@first_name, @middle_name, @last_name, @sex, @date_of_birth, @address1, " +
-                "@address2, @city, @state, @zipcode, @phone_number, @username, @password, @status)";
+                "@address2, @city, @state, @zipcode, @phone_number, @username, @password, @status); " +
+                "SELECT CAST(scope_identity() AS int)";
                 
 
                 connection.Open();
@@ -184,8 +185,8 @@ namespace FurnitureRentals.DAL
                     insertCommand.Parameters.AddWithValue("@username", employee.UserName);
                     insertCommand.Parameters.AddWithValue("@password", encodedPassword);
                     insertCommand.Parameters.AddWithValue("@status", employee.Status);
+                    employee.EmployeeID = Convert.ToInt32(insertCommand.ExecuteScalar());
 
-                    insertCommand.ExecuteNonQuery();
                     return true;
                 }
             }
@@ -205,13 +206,14 @@ namespace FurnitureRentals.DAL
                 "date_of_birth = @DateOfBirth, phone_number=@PhoneNumber, address1=@Address1, address2=@Address2, " +
                 "city=@City, state=@State, zipcode=@PostalCode, username = @UserName, password = @Password, status = @Status " +
 
-                "WHERE first_name=@FirstName and last_name=@LastName";
+                "WHERE employee_id=@EmployeeID";
 
                 connection.Open();
 
                 using (SqlCommand updateCommand = new SqlCommand(sqlStatement, connection))
                 {
                     updateCommand.Connection = connection;
+                    updateCommand.Parameters.AddWithValue("@EmployeeID", employee.EmployeeID);
                     updateCommand.Parameters.AddWithValue("@FirstName", employee.FirstName);
                     updateCommand.Parameters.AddWithValue("@MiddleName", employee.MiddleName);
                     updateCommand.Parameters.AddWithValue("@LastName", employee.LastName);
