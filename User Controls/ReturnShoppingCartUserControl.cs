@@ -18,7 +18,7 @@ namespace FurnitureRentals.User_Controls
         FurnitureController furnitureController;
         RentalTransactionController rentalTransactionController;
         ReturnTransactionController returnTransactionController;
-        //ReturnTransaction returnTransaction = new ReturnTransaction();
+        ReturnTransaction returnTransaction = new ReturnTransaction();
 
         List<ReturnCart> transactionList = new List<ReturnCart>();
         DataGridViewButtonColumn btnRemove = new DataGridViewButtonColumn();
@@ -49,6 +49,9 @@ namespace FurnitureRentals.User_Controls
         /// </summary>
         public void SetCurrentCustomer(Customer customer)
         {
+            this.returnTransaction.CustomerID = customer.CustomerId;
+            this.returnTransaction.ReturnDate = DateTime.Now;
+
             this.currentCustomer = customer;
             this.lblCustomerName.Text = customer.FirstName + " " + customer.LastName;
             this.lblMemberId.Text = customer.CustomerId + "";
@@ -96,11 +99,11 @@ namespace FurnitureRentals.User_Controls
             transactionList.Add(returnItem);
             returnItemBindingSource.DataSource = transactionList;
 
-            //returnTransaction.LateFee = CalculateLateFee();
-            //returnTransaction.Refund = CalculateRefundAmount();
+            returnTransaction.LateFee = CalculateLateFee();
+            returnTransaction.RefundAmount = CalculateRefundAmount();
 
-            //txtLateFee.Text = Convert.ToString(returnTransaction.LateFee);
-            //txtRefundTotal.Text = Convert.ToString(returnTransaction.Refund);
+            txtLateFee.Text = Convert.ToString(returnTransaction.LateFee);
+            txtRefundTotal.Text = Convert.ToString(returnTransaction.RefundAmount);
         }
 
         private decimal CalculateLateFee()
@@ -130,10 +133,10 @@ namespace FurnitureRentals.User_Controls
             DialogResult RentalConfirmDialog = MessageBox.Show("Are you ready to submit?", "Return Confirmation", MessageBoxButtons.YesNo);
             if(RentalConfirmDialog == DialogResult.Yes)
             {
-                //returnTransaction.cu
-                //this.returnTransactionController.
+                this.returnTransactionController.PostReturnTransaction(this.returnTransaction, this.transactionList);
                 this.transactionList.Clear();
             }
         }
     }
 }
+;
