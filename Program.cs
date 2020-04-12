@@ -19,6 +19,7 @@ namespace FurnitureRentals
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FurnitureSearchForm());
             Application.Run(new LoginForm());
+            SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
         }
     }
 }

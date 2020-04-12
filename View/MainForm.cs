@@ -79,6 +79,8 @@ namespace FurnitureRentals
 
             this.viewReturnTransactionsUserControl1.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
             this.viewReturnTransactionsUserControl1.RefreshDataGrid();
+
+            this.returnShoppingCartUserControl1.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
         }
     }
 }
