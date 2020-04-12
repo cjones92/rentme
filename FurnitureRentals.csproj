@@ -92,7 +92,6 @@
     <Compile Include="Model\ReturnTransaction.cs" />
     <Compile Include="Model\ReturnTransactionView.cs" />
     <Compile Include="Model\Style.cs" />
-    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="User Controls\CustomerRentalShoppingCartUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -257,7 +256,7 @@
     <None Include="Properties\DataSources\FurnitureRentals.Model.Employee.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.Furniture.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.RentalTransaction.datasource" />
-    <None Include="Properties\DataSources\FurnitureRentals.Model.ReturnItem.datasource" />
+    <None Include="Properties\DataSources\FurnitureRentals.Model.ReturnTransaction.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.Style.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -296,9 +295,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SqlServerTypes\readme.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

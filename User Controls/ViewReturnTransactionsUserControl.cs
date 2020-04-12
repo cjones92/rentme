@@ -27,7 +27,7 @@ namespace FurnitureRentals.User_Controls
             dgvViewReturns.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvViewReturns.AutoResizeRows();
             dgvViewReturns.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgvViewReturns.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvViewReturns.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             this.currentCustomer = new Customer();
             this.returnTransactionController = new ReturnTransactionController();
@@ -41,7 +41,8 @@ namespace FurnitureRentals.User_Controls
         {
             this.currentCustomer = customer;
             this.lblCustomerName.Text = customer.FirstName + " " + customer.LastName;
-            this.lblMemberId.Text = customer.CustomerId + "";
+            this.lblMemberId.Text = customer.CustomerId + "";            
+            this.RefreshDataGrid();
         }
 
         /// <summary>
@@ -54,13 +55,25 @@ namespace FurnitureRentals.User_Controls
 
         private void GetAllReturnTransactions()
         {
-            returnTransactionBindingSource.DataSource = new List<ReturnTransactionView>();
+            returnTransactionBindingSource.DataSource = new List<ReturnTransaction>();
             if (currentCustomer.CustomerId > 0)
             {
-                List<ReturnTransactionView> transactionList = this.returnTransactionController.GetAllReturnTransactions(currentCustomer.CustomerId);
+                List<ReturnTransaction> transactionList = this.returnTransactionController.GetAllReturnTransactions(currentCustomer.CustomerId);
                 returnTransactionBindingSource.DataSource = transactionList;
             }
-
         }
+
+        private void dgvViewReturns_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvViewReturns.CurrentCell.ColumnIndex.Equals(0) && e.RowIndex != -1)
+            {
+                //MessageBox.Show("ASD", dgvViewReturns.CurrentCell.Value.ToString());
+                //RentalItemsFormDialog formDialog = new RentalItemsFormDialog(int.Parse(RentalTransactionDataGridView.CurrentCell.Value.ToString()));
+
+                //DialogResult addedResult = formDialog.ShowDialog();
+            }
+        }
+
+
     }
 }

@@ -17,30 +17,16 @@ namespace FurnitureRentals.DAL
         /// Method that returns all the return transactions
         /// </summary>
         /// <returns>a list of return transactions</returns
-        public List<ReturnTransactionView> GetAllReturnTransactions(int customerId)
+        public List<ReturnTransaction> GetAllReturnTransactions(int customerId)
         {
-            /*
-            string sqlStatement = " SELECT return_transaction.return_transaction_id ReturnID, " +
-                "return_date ReturnDate, rental_item.rental_id RentalId, furniture.description ItemRented, " +
-                "furniture_style.description Style, rental_item.quantity TotalQuantity, " +
-                "return_item.quantity as ReturnedQuantity, late_fee LateFee, refund_amount RefundAmount " +
-                "from return_transaction, return_item, rental_item, furniture, furniture_style " +
-                "where return_item.return_transaction_id = return_transaction.return_transaction_id " +
-                "and rental_item.furniture_id = furniture.furniture_id " +
-                "and furniture.style_id = furniture_style.style_id and return_transaction.customer_id=@CustomerId;";
-            */
+            string sqlStatement = "Select return_transaction_id as ReturnTransactionID, " +
+                "return_date as ReturnDate, checked_in_by as CheckedinBy, " +
+                "late_fee as LateFee, refund_amount as RefundAmount from return_transaction " +
+                "where customer_id=@CustomerId;";
 
-            string sqlStatement = "  SELECT return_transaction.return_transaction_id ReturnID, " +
-                "return_date ReturnDate, rental_item.rental_id RentalId, furniture.description ItemRented, " +
-                "furniture_style.description Style, rental_item.quantity TotalQuantity, " +
-                "return_item.quantity as ReturnedQuantity, late_fee LateFee, refund_amount RefundAmount " +
-                "from return_transaction join return_item on " +
-                "return_item.return_transaction_id = return_transaction.return_transaction_id,  " +
-                "rental_item join furniture on rental_item.furniture_id = furniture.furniture_id " +
-                "join furniture_style on furniture.style_id = furniture_style.style_id " +
-                "where return_transaction.customer_id=@CustomerId;";
-            
-            List<ReturnTransactionView> transactionList = new List<ReturnTransactionView>();
+            Console.WriteLine(sqlStatement);
+
+            List<ReturnTransaction> transactionList = new List<ReturnTransaction>();
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
             {
                 connection.Open();
@@ -53,16 +39,12 @@ namespace FurnitureRentals.DAL
                     {
                         while (reader.Read())
                         {
-                            ReturnTransactionView transaction = new ReturnTransactionView();
-                            transaction.ReturnID = (int)reader["ReturnID"];
+                            ReturnTransaction transaction = new ReturnTransaction();
+                            transaction.ReturnTransactionID = (int)reader["ReturnTransactionID"];
                             transaction.ReturnDate = (DateTime)reader["ReturnDate"];
-                            transaction.RentalID = (int)reader["RentalId"];
-                            transaction.ItemRented = reader["ItemRented"].ToString();
-                            transaction.Style = reader["Style"].ToString();
-                            transaction.TotalQuantity = (int)reader["TotalQuantity"];
-                            transaction.ReturnedQuantity = (int)reader["ReturnedQuantity"];
+                            transaction.CheckedinBy = reader["CheckedinBy"].ToString();
                             transaction.LateFee = (decimal)reader["LateFee"];
-                            transaction.Refund = (decimal)reader["RefundAmount"];
+                            transaction.RefundAmount = (decimal)reader["RefundAmount"];
 
                             transactionList.Add(transaction);
                         }
@@ -81,7 +63,7 @@ namespace FurnitureRentals.DAL
         /// <returns>true if successfull otherwise false</returns>
         public bool PostReturnTransaction(ReturnTransaction returnTransaction, List<ReturnCart> transactionList)
         {
-
+            
             return true;
         }
     }

@@ -35,15 +35,11 @@
             this.dgvViewReturns = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.CustomerName = new System.Windows.Forms.Label();
-            this.returnIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnTransactionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
             this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rentalIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemRentedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.styleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returnedQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkedinByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lateFeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.refundDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.refundAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returnTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewReturns)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -93,23 +89,20 @@
             this.dgvViewReturns.AutoGenerateColumns = false;
             this.dgvViewReturns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvViewReturns.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.returnIDDataGridViewTextBoxColumn,
+            this.returnTransactionIDDataGridViewTextBoxColumn,
             this.returnDateDataGridViewTextBoxColumn,
-            this.rentalIDDataGridViewTextBoxColumn,
-            this.itemRentedDataGridViewTextBoxColumn,
-            this.styleDataGridViewTextBoxColumn,
-            this.totalQuantityDataGridViewTextBoxColumn,
-            this.returnedQuantityDataGridViewTextBoxColumn,
+            this.checkedinByDataGridViewTextBoxColumn,
             this.lateFeeDataGridViewTextBoxColumn,
-            this.refundDataGridViewTextBoxColumn});
+            this.refundAmountDataGridViewTextBoxColumn});
             this.dgvViewReturns.DataSource = this.returnTransactionBindingSource;
             this.dgvViewReturns.Location = new System.Drawing.Point(29, 113);
             this.dgvViewReturns.Name = "dgvViewReturns";
             this.dgvViewReturns.ReadOnly = true;
             this.dgvViewReturns.RowHeadersWidth = 51;
             this.dgvViewReturns.RowTemplate.Height = 24;
-            this.dgvViewReturns.Size = new System.Drawing.Size(994, 338);
+            this.dgvViewReturns.Size = new System.Drawing.Size(847, 338);
             this.dgvViewReturns.TabIndex = 16;
+            this.dgvViewReturns.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViewReturns_CellContentClick);
             // 
             // tableLayoutPanel1
             // 
@@ -140,98 +133,56 @@
             this.CustomerName.TabIndex = 18;
             this.CustomerName.Text = "Customer Name :";
             // 
-            // returnIDDataGridViewTextBoxColumn
+            // returnTransactionIDDataGridViewTextBoxColumn
             // 
-            this.returnIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.returnIDDataGridViewTextBoxColumn.DataPropertyName = "ReturnID";
-            this.returnIDDataGridViewTextBoxColumn.HeaderText = "Return ID";
-            this.returnIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.returnIDDataGridViewTextBoxColumn.Name = "returnIDDataGridViewTextBoxColumn";
-            this.returnIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.returnIDDataGridViewTextBoxColumn.Width = 97;
+            this.returnTransactionIDDataGridViewTextBoxColumn.DataPropertyName = "ReturnTransactionID";
+            this.returnTransactionIDDataGridViewTextBoxColumn.HeaderText = "TransactionID";
+            this.returnTransactionIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.returnTransactionIDDataGridViewTextBoxColumn.Name = "returnTransactionIDDataGridViewTextBoxColumn";
+            this.returnTransactionIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.returnTransactionIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.returnTransactionIDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.returnTransactionIDDataGridViewTextBoxColumn.Width = 130;
             // 
             // returnDateDataGridViewTextBoxColumn
             // 
-            this.returnDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.returnDateDataGridViewTextBoxColumn.DataPropertyName = "ReturnDate";
-            this.returnDateDataGridViewTextBoxColumn.HeaderText = "Return Date";
+            this.returnDateDataGridViewTextBoxColumn.HeaderText = "ReturnDate";
             this.returnDateDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.returnDateDataGridViewTextBoxColumn.Name = "returnDateDataGridViewTextBoxColumn";
             this.returnDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.returnDateDataGridViewTextBoxColumn.Width = 114;
+            this.returnDateDataGridViewTextBoxColumn.Width = 125;
             // 
-            // rentalIDDataGridViewTextBoxColumn
+            // checkedinByDataGridViewTextBoxColumn
             // 
-            this.rentalIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.rentalIDDataGridViewTextBoxColumn.DataPropertyName = "RentalID";
-            this.rentalIDDataGridViewTextBoxColumn.HeaderText = "Rental ID";
-            this.rentalIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.rentalIDDataGridViewTextBoxColumn.Name = "rentalIDDataGridViewTextBoxColumn";
-            this.rentalIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.rentalIDDataGridViewTextBoxColumn.Width = 95;
-            // 
-            // itemRentedDataGridViewTextBoxColumn
-            // 
-            this.itemRentedDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.itemRentedDataGridViewTextBoxColumn.DataPropertyName = "ItemRented";
-            this.itemRentedDataGridViewTextBoxColumn.HeaderText = "Item Rented";
-            this.itemRentedDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.itemRentedDataGridViewTextBoxColumn.Name = "itemRentedDataGridViewTextBoxColumn";
-            this.itemRentedDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // styleDataGridViewTextBoxColumn
-            // 
-            this.styleDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.styleDataGridViewTextBoxColumn.DataPropertyName = "Style";
-            this.styleDataGridViewTextBoxColumn.HeaderText = "Style";
-            this.styleDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.styleDataGridViewTextBoxColumn.Name = "styleDataGridViewTextBoxColumn";
-            this.styleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.styleDataGridViewTextBoxColumn.Width = 68;
-            // 
-            // totalQuantityDataGridViewTextBoxColumn
-            // 
-            this.totalQuantityDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.totalQuantityDataGridViewTextBoxColumn.DataPropertyName = "TotalQuantity";
-            this.totalQuantityDataGridViewTextBoxColumn.HeaderText = "Qty(Total)";
-            this.totalQuantityDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.totalQuantityDataGridViewTextBoxColumn.Name = "totalQuantityDataGridViewTextBoxColumn";
-            this.totalQuantityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalQuantityDataGridViewTextBoxColumn.Width = 101;
-            // 
-            // returnedQuantityDataGridViewTextBoxColumn
-            // 
-            this.returnedQuantityDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.returnedQuantityDataGridViewTextBoxColumn.DataPropertyName = "ReturnedQuantity";
-            this.returnedQuantityDataGridViewTextBoxColumn.HeaderText = "Qty(Returned)";
-            this.returnedQuantityDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.returnedQuantityDataGridViewTextBoxColumn.Name = "returnedQuantityDataGridViewTextBoxColumn";
-            this.returnedQuantityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.returnedQuantityDataGridViewTextBoxColumn.Width = 128;
+            this.checkedinByDataGridViewTextBoxColumn.DataPropertyName = "CheckedinBy";
+            this.checkedinByDataGridViewTextBoxColumn.HeaderText = "CheckedinBy";
+            this.checkedinByDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.checkedinByDataGridViewTextBoxColumn.Name = "checkedinByDataGridViewTextBoxColumn";
+            this.checkedinByDataGridViewTextBoxColumn.ReadOnly = true;
+            this.checkedinByDataGridViewTextBoxColumn.Width = 125;
             // 
             // lateFeeDataGridViewTextBoxColumn
             // 
-            this.lateFeeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.lateFeeDataGridViewTextBoxColumn.DataPropertyName = "LateFee";
             this.lateFeeDataGridViewTextBoxColumn.HeaderText = "LateFee($)";
             this.lateFeeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.lateFeeDataGridViewTextBoxColumn.Name = "lateFeeDataGridViewTextBoxColumn";
             this.lateFeeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lateFeeDataGridViewTextBoxColumn.Width = 107;
+            this.lateFeeDataGridViewTextBoxColumn.Width = 125;
             // 
-            // refundDataGridViewTextBoxColumn
+            // refundAmountDataGridViewTextBoxColumn
             // 
-            this.refundDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.refundDataGridViewTextBoxColumn.DataPropertyName = "Refund";
-            this.refundDataGridViewTextBoxColumn.HeaderText = "Refund($)";
-            this.refundDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.refundDataGridViewTextBoxColumn.Name = "refundDataGridViewTextBoxColumn";
-            this.refundDataGridViewTextBoxColumn.ReadOnly = true;
-            this.refundDataGridViewTextBoxColumn.Width = 101;
+            this.refundAmountDataGridViewTextBoxColumn.DataPropertyName = "RefundAmount";
+            this.refundAmountDataGridViewTextBoxColumn.HeaderText = "RefundAmount($)";
+            this.refundAmountDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.refundAmountDataGridViewTextBoxColumn.Name = "refundAmountDataGridViewTextBoxColumn";
+            this.refundAmountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.refundAmountDataGridViewTextBoxColumn.Width = 150;
             // 
             // returnTransactionBindingSource
             // 
-            this.returnTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnTransactionView);
+            this.returnTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnTransaction);
             // 
             // ViewReturnTransactionsUserControl
             // 
@@ -250,7 +201,6 @@
         }
 
         #endregion
-
         private System.Windows.Forms.Label lblMemberId;
         private System.Windows.Forms.Label MemberIDLabel;
         private System.Windows.Forms.Label lblCustomerName;
@@ -258,14 +208,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label CustomerName;
         private System.Windows.Forms.BindingSource returnTransactionBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn returnIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewLinkColumn returnTransactionIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn returnDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rentalIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemRentedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn styleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalQuantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn returnedQuantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn checkedinByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lateFeeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn refundDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn refundAmountDataGridViewTextBoxColumn;
     }
 }

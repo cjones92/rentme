@@ -8,6 +8,8 @@ namespace FurnitureRentals.Model
 {
     class ReturnTransaction
     {
+        public int ReturnTransactionID { get; set; }
+
         public int CustomerID { get; set; }
 
         public DateTime ReturnDate { get; set; }

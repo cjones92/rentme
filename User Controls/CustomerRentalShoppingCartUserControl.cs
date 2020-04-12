@@ -63,17 +63,20 @@ namespace FurnitureRentals.User_Controls
             var furnitureBindingList = new BindingList<Furniture>(furnitureList);
             furnitureBindingList.AllowEdit = true;
 
-            // set our bindinglist of persons as datasource
-            var bindingList = new BindingList<Furniture>();
+            
+            
+                // set our bindinglist of persons as datasource
+                var bindingList = new BindingList<Furniture>();
             bindingList.AllowEdit = true;
             RentalDataGridView.ReadOnly = false;
             RentalDataGridView.DataSource = furnitureBindingList.Select(o => new
-                { Item = o.ItemDescription, Style = o.FurnitureStyle, Quantity = o.QuantityOrdered, TotalCost = o.TotalRentalCost, Remove = "X"
+                { Item = o.ItemDescription, Style = o.FurnitureStyle, Remove = "X"
                 }).ToList(); ;
 
             foreach (DataGridViewRow row in RentalDataGridView.Rows)
             {
                 row.Cells[2].Value = furnitureBindingList[row.Index].QuantityOrdered;
+                row.Cells[3].Value = furnitureBindingList[row.Index].DailyRentalRate * int.Parse(this.DaysRentingTextBox.Text);
             }
             RentalDataGridView.AutoResizeColumns();
                 RentalDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -193,7 +196,11 @@ namespace FurnitureRentals.User_Controls
                 this.LoadRentalDataGridView();
             } else if (RentalDataGridView.CurrentCell.ColumnIndex.Equals(2) && e.RowIndex != -1)
             {
-                
+               
+                {
+                    this.LoadRentalDataGridView();
+                }
+
             }
         }
 
@@ -238,6 +245,7 @@ namespace FurnitureRentals.User_Controls
                 else
                 {
                     furnitureList[RentalDataGridView.CurrentCell.RowIndex].QuantityOrdered = quantityToBeOrdered;
+                    
                 }
             }
         }
@@ -248,9 +256,19 @@ namespace FurnitureRentals.User_Controls
             if (RentalDataGridView.IsCurrentCellDirty)
             {
                 RentalDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
+               
 
 
             }
+        }
+
+        private void RentalDataGridView_CellValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!RentalDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected)
+            {
+                return;
+            }
+            this.LoadRentalDataGridView();
         }
     }
 }
