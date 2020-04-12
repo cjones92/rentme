@@ -47,6 +47,7 @@ namespace FurnitureRentals.User_Controls
             this.txtRefundTotal.ReadOnly = true;
 
             returnItemBindingSource.DataSource = returnCartItemList;
+            //this.addReturn(1, 1, 1);
         }
 
         /// <summary>
@@ -82,6 +83,7 @@ namespace FurnitureRentals.User_Controls
 
             ReturnCart returnCartItem = new ReturnCart();
             returnCartItem.RentalID = rentalId;
+            returnCartItem.FurnitureID = furniture.FurnitureID;
             returnCartItem.SerialNo = furniture.SerialNumber;
             returnCartItem.ItemRented = furniture.ItemDescription;
             returnCartItem.Style = furniture.FurnitureStyle;
@@ -171,11 +173,23 @@ namespace FurnitureRentals.User_Controls
             DialogResult RentalConfirmDialog = MessageBox.Show("Are you ready to submit?", "Return Confirmation", MessageBoxButtons.YesNo);
             if (RentalConfirmDialog == DialogResult.Yes)
             {
-                this.returnTransactionController.PostReturnTransaction(this.returnTransaction, this.returnCartItemList);
+                bool result = this.returnTransactionController.PostReturnTransaction(this.returnTransaction, this.returnCartItemList);
                 MessageBox.Show("Return transaction (ID: " + this.returnTransaction.ReturnTransactionID + ") " +
                     "are successfully posted", "Success");
+
+                // update inventory
+                if (result)
+                {
+                    foreach (ReturnCart returnItem in this.returnCartItemList)
+                    {
+                        this.furnitureController.UpdateInventory(returnItem.FurnitureID, returnItem.Quantity);
+                    }
+                }
+
                 this.returnCartItemList.Clear();
                 returnItemBindingSource.DataSource = new List<ReturnCart>();
+                txtLateFee.Text = "0";
+                txtRefundTotal.Text = "0";
             }
         }
 
