@@ -25,7 +25,7 @@ namespace FurnitureRentals.Controller
         /// </summary>
         /// <param name="customerId">customer id of the customer</param>
         /// <returns>list of return transactions</returns>
-        public List<ReturnTransactionView> GetAllReturnTransactions(int customerId)
+        public List<ReturnTransaction> GetAllReturnTransactions(int customerId)
         {
             return this.returnTransactionDBDAL.GetAllReturnTransactions(customerId);
         }
