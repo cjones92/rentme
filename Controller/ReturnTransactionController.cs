@@ -31,6 +31,16 @@ namespace FurnitureRentals.Controller
         }
 
         /// <summary>
+        /// Method that returns all the return items for a given return transaction
+        /// </summary>
+        /// <param name="returnTransactionId">return transactionId id</param>
+        /// <returns>list of return items</returns>
+        public List<ReturnItemView> GetAllReturnItems(int returnTransactionId)
+        {
+            return this.returnTransactionDBDAL.GetAllReturnItems(returnTransactionId);
+        }
+
+        /// <summary>
         /// Method that posts the return transactions of a given customer
         /// </summary>
         /// <param name="returnTransaction">return transaction</param>

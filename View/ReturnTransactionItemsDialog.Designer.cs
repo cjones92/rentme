@@ -29,28 +29,48 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgReturnItems = new System.Windows.Forms.DataGridView();
+            this.cs6232g1ViewReturnsDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.MemberIDLabel = new System.Windows.Forms.Label();
             this.lblMemberId = new System.Windows.Forms.Label();
             this.lblCustomerName = new System.Windows.Forms.Label();
             this.CustomerName = new System.Windows.Forms.Label();
-            this.returnTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnClose = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.returnTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rentalTransactionViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rentalIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemRentedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.styleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnedQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgReturnItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cs6232g1ViewReturnsDataSetBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.returnTransactionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionViewBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgReturnItems
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 102);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(742, 233);
-            this.dataGridView1.TabIndex = 0;
+            this.dgReturnItems.AllowUserToAddRows = false;
+            this.dgReturnItems.AllowUserToDeleteRows = false;
+            this.dgReturnItems.AutoGenerateColumns = false;
+            this.dgReturnItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgReturnItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rentalIDDataGridViewTextBoxColumn,
+            this.itemRentedDataGridViewTextBoxColumn,
+            this.styleDataGridViewTextBoxColumn,
+            this.totalQuantityDataGridViewTextBoxColumn,
+            this.returnedQuantityDataGridViewTextBoxColumn});
+            this.dgReturnItems.DataSource = this.rentalTransactionViewBindingSource;
+            this.dgReturnItems.Location = new System.Drawing.Point(12, 102);
+            this.dgReturnItems.Name = "dgReturnItems";
+            this.dgReturnItems.ReadOnly = true;
+            this.dgReturnItems.RowHeadersWidth = 51;
+            this.dgReturnItems.RowTemplate.Height = 24;
+            this.dgReturnItems.Size = new System.Drawing.Size(742, 233);
+            this.dgReturnItems.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -117,10 +137,6 @@
             this.CustomerName.TabIndex = 18;
             this.CustomerName.Text = "Customer Name :";
             // 
-            // returnTransactionBindingSource
-            // 
-            this.returnTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnTransaction);
-            // 
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Calibri", 10.2F);
@@ -132,27 +148,82 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // returnTransactionBindingSource
+            // 
+            this.returnTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnTransaction);
+            // 
+            // rentalTransactionViewBindingSource
+            // 
+            this.rentalTransactionViewBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnItemView);
+            // 
+            // rentalIDDataGridViewTextBoxColumn
+            // 
+            this.rentalIDDataGridViewTextBoxColumn.DataPropertyName = "RentalID";
+            this.rentalIDDataGridViewTextBoxColumn.HeaderText = "RentalID";
+            this.rentalIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.rentalIDDataGridViewTextBoxColumn.Name = "rentalIDDataGridViewTextBoxColumn";
+            this.rentalIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rentalIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemRentedDataGridViewTextBoxColumn
+            // 
+            this.itemRentedDataGridViewTextBoxColumn.DataPropertyName = "ItemRented";
+            this.itemRentedDataGridViewTextBoxColumn.HeaderText = "ItemRented";
+            this.itemRentedDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemRentedDataGridViewTextBoxColumn.Name = "itemRentedDataGridViewTextBoxColumn";
+            this.itemRentedDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemRentedDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // styleDataGridViewTextBoxColumn
+            // 
+            this.styleDataGridViewTextBoxColumn.DataPropertyName = "Style";
+            this.styleDataGridViewTextBoxColumn.HeaderText = "Style";
+            this.styleDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.styleDataGridViewTextBoxColumn.Name = "styleDataGridViewTextBoxColumn";
+            this.styleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.styleDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // totalQuantityDataGridViewTextBoxColumn
+            // 
+            this.totalQuantityDataGridViewTextBoxColumn.DataPropertyName = "TotalQuantity";
+            this.totalQuantityDataGridViewTextBoxColumn.HeaderText = "TotalQuantity";
+            this.totalQuantityDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.totalQuantityDataGridViewTextBoxColumn.Name = "totalQuantityDataGridViewTextBoxColumn";
+            this.totalQuantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalQuantityDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // returnedQuantityDataGridViewTextBoxColumn
+            // 
+            this.returnedQuantityDataGridViewTextBoxColumn.DataPropertyName = "ReturnedQuantity";
+            this.returnedQuantityDataGridViewTextBoxColumn.HeaderText = "ReturnedQuantity";
+            this.returnedQuantityDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.returnedQuantityDataGridViewTextBoxColumn.Name = "returnedQuantityDataGridViewTextBoxColumn";
+            this.returnedQuantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.returnedQuantityDataGridViewTextBoxColumn.Width = 125;
+            // 
             // ReturnTransactionItemsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 402);
+            this.ClientSize = new System.Drawing.Size(764, 399);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgReturnItems);
             this.Name = "ReturnTransactionItemsDialog";
             this.Text = "ReturnTransactionItemsDialog";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgReturnItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cs6232g1ViewReturnsDataSetBindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.returnTransactionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionViewBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgReturnItems;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label MemberIDLabel;
         private System.Windows.Forms.Label lblMemberId;
@@ -160,5 +231,12 @@
         private System.Windows.Forms.Label CustomerName;
         private System.Windows.Forms.BindingSource returnTransactionBindingSource;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.BindingSource cs6232g1ViewReturnsDataSetBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rentalIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemRentedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn styleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalQuantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn returnedQuantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource rentalTransactionViewBindingSource;
     }
 }

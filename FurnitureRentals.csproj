@@ -83,6 +83,7 @@
     <Compile Include="DAL\StyleDBDAL.cs" />
     <Compile Include="Model\Administrator.cs" />
     <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\ReturnItemView.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Furniture.cs" />
@@ -190,10 +191,16 @@
     <Compile Include="View\SubmitTransactionDialog.Designer.cs">
       <DependentUpon>SubmitTransactionDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="_cs6232_g1DataSet.cs">
+      <DependentUpon>_cs6232_g1DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="_cs6232_g1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_cs6232_g1DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_cs6232_g1DataSet1.cs">
+      <DependentUpon>_cs6232_g1DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="_cs6232_g1DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -265,6 +272,7 @@
     <None Include="Properties\DataSources\FurnitureRentals.Model.Employee.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.Furniture.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.RentalTransaction.datasource" />
+    <None Include="Properties\DataSources\FurnitureRentals.Model.RentalTransactionView.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.ReturnTransaction.datasource" />
     <None Include="Properties\DataSources\FurnitureRentals.Model.Style.datasource" />
     <None Include="Properties\Settings.settings">

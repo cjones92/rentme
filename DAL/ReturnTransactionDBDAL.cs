@@ -55,6 +55,46 @@ namespace FurnitureRentals.DAL
             return transactionList;
         }
 
+        public List<ReturnItemView> GetAllReturnItems(int returnTransactionId)
+        {
+            string sqlStatement = "SELECT rental_id as RentalID, return_item.Quantity as ReturnQuantity, " +
+                "Furniture.description as ItemRented, furniture_style.description Style, " +
+                "rental_item.quantity TotalQuantity from return_item join rental_item on " +
+                "return_item.rental_item_id = rental_item.rental_item_id join furniture " +
+                "on rental_item.furniture_id = furniture.furniture_id join furniture_style on " +
+                "furniture.style_id = furniture_style.style_id where return_item.return_transaction_id=@ReturnTransactionID;";
+
+            Console.WriteLine(sqlStatement);
+
+            List<ReturnItemView> transactionList = new List<ReturnItemView>();
+            using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(sqlStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@ReturnTransactionID", returnTransactionId);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            ReturnItemView transaction = new ReturnItemView();
+                            transaction.RentalID = (int)reader["RentalID"];
+                            transaction.ItemRented = reader["ItemRented"].ToString();
+                            transaction.Style = reader["Style"].ToString();
+                            transaction.TotalQuantity = (int)reader["TotalQuantity"];
+                            transaction.ReturnedQuantity = (int)reader["ReturnQuantity"];
+
+                            transactionList.Add(transaction);
+                        }
+                    }
+                }
+            }
+
+            return transactionList;
+        }
+
         /// <summary>
         /// Method that posts the return transactions of a given customer
         /// </summary>

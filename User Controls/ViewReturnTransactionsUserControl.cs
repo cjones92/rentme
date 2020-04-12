@@ -70,6 +70,7 @@ namespace FurnitureRentals.User_Controls
             {
                 string rentalTransactionId = dgvViewReturns.CurrentCell.Value.ToString();
                 ReturnTransactionItemsDialog returnTransactionDialog = new ReturnTransactionItemsDialog(this.currentCustomer, rentalTransactionId);
+                returnTransactionDialog.StartPosition = FormStartPosition.CenterParent;
                 returnTransactionDialog.ShowDialog();
             }
         }
