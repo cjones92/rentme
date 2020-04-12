@@ -340,10 +340,10 @@ namespace FurnitureRentals.View
 
                 }
 
-                else if (!int.TryParse(Convert.ToString(e.FormattedValue), out i))
+                else if (!int.TryParse(Convert.ToString(e.FormattedValue), out i) || int.Parse(Convert.ToString(e.FormattedValue)) <= 0 )
                 {
                     e.Cancel = true;
-                    MessageBox.Show("Please enter a numeric value");
+                    MessageBox.Show("Please enter an integer value greater than 0");
                 }
                 else if (quantityToBeOrdered > quantityAvailable)
                 {
