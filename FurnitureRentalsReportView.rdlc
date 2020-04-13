@@ -37,7 +37,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>category</Value>
+                              <Value>Category</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -46,7 +46,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -78,7 +78,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>description</Value>
+                              <Value>Description</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -87,7 +87,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -119,7 +119,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>times qf rented</Value>
+                              <Value>Times QF Rented</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -128,7 +128,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -160,7 +160,22 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>total rentals</Value>
+                              <Value>Total</Value>
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>#666666</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Rentals</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -201,7 +216,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>percent All Furniture</Value>
+                              <Value>Percent All Furniture</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -210,7 +225,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -242,7 +257,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>percent Members Age18 29</Value>
+                              <Value>Percent Members Age18 29</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -251,7 +266,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -295,7 +310,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>category</rd:DefaultName>
@@ -328,7 +345,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>description</rd:DefaultName>
@@ -361,7 +380,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>times_qf_rented</rd:DefaultName>
@@ -394,7 +415,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>total_rentals</rd:DefaultName>
@@ -427,7 +450,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>percentAllFurniture</rd:DefaultName>
@@ -460,7 +485,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>percentMembersAge18_29</rd:DefaultName>
@@ -797,7 +824,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox18</rd:DefaultName>
@@ -830,7 +859,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox19</rd:DefaultName>
@@ -856,14 +887,16 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!percentAllFurniture.Value)</Value>
+                              <Value>=Round(Sum(Fields!times_qf_rented.Value)/Sum(Fields!total_rentals.Value),2) *100</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#333333</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox20</rd:DefaultName>
@@ -889,14 +922,16 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!percentMembersAge18_29.Value)</Value>
+                              <Value>=Avg(Fields!percentMembersAge18_29.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#333333</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox21</rd:DefaultName>
@@ -940,7 +975,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>serial no</Value>
+                            <Value>Serial No</Value>
                             <Style>
                               <FontSize>11pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -949,7 +984,7 @@
                           </TextRun>
                         </TextRuns>
                         <Style>
-                          <TextAlign>Right</TextAlign>
+                          <TextAlign>Center</TextAlign>
                         </Style>
                       </Paragraph>
                     </Paragraphs>
@@ -1005,7 +1040,9 @@
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>serial_no</rd:DefaultName>
@@ -1054,7 +1091,9 @@
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox15</rd:DefaultName>
