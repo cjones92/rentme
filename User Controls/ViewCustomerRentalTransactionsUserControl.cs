@@ -18,12 +18,15 @@ namespace FurnitureRentals.User_Controls
         Customer currentCustomer;
         List<RentalTransaction> transactionList;
         FurnitureController furnitureController;
-        public ViewCustomerRentalTransactionsUserControl()
+        ReturnShoppingCartUserControl returnCart;
+        public ViewCustomerRentalTransactionsUserControl(ReturnShoppingCartUserControl returnCart)
         {
             InitializeComponent();
             this.currentCustomer = new Customer();
             this.transactionList = new List<RentalTransaction>();
             this.furnitureController = new FurnitureController();
+            this.returnCart = returnCart;
+
         }
 
 
@@ -89,9 +92,19 @@ namespace FurnitureRentals.User_Controls
         {
             if (RentalTransactionDataGridView.CurrentCell.ColumnIndex.Equals(0) && e.RowIndex != -1)
             {
-                RentalItemsFormDialog formDialog = new RentalItemsFormDialog(int.Parse(RentalTransactionDataGridView.CurrentCell.Value.ToString()));
                
+                RentalItemsFormDialog formDialog = new RentalItemsFormDialog(int.Parse(RentalTransactionDataGridView.CurrentCell.Value.ToString()), this.returnCart);
+                List<Furniture> list = formDialog.GetReturnedFurniture();
                 DialogResult addedResult = formDialog.ShowDialog();
+
+                if (addedResult == DialogResult.OK)
+                {
+                    foreach (Furniture furniture in list)
+                    {
+                        this.returnCart.addReturn(furniture.RentalItemID, furniture.FurnitureID, furniture.QuantityBeingReturned);
+                    }
+
+                }
             }
         }
     }

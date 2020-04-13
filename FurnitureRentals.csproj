@@ -191,6 +191,7 @@
     <Compile Include="View\SubmitTransactionDialog.Designer.cs">
       <DependentUpon>SubmitTransactionDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewCustomerRentalRansactionUserControl.cs" />
     <Compile Include="_cs6232_g1DataSet.cs">
       <DependentUpon>_cs6232_g1DataSet.xsd</DependentUpon>
     </Compile>

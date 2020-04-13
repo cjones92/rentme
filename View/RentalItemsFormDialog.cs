@@ -1,5 +1,6 @@
 ﻿using FurnitureRentals.Controller;
 using FurnitureRentals.Model;
+using FurnitureRentals.User_Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,14 +15,19 @@ namespace FurnitureRentals.View
 {
     public partial class RentalItemsFormDialog : Form
     {
+        List<Furniture> rentalItemList;
         FurnitureController furnitureController;
         int transactionID;
-        public RentalItemsFormDialog(int transactionID)
+        ReturnShoppingCartUserControl returnCart;
+        public RentalItemsFormDialog(int transactionID, ReturnShoppingCartUserControl returnShoppingCart)
         {
             InitializeComponent();
             this.furnitureController = new FurnitureController();
             this.transactionID = transactionID;
             this.LoadRentalItemDataGridView();
+            rentalItemList = this.furnitureController.GetRentalItemByTransactionID(this.transactionID);
+            this.returnCart = returnShoppingCart;
+
         }
 
         
@@ -29,17 +35,17 @@ namespace FurnitureRentals.View
         
         private void LoadRentalItemDataGridView()
         {
-            List<Furniture> rentalItemList = new List<Furniture>();
+           
             
                 RentalItemDataGridView.AllowUserToAddRows = false;
                 RentalItemDataGridView.RowHeadersVisible = false;
-            MessageBox.Show("" + this.transactionID);
-                rentalItemList = this.furnitureController.GetRentalItemByTransactionID(this.transactionID);
-                furnitureBindingSource.DataSource = rentalItemList;
+
+            this.rentalItemList = this.furnitureController.GetRentalItemByTransactionID(this.transactionID);
+            furnitureBindingSource.DataSource = rentalItemList;
 
                 foreach (DataGridViewRow row in RentalItemDataGridView.Rows)
                 {
-                    RentalTransaction transaction = (RentalTransaction)row.DataBoundItem;
+                    Furniture rentalItem = (Furniture)row.DataBoundItem;
                 }
 
                 RentalItemDataGridView.AutoResizeColumns();
@@ -56,12 +62,55 @@ namespace FurnitureRentals.View
                 RentalItemDataGridView.Width = width;
 
             }
+
+        private void ItemsToReturnButton_Click(object sender, EventArgs e)
+        {
            
 
+           
+        }
+
+        public List<Furniture> GetReturnedFurniture()
+        {
+            List<Furniture> returnedItemList = new List<Furniture>();
+
+            foreach (DataGridViewRow row in RentalItemDataGridView.Rows)
+            {
+                if (row.Cells[3].Value != null)
+                {
+                    row.Selected = true;
+                }
+                else
+                {
+                    row.Selected = false;
+                }
+
+                
+
+                foreach (DataGridViewRow selectedRow in this.RentalItemDataGridView.SelectedRows)
+                {
+                    if (selectedRow.Cells[3].Value == null)
+                    {
+                        MessageBox.Show("Please enter a value for quantity wanted in row " + (row.Index + 1));
 
 
+                    }
 
-        
+
+                    else
+                    {
+                        Furniture selectedFurniture = this.rentalItemList[RentalItemDataGridView.Rows[selectedRow.Index].Index];
+
+                                                
+                        selectedFurniture.QuantityBeingReturned = int.Parse(row.Cells[3].Value.ToString());
+
+                        
+                        returnedItemList.Add(selectedFurniture);
+                    }
+                }
+            }
+            return returnedItemList;
+        }
     }
 
     }

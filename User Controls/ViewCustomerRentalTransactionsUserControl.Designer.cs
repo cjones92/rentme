@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewCustomerRentalTransactionsUserControl));
             this.rentalTransactionBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.rentalTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -54,11 +55,10 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rentalTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingNavigator)).BeginInit();
             this.rentalTransactionBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RentalTransactionDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RentalTransactionDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // rentalTransactionBindingNavigator
@@ -88,7 +88,7 @@
             this.rentalTransactionBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.rentalTransactionBindingNavigator.Name = "rentalTransactionBindingNavigator";
             this.rentalTransactionBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.rentalTransactionBindingNavigator.Size = new System.Drawing.Size(948, 27);
+            this.rentalTransactionBindingNavigator.Size = new System.Drawing.Size(711, 27);
             this.rentalTransactionBindingNavigator.TabIndex = 0;
             this.rentalTransactionBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -98,13 +98,17 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // rentalTransactionBindingSource
+            // 
+            this.rentalTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.RentalTransaction);
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 24);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -114,7 +118,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -123,7 +127,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -132,7 +136,7 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
@@ -146,7 +150,7 @@
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(65, 27);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
@@ -161,7 +165,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -170,7 +174,7 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
@@ -184,17 +188,16 @@
             this.rentalTransactionBindingNavigatorSaveItem.Enabled = false;
             this.rentalTransactionBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("rentalTransactionBindingNavigatorSaveItem.Image")));
             this.rentalTransactionBindingNavigatorSaveItem.Name = "rentalTransactionBindingNavigatorSaveItem";
-            this.rentalTransactionBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
+            this.rentalTransactionBindingNavigatorSaveItem.Size = new System.Drawing.Size(24, 24);
             this.rentalTransactionBindingNavigatorSaveItem.Text = "Save Data";
             // 
             // CustomerName
             // 
             this.CustomerName.AutoSize = true;
             this.CustomerName.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.CustomerName.Location = new System.Drawing.Point(25, 53);
-            this.CustomerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.CustomerName.Location = new System.Drawing.Point(19, 43);
             this.CustomerName.Name = "CustomerName";
-            this.CustomerName.Size = new System.Drawing.Size(128, 21);
+            this.CustomerName.Size = new System.Drawing.Size(103, 17);
             this.CustomerName.TabIndex = 7;
             this.CustomerName.Text = "Customer Name:";
             // 
@@ -202,10 +205,9 @@
             // 
             this.ActualNameLabel.AutoSize = true;
             this.ActualNameLabel.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.ActualNameLabel.Location = new System.Drawing.Point(163, 55);
-            this.ActualNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ActualNameLabel.Location = new System.Drawing.Point(122, 45);
             this.ActualNameLabel.Name = "ActualNameLabel";
-            this.ActualNameLabel.Size = new System.Drawing.Size(52, 21);
+            this.ActualNameLabel.Size = new System.Drawing.Size(42, 17);
             this.ActualNameLabel.TabIndex = 9;
             this.ActualNameLabel.Text = "label1";
             // 
@@ -213,10 +215,9 @@
             // 
             this.MemberIDLabel.AutoSize = true;
             this.MemberIDLabel.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.MemberIDLabel.Location = new System.Drawing.Point(52, 82);
-            this.MemberIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.MemberIDLabel.Location = new System.Drawing.Point(39, 67);
             this.MemberIDLabel.Name = "MemberIDLabel";
-            this.MemberIDLabel.Size = new System.Drawing.Size(97, 21);
+            this.MemberIDLabel.Size = new System.Drawing.Size(80, 17);
             this.MemberIDLabel.TabIndex = 10;
             this.MemberIDLabel.Text = "Member ID: ";
             // 
@@ -224,10 +225,9 @@
             // 
             this.ActualIDLabel.AutoSize = true;
             this.ActualIDLabel.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.ActualIDLabel.Location = new System.Drawing.Point(163, 82);
-            this.ActualIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ActualIDLabel.Location = new System.Drawing.Point(122, 67);
             this.ActualIDLabel.Name = "ActualIDLabel";
-            this.ActualIDLabel.Size = new System.Drawing.Size(52, 21);
+            this.ActualIDLabel.Size = new System.Drawing.Size(42, 17);
             this.ActualIDLabel.TabIndex = 11;
             this.ActualIDLabel.Text = "label2";
             // 
@@ -243,11 +243,10 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
             this.RentalTransactionDataGridView.DataSource = this.rentalTransactionBindingSource;
-            this.RentalTransactionDataGridView.Location = new System.Drawing.Point(55, 167);
-            this.RentalTransactionDataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.RentalTransactionDataGridView.Location = new System.Drawing.Point(22, 99);
             this.RentalTransactionDataGridView.Name = "RentalTransactionDataGridView";
             this.RentalTransactionDataGridView.RowHeadersWidth = 51;
-            this.RentalTransactionDataGridView.Size = new System.Drawing.Size(859, 271);
+            this.RentalTransactionDataGridView.Size = new System.Drawing.Size(644, 220);
             this.RentalTransactionDataGridView.TabIndex = 11;
             this.RentalTransactionDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RentalTransactionDataGridView_CellContentClick);
             // 
@@ -301,13 +300,9 @@
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.Width = 125;
             // 
-            // rentalTransactionBindingSource
-            // 
-            this.rentalTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.RentalTransaction);
-            // 
             // ViewCustomerRentalTransactionsUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.RentalTransactionDataGridView);
             this.Controls.Add(this.ActualIDLabel);
@@ -315,14 +310,13 @@
             this.Controls.Add(this.ActualNameLabel);
             this.Controls.Add(this.CustomerName);
             this.Controls.Add(this.rentalTransactionBindingNavigator);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ViewCustomerRentalTransactionsUserControl";
-            this.Size = new System.Drawing.Size(948, 463);
+            this.Size = new System.Drawing.Size(711, 376);
             ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingNavigator)).EndInit();
             this.rentalTransactionBindingNavigator.ResumeLayout(false);
             this.rentalTransactionBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RentalTransactionDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RentalTransactionDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

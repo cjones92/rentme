@@ -1,4 +1,5 @@
 ﻿using FurnitureRentals.Model;
+using FurnitureRentals.User_Controls;
 using FurnitureRentals.View;
 using System;
 using System.Collections.Generic;
@@ -67,6 +68,11 @@ namespace FurnitureRentals
         {
             this.DialogResult = DialogResult.OK;
 
+        }
+
+        public ReturnShoppingCartUserControl GetReturnShoppingCartUserControl()
+        {
+            return this.returnShoppingCartUserControl1;
         }
 
         public void SetCurrentEmployee(Employee employee)
