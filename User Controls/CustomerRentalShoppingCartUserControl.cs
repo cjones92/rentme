@@ -62,29 +62,38 @@ namespace FurnitureRentals.User_Controls
 
        private void LoadRentalDataGridView()
         {
-            
-            RentalDataGridView.AutoGenerateColumns = false;
+            if (this.DaysRentingTextBox.TextLength == 0)
+            {
+                MessageBox.Show("There must be a value for days to properly calculate rental transaction costs.");
+            }
+            else
+            {
+
+                RentalDataGridView.AutoGenerateColumns = false;
                 RentalDataGridView.AllowUserToAddRows = false;
                 RentalDataGridView.RowHeadersVisible = false;
-           
-           
 
-            
-            var furnitureBindingList = new BindingList<Furniture>(furnitureList);
-            furnitureBindingList.AllowEdit = true;
 
-        
-            RentalDataGridView.ReadOnly = false;
-            RentalDataGridView.DataSource = furnitureBindingList.Select(o => new
-                { Item = o.ItemDescription, Style = o.FurnitureStyle, Remove = "X"
+
+
+                var furnitureBindingList = new BindingList<Furniture>(furnitureList);
+                furnitureBindingList.AllowEdit = true;
+
+
+                RentalDataGridView.ReadOnly = false;
+                RentalDataGridView.DataSource = furnitureBindingList.Select(o => new
+                {
+                    Item = o.ItemDescription,
+                    Style = o.FurnitureStyle,
+                    Remove = "X"
                 }).ToList(); ;
 
-            foreach (DataGridViewRow row in RentalDataGridView.Rows)
-            {
-                row.Cells[2].Value = furnitureBindingList[row.Index].QuantityOrdered;
-                row.Cells[3].Value = furnitureBindingList[row.Index].QuantityOrdered * furnitureBindingList[row.Index].DailyRentalRate * int.Parse(this.DaysRentingTextBox.Text);
-            }
-            RentalDataGridView.AutoResizeColumns();
+                foreach (DataGridViewRow row in RentalDataGridView.Rows)
+                {
+                    row.Cells[2].Value = furnitureBindingList[row.Index].QuantityOrdered;
+                    row.Cells[3].Value = furnitureBindingList[row.Index].QuantityOrdered * furnitureBindingList[row.Index].DailyRentalRate * int.Parse(this.DaysRentingTextBox.Text);
+                }
+                RentalDataGridView.AutoResizeColumns();
                 RentalDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 RentalDataGridView.AutoResizeRows();
                 RentalDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
@@ -96,13 +105,13 @@ namespace FurnitureRentals.User_Controls
                     width += column.Width;
                 }
                 RentalDataGridView.Width = width;
-            this.FillInTotal();
-            foreach (Furniture furniture in furnitureList)
-            {
-                furniture.TotalRentalCost = furniture.TotalRentalCost / int.Parse(this.DaysRentingTextBox.Text);
+                this.FillInTotal();
+                foreach (Furniture furniture in furnitureList)
+                {
+                    furniture.TotalRentalCost = furniture.TotalRentalCost / int.Parse(this.DaysRentingTextBox.Text);
+                }
+
             }
-
-
         }
 
         private void TabulateRentalCosts()
@@ -199,8 +208,9 @@ namespace FurnitureRentals.User_Controls
 
         private void DaysRentingTextBox_TextChanged(object sender, EventArgs e)
         {
+           
             int value;
-            if (int.TryParse(this.DaysRentingTextBox.Text, out value) && int.Parse(this.DaysRentingTextBox.Text) > 0 && this.DaysRentingTextBox.Text.Length > 0) {
+            if (!string.IsNullOrEmpty(this.DaysRentingTextBox.Text) && int.TryParse(this.DaysRentingTextBox.Text, out value) && int.Parse(this.DaysRentingTextBox.Text) > 0 && this.DaysRentingTextBox.Text.Length > 0) {
                 
                 this.LoadRentalDataGridView();
            } else if (!int.TryParse(this.DaysRentingTextBox.Text, out value) && this.DaysRentingTextBox.Text.Length > 0)
@@ -288,6 +298,13 @@ namespace FurnitureRentals.User_Controls
                     
                 }
             }
+        }
+
+        private void DaysRented_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar)) e.Handled = true;         //Just Digits
+            if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
+                        
         }
 
         private void RentalDataGridView_CurrentCellDirtyStateChanged(object sender,

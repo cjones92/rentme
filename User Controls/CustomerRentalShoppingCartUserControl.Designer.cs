@@ -191,6 +191,7 @@
             this.DaysRentingTextBox.Size = new System.Drawing.Size(100, 20);
             this.DaysRentingTextBox.TabIndex = 10;
             this.DaysRentingTextBox.TextChanged += new System.EventHandler(this.DaysRentingTextBox_TextChanged);
+            this.DaysRentingTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DaysRented_KeyPress);
             // 
             // DaysRentingLabel
             // 
