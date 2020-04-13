@@ -123,7 +123,7 @@ namespace FurnitureRentals.User_Controls
                     List<Furniture> list = formDialog.GetReturnedFurniture();
                     foreach (Furniture furniture in list)
                     {
-                        MessageBox.Show("FurnitureID is  " + furniture.FurnitureID + " Rental ID is " + furniture.RentalTransactionID);
+                        
 
                         
                         this.returnCart.addReturn(furniture.RentalTransactionID, furniture.FurnitureID, furniture.QuantityBeingReturned);

@@ -39,44 +39,49 @@ namespace FurnitureRentals.View
 
         }
 
-        
 
-        
+
+
         private void LoadRentalItemDataGridView()
         {
-           
-            
-                RentalItemDataGridView.AllowUserToAddRows = false;
-                RentalItemDataGridView.RowHeadersVisible = false;
+
+
+            RentalItemDataGridView.AllowUserToAddRows = false;
+            RentalItemDataGridView.RowHeadersVisible = false;
+            RentalItemDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             this.rentalItemList = this.furnitureController.GetRentalItemByTransactionID(this.transactionID);
             furnitureBindingSource.DataSource = rentalItemList;
 
-                foreach (DataGridViewRow row in RentalItemDataGridView.Rows)
-                {
-                    Furniture rentalItem = (Furniture)row.DataBoundItem;
-                }
-
-                RentalItemDataGridView.AutoResizeColumns();
-                RentalItemDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                RentalItemDataGridView.AutoResizeRows();
-                RentalItemDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-                int width = 0;
-
-                foreach (DataGridViewColumn column in RentalItemDataGridView.Columns)
-                {
-                    width += column.Width;
-                }
-                RentalItemDataGridView.Width = width;
-
+            foreach (DataGridViewRow row in RentalItemDataGridView.Rows)
+            {
+                Furniture rentalItem = (Furniture)row.DataBoundItem;
             }
+
+            RentalItemDataGridView.AutoResizeColumns();
+            RentalItemDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            RentalItemDataGridView.AutoResizeRows();
+            RentalItemDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            int width = 0;
+
+            foreach (DataGridViewColumn column in RentalItemDataGridView.Columns)
+            {
+                width += column.Width;
+            }
+            RentalItemDataGridView.Width = width;
+
+        }
 
         private void ItemsToReturnButton_Click(object sender, EventArgs e)
         {
+            
+            if (this.GetReturnedFurniture().Count > 0)
+            {
+                MessageBox.Show("The items will now be submitted.");
+                this.DialogResult = DialogResult.OK;
+            }
 
-            this.DialogResult = DialogResult.OK;
-           
         }
 
         /// <summary>
@@ -97,14 +102,15 @@ namespace FurnitureRentals.View
                 {
                     row.Selected = false;
                 }
+            }
 
-                
+
 
                 foreach (DataGridViewRow selectedRow in this.RentalItemDataGridView.SelectedRows)
                 {
                     if (selectedRow.Cells[3].Value == null)
                     {
-                        MessageBox.Show("Please enter a value for quantity wanted in row " + (row.Index + 1));
+                        MessageBox.Show("Please enter a value for quantity wanted in row " + (selectedRow.Index + 1));
 
 
                     }
@@ -114,16 +120,71 @@ namespace FurnitureRentals.View
                     {
                         Furniture selectedFurniture = this.rentalItemList[RentalItemDataGridView.Rows[selectedRow.Index].Index];
 
-              
-                                                
-                        selectedFurniture.QuantityBeingReturned = int.Parse(row.Cells[3].Value.ToString());
 
-                        
+
+                        selectedFurniture.QuantityBeingReturned = int.Parse(selectedRow.Cells[3].Value.ToString());
+
+
                         returnedItemList.Add(selectedFurniture);
                     }
                 }
-            }
+            
             return returnedItemList;
+        }
+        private void RentalItemDataGridView_CellValidating(object sender,
+                                         DataGridViewCellValidatingEventArgs e)
+        {
+            int i;
+            int quantityToBeReturned = 0;
+            int quantityAvailable = 0;
+            if (RentalItemDataGridView.SelectedRows.Count > 0 && RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[3].Value != null && int.TryParse(Convert.ToString(e.FormattedValue), out i))
+            {
+                
+                quantityToBeReturned = int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[3].Value.ToString());
+               
+                RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Selected = true;
+            }
+
+            if ((int.TryParse(Convert.ToString(e.FormattedValue), out i)) && (!string.IsNullOrEmpty(e.FormattedValue.ToString())))
+            {
+                quantityAvailable = int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[2].Value.ToString());
+            }
+
+            if (e.ColumnIndex == 3)
+            {
+                
+
+                if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
+                {
+                   
+                }
+
+                else if (!int.TryParse(Convert.ToString(e.FormattedValue), out i) || int.Parse(Convert.ToString(e.FormattedValue)) <= 0)
+                {
+                    e.Cancel = true;
+                    MessageBox.Show("Please enter an integer value greater than 0");
+                }
+                else if (quantityToBeReturned > quantityAvailable)
+                {
+                    e.Cancel = true;
+                    MessageBox.Show("You cannot order more than the amount available.");
+                }
+                else
+                {
+
+                }
+            }
+        }
+
+        private void RentalItemDataGridView_CurrentCellDirtyStateChanged(object sender,
+    EventArgs e)
+        {
+            if (RentalItemDataGridView.IsCurrentCellDirty)
+            {
+                RentalItemDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
+
+
+            }
         }
     }
 

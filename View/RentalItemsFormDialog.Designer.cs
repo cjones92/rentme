@@ -45,11 +45,11 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.furnitureBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.RentalItemDataGridView = new System.Windows.Forms.DataGridView();
-            this.ItemsToReturnButton = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantityReturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemsToReturnButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingNavigator)).BeginInit();
             this.furnitureBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).BeginInit();
@@ -199,16 +199,8 @@
             this.RentalItemDataGridView.Name = "RentalItemDataGridView";
             this.RentalItemDataGridView.Size = new System.Drawing.Size(645, 220);
             this.RentalItemDataGridView.TabIndex = 1;
-            // 
-            // ItemsToReturnButton
-            // 
-            this.ItemsToReturnButton.Location = new System.Drawing.Point(433, 348);
-            this.ItemsToReturnButton.Name = "ItemsToReturnButton";
-            this.ItemsToReturnButton.Size = new System.Drawing.Size(109, 23);
-            this.ItemsToReturnButton.TabIndex = 2;
-            this.ItemsToReturnButton.Text = "Add To Returns";
-            this.ItemsToReturnButton.UseVisualStyleBackColor = true;
-            this.ItemsToReturnButton.Click += new System.EventHandler(this.ItemsToReturnButton_Click);
+            this.RentalItemDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.RentalItemDataGridView_CellValidating);
+            this.RentalItemDataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.RentalItemDataGridView_CurrentCellDirtyStateChanged);
             // 
             // dataGridViewTextBoxColumn10
             // 
@@ -232,6 +224,16 @@
             // 
             this.QuantityReturned.HeaderText = "Quantity Returning";
             this.QuantityReturned.Name = "QuantityReturned";
+            // 
+            // ItemsToReturnButton
+            // 
+            this.ItemsToReturnButton.Location = new System.Drawing.Point(433, 348);
+            this.ItemsToReturnButton.Name = "ItemsToReturnButton";
+            this.ItemsToReturnButton.Size = new System.Drawing.Size(109, 23);
+            this.ItemsToReturnButton.TabIndex = 2;
+            this.ItemsToReturnButton.Text = "Add To Returns";
+            this.ItemsToReturnButton.UseVisualStyleBackColor = true;
+            this.ItemsToReturnButton.Click += new System.EventHandler(this.ItemsToReturnButton_Click);
             // 
             // RentalItemsFormDialog
             // 

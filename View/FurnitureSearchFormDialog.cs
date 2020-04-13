@@ -201,7 +201,7 @@ namespace FurnitureRentals.View
         private void AddButton_Click(object sender, EventArgs e)
         { 
             
-
+            
             if (this.GetSelectedFurniture().Count > 0)
             {
                 this.DialogResult = DialogResult.OK;
