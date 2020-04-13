@@ -80,6 +80,8 @@ namespace FurnitureRentals.User_Controls
 
             DateTime rentedOn = rentalTransaction.RentalDate;
             DateTime dueDate = rentalTransaction.DueDate;
+            MessageBox.Show("rental day" + rentalTransaction.RentalDate);
+            MessageBox.Show("reutnr day" + rentalTransaction.DueDate);
 
             ReturnCart returnCartItem = new ReturnCart();
             returnCartItem.RentalID = rentalId;
@@ -110,6 +112,8 @@ namespace FurnitureRentals.User_Controls
                     {
                         int days = (DateTime.Now - dueDate).Days;
                         returnItem.LateFee = (dailyFineRate * days * totalQuantity);
+                        
+
                     }
                 }
             }

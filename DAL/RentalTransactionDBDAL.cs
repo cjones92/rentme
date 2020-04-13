@@ -24,7 +24,7 @@ namespace FurnitureRentals.DAL
                 string sqlQuantityStatement = "UPDATE inventory SET total_available = total_available - @QuantityOrdered " +
                     "WHERE inventory.furniture_id = @FurnitureID AND total_available = @AvailableQuantity ";
 
-                string sqlItemStatement = "INSERT INTO RENTAL_item (rental_id, furniture_id, quantity) " +
+                string sqlItemStatement = "INSERT INTO RENTAL_ITEM (rental_id, furniture_id, quantity) " +
                 "VALUES (@RentalID, @FurnitureID, @QuantityOrdered); SELECT SCOPE_IDENTITY() ";
 
                 connection.Open();

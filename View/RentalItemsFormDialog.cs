@@ -65,8 +65,8 @@ namespace FurnitureRentals.View
 
         private void ItemsToReturnButton_Click(object sender, EventArgs e)
         {
-           
 
+            this.DialogResult = DialogResult.OK;
            
         }
 
@@ -101,6 +101,7 @@ namespace FurnitureRentals.View
                     {
                         Furniture selectedFurniture = this.rentalItemList[RentalItemDataGridView.Rows[selectedRow.Index].Index];
 
+              
                                                 
                         selectedFurniture.QuantityBeingReturned = int.Parse(row.Cells[3].Value.ToString());
 

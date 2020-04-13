@@ -167,7 +167,7 @@ namespace FurnitureRentals.User_Controls
                     RentalTransaction transaction = new RentalTransaction();
                     transaction.CustomerID = this.currentCustomer.CustomerId;
                     transaction.RentalDate = DateTime.Today;
-                    transaction.DueDate = transaction.RentalDate.AddDays(furnitureList[0].DaysRented);
+                    transaction.DueDate = transaction.RentalDate.AddDays(int.Parse(this.DaysRentingTextBox.Text));
                     transaction.TotalDue = decimal.Parse(this.RentalTotalTextBox.Text.Substring(2));
                     transaction.CheckedOutByID = this.currentEmployee.EmployeeID;
 

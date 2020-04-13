@@ -96,7 +96,7 @@
             this.RentalDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.RentalDataGridView.Location = new System.Drawing.Point(35, 98);
             this.RentalDataGridView.Name = "RentalDataGridView";
-            this.RentalDataGridView.Size = new System.Drawing.Size(467, 215);
+            this.RentalDataGridView.Size = new System.Drawing.Size(532, 215);
             this.RentalDataGridView.TabIndex = 4;
             this.RentalDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RentalDataGridView_CellContentClick);
             this.RentalDataGridView.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.RentalDataGridView_CellValidated);
@@ -218,7 +218,7 @@
             this.Controls.Add(this.EmptyCartButton);
             this.Controls.Add(this.FurnitureSearchButton);
             this.Name = "CustomerRentalShoppingCartUserControl";
-            this.Size = new System.Drawing.Size(555, 415);
+            this.Size = new System.Drawing.Size(602, 415);
             ((System.ComponentModel.ISupportInitialize)(this.RentalDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
