@@ -61,8 +61,8 @@ namespace FurnitureRentals.User_Controls
         /// </summary>
         public void LoadRentalTransactionDataGridView()
         {
-            
-    
+            try
+            {
                 RentalTransactionDataGridView.AllowUserToAddRows = false;
                 RentalTransactionDataGridView.RowHeadersVisible = false;
 
@@ -70,20 +70,20 @@ namespace FurnitureRentals.User_Controls
 
                 foreach (RentalTransaction transaction in transactionList)
                 {
-                int totalRentalSpan = (int)(transaction.DueDate - transaction.RentalDate).TotalDays;
-                  if (totalRentalSpan == 0)
-                {
-                    totalRentalSpan = 1;
-                }
+                    int totalRentalSpan = (int)(transaction.DueDate - transaction.RentalDate).TotalDays;
+                    if (totalRentalSpan == 0)
+                    {
+                        totalRentalSpan = 1;
+                    }
                     decimal dailyRate = transaction.TotalDue / totalRentalSpan;
-                   
+
                     int daysSinceRental = (int)(DateTime.Today - transaction.RentalDate).TotalDays;
-                   
-                       transaction.CurrentAmountDue = dailyRate * daysSinceRental;
-                      if (transaction.CurrentAmountDue > transaction.TotalDue || daysSinceRental == 0)
-                {
-                    transaction.CurrentAmountDue = transaction.TotalDue;
-                } 
+
+                    transaction.CurrentAmountDue = dailyRate * daysSinceRental;
+                    if (transaction.CurrentAmountDue > transaction.TotalDue || daysSinceRental == 0)
+                    {
+                        transaction.CurrentAmountDue = transaction.TotalDue;
+                    }
                 }
 
                 rentalTransactionBindingSource.DataSource = transactionList;
@@ -106,7 +106,13 @@ namespace FurnitureRentals.User_Controls
                 }
                 RentalTransactionDataGridView.Width = width;
 
-            
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("There was a problem reaching the database. Please check the database connection.");
+            }
+
+
         }
 
         private void RentalTransactionDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)

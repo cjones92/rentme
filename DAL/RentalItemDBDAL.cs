@@ -62,5 +62,75 @@ namespace FurnitureRentals.DAL
             }
             return rentalItemList;
         }
+
+        public int GetQuantityRented(int rentalItemID)
+        {
+            
+            int rentalAmount  = 0;
+
+            string selectStatement = "SELECT rental_item.quantity as RentalQuantity From rental_item WHERE rental_item.rental_item_id = @RentalItemID;"
+            ;
+
+            using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@RentalItemID", rentalItemID);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+
+
+                        while (reader.Read())
+                        {
+
+
+                            rentalAmount = (int)reader["RentalQuantity"];
+                            
+                        }
+
+                    }
+
+                }
+               
+            }
+            return rentalAmount; 
+        }
+
+        public int GetQuantityReturned(int rentalItemID)
+        {
+
+            int returnAmount = 0;
+
+            string selectStatement = "SELECT return_item.quantity AS ReturnQuantity From return_item WHERE return_item.rental_item_id = @RentalItemID;"
+            ;
+
+            using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@RentalItemID", rentalItemID);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+
+
+                        while (reader.Read())
+                        {
+
+
+                            returnAmount = (int)reader["ReturnQuantity"];
+
+                        }
+
+                    }
+
+                }
+
+            }
+            return returnAmount;
+        }
     }
 }

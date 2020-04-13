@@ -44,33 +44,42 @@ namespace FurnitureRentals.View
 
         private void LoadRentalItemDataGridView()
         {
-
-
-            RentalItemDataGridView.AllowUserToAddRows = false;
-            RentalItemDataGridView.RowHeadersVisible = false;
-            RentalItemDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            this.rentalItemList = this.furnitureController.GetRentalItemByTransactionID(this.transactionID);
-            furnitureBindingSource.DataSource = rentalItemList;
-
-            foreach (DataGridViewRow row in RentalItemDataGridView.Rows)
+            try
             {
-                Furniture rentalItem = (Furniture)row.DataBoundItem;
+
+                RentalItemDataGridView.AllowUserToAddRows = false;
+                RentalItemDataGridView.RowHeadersVisible = false;
+                RentalItemDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+                this.rentalItemList = this.furnitureController.GetRentalItemByTransactionID(this.transactionID);
+                
+                
+                furnitureBindingSource.DataSource = rentalItemList;
+
+                foreach (DataGridViewRow row in RentalItemDataGridView.Rows)
+                {
+                    Furniture rentalItem = (Furniture)row.DataBoundItem;
+                    
+                }
+
+                RentalItemDataGridView.AutoResizeColumns();
+                RentalItemDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                RentalItemDataGridView.AutoResizeRows();
+                RentalItemDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+                int width = 0;
+
+
+                foreach (DataGridViewColumn column in RentalItemDataGridView.Columns)
+                {
+                    width += column.Width;
+                }
+                RentalItemDataGridView.Width = width;
             }
-
-            RentalItemDataGridView.AutoResizeColumns();
-            RentalItemDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            RentalItemDataGridView.AutoResizeRows();
-            RentalItemDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-            int width = 0;
-
-            foreach (DataGridViewColumn column in RentalItemDataGridView.Columns)
+            catch (Exception)
             {
-                width += column.Width;
+                MessageBox.Show("There was a problem reaching the database. Please check the database connection.");
             }
-            RentalItemDataGridView.Width = width;
-
         }
 
         private void ItemsToReturnButton_Click(object sender, EventArgs e)
@@ -112,19 +121,15 @@ namespace FurnitureRentals.View
                     {
                         MessageBox.Show("Please enter a value for quantity wanted in row " + (selectedRow.Index + 1));
 
-
                     }
-
 
                     else
                     {
                         Furniture selectedFurniture = this.rentalItemList[RentalItemDataGridView.Rows[selectedRow.Index].Index];
 
-
-
                         selectedFurniture.QuantityBeingReturned = int.Parse(selectedRow.Cells[3].Value.ToString());
-
-
+                    int quantityRemaining = selectedFurniture.QuantityOrdered - selectedFurniture.QuantityBeingReturned;
+                    selectedFurniture.QuantityYetToBeReturned = quantityRemaining;
                         returnedItemList.Add(selectedFurniture);
                     }
                 }

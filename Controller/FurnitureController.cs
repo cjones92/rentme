@@ -131,5 +131,25 @@ namespace FurnitureRentals.Controller
         {
             return this.furnitureDBDAL.UpdateInventory(furnitureId, quantity);
         }
+
+        /// <summary>
+        /// Returns quantity of an item rented in a transaction
+        /// </summary>
+        /// <param name="rentalItemID"></param>
+        /// <returns>quantity</returns>
+        public int GetQuantityRented(int rentalItemID)
+        {
+            return this.rentalItemDBDAL.GetQuantityRented(rentalItemID);
+        }
+
+        /// <summary>
+        /// Returns quantity of an item returned in a return transaction
+        /// </summary>
+        /// <param name="rentalItemID">rentalID</param>
+        /// <returns>quantity</returns>
+        public int GetQuantityReturned(int rentalItemID)
+        {
+            return this.rentalItemDBDAL.GetQuantityReturned(rentalItemID);
+        }
     }
 }

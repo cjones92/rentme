@@ -81,10 +81,11 @@ namespace FurnitureRentals.View
 
         private void LoadFurnitureGridView()
         {
-            
-            
-            FurnitureDataGridView.AllowUserToAddRows = false;
-            FurnitureDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            try
+            {
+
+                FurnitureDataGridView.AllowUserToAddRows = false;
+                FurnitureDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
                 string searchChoice = (string)this.SearchOptionsComboBox.SelectedValue;
                 if (searchChoice == "Serial Number" && this.SerialNumberTextBox.TextLength > 3)
@@ -98,7 +99,7 @@ namespace FurnitureRentals.View
                     }
 
                 }
-                else if ((searchChoice == "Category") && (this.CategoryDescriptionComboBox.SelectedIndex > -1 ))
+                else if ((searchChoice == "Category") && (this.CategoryDescriptionComboBox.SelectedIndex > -1))
                 {
                     furnitureList = this.furnitureController.GetFurnitureByCategory((int.Parse(this.CategoryDescriptionComboBox.SelectedValue.ToString())));
                     furnitureBindingSource.DataSource = furnitureList;
@@ -126,7 +127,12 @@ namespace FurnitureRentals.View
                 {
 
                 }
-           
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("There was a problem reaching the database. Please check the database connection.");
+            }
+
         }
 
         private void SearchOptionsComboBox_SelectedIndexChanged(object sender, EventArgs e)

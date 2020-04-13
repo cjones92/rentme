@@ -43,6 +43,8 @@ namespace FurnitureRentals.Model
 
         public int QuantityBeingReturned { get; set; }
 
+        public int QuantityYetToBeReturned { get; set; }
+
 
     }
 }

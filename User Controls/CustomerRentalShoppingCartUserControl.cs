@@ -62,56 +62,64 @@ namespace FurnitureRentals.User_Controls
 
        private void LoadRentalDataGridView()
         {
-            if (this.DaysRentingTextBox.TextLength == 0)
+            try
             {
-                MessageBox.Show("There must be a value for days to properly calculate rental transaction costs.");
+                if (this.DaysRentingTextBox.TextLength == 0)
+                {
+                    MessageBox.Show("There must be a value for days to properly calculate rental transaction costs.");
+                }
+                else
+                {
+
+                    RentalDataGridView.AutoGenerateColumns = false;
+                    RentalDataGridView.AllowUserToAddRows = false;
+                    RentalDataGridView.RowHeadersVisible = false;
+
+
+
+
+                    var furnitureBindingList = new BindingList<Furniture>(furnitureList);
+                    furnitureBindingList.AllowEdit = true;
+
+
+                    RentalDataGridView.ReadOnly = false;
+                    RentalDataGridView.DataSource = furnitureBindingList.Select(o => new
+                    {
+                        Item = o.ItemDescription,
+                        Style = o.FurnitureStyle,
+                        Remove = "X"
+                    }).ToList(); ;
+
+                    foreach (DataGridViewRow row in RentalDataGridView.Rows)
+                    {
+                        row.Cells[2].Value = furnitureBindingList[row.Index].QuantityOrdered;
+                        row.Cells[3].Value = furnitureBindingList[row.Index].QuantityOrdered * furnitureBindingList[row.Index].DailyRentalRate * int.Parse(this.DaysRentingTextBox.Text);
+                    }
+                    RentalDataGridView.AutoResizeColumns();
+                    RentalDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    RentalDataGridView.AutoResizeRows();
+                    RentalDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+                    int width = 0;
+
+                    foreach (DataGridViewColumn column in RentalDataGridView.Columns)
+                    {
+                        width += column.Width;
+                    }
+                    RentalDataGridView.Width = width;
+                    this.FillInTotal();
+                    foreach (Furniture furniture in furnitureList)
+                    {
+                        furniture.TotalRentalCost = furniture.TotalRentalCost / int.Parse(this.DaysRentingTextBox.Text);
+                    }
+
+                }
             }
-            else
+            catch (Exception)
             {
-
-                RentalDataGridView.AutoGenerateColumns = false;
-                RentalDataGridView.AllowUserToAddRows = false;
-                RentalDataGridView.RowHeadersVisible = false;
-
-
-
-
-                var furnitureBindingList = new BindingList<Furniture>(furnitureList);
-                furnitureBindingList.AllowEdit = true;
-
-
-                RentalDataGridView.ReadOnly = false;
-                RentalDataGridView.DataSource = furnitureBindingList.Select(o => new
-                {
-                    Item = o.ItemDescription,
-                    Style = o.FurnitureStyle,
-                    Remove = "X"
-                }).ToList(); ;
-
-                foreach (DataGridViewRow row in RentalDataGridView.Rows)
-                {
-                    row.Cells[2].Value = furnitureBindingList[row.Index].QuantityOrdered;
-                    row.Cells[3].Value = furnitureBindingList[row.Index].QuantityOrdered * furnitureBindingList[row.Index].DailyRentalRate * int.Parse(this.DaysRentingTextBox.Text);
-                }
-                RentalDataGridView.AutoResizeColumns();
-                RentalDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                RentalDataGridView.AutoResizeRows();
-                RentalDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-                int width = 0;
-
-                foreach (DataGridViewColumn column in RentalDataGridView.Columns)
-                {
-                    width += column.Width;
-                }
-                RentalDataGridView.Width = width;
-                this.FillInTotal();
-                foreach (Furniture furniture in furnitureList)
-                {
-                    furniture.TotalRentalCost = furniture.TotalRentalCost / int.Parse(this.DaysRentingTextBox.Text);
-                }
-
+                MessageBox.Show("There was a problem reaching the database. Please check the database connection.");
             }
+
         }
 
         private void TabulateRentalCosts()
