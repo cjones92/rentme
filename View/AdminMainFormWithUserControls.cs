@@ -39,6 +39,15 @@ namespace FurnitureRentals.View
             this.LoggedInLabel.Text = name;
         }
 
+        public void SetUserNameLabelText(string name)
+        {
+            if (name == null)
+            {
+                throw new ArgumentNullException("Name cannot be null");
+            }
+            this.ActualUserName.Text = name;
+        }
+
         /// <summary>
         /// Sets current administrator
         /// </summary>

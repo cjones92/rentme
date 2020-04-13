@@ -100,6 +100,7 @@ namespace FurnitureRentals.View
                         this.loggedInAdministrator = this.adminstratorController.AdministratorLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text);
 
                         this.CurrentAdminForm.SetLoggedInLabelText(loggedInAdministrator.FirstName + " " + loggedInAdministrator.LastName);
+                        this.CurrentAdminForm.SetUserNameLabelText(this.UserNameTextBox.Text);
                         this.Hide();
                         DialogResult exitMethodResult = this.CurrentAdminForm.ShowDialog();
 
