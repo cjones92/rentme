@@ -109,11 +109,18 @@ namespace FurnitureRentals
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.customerRentalShoppingCartUserControl1.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
-            this.viewCustomerRentalTransactionsUserControl1.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
-            this.viewCustomerRentalTransactionsUserControl1.LoadRentalTransactionDataGridView();
+            this.viewCustomerRentalTransactionsUserControl2.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
+            this.viewCustomerRentalTransactionsUserControl2.LoadRentalTransactionDataGridView();
+            this.viewCustomerRentalTransactionsUserControl2.SetReturnCart(this.returnShoppingCartUserControl1);
 
             this.viewReturnTransactionsUserControl1.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
             this.returnShoppingCartUserControl1.SetCurrentCustomer(this.loggedInEmployee.EmployeeID, this.manageCustomerUserControl1.GetCurrentCustomer());
         }
+
+       
+
     }
+
+
+
 }

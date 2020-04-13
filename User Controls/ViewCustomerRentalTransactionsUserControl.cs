@@ -22,18 +22,26 @@ namespace FurnitureRentals.User_Controls
         List<RentalTransaction> transactionList;
         FurnitureController furnitureController;
         ReturnShoppingCartUserControl returnCart;
+
+        
         /// <summary>
         /// Controller
         /// </summary>
         /// <param name="returnCart"></param>
-        public ViewCustomerRentalTransactionsUserControl(ReturnShoppingCartUserControl returnCart)
+        
+        public ViewCustomerRentalTransactionsUserControl()
         {
             InitializeComponent();
             this.currentCustomer = new Customer();
             this.transactionList = new List<RentalTransaction>();
             this.furnitureController = new FurnitureController();
-            this.returnCart = returnCart;
+            
 
+        }
+
+        public void SetReturnCart(ReturnShoppingCartUserControl returnCart)
+        {
+            this.returnCart = returnCart;
         }
 
 
