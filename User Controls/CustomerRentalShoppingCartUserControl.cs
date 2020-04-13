@@ -201,7 +201,7 @@ namespace FurnitureRentals.User_Controls
         {
             int value;
             if (int.TryParse(this.DaysRentingTextBox.Text, out value) && int.Parse(this.DaysRentingTextBox.Text) > 0 && this.DaysRentingTextBox.Text.Length > 0) {
-                MessageBox.Show("Code reached for changing code");
+                
                 this.LoadRentalDataGridView();
            } else if (!int.TryParse(this.DaysRentingTextBox.Text, out value) && this.DaysRentingTextBox.Text.Length > 0)
             {

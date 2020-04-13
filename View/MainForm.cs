@@ -47,6 +47,19 @@ namespace FurnitureRentals
         }
 
         /// <summary>
+        /// Sets the user name
+        /// </summary>
+        /// <param name="name">name</param>
+         public void SetUserNameText(string name)
+        {
+            if (name == null)
+            {
+                throw new ArgumentNullException("Name cannot be null");
+            }
+            this.ActualUserNameLabel.Text = name;
+        }
+
+        /// <summary>
         /// This method dictates the closing of the form when the X button is hit on the main form
         /// </summary>
         /// <param name="sender"></param>

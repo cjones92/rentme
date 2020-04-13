@@ -77,6 +77,7 @@ namespace FurnitureRentals.View
                         }
                         loggedInEmployee = this.employeeController.EmployeeLogin(this.UserNameTextBox.Text, this.PasswordMaskedTextBox.Text);
                         this.CurrentMainForm.SetCurrentEmployee(this.GetCurrentEmployee());
+                        this.CurrentMainForm.SetUserNameText(this.UserNameTextBox.Text);
                         this.CurrentMainForm.SetLoggedInLabelText(loggedInEmployee.FirstName + " " + loggedInEmployee.LastName);
                         this.Hide();
                         DialogResult exitMethodResult = this.CurrentMainForm.ShowDialog();
