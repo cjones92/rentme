@@ -14,6 +14,9 @@ using FurnitureRentals.Controller;
 
 namespace FurnitureRentals.User_Controls
 {
+    /// <summary>
+    /// Logic for customer rental cart
+    /// </summary>
     public partial class CustomerRentalShoppingCartUserControl : UserControl
 
     {
@@ -21,6 +24,10 @@ namespace FurnitureRentals.User_Controls
         Employee currentEmployee;
         Customer currentCustomer;
         List<Furniture> furnitureList;
+
+        /// <summary>
+        /// Controller
+        /// </summary>
         public CustomerRentalShoppingCartUserControl()
         {
             InitializeComponent();
@@ -33,11 +40,19 @@ namespace FurnitureRentals.User_Controls
             
         }
 
+        /// <summary>
+        /// sets current employee
+        /// </summary>
+        /// <param name="employee">employee object</param>
         public void SetCurrentEmployee(Employee employee)
         {
             this.currentEmployee = employee;
         }
 
+        /// <summary>
+        /// sets current customer
+        /// </summary>
+        /// <param name="customer">customer object</param>
         public void SetCurrentCustomer(Customer customer)
         {
             this.currentCustomer = customer;
@@ -275,7 +290,7 @@ namespace FurnitureRentals.User_Controls
             }
         }
 
-        void RentalDataGridView_CurrentCellDirtyStateChanged(object sender,
+        private void RentalDataGridView_CurrentCellDirtyStateChanged(object sender,
     EventArgs e)
         {
             if (RentalDataGridView.IsCurrentCellDirty)

@@ -10,9 +10,14 @@ using System.Windows.Forms;
 
 namespace FurnitureRentals.User_Controls
 {
+    /// <summary>
+    /// Class for report
+    /// </summary>
     public partial class ReportUserControl : UserControl
     {
-        
+        /// <summary>
+        /// Controller
+        /// </summary>
         public ReportUserControl()
         {
             InitializeComponent();

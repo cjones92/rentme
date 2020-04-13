@@ -13,11 +13,17 @@ using FurnitureRentals.View;
 
 namespace FurnitureRentals.User_Controls
 {
+    /// <summary>
+    /// Logic for view of return transactions
+    /// </summary>
     public partial class ViewReturnTransactionsUserControl : UserControl
     {
         Customer currentCustomer;
         ReturnTransactionController returnTransactionController;
 
+        /// <summary>
+        /// Controller
+        /// </summary>
         public ViewReturnTransactionsUserControl()
         {
             InitializeComponent();

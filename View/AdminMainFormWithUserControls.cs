@@ -39,6 +39,10 @@ namespace FurnitureRentals.View
             this.LoggedInLabel.Text = name;
         }
 
+        /// <summary>
+        /// Sets current administrator
+        /// </summary>
+        /// <param name="administrator">administrator object</param>
         public void SetCurrentAdministrator(Administrator administrator)
         {
             this.loggedInAdministrator = administrator;

@@ -46,6 +46,10 @@ namespace FurnitureRentals.View
             this.SignInComboBox.DataSource = signInList;
         }
 
+        /// <summary>
+        /// returns current employee
+        /// </summary>
+        /// <returns>employee object</returns>
         public Employee GetCurrentEmployee()
         {
             return this.loggedInEmployee;

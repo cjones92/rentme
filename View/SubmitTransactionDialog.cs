@@ -10,17 +10,20 @@ using System.Windows.Forms;
 
 namespace FurnitureRentals.View
 {
+    /// <summary>
+    /// Logic for submit transaction dialog
+    /// </summary>
     public partial class SubmitTransactionDialog : Form
     {
+        /// <summary>
+        /// constructor
+        /// </summary>
         public SubmitTransactionDialog()
         {
             InitializeComponent();
         }
 
-        private void UpdatedDescriptionLabel_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void ConfirmButton_Click(object sender, EventArgs e)
         {

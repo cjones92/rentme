@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.Model
 {
+    /// <summary>
+    /// Model for return transactions
+    /// </summary>
     class ReturnTransaction
     {
         public int ReturnTransactionID { get; set; }

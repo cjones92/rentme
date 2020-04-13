@@ -70,11 +70,19 @@ namespace FurnitureRentals
 
         }
 
+        /// <summary>
+        /// Gets current return shopping cart
+        /// </summary>
+        /// <returns>return shopping cart</returns>
         public ReturnShoppingCartUserControl GetReturnShoppingCartUserControl()
         {
             return this.returnShoppingCartUserControl1;
         }
 
+        /// <summary>
+        /// sets current employee
+        /// </summary>
+        /// <param name="employee">employee object</param>
         public void SetCurrentEmployee(Employee employee)
         {
             this.loggedInEmployee = employee;
@@ -89,7 +97,7 @@ namespace FurnitureRentals
         {
             this.customerRentalShoppingCartUserControl1.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
             this.viewCustomerRentalTransactionsUserControl1.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
-            this.viewCustomerRentalTransactionsUserControl1.LoadIncidentGridView();
+            this.viewCustomerRentalTransactionsUserControl1.LoadRentalTransactionDataGridView();
 
             this.viewReturnTransactionsUserControl1.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
             this.returnShoppingCartUserControl1.SetCurrentCustomer(this.loggedInEmployee.EmployeeID, this.manageCustomerUserControl1.GetCurrentCustomer());

@@ -13,6 +13,9 @@ using System.Diagnostics;
 
 namespace FurnitureRentals.User_Controls
 {
+    /// <summary>
+    /// Logic for customer return cart
+    /// </summary>
     public partial class ReturnShoppingCartUserControl : UserControl
     {
         private Customer currentCustomer;

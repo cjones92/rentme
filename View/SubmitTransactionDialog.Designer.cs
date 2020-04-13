@@ -61,7 +61,7 @@
             this.SubmitTransactionLabel.Size = new System.Drawing.Size(243, 13);
             this.SubmitTransactionLabel.TabIndex = 3;
             this.SubmitTransactionLabel.Text = "Are you sure you want to transmit this transaction?";
-            this.SubmitTransactionLabel.Click += new System.EventHandler(this.UpdatedDescriptionLabel_Click);
+            
             // 
             // SubmitTransactionDialog
             // 

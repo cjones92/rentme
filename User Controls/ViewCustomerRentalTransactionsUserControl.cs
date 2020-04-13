@@ -13,12 +13,19 @@ using FurnitureRentals.View;
 
 namespace FurnitureRentals.User_Controls
 {
+    /// <summary>
+    /// Logic for view of customer rental transactions
+    /// </summary>
     public partial class ViewCustomerRentalTransactionsUserControl : UserControl
     {
         Customer currentCustomer;
         List<RentalTransaction> transactionList;
         FurnitureController furnitureController;
         ReturnShoppingCartUserControl returnCart;
+        /// <summary>
+        /// Controller
+        /// </summary>
+        /// <param name="returnCart"></param>
         public ViewCustomerRentalTransactionsUserControl(ReturnShoppingCartUserControl returnCart)
         {
             InitializeComponent();
@@ -30,7 +37,10 @@ namespace FurnitureRentals.User_Controls
         }
 
 
-
+        /// <summary>
+        /// Set current customer
+        /// </summary>
+        /// <param name="customer">customer object</param>
         public void SetCurrentCustomer(Customer customer)
         {
             this.currentCustomer = customer;
@@ -38,7 +48,10 @@ namespace FurnitureRentals.User_Controls
             this.ActualIDLabel.Text = customer.CustomerId + "";
         }
 
-        public void LoadIncidentGridView()
+        /// <summary>
+        /// Loads grid for rental transactions
+        /// </summary>
+        public void LoadRentalTransactionDataGridView()
         {
             
     

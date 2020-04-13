@@ -8,8 +8,17 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.DAL
 {
+    /// <summary>
+    /// Deals with information related to the rental transaction table in the database
+    /// </summary>
     class RentalTransactionDBDAL
     {
+        /// <summary>
+        /// Transaction performing the functions of entering a transaction, the rental items in the transaction, and updating the inventory
+        /// </summary>
+        /// <param name="transaction">transaction</param>
+        /// <param name="furnitureList">furniture items</param>
+        /// <returns>whether functions were committed or not</returns>
         public bool EnterRentalTransaction(RentalTransaction transaction, List<Furniture> furnitureList)
         {
             List<Furniture> addedFurnitureItems = new List<Furniture>();
@@ -103,6 +112,11 @@ namespace FurnitureRentals.DAL
 
         }
 
+        /// <summary>
+        /// Finds transactions by customer id
+        /// </summary>
+        /// <param name="customerID">customer id</param>
+        /// <returns>list of customer's transactions</returns>
         public List<RentalTransaction> GetCustomerTransactionsByCustomerID(int customerID)
         {
             RentalTransaction transaction = new RentalTransaction();

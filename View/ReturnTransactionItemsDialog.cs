@@ -12,10 +12,18 @@ using System.Windows.Forms;
 
 namespace FurnitureRentals.View
 {
+    /// <summary>
+    /// Logic for return transaction dialog
+    /// </summary>
     public partial class ReturnTransactionItemsDialog : Form
     {
         ReturnTransactionController returnTransactionController;
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="customer">customer object</param>
+        /// <param name="returnTransactionID"> return transaction id</param>
         public ReturnTransactionItemsDialog(Customer customer, string returnTransactionID)
         {
             InitializeComponent();

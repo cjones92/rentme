@@ -55,6 +55,11 @@ namespace FurnitureRentals.DAL
             return transactionList;
         }
 
+        /// <summary>
+        /// Method gets all return itmes for a transaction
+        /// </summary>
+        /// <param name="returnTransactionId"> transaction id</param>
+        /// <returns>items in return transaction</returns>
         public List<ReturnItemView> GetAllReturnItems(int returnTransactionId)
         {
             string sqlStatement = "SELECT rental_id as RentalID, return_item.Quantity as ReturnQuantity, " +

@@ -8,9 +8,17 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.DAL
 {
+
+    /// <summary>
+    /// Class deals with information related to the rental item table in the database
+    /// </summary>
     class RentalItemDBDAL
     {
-
+        /// <summary>
+        /// Gets items by transaction id
+        /// </summary>
+        /// <param name="transactionID">transaction id</param>
+        /// <returns>furniture matching id in list form</returns>
         public List<Furniture> GetRentalItemByTransactionID(int transactionID)
         {
             Furniture rentalItem = new Furniture();

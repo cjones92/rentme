@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace FurnitureRentals.Controller
 {
+    /// <summary>
+    /// Manages return transactions
+    /// </summary>
     class ReturnTransactionController
     {
         ReturnTransactionDBDAL returnTransactionDBDAL;

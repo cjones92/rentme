@@ -13,12 +13,21 @@ using System.Windows.Forms;
 
 namespace FurnitureRentals.View
 {
+    /// <summary>
+    /// Logic for rental items form 
+    /// </summary>
     public partial class RentalItemsFormDialog : Form
     {
         List<Furniture> rentalItemList;
         FurnitureController furnitureController;
         int transactionID;
         ReturnShoppingCartUserControl returnCart;
+
+        /// <summary>
+        /// controller
+        /// </summary>
+        /// <param name="transactionID">transaction id</param>
+        /// <param name="returnShoppingCart">cart</param>
         public RentalItemsFormDialog(int transactionID, ReturnShoppingCartUserControl returnShoppingCart)
         {
             InitializeComponent();
@@ -70,6 +79,10 @@ namespace FurnitureRentals.View
            
         }
 
+        /// <summary>
+        /// Gets list of returned furniture
+        /// </summary>
+        /// <returns>list of furniture</returns>
         public List<Furniture> GetReturnedFurniture()
         {
             List<Furniture> returnedItemList = new List<Furniture>();

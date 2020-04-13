@@ -209,12 +209,20 @@ namespace FurnitureRentals.View
             
         }
 
+        /// <summary>
+        /// Sets current furniture list
+        /// </summary>
+        /// <param name="mainformFurnitureList">furniture list</param>
         public void SetCurrentFurnitureList(List<Furniture> mainformFurnitureList)
         {
             this.currentFurnitureList = mainformFurnitureList;
             
         }
 
+        /// <summary>
+        /// gets a furniture list
+        /// </summary>
+        /// <returns>furniture list</returns>
         public List<Furniture> GetCurrentFurnitureList()
         {
             return this.currentFurnitureList;
@@ -356,7 +364,7 @@ namespace FurnitureRentals.View
             }
         }
 
-        void FurnitureDataGridView_CurrentCellDirtyStateChanged(object sender,
+        private void FurnitureDataGridView_CurrentCellDirtyStateChanged(object sender,
     EventArgs e)
         {
             if (FurnitureDataGridView.IsCurrentCellDirty)
