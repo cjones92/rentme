@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewCustomerRentalTransactionsUserControl));
             this.rentalTransactionBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.rentalTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -49,6 +48,7 @@
             this.MemberIDLabel = new System.Windows.Forms.Label();
             this.ActualIDLabel = new System.Windows.Forms.Label();
             this.RentalTransactionDataGridView = new System.Windows.Forms.DataGridView();
+            this.rentalTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,8 +57,8 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingNavigator)).BeginInit();
             this.rentalTransactionBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RentalTransactionDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // rentalTransactionBindingNavigator
@@ -100,10 +100,6 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // rentalTransactionBindingSource
-            // 
-            this.rentalTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.RentalTransaction);
             // 
             // bindingNavigatorCountItem
             // 
@@ -250,6 +246,10 @@
             this.RentalTransactionDataGridView.TabIndex = 11;
             this.RentalTransactionDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RentalTransactionDataGridView_CellContentClick);
             // 
+            // rentalTransactionBindingSource
+            // 
+            this.rentalTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.RentalTransaction);
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "RentalID";
@@ -266,6 +266,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "RentalDate";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Width = 125;
             // 
             // dataGridViewTextBoxColumn4
@@ -274,6 +275,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "DueDate";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 125;
             // 
             // dataGridViewTextBoxColumn5
@@ -282,6 +284,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "TotalDue";
             this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Width = 125;
             // 
             // dataGridViewTextBoxColumn7
@@ -290,6 +293,7 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "CurrentAmountDue";
             this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Width = 125;
             // 
             // dataGridViewTextBoxColumn8
@@ -298,6 +302,7 @@
             this.dataGridViewTextBoxColumn8.HeaderText = "Status";
             this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Width = 125;
             // 
             // ViewCustomerRentalTransactionsUserControl
@@ -315,8 +320,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingNavigator)).EndInit();
             this.rentalTransactionBindingNavigator.ResumeLayout(false);
             this.rentalTransactionBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RentalTransactionDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

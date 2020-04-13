@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RentalItemsFormDialog));
             this.furnitureBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.furnitureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -45,15 +44,16 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.furnitureBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.RentalItemDataGridView = new System.Windows.Forms.DataGridView();
+            this.ItemsToReturnButton = new System.Windows.Forms.Button();
+            this.furnitureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantityReturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemsToReturnButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingNavigator)).BeginInit();
             this.furnitureBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RentalItemDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // furnitureBindingNavigator
@@ -94,10 +94,6 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // furnitureBindingSource
-            // 
-            this.furnitureBindingSource.DataSource = typeof(FurnitureRentals.Model.Furniture);
             // 
             // bindingNavigatorCountItem
             // 
@@ -202,29 +198,6 @@
             this.RentalItemDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.RentalItemDataGridView_CellValidating);
             this.RentalItemDataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.RentalItemDataGridView_CurrentCellDirtyStateChanged);
             // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "ItemDescription";
-            this.dataGridViewTextBoxColumn10.HeaderText = "ItemDescription";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "FurnitureStyle";
-            this.dataGridViewTextBoxColumn4.HeaderText = "FurnitureStyle";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "QuantityOrdered";
-            this.dataGridViewTextBoxColumn3.HeaderText = "QuantityOrdered";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // QuantityReturned
-            // 
-            this.QuantityReturned.HeaderText = "Quantity Returning";
-            this.QuantityReturned.Name = "QuantityReturned";
-            // 
             // ItemsToReturnButton
             // 
             this.ItemsToReturnButton.Location = new System.Drawing.Point(433, 348);
@@ -234,6 +207,36 @@
             this.ItemsToReturnButton.Text = "Add To Returns";
             this.ItemsToReturnButton.UseVisualStyleBackColor = true;
             this.ItemsToReturnButton.Click += new System.EventHandler(this.ItemsToReturnButton_Click);
+            // 
+            // furnitureBindingSource
+            // 
+            this.furnitureBindingSource.DataSource = typeof(FurnitureRentals.Model.Furniture);
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "ItemDescription";
+            this.dataGridViewTextBoxColumn10.HeaderText = "ItemDescription";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "FurnitureStyle";
+            this.dataGridViewTextBoxColumn4.HeaderText = "FurnitureStyle";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "QuantityOrdered";
+            this.dataGridViewTextBoxColumn3.HeaderText = "QuantityOrdered";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // QuantityReturned
+            // 
+            this.QuantityReturned.HeaderText = "Quantity Returning";
+            this.QuantityReturned.Name = "QuantityReturned";
             // 
             // RentalItemsFormDialog
             // 
@@ -248,8 +251,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingNavigator)).EndInit();
             this.furnitureBindingNavigator.ResumeLayout(false);
             this.furnitureBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RentalItemDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
