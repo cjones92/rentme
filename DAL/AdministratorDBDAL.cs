@@ -42,7 +42,6 @@ namespace FurnitureRentals.DAL
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
 
-
                         while (reader.Read())
                         {
                             foundLogins = (int)reader["Login"];
