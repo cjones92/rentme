@@ -128,11 +128,8 @@ namespace FurnitureRentals.User_Controls
                 {
                     List<Furniture> list = formDialog.GetReturnedFurniture();
                     foreach (Furniture furniture in list)
-                    {
-                        
-
-                        
-                        this.returnCart.addReturn(furniture.RentalTransactionID, furniture.FurnitureID, furniture.QuantityBeingReturned);
+                    {                        
+                        this.returnCart.addReturn(furniture.RentalTransactionID, furniture.RentalItemID, furniture.FurnitureID, furniture.QuantityBeingReturned);
                     }
 
                 }

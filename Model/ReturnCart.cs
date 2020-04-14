@@ -10,6 +10,8 @@ namespace FurnitureRentals.Model
     {
         public int RentalID { get; set; }
 
+        public int RentalItemID { get; set; }
+
         public int FurnitureID { get; set; }
 
         public String SerialNo { get; set; }

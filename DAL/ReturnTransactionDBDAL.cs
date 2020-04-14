@@ -148,7 +148,7 @@ namespace FurnitureRentals.DAL
                 {
                     insertCommand.Parameters.Clear();
                     insertCommand.Parameters.AddWithValue("@ReturnTransactionID", returnTxnId);
-                    insertCommand.Parameters.AddWithValue("@RentalItemID", returnItem.RentalID);
+                    insertCommand.Parameters.AddWithValue("@RentalItemID", returnItem.RentalItemID);
                     insertCommand.Parameters.AddWithValue("@Quantity", returnItem.Quantity);
                     insertCommand.ExecuteNonQuery();
                 }

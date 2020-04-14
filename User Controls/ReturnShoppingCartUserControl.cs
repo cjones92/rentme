@@ -70,9 +70,10 @@ namespace FurnitureRentals.User_Controls
         /// Method that adds an return item to the cart
         /// </summary>
         /// <param name="rentalId">rental id of the returning item</param>
+        /// <param name="rentalItemId">rental item id of the returning item</param>
         /// <param name="furnitureId">furniture id of the returning item</param>
         /// <param name="returnQuantity">return quantity of the returning item"></param>
-        public void addReturn(int rentalId, int furnitureId, int returnQuantity)
+        public void addReturn(int rentalId, int rentalItemId, int furnitureId, int returnQuantity)
         {
             Furniture furniture = this.furnitureController.GetFurnitureByID(furnitureId);
 
@@ -87,6 +88,7 @@ namespace FurnitureRentals.User_Controls
 
             ReturnCart returnCartItem = new ReturnCart();
             returnCartItem.RentalID = rentalId;
+            returnCartItem.RentalItemID = rentalItemId;
             returnCartItem.FurnitureID = furniture.FurnitureID;
             returnCartItem.SerialNo = furniture.SerialNumber;
             returnCartItem.ItemRented = furniture.ItemDescription;
