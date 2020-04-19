@@ -284,22 +284,25 @@ namespace FurnitureRentals.View
         /// <returns></returns>
         public List<Furniture> GetSelectedFurniture()
         {
+            List<Furniture> furnitureWithQuantities = new List<Furniture>();
+            List<Furniture> selectedfurnitureList = new List<Furniture>();
             foreach (DataGridViewRow row in FurnitureDataGridView.Rows)
             {
                 if (row.Cells[4].Value != null )
                 {
                     row.Selected = true;
+                    furnitureWithQuantities.Add((Furniture)row.DataBoundItem);
                 } else
                 {
                     row.Selected = false;
                 }
             }
-            List<Furniture> furnitureList = new List<Furniture>();
+           
             if (this.FurnitureDataGridView.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select at least one row");
             }
-            else if (CompareFurnitureLists(this.furnitureList, this.GetCurrentFurnitureList()))
+            else if (CompareFurnitureLists(furnitureWithQuantities, this.GetCurrentFurnitureList()))
             {
                 MessageBox.Show("List can not have same furniture item twice");
             } else
@@ -321,12 +324,12 @@ namespace FurnitureRentals.View
                     
                     decimal rentalRate = this.furnitureList[row.Index].DailyRentalRate;
                     selectedFurniture.TotalRentalCost = selectedFurniture.QuantityOrdered * rentalRate;
-                    furnitureList.Add(selectedFurniture);
+                        selectedfurnitureList.Add(selectedFurniture);
                     }
                 }
             }
 
-            return furnitureList;
+            return selectedfurnitureList;
 
         }
 
