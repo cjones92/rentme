@@ -43,7 +43,12 @@ namespace FurnitureRentals.User_Controls
                     this.sp_mostPopularFurnitureRentedDuringDatesTableAdapter.Fill(
                         this._cs6232_g1DataSet1.sp_mostPopularFurnitureRentedDuringDates,
                         startDateTimePicker.Value, endDateTimePicker.Value);
+                    this.lblBeginDateSelected.Visible = true;
+                    this.lblEndDateSelected.Visible = true;
+                    this.lblBeginDateValue.Text = startDateTimePicker.Text;
+                    this.lblEndDateValue.Text = endDateTimePicker.Text;
                     reportViewer.RefreshReport();
+
                 }
                 catch (Exception)
                 {
@@ -52,11 +57,17 @@ namespace FurnitureRentals.User_Controls
             }
         }
 
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             startDateTimePicker.Value = DateTime.Today;
             endDateTimePicker.Value = DateTime.Today;
             reportViewer.Clear();
+            this.lblBeginDateSelected.Visible = false;
+            this.lblEndDateSelected.Visible = false;
+            this.lblBeginDateValue.Text = "";
+            this.lblEndDateValue.Text = "";
         }
+
     }
 }

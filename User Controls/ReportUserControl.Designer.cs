@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.sp_mostPopularFurnitureRentedDuringDatesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._cs6232_g1DataSet1 = new FurnitureRentals._cs6232_g1DataSet1();
             this.labelBeginDate = new System.Windows.Forms.Label();
@@ -40,7 +40,11 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.sp_mostPopularFurnitureRentedDuringDatesTableAdapter = new FurnitureRentals._cs6232_g1DataSet1TableAdapters.sp_mostPopularFurnitureRentedDuringDatesTableAdapter();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelReportName = new System.Windows.Forms.Label();
+            this.lblBeginDateSelected = new System.Windows.Forms.Label();
+            this.lblBeginDateValue = new System.Windows.Forms.Label();
+            this.lblEndDateSelected = new System.Windows.Forms.Label();
+            this.lblEndDateValue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sp_mostPopularFurnitureRentedDuringDatesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._cs6232_g1DataSet1)).BeginInit();
             this.SuspendLayout();
@@ -112,43 +116,83 @@
             this.btnClear.Location = new System.Drawing.Point(891, 533);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(82, 30);
-            this.btnClear.TabIndex = 5;
+            this.btnClear.TabIndex = 7;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // reportViewer
             // 
-            reportDataSource5.Name = "ReportDataSet";
-            reportDataSource5.Value = this.sp_mostPopularFurnitureRentedDuringDatesBindingSource;
-            this.reportViewer.LocalReport.DataSources.Add(reportDataSource5);
+            reportDataSource2.Name = "ReportDataSet";
+            reportDataSource2.Value = this.sp_mostPopularFurnitureRentedDuringDatesBindingSource;
+            this.reportViewer.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer.LocalReport.ReportEmbeddedResource = "FurnitureRentals.FurnitureRentalsReportView.rdlc";
-            this.reportViewer.Location = new System.Drawing.Point(17, 91);
+            this.reportViewer.Location = new System.Drawing.Point(17, 144);
             this.reportViewer.Name = "reportViewer";
             this.reportViewer.Padding = new System.Windows.Forms.Padding(10);
             this.reportViewer.ServerReport.BearerToken = null;
-            this.reportViewer.Size = new System.Drawing.Size(985, 436);
+            this.reportViewer.Size = new System.Drawing.Size(982, 383);
             this.reportViewer.TabIndex = 6;
             // 
             // sp_mostPopularFurnitureRentedDuringDatesTableAdapter
             // 
             this.sp_mostPopularFurnitureRentedDuringDatesTableAdapter.ClearBeforeFill = true;
             // 
-            // label1
+            // labelReportName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(294, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(388, 21);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Most Popular Furniture During Specified Dates Report ";
+            this.labelReportName.AutoSize = true;
+            this.labelReportName.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelReportName.Location = new System.Drawing.Point(307, 57);
+            this.labelReportName.Name = "labelReportName";
+            this.labelReportName.Size = new System.Drawing.Size(388, 21);
+            this.labelReportName.TabIndex = 5;
+            this.labelReportName.Text = "Most Popular Furniture During Specified Dates Report ";
+            // 
+            // lblBeginDateSelected
+            // 
+            this.lblBeginDateSelected.AutoSize = true;
+            this.lblBeginDateSelected.Location = new System.Drawing.Point(29, 80);
+            this.lblBeginDateSelected.Name = "lblBeginDateSelected";
+            this.lblBeginDateSelected.Size = new System.Drawing.Size(141, 17);
+            this.lblBeginDateSelected.TabIndex = 8;
+            this.lblBeginDateSelected.Text = "Begin Date Selected:";
+            this.lblBeginDateSelected.Visible = false;
+            // 
+            // lblBeginDateValue
+            // 
+            this.lblBeginDateValue.AutoSize = true;
+            this.lblBeginDateValue.Location = new System.Drawing.Point(221, 80);
+            this.lblBeginDateValue.Name = "lblBeginDateValue";
+            this.lblBeginDateValue.Size = new System.Drawing.Size(0, 17);
+            this.lblBeginDateValue.TabIndex = 9;
+            // 
+            // lblEndDateSelected
+            // 
+            this.lblEndDateSelected.AutoSize = true;
+            this.lblEndDateSelected.Location = new System.Drawing.Point(29, 108);
+            this.lblEndDateSelected.Name = "lblEndDateSelected";
+            this.lblEndDateSelected.Size = new System.Drawing.Size(130, 17);
+            this.lblEndDateSelected.TabIndex = 10;
+            this.lblEndDateSelected.Text = "End Date Selected:";
+            this.lblEndDateSelected.Visible = false;
+            // 
+            // lblEndDateValue
+            // 
+            this.lblEndDateValue.AutoSize = true;
+            this.lblEndDateValue.Location = new System.Drawing.Point(221, 108);
+            this.lblEndDateValue.Name = "lblEndDateValue";
+            this.lblEndDateValue.Size = new System.Drawing.Size(0, 17);
+            this.lblEndDateValue.TabIndex = 11;
             // 
             // ReportUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblEndDateValue);
+            this.Controls.Add(this.lblEndDateSelected);
+            this.Controls.Add(this.lblBeginDateValue);
+            this.Controls.Add(this.lblBeginDateSelected);
+            this.Controls.Add(this.labelReportName);
             this.Controls.Add(this.reportViewer);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnRunReport);
@@ -178,6 +222,10 @@
         private _cs6232_g1DataSet1TableAdapters.sp_mostPopularFurnitureRentedDuringDatesTableAdapter sp_mostPopularFurnitureRentedDuringDatesTableAdapter;
         private _cs6232_g1DataSet1 _cs6232_g1DataSet1;
         private System.Windows.Forms.BindingSource sp_mostPopularFurnitureRentedDuringDatesBindingSource;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelReportName;
+        private System.Windows.Forms.Label lblBeginDateSelected;
+        private System.Windows.Forms.Label lblBeginDateValue;
+        private System.Windows.Forms.Label lblEndDateSelected;
+        private System.Windows.Forms.Label lblEndDateValue;
     }
 }
