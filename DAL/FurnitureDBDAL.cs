@@ -103,7 +103,7 @@ namespace FurnitureRentals.DAL
             return furnitureList;
         }
 
-        
+
 
 
         /// <summary>

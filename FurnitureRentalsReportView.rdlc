@@ -443,9 +443,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!percentAllFurniture.Value)</Value>
+                              <Value>=Sum(Fields!percentAllFurniture.Value)/100</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
+                                <Format>0.00%</Format>
                                 <Color>#333333</Color>
                               </Style>
                             </TextRun>
@@ -478,9 +479,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!percentMembersAge18_29.Value)</Value>
+                              <Value>=Sum(Fields!percentMembersAge18_29.Value)/100</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
+                                <Format>0.00%</Format>
                                 <Color>#333333</Color>
                               </Style>
                             </TextRun>
@@ -887,9 +889,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Round(Sum(Fields!times_qf_rented.Value)/Sum(Fields!total_rentals.Value),2) *100</Value>
+                              <Value>=(Round(Sum(Fields!times_qf_rented.Value)/Sum(Fields!total_rentals.Value),2))/100 *100</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Format>0.00%</Format>
                                 <Color>#333333</Color>
                               </Style>
                             </TextRun>
@@ -922,9 +925,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Avg(Fields!percentMembersAge18_29.Value)</Value>
+                              <Value>=Avg(Fields!percentMembersAge18_29.Value)/100</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Format>0.00%</Format>
                                 <Color>#333333</Color>
                               </Style>
                             </TextRun>
