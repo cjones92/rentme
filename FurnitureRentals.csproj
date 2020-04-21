@@ -207,7 +207,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_cs6232_g1DataSet1.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FurnitureRentalsReport.rdlc" />
     <EmbeddedResource Include="FurnitureRentalsReportView.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

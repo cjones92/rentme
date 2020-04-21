@@ -59,8 +59,8 @@
             this.tabManageCustomerUserControl.Controls.Add(this.ManageCustomerTab);
             this.tabManageCustomerUserControl.Controls.Add(this.ShoppingCartTab);
             this.tabManageCustomerUserControl.Controls.Add(this.ViewRentalsTab);
-            this.tabManageCustomerUserControl.Controls.Add(this.ViewReturnsTab);
             this.tabManageCustomerUserControl.Controls.Add(this.ReturnsCartTab);
+            this.tabManageCustomerUserControl.Controls.Add(this.ViewReturnsTab);
             this.tabManageCustomerUserControl.Location = new System.Drawing.Point(9, 39);
             this.tabManageCustomerUserControl.Margin = new System.Windows.Forms.Padding(2);
             this.tabManageCustomerUserControl.Name = "tabManageCustomerUserControl";
@@ -88,7 +88,7 @@
             this.ShoppingCartTab.Location = new System.Drawing.Point(4, 22);
             this.ShoppingCartTab.Name = "ShoppingCartTab";
             this.ShoppingCartTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ShoppingCartTab.Size = new System.Drawing.Size(809, 503);
+            this.ShoppingCartTab.Size = new System.Drawing.Size(809, 507);
             this.ShoppingCartTab.TabIndex = 1;
             this.ShoppingCartTab.Text = "Shopping Cart";
             this.ShoppingCartTab.UseVisualStyleBackColor = true;
@@ -105,7 +105,7 @@
             this.ViewRentalsTab.Controls.Add(this.viewCustomerRentalTransactionsUserControl2);
             this.ViewRentalsTab.Location = new System.Drawing.Point(4, 22);
             this.ViewRentalsTab.Name = "ViewRentalsTab";
-            this.ViewRentalsTab.Size = new System.Drawing.Size(809, 503);
+            this.ViewRentalsTab.Size = new System.Drawing.Size(809, 507);
             this.ViewRentalsTab.TabIndex = 2;
             this.ViewRentalsTab.Text = "View Rentals";
             // 
@@ -116,7 +116,7 @@
             this.ViewReturnsTab.Margin = new System.Windows.Forms.Padding(2);
             this.ViewReturnsTab.Name = "ViewReturnsTab";
             this.ViewReturnsTab.Padding = new System.Windows.Forms.Padding(2);
-            this.ViewReturnsTab.Size = new System.Drawing.Size(809, 503);
+            this.ViewReturnsTab.Size = new System.Drawing.Size(809, 507);
             this.ViewReturnsTab.TabIndex = 3;
             this.ViewReturnsTab.Text = "View Returns";
             this.ViewReturnsTab.UseVisualStyleBackColor = true;
@@ -128,7 +128,7 @@
             this.ReturnsCartTab.Margin = new System.Windows.Forms.Padding(2);
             this.ReturnsCartTab.Name = "ReturnsCartTab";
             this.ReturnsCartTab.Padding = new System.Windows.Forms.Padding(2);
-            this.ReturnsCartTab.Size = new System.Drawing.Size(809, 503);
+            this.ReturnsCartTab.Size = new System.Drawing.Size(809, 507);
             this.ReturnsCartTab.TabIndex = 4;
             this.ReturnsCartTab.Text = "Return Cart";
             this.ReturnsCartTab.UseVisualStyleBackColor = true;

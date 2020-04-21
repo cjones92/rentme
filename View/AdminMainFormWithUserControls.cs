@@ -39,6 +39,10 @@ namespace FurnitureRentals.View
             this.LoggedInLabel.Text = name;
         }
 
+        /// <summary>
+        /// Sets Username label
+        /// </summary>
+        /// <param name="name"></param>
         public void SetUserNameLabelText(string name)
         {
             if (name == null)
@@ -55,7 +59,7 @@ namespace FurnitureRentals.View
         public void SetCurrentAdministrator(Administrator administrator)
         {
             this.loggedInAdministrator = administrator;
-            
+
         }
 
         /// <summary>
