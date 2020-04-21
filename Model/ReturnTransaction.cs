@@ -19,6 +19,8 @@ namespace FurnitureRentals.Model
 
         public int CheckedinBy { get; set; }
 
+        public string EmployeeName { get; set; }
+
         public decimal LateFee { get; set; }
 
         public decimal RefundAmount { get; set; }

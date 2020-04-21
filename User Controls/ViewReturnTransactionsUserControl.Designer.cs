@@ -35,12 +35,13 @@
             this.dgvViewReturns = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.CustomerName = new System.Windows.Forms.Label();
+            this.returnTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.returnTransactionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
             this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkedinByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lateFeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.refundAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returnTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewReturns)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.returnTransactionBindingSource)).BeginInit();
@@ -92,6 +93,7 @@
             this.returnTransactionIDDataGridViewTextBoxColumn,
             this.returnDateDataGridViewTextBoxColumn,
             this.checkedinByDataGridViewTextBoxColumn,
+            this.EmployeeName,
             this.lateFeeDataGridViewTextBoxColumn,
             this.refundAmountDataGridViewTextBoxColumn});
             this.dgvViewReturns.DataSource = this.returnTransactionBindingSource;
@@ -133,6 +135,10 @@
             this.CustomerName.TabIndex = 18;
             this.CustomerName.Text = "Customer Name :";
             // 
+            // returnTransactionBindingSource
+            // 
+            this.returnTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnTransaction);
+            // 
             // returnTransactionIDDataGridViewTextBoxColumn
             // 
             this.returnTransactionIDDataGridViewTextBoxColumn.DataPropertyName = "ReturnTransactionID";
@@ -156,11 +162,20 @@
             // checkedinByDataGridViewTextBoxColumn
             // 
             this.checkedinByDataGridViewTextBoxColumn.DataPropertyName = "CheckedinBy";
-            this.checkedinByDataGridViewTextBoxColumn.HeaderText = "CheckedinBy";
+            this.checkedinByDataGridViewTextBoxColumn.HeaderText = "EmployeeID";
             this.checkedinByDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.checkedinByDataGridViewTextBoxColumn.Name = "checkedinByDataGridViewTextBoxColumn";
             this.checkedinByDataGridViewTextBoxColumn.ReadOnly = true;
             this.checkedinByDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // EmployeeName
+            // 
+            this.EmployeeName.DataPropertyName = "EmployeeName";
+            this.EmployeeName.HeaderText = "EmployeeName";
+            this.EmployeeName.MinimumWidth = 6;
+            this.EmployeeName.Name = "EmployeeName";
+            this.EmployeeName.ReadOnly = true;
+            this.EmployeeName.Width = 125;
             // 
             // lateFeeDataGridViewTextBoxColumn
             // 
@@ -179,10 +194,6 @@
             this.refundAmountDataGridViewTextBoxColumn.Name = "refundAmountDataGridViewTextBoxColumn";
             this.refundAmountDataGridViewTextBoxColumn.ReadOnly = true;
             this.refundAmountDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // returnTransactionBindingSource
-            // 
-            this.returnTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnTransaction);
             // 
             // ViewReturnTransactionsUserControl
             // 
@@ -211,6 +222,7 @@
         private System.Windows.Forms.DataGridViewLinkColumn returnTransactionIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn returnDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn checkedinByDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn lateFeeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn refundAmountDataGridViewTextBoxColumn;
     }

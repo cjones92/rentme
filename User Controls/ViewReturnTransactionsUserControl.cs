@@ -34,7 +34,7 @@ namespace FurnitureRentals.User_Controls
             dgvViewReturns.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvViewReturns.AutoResizeRows();
             dgvViewReturns.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgvViewReturns.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvViewReturns.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             this.currentCustomer = new Customer();
             this.returnTransactionController = new ReturnTransactionController();

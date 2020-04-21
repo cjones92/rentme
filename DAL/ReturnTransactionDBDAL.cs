@@ -20,8 +20,8 @@ namespace FurnitureRentals.DAL
         public List<ReturnTransaction> GetAllReturnTransactions(int customerId)
         {
             string sqlStatement = "Select return_transaction_id as ReturnTransactionID, " +
-                "return_date as ReturnDate, checked_in_by as CheckedinBy, " +
-                "late_fee as LateFee, refund_amount as RefundAmount from return_transaction " +
+                "return_date as ReturnDate, checked_in_by as CheckedinBy, concat(first_name, ' ', last_name) as EmployeeName, " +
+                "late_fee as LateFee, refund_amount as RefundAmount from return_transaction join employee on checked_in_by = employee_id " +
                 "where customer_id=@CustomerId;";
 
             Console.WriteLine(sqlStatement);
@@ -43,6 +43,7 @@ namespace FurnitureRentals.DAL
                             transaction.ReturnTransactionID = (int)reader["ReturnTransactionID"];
                             transaction.ReturnDate = (DateTime)reader["ReturnDate"];
                             transaction.CheckedinBy = (int)reader["CheckedinBy"];
+                            transaction.EmployeeName = reader["EmployeeName"].ToString();
                             transaction.LateFee = (decimal)reader["LateFee"];
                             transaction.RefundAmount = (decimal)reader["RefundAmount"];
 
