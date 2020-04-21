@@ -15,6 +15,8 @@ namespace FurnitureRentals.Model
 
         public int RentalID { get; set; }
 
+        public string SerialNo { get; set; }
+
         public string ItemRented { get; set; }
 
         public string Style { get; set; }

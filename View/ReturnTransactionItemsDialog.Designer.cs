@@ -37,9 +37,10 @@
             this.lblCustomerName = new System.Windows.Forms.Label();
             this.CustomerName = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.returnTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rentalTransactionViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.returnTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rentalIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SerialNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemRentedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.styleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,8 +48,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgReturnItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cs6232g1ViewReturnsDataSetBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.returnTransactionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionViewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.returnTransactionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgReturnItems
@@ -59,6 +60,7 @@
             this.dgReturnItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgReturnItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rentalIDDataGridViewTextBoxColumn,
+            this.SerialNo,
             this.itemRentedDataGridViewTextBoxColumn,
             this.styleDataGridViewTextBoxColumn,
             this.totalQuantityDataGridViewTextBoxColumn,
@@ -69,7 +71,7 @@
             this.dgReturnItems.ReadOnly = true;
             this.dgReturnItems.RowHeadersWidth = 51;
             this.dgReturnItems.RowTemplate.Height = 24;
-            this.dgReturnItems.Size = new System.Drawing.Size(742, 233);
+            this.dgReturnItems.Size = new System.Drawing.Size(807, 233);
             this.dgReturnItems.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -140,7 +142,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.btnClose.Location = new System.Drawing.Point(645, 358);
+            this.btnClose.Location = new System.Drawing.Point(710, 355);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(109, 32);
             this.btnClose.TabIndex = 19;
@@ -148,13 +150,13 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // returnTransactionBindingSource
-            // 
-            this.returnTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnTransaction);
-            // 
             // rentalTransactionViewBindingSource
             // 
             this.rentalTransactionViewBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnItemView);
+            // 
+            // returnTransactionBindingSource
+            // 
+            this.returnTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.ReturnTransaction);
             // 
             // rentalIDDataGridViewTextBoxColumn
             // 
@@ -164,6 +166,15 @@
             this.rentalIDDataGridViewTextBoxColumn.Name = "rentalIDDataGridViewTextBoxColumn";
             this.rentalIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.rentalIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // SerialNo
+            // 
+            this.SerialNo.DataPropertyName = "SerialNo";
+            this.SerialNo.HeaderText = "SerialNo";
+            this.SerialNo.MinimumWidth = 6;
+            this.SerialNo.Name = "SerialNo";
+            this.SerialNo.ReadOnly = true;
+            this.SerialNo.Width = 125;
             // 
             // itemRentedDataGridViewTextBoxColumn
             // 
@@ -205,7 +216,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 399);
+            this.ClientSize = new System.Drawing.Size(829, 399);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.dgReturnItems);
@@ -215,8 +226,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cs6232g1ViewReturnsDataSetBindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.returnTransactionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionViewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.returnTransactionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -232,11 +243,12 @@
         private System.Windows.Forms.BindingSource returnTransactionBindingSource;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.BindingSource cs6232g1ViewReturnsDataSetBindingSource;
+        private System.Windows.Forms.BindingSource rentalTransactionViewBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn rentalIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SerialNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemRentedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn styleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalQuantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn returnedQuantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource rentalTransactionViewBindingSource;
     }
 }

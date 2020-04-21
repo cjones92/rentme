@@ -36,7 +36,7 @@ namespace FurnitureRentals.View
             dgReturnItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgReturnItems.AutoResizeRows();
             dgReturnItems.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgReturnItems.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgReturnItems.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             
             this.lblCustomerName.Text = customer.FirstName + " " + customer.LastName;
             this.lblMemberId.Text = customer.CustomerId + "";

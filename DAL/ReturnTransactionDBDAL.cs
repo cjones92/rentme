@@ -63,7 +63,7 @@ namespace FurnitureRentals.DAL
         public List<ReturnItemView> GetAllReturnItems(int returnTransactionId)
         {
             string sqlStatement = "SELECT rental_id as RentalID, return_item.Quantity as ReturnQuantity, " +
-                "Furniture.description as ItemRented, furniture_style.description Style, " +
+                "Furniture.serial_no as SerialNo, Furniture.description as ItemRented, furniture_style.description Style, " +
                 "rental_item.quantity TotalQuantity from return_item join rental_item on " +
                 "return_item.rental_item_id = rental_item.rental_item_id join furniture " +
                 "on rental_item.furniture_id = furniture.furniture_id join furniture_style on " +
@@ -86,6 +86,7 @@ namespace FurnitureRentals.DAL
                         {
                             ReturnItemView transaction = new ReturnItemView();
                             transaction.RentalID = (int)reader["RentalID"];
+                            transaction.SerialNo = reader["SerialNo"].ToString();
                             transaction.ItemRented = reader["ItemRented"].ToString();
                             transaction.Style = reader["Style"].ToString();
                             transaction.TotalQuantity = (int)reader["TotalQuantity"];
