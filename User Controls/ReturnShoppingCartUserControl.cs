@@ -101,7 +101,7 @@ namespace FurnitureRentals.User_Controls
             bool itemNotFoundInCart = true;
             foreach(ReturnCart returnItem in returnCartItemList)
             {
-                if (returnItem.RentalID == rentalId && furniture.FurnitureID == furnitureId)
+                if (returnItem.RentalID == rentalId && returnItem.FurnitureID == furnitureId)
                 {
                     returnItem.Quantity += returnQuantity;
                     totalQuantity = returnItem.Quantity;
@@ -116,8 +116,6 @@ namespace FurnitureRentals.User_Controls
                     {
                         int days = (DateTime.Now - dueDate).Days;
                         returnItem.LateFee = (dailyFineRate * days * totalQuantity);
-                        
-
                     }
                 }
             }

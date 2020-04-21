@@ -48,7 +48,7 @@ namespace FurnitureRentals.User_Controls
         {
             this.currentCustomer = customer;
             this.lblCustomerName.Text = customer.FirstName + " " + customer.LastName;
-            this.lblMemberId.Text = customer.CustomerId + "";            
+            this.lblMemberId.Text = customer.CustomerId + "";
             this.RefreshDataGrid();
         }
 
