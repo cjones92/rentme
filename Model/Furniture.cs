@@ -43,7 +43,9 @@ namespace FurnitureRentals.Model
 
         public int QuantityBeingReturned { get; set; }
 
-        public int QuantityYetToBeReturned { get; set; }
+        public int QuantityAlreadyReturned { get; set; }
+
+        public int QuantityInCart { get; set; }
 
 
     }

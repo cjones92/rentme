@@ -103,7 +103,7 @@ namespace FurnitureRentals.DAL
 
             int returnAmount = 0;
 
-            string selectStatement = "SELECT return_item.quantity AS ReturnQuantity From return_item WHERE return_item.rental_item_id = @RentalItemID;"
+            string selectStatement = "SELECT Sum(return_item.quantity) AS ReturnQuantity From return_item WHERE return_item.rental_item_id = @RentalItemID;"
             ;
 
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
@@ -119,9 +119,14 @@ namespace FurnitureRentals.DAL
 
                         while (reader.Read())
                         {
-
-
-                            returnAmount = (int)reader["ReturnQuantity"];
+                            int value;
+                            if (int.TryParse(reader["ReturnQuantity"].ToString(), out value ))
+                            {
+                                returnAmount = (int)reader["ReturnQuantity"];
+                            } else
+                            {
+                                returnAmount = 0;
+                            }
 
                         }
 

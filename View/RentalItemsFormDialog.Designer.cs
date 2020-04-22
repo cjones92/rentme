@@ -49,6 +49,8 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuantityAlreadyReturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuantityBeingReturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantityReturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingNavigator)).BeginInit();
             this.furnitureBindingNavigator.SuspendLayout();
@@ -189,6 +191,8 @@
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn3,
+            this.QuantityAlreadyReturned,
+            this.QuantityBeingReturned,
             this.QuantityReturned});
             this.RentalItemDataGridView.DataSource = this.furnitureBindingSource;
             this.RentalItemDataGridView.Location = new System.Drawing.Point(39, 63);
@@ -232,6 +236,20 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "QuantityOrdered";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // QuantityAlreadyReturned
+            // 
+            this.QuantityAlreadyReturned.DataPropertyName = "QuantityAlreadyReturned";
+            this.QuantityAlreadyReturned.HeaderText = "Quantity Already Returned";
+            this.QuantityAlreadyReturned.Name = "QuantityAlreadyReturned";
+            this.QuantityAlreadyReturned.ReadOnly = true;
+            // 
+            // QuantityBeingReturned
+            // 
+            this.QuantityBeingReturned.DataPropertyName = "QuantityBeingReturned";
+            this.QuantityBeingReturned.HeaderText = "Quantity In Cart";
+            this.QuantityBeingReturned.Name = "QuantityBeingReturned";
+            this.QuantityBeingReturned.ReadOnly = true;
             // 
             // QuantityReturned
             // 
@@ -279,6 +297,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuantityAlreadyReturned;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuantityBeingReturned;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuantityReturned;
     }
 }

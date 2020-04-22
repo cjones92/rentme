@@ -121,16 +121,23 @@ namespace FurnitureRentals.User_Controls
             {
                
                 RentalItemsFormDialog formDialog = new RentalItemsFormDialog(int.Parse(RentalTransactionDataGridView.CurrentCell.Value.ToString()), this.returnCart);
+                formDialog.SetReturnCartValues(this.returnCart.GetReturnCartItemList());
                
                 DialogResult addedResult = formDialog.ShowDialog();
-
+                
                 if (addedResult == DialogResult.OK)
                 {
+
+                    
                     List<Furniture> list = formDialog.GetReturnedFurniture();
                     foreach (Furniture furniture in list)
-                    {                        
+                    {
+                       
                         this.returnCart.addReturn(furniture.RentalTransactionID, furniture.RentalItemID, furniture.FurnitureID, furniture.QuantityBeingReturned);
+                        
                     }
+
+                    formDialog.Dispose();
 
                 }
             }

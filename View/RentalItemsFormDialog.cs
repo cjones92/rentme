@@ -19,6 +19,7 @@ namespace FurnitureRentals.View
     public partial class RentalItemsFormDialog : Form
     {
         List<Furniture> rentalItemList;
+        List<Furniture> returnItemList;
         FurnitureController furnitureController;
         int transactionID;
         ReturnShoppingCartUserControl returnCart;
@@ -33,33 +34,61 @@ namespace FurnitureRentals.View
             InitializeComponent();
             this.furnitureController = new FurnitureController();
             this.transactionID = transactionID;
-            this.LoadRentalItemDataGridView();
-            rentalItemList = this.furnitureController.GetRentalItemByTransactionID(this.transactionID);
+
+            this.rentalItemList = this.furnitureController.GetRentalItemByTransactionID(this.transactionID);
+            this.returnItemList = new List<Furniture>();
             this.returnCart = returnShoppingCart;
 
         }
 
-
-
-
-        private void LoadRentalItemDataGridView()
+        public void SetReturnCartValues(List<ReturnCart> list)
         {
-            try
+            if (this.returnItemList != null)
             {
+
+                foreach (Furniture furniture in this.rentalItemList)
+                {
+                    foreach (ReturnCart returnedfurniture in list)
+                    {
+                        if (returnedfurniture.FurnitureID == furniture.FurnitureID)
+                        {
+
+                            furniture.QuantityBeingReturned = returnedfurniture.Quantity;
+
+
+                        }
+                    }
+                }
+                this.LoadRentalItemDataGridView();
+            }
+        }
+
+
+
+        public void LoadRentalItemDataGridView()
+        {
+            try {
 
                 RentalItemDataGridView.AllowUserToAddRows = false;
                 RentalItemDataGridView.RowHeadersVisible = false;
                 RentalItemDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-                this.rentalItemList = this.furnitureController.GetRentalItemByTransactionID(this.transactionID);
-                
-                
+
+
+
+                foreach (Furniture furniture in this.rentalItemList)
+                {
+
+                    furniture.QuantityAlreadyReturned = this.furnitureController.GetQuantityReturned(furniture.RentalItemID);
+                }
+
+
                 furnitureBindingSource.DataSource = rentalItemList;
 
                 foreach (DataGridViewRow row in RentalItemDataGridView.Rows)
                 {
                     Furniture rentalItem = (Furniture)row.DataBoundItem;
-                    
+
                 }
 
                 RentalItemDataGridView.AutoResizeColumns();
@@ -75,17 +104,16 @@ namespace FurnitureRentals.View
                     width += column.Width;
                 }
                 RentalItemDataGridView.Width = width;
+            } catch (Exception) { 
             }
-            catch (Exception)
-            {
-                MessageBox.Show("There was a problem reaching the database. Please check the database connection.");
-            }
-        }
+    }
+  
+  
 
         private void ItemsToReturnButton_Click(object sender, EventArgs e)
         {
             
-            if (this.GetReturnedFurniture().Count > 0)
+            if (this.RentalItemDataGridView.SelectedRows.Count > 0)
             {
                 MessageBox.Show("The items will now be submitted.");
                 this.DialogResult = DialogResult.OK;
@@ -99,11 +127,11 @@ namespace FurnitureRentals.View
         /// <returns>list of furniture</returns>
         public List<Furniture> GetReturnedFurniture()
         {
-            List<Furniture> returnedItemList = new List<Furniture>();
+            
 
             foreach (DataGridViewRow row in RentalItemDataGridView.Rows)
             {
-                if (row.Cells[3].Value != null)
+                if (row.Cells[5].Value != null)
                 {
                     row.Selected = true;
                 }
@@ -117,7 +145,7 @@ namespace FurnitureRentals.View
 
                 foreach (DataGridViewRow selectedRow in this.RentalItemDataGridView.SelectedRows)
                 {
-                    if (selectedRow.Cells[3].Value == null)
+                    if (selectedRow.Cells[5].Value == null)
                     {
                         MessageBox.Show("Please enter a value for quantity wanted in row " + (selectedRow.Index + 1));
 
@@ -126,15 +154,14 @@ namespace FurnitureRentals.View
                     else
                     {
                         Furniture selectedFurniture = this.rentalItemList[RentalItemDataGridView.Rows[selectedRow.Index].Index];
-
-                        selectedFurniture.QuantityBeingReturned = int.Parse(selectedRow.Cells[3].Value.ToString());
-                    int quantityRemaining = selectedFurniture.QuantityOrdered - selectedFurniture.QuantityBeingReturned;
-                    selectedFurniture.QuantityYetToBeReturned = quantityRemaining;
-                        returnedItemList.Add(selectedFurniture);
+                        selectedFurniture.QuantityBeingReturned = int.Parse(selectedRow.Cells[5].Value.ToString());
+                  
+                        this.returnItemList.Add(selectedFurniture);
                     }
                 }
             
-            return returnedItemList;
+            
+            return this.returnItemList;
         }
         private void RentalItemDataGridView_CellValidating(object sender,
                                          DataGridViewCellValidatingEventArgs e)
@@ -142,20 +169,20 @@ namespace FurnitureRentals.View
             int i;
             int quantityToBeReturned = 0;
             int quantityAvailable = 0;
-            if (RentalItemDataGridView.SelectedRows.Count > 0 && RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[3].Value != null && int.TryParse(Convert.ToString(e.FormattedValue), out i))
+            if (RentalItemDataGridView.SelectedRows.Count > 0 && RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[5].Value != null && int.TryParse(Convert.ToString(e.FormattedValue), out i))
             {
                 
-                quantityToBeReturned = int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[3].Value.ToString());
+                quantityToBeReturned = int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[5].Value.ToString());
                
                 RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Selected = true;
             }
 
             if ((int.TryParse(Convert.ToString(e.FormattedValue), out i)) && (!string.IsNullOrEmpty(e.FormattedValue.ToString())))
             {
-                quantityAvailable = int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[2].Value.ToString());
+                quantityAvailable = int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[2].Value.ToString()) - int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[3].Value.ToString());
             }
 
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 5)
             {
                 
 

@@ -218,5 +218,10 @@ namespace FurnitureRentals.User_Controls
             int count = this.returnCartItemList.Count + 1;
             this.addReturn(1, 1, 1);
         }*/
+
+        public List<ReturnCart> GetReturnCartItemList()
+        {
+            return this.returnCartItemList;
+        }
     }
 }
