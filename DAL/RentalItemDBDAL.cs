@@ -25,7 +25,7 @@ namespace FurnitureRentals.DAL
             List<Furniture> rentalItemList = new List<Furniture>();
             rentalItem.RentalTransactionID = transactionID;
 
-            string selectStatement = "SELECT furniture.furniture_id AS FurnitureID, rental_item.rental_id AS RentalTransactionID, rental_item.rental_item_id As ReturnItemID, rental_item.quantity AS Quantity, furniture.description AS Item, furniture_style.description AS Style " +
+            string selectStatement = "SELECT furniture.furniture_id AS FurnitureID, furniture.serial_no AS SerialNumber,  rental_item.rental_id AS RentalTransactionID, rental_item.rental_item_id As ReturnItemID, rental_item.quantity AS Quantity, furniture.description AS Item, furniture_style.description AS Style " +
 "FROM rental_item JOIN furniture ON rental_item.furniture_id = furniture.furniture_id JOIN furniture_style ON furniture.style_id = furniture_style.style_id WHERE rental_id = @RentalTransactionID";
             ;
 
@@ -44,6 +44,7 @@ namespace FurnitureRentals.DAL
                         {
                             Furniture rentedFurniture = new Furniture();
                             rentedFurniture.FurnitureID = (int)reader["FurnitureID"];
+                            rentedFurniture.SerialNumber = reader["SerialNumber"].ToString();
                             rentedFurniture.RentalItemID = (int)reader["ReturnItemID"];
                             rentedFurniture.RentalTransactionID = (int)reader["RentalTransactionID"];
                             rentedFurniture.QuantityOrdered = (int)reader["Quantity"];

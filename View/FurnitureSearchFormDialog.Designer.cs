@@ -35,23 +35,24 @@
             this.StyleLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.FurnitureDataGridView = new System.Windows.Forms.DataGridView();
-            this.QuantityBeingOrdered = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.furnitureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SerialNumberTextBox = new System.Windows.Forms.TextBox();
             this.AddButton = new System.Windows.Forms.Button();
             this.CloseFurnitureButton = new System.Windows.Forms.Button();
             this.CategoryDescriptionComboBox = new System.Windows.Forms.ComboBox();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.StyleDescriptionComboBox = new System.Windows.Forms.ComboBox();
             this.styleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.furnitureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DailyRentalRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuantityBeingOrdered = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.FurnitureDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.styleBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.styleBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchOptionsComboBox
@@ -107,10 +108,11 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn3,
+            this.DailyRentalRate,
             this.dataGridViewTextBoxColumn2,
             this.QuantityBeingOrdered});
             this.FurnitureDataGridView.DataSource = this.furnitureBindingSource;
-            this.FurnitureDataGridView.Location = new System.Drawing.Point(51, 89);
+            this.FurnitureDataGridView.Location = new System.Drawing.Point(36, 92);
             this.FurnitureDataGridView.Name = "FurnitureDataGridView";
             this.FurnitureDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.FurnitureDataGridView.Size = new System.Drawing.Size(544, 220);
@@ -118,10 +120,9 @@
             this.FurnitureDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.FurnitureDataGridView_CellValidating);
             this.FurnitureDataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.FurnitureDataGridView_CurrentCellDirtyStateChanged);
             // 
-            // QuantityBeingOrdered
+            // furnitureBindingSource
             // 
-            this.QuantityBeingOrdered.HeaderText = "Quantity Being Ordered";
-            this.QuantityBeingOrdered.Name = "QuantityBeingOrdered";
+            this.furnitureBindingSource.DataSource = typeof(FurnitureRentals.Model.Furniture);
             // 
             // SerialNumberTextBox
             // 
@@ -163,6 +164,10 @@
             this.CategoryDescriptionComboBox.TabIndex = 26;
             this.CategoryDescriptionComboBox.SelectionChangeCommitted += new System.EventHandler(this.CategoryDescriptionComboBox_SelectedIndexChanged);
             // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(FurnitureRentals.Model.Category);
+            // 
             // StyleDescriptionComboBox
             // 
             this.StyleDescriptionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.styleBindingSource, "StyleDescription", true));
@@ -178,34 +183,33 @@
             // 
             this.styleBindingSource.DataSource = typeof(FurnitureRentals.Model.Style);
             // 
-            // categoryBindingSource
-            // 
-            this.categoryBindingSource.DataSource = typeof(FurnitureRentals.Model.Category);
-            // 
-            // furnitureBindingSource
-            // 
-            this.furnitureBindingSource.DataSource = typeof(FurnitureRentals.Model.Furniture);
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "SerialNumber";
-            this.dataGridViewTextBoxColumn1.HeaderText = "SerialNumber";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Serial Number";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "ItemDescription";
-            this.dataGridViewTextBoxColumn6.HeaderText = "ItemDescription";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Item Description";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "FurnitureStyle";
-            this.dataGridViewTextBoxColumn3.HeaderText = "FurnitureStyle";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Furniture Style";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // DailyRentalRate
+            // 
+            this.DailyRentalRate.DataPropertyName = "DailyRentalRate";
+            this.DailyRentalRate.HeaderText = "Daily Rental Rate";
+            this.DailyRentalRate.Name = "DailyRentalRate";
+            this.DailyRentalRate.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -213,6 +217,11 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Quantity";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // QuantityBeingOrdered
+            // 
+            this.QuantityBeingOrdered.HeaderText = "Quantity Being Ordered";
+            this.QuantityBeingOrdered.Name = "QuantityBeingOrdered";
             // 
             // FurnitureSearchFormDialog
             // 
@@ -233,9 +242,9 @@
             this.Name = "FurnitureSearchFormDialog";
             this.Text = "FurnitureSearchForm";
             ((System.ComponentModel.ISupportInitialize)(this.FurnitureDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.styleBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.styleBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,6 +268,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DailyRentalRate;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuantityBeingOrdered;
     }

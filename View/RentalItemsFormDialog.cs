@@ -145,7 +145,7 @@ namespace FurnitureRentals.View
 
                 foreach (DataGridViewRow selectedRow in this.RentalItemDataGridView.SelectedRows)
                 {
-                    if (selectedRow.Cells[5].Value == null)
+                    if (selectedRow.Cells[6].Value == null)
                     {
                         MessageBox.Show("Please enter a value for quantity wanted in row " + (selectedRow.Index + 1));
 
@@ -154,7 +154,7 @@ namespace FurnitureRentals.View
                     else
                     {
                         Furniture selectedFurniture = this.rentalItemList[RentalItemDataGridView.Rows[selectedRow.Index].Index];
-                        selectedFurniture.QuantityBeingReturned = int.Parse(selectedRow.Cells[5].Value.ToString());
+                        selectedFurniture.QuantityBeingReturned = int.Parse(selectedRow.Cells[6].Value.ToString());
                   
                         this.returnItemList.Add(selectedFurniture);
                     }
@@ -169,20 +169,20 @@ namespace FurnitureRentals.View
             int i;
             int quantityToBeReturned = 0;
             int quantityAvailable = 0;
-            if (RentalItemDataGridView.SelectedRows.Count > 0 && RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[5].Value != null && int.TryParse(Convert.ToString(e.FormattedValue), out i))
+            if (RentalItemDataGridView.SelectedRows.Count > 0 && RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[6].Value != null && int.TryParse(Convert.ToString(e.FormattedValue), out i))
             {
                 
-                quantityToBeReturned = int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[5].Value.ToString());
+                quantityToBeReturned = int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[6].Value.ToString());
                
                 RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Selected = true;
             }
 
             if ((int.TryParse(Convert.ToString(e.FormattedValue), out i)) && (!string.IsNullOrEmpty(e.FormattedValue.ToString())))
             {
-                quantityAvailable = int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[2].Value.ToString()) - int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[3].Value.ToString());
+                quantityAvailable = int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[3].Value.ToString()) - int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[4].Value.ToString()) - int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[5].Value.ToString());
             }
 
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 6)
             {
                 
 
