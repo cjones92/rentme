@@ -183,7 +183,7 @@ namespace FurnitureRentals.User_Controls
             int value;
             foreach (DataGridViewRow row in RentalDataGridView.Rows)
             {
-                if (string.IsNullOrEmpty(row.Cells[2].Value.ToString()) || int.TryParse(row.Cells[2].Value.ToString(), out value) || int.Parse(row.Cells[2].Value.ToString()) <= 0)
+                if (string.IsNullOrEmpty(row.Cells[2].Value.ToString()) || !int.TryParse(row.Cells[2].Value.ToString(), out value) || int.Parse(row.Cells[2].Value.ToString()) <= 0)
                 {
                     return false;
 
@@ -194,10 +194,7 @@ namespace FurnitureRentals.User_Controls
 
         private void SubmitRentalButton_Click(object sender, EventArgs e)
         { int value;
-           
-          
-            
-            
+                  
             
             if (this.currentCustomer.CustomerId <= 0)
             {
@@ -228,6 +225,8 @@ namespace FurnitureRentals.User_Controls
                     transaction.Status = "Pending";
                     this.furnitureController.EnterRentalTransaction(transaction, furnitureList);
                     MessageBox.Show("The transaction was successfully processed");
+                    furnitureList.Clear();
+                    this.LoadRentalDataGridView();
                 } else
                 {
                     MessageBox.Show("The transaction was not successfully processed. Please check all values to ensure that a transaction can be successful.");
