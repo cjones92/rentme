@@ -178,15 +178,37 @@ namespace FurnitureRentals.User_Controls
             this.RentalTotalTextBox.Text = "$ " + total;
         }
 
+        private Boolean CheckRowQuantities()
+        {
+            int value;
+            foreach (DataGridViewRow row in RentalDataGridView.Rows)
+            {
+                if (string.IsNullOrEmpty(row.Cells[2].Value.ToString()) || int.TryParse(row.Cells[2].Value.ToString(), out value) || int.Parse(row.Cells[2].Value.ToString()) <= 0)
+                {
+                    return false;
+
+                }
+            }
+            return true;
+        }
+
         private void SubmitRentalButton_Click(object sender, EventArgs e)
         { int value;
+           
+          
+            
+            
+            
             if (this.currentCustomer.CustomerId <= 0)
             {
                 MessageBox.Show("Please select a customer before adding items to the cart feature.");
+            } else if(!this.CheckRowQuantities())
+            {
+                MessageBox.Show("Please make sure a positive integer value is entered for all quantities");
             }
             else if (string.IsNullOrEmpty(this.RentalTotalTextBox.Text)) {
                 MessageBox.Show("Please add items to the order before submitting it.");
-            }
+            } 
             else
             {
                 SubmitTransactionDialog confirmTransactionForm = new SubmitTransactionDialog();
@@ -269,13 +291,9 @@ namespace FurnitureRentals.User_Controls
                 int quantityAvailable = 1;
                 if (RentalDataGridView.Rows[RentalDataGridView.CurrentCell.RowIndex].Cells[2].Value != null && int.TryParse(Convert.ToString(e.FormattedValue), out i))
                 {
-                    if (int.Parse((Convert.ToString(e.FormattedValue))) > 0) {
-                        quantityToBeOrdered = int.Parse(RentalDataGridView.Rows[RentalDataGridView.CurrentCell.RowIndex].Cells[2].Value.ToString());
-                    } else
+                    if (int.Parse((Convert.ToString(e.FormattedValue))) > 0)
                     {
-                        RentalDataGridView.Rows[RentalDataGridView.CurrentCell.RowIndex].Cells[2].Value = 1;
-                        MessageBox.Show("The value has been reset to one because the quantity to be ordered must be a positive value");
-                        e.Cancel = false;
+                        quantityToBeOrdered = int.Parse(RentalDataGridView.Rows[RentalDataGridView.CurrentCell.RowIndex].Cells[2].Value.ToString());
                     }
 
                 }

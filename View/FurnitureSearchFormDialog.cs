@@ -309,7 +309,7 @@ namespace FurnitureRentals.View
             {
                 foreach (DataGridViewRow row in this.FurnitureDataGridView.SelectedRows)
                 { 
-                    if (row.Cells[4].Value == null)
+                    if (row.Cells[5].Value == null)
                     {
                         MessageBox.Show("Please enter a value for quantity wanted in row " + (row.Index + 1));
 
@@ -320,7 +320,7 @@ namespace FurnitureRentals.View
                     else { 
                     string serialNumber = row.Cells[0].Value.ToString();
                     Furniture selectedFurniture = this.furnitureController.GetFurnitureBySerialNumber(serialNumber)[0];
-                    selectedFurniture.QuantityOrdered = int.Parse(row.Cells[4].Value.ToString());
+                    selectedFurniture.QuantityOrdered = int.Parse(row.Cells[5].Value.ToString());
                     
                     decimal rentalRate = this.furnitureList[row.Index].DailyRentalRate;
                     selectedFurniture.TotalRentalCost = selectedFurniture.QuantityOrdered * rentalRate;
