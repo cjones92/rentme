@@ -854,7 +854,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!total_rentals.Value)</Value>
+                              <Value>=Avg(Fields!total_rentals.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#333333</Color>
@@ -889,7 +889,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=(Round(Sum(Fields!times_qf_rented.Value)/Sum(Fields!total_rentals.Value),2))/100 *100</Value>
+                              <Value>=(Round(Sum(Fields!times_qf_rented.Value)/Avg(Fields!total_rentals.Value),2))/100 *100</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>0.00%</Format>
@@ -914,6 +914,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
