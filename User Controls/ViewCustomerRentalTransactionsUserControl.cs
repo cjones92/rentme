@@ -19,6 +19,7 @@ namespace FurnitureRentals.User_Controls
     public partial class ViewCustomerRentalTransactionsUserControl : UserControl
     {
         Customer currentCustomer;
+        Employee currentEmployee;
         List<RentalTransaction> transactionList;
         FurnitureController furnitureController;
         ReturnShoppingCartUserControl returnCart;
@@ -35,9 +36,17 @@ namespace FurnitureRentals.User_Controls
             this.currentCustomer = new Customer();
             this.transactionList = new List<RentalTransaction>();
             this.furnitureController = new FurnitureController();
+            this.currentEmployee = new Employee();
             
 
         }
+
+        public void SetCurrentEmployee(Employee employee)
+        {
+            this.currentEmployee = employee;
+        }
+
+       
 
         public void SetReturnCart(ReturnShoppingCartUserControl returnCart)
         {
@@ -122,6 +131,7 @@ namespace FurnitureRentals.User_Controls
                
                 RentalItemsFormDialog formDialog = new RentalItemsFormDialog(int.Parse(RentalTransactionDataGridView.CurrentCell.Value.ToString()), this.returnCart);
                 formDialog.SetReturnCartValues(this.returnCart.GetReturnCartItemList());
+                formDialog.SetCurrentEmployee(this.currentEmployee);
                
                 DialogResult addedResult = formDialog.ShowDialog();
                 

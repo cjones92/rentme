@@ -23,6 +23,7 @@ namespace FurnitureRentals.View
         FurnitureController furnitureController;
         int transactionID;
         ReturnShoppingCartUserControl returnCart;
+        Employee currentEmployee;
 
         /// <summary>
         /// controller
@@ -34,11 +35,23 @@ namespace FurnitureRentals.View
             InitializeComponent();
             this.furnitureController = new FurnitureController();
             this.transactionID = transactionID;
-
+            this.currentEmployee = new Employee();
             this.rentalItemList = this.furnitureController.GetRentalItemByTransactionID(this.transactionID);
             this.returnItemList = new List<Furniture>();
             this.returnCart = returnShoppingCart;
 
+        }
+
+        public void SetCurrentEmployee(Employee employee)
+        {
+            this.currentEmployee = employee;
+            this.SetEmployeeLabels();
+        }
+
+        private void SetEmployeeLabels()
+        {
+            this.ActualNameLabel.Text = this.currentEmployee.FirstName + " " + this.currentEmployee.LastName;
+            this.ActualIDLabel.Text = "" + this.currentEmployee.EmployeeID;
         }
 
         public void SetReturnCartValues(List<ReturnCart> list)

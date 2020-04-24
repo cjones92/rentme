@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RentalItemsFormDialog));
             this.furnitureBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.furnitureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -45,18 +44,23 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.furnitureBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.RentalItemDataGridView = new System.Windows.Forms.DataGridView();
-            this.ItemsToReturnButton = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantityAlreadyReturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantityBeingReturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantityReturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemsToReturnButton = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.furnitureBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.EmployeeNameLabel = new System.Windows.Forms.Label();
+            this.EmployeeIDLabel = new System.Windows.Forms.Label();
+            this.ActualNameLabel = new System.Windows.Forms.Label();
+            this.ActualIDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingNavigator)).BeginInit();
             this.furnitureBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RentalItemDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // furnitureBindingNavigator
@@ -97,10 +101,6 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // furnitureBindingSource
-            // 
-            this.furnitureBindingSource.DataSource = typeof(FurnitureRentals.Model.Furniture);
             // 
             // bindingNavigatorCountItem
             // 
@@ -201,49 +201,18 @@
             this.QuantityBeingReturned,
             this.QuantityReturned});
             this.RentalItemDataGridView.DataSource = this.furnitureBindingSource;
-            this.RentalItemDataGridView.Location = new System.Drawing.Point(39, 63);
+            this.RentalItemDataGridView.Location = new System.Drawing.Point(39, 78);
             this.RentalItemDataGridView.Name = "RentalItemDataGridView";
             this.RentalItemDataGridView.Size = new System.Drawing.Size(645, 220);
             this.RentalItemDataGridView.TabIndex = 1;
             this.RentalItemDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.RentalItemDataGridView_CellValidating);
             this.RentalItemDataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.RentalItemDataGridView_CurrentCellDirtyStateChanged);
             // 
-            // ItemsToReturnButton
-            // 
-            this.ItemsToReturnButton.Location = new System.Drawing.Point(433, 348);
-            this.ItemsToReturnButton.Name = "ItemsToReturnButton";
-            this.ItemsToReturnButton.Size = new System.Drawing.Size(109, 23);
-            this.ItemsToReturnButton.TabIndex = 2;
-            this.ItemsToReturnButton.Text = "Add To Returns";
-            this.ItemsToReturnButton.UseVisualStyleBackColor = true;
-            this.ItemsToReturnButton.Click += new System.EventHandler(this.ItemsToReturnButton_Click);
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "ItemDescription";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Item Description";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
             // SerialNumber
             // 
             this.SerialNumber.DataPropertyName = "SerialNumber";
             this.SerialNumber.HeaderText = "Serial Number";
             this.SerialNumber.Name = "SerialNumber";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "FurnitureStyle";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Furniture Style";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "QuantityOrdered";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Quantity Ordered";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // QuantityAlreadyReturned
             // 
@@ -264,11 +233,86 @@
             this.QuantityReturned.HeaderText = "Quantity Returning";
             this.QuantityReturned.Name = "QuantityReturned";
             // 
+            // ItemsToReturnButton
+            // 
+            this.ItemsToReturnButton.Location = new System.Drawing.Point(433, 348);
+            this.ItemsToReturnButton.Name = "ItemsToReturnButton";
+            this.ItemsToReturnButton.Size = new System.Drawing.Size(109, 23);
+            this.ItemsToReturnButton.TabIndex = 2;
+            this.ItemsToReturnButton.Text = "Add To Returns";
+            this.ItemsToReturnButton.UseVisualStyleBackColor = true;
+            this.ItemsToReturnButton.Click += new System.EventHandler(this.ItemsToReturnButton_Click);
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "ItemDescription";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Item Description";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "FurnitureStyle";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Furniture Style";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "QuantityOrdered";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Quantity Ordered";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // furnitureBindingSource
+            // 
+            this.furnitureBindingSource.DataSource = typeof(FurnitureRentals.Model.Furniture);
+            // 
+            // EmployeeNameLabel
+            // 
+            this.EmployeeNameLabel.AutoSize = true;
+            this.EmployeeNameLabel.Location = new System.Drawing.Point(39, 29);
+            this.EmployeeNameLabel.Name = "EmployeeNameLabel";
+            this.EmployeeNameLabel.Size = new System.Drawing.Size(87, 13);
+            this.EmployeeNameLabel.TabIndex = 3;
+            this.EmployeeNameLabel.Text = "Employee Name:";
+            // 
+            // EmployeeIDLabel
+            // 
+            this.EmployeeIDLabel.AutoSize = true;
+            this.EmployeeIDLabel.Location = new System.Drawing.Point(39, 51);
+            this.EmployeeIDLabel.Name = "EmployeeIDLabel";
+            this.EmployeeIDLabel.Size = new System.Drawing.Size(70, 13);
+            this.EmployeeIDLabel.TabIndex = 4;
+            this.EmployeeIDLabel.Text = "Employee ID:";
+            // 
+            // ActualNameLabel
+            // 
+            this.ActualNameLabel.AutoSize = true;
+            this.ActualNameLabel.Location = new System.Drawing.Point(132, 29);
+            this.ActualNameLabel.Name = "ActualNameLabel";
+            this.ActualNameLabel.Size = new System.Drawing.Size(75, 13);
+            this.ActualNameLabel.TabIndex = 5;
+            this.ActualNameLabel.Text = "Not Logged In";
+            // 
+            // ActualIDLabel
+            // 
+            this.ActualIDLabel.AutoSize = true;
+            this.ActualIDLabel.Location = new System.Drawing.Point(115, 51);
+            this.ActualIDLabel.Name = "ActualIDLabel";
+            this.ActualIDLabel.Size = new System.Drawing.Size(75, 13);
+            this.ActualIDLabel.TabIndex = 6;
+            this.ActualIDLabel.Text = "Not Logged In";
+            // 
             // RentalItemsFormDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ActualIDLabel);
+            this.Controls.Add(this.ActualNameLabel);
+            this.Controls.Add(this.EmployeeIDLabel);
+            this.Controls.Add(this.EmployeeNameLabel);
             this.Controls.Add(this.ItemsToReturnButton);
             this.Controls.Add(this.RentalItemDataGridView);
             this.Controls.Add(this.furnitureBindingNavigator);
@@ -277,8 +321,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingNavigator)).EndInit();
             this.furnitureBindingNavigator.ResumeLayout(false);
             this.furnitureBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RentalItemDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,5 +353,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn QuantityAlreadyReturned;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuantityBeingReturned;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuantityReturned;
+        private System.Windows.Forms.Label EmployeeNameLabel;
+        private System.Windows.Forms.Label EmployeeIDLabel;
+        private System.Windows.Forms.Label ActualNameLabel;
+        private System.Windows.Forms.Label ActualIDLabel;
     }
 }
