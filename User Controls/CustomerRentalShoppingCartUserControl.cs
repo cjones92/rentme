@@ -269,8 +269,13 @@ namespace FurnitureRentals.User_Controls
                 int quantityAvailable = 1;
                 if (RentalDataGridView.Rows[RentalDataGridView.CurrentCell.RowIndex].Cells[2].Value != null && int.TryParse(Convert.ToString(e.FormattedValue), out i))
                 {
-                    if (int.Parse((Convert.ToString(e.FormattedValue))) != 0) {
+                    if (int.Parse((Convert.ToString(e.FormattedValue))) > 0) {
                         quantityToBeOrdered = int.Parse(RentalDataGridView.Rows[RentalDataGridView.CurrentCell.RowIndex].Cells[2].Value.ToString());
+                    } else
+                    {
+                        RentalDataGridView.Rows[RentalDataGridView.CurrentCell.RowIndex].Cells[2].Value = 1;
+                        MessageBox.Show("The value has been reset to one because the quantity to be ordered must be a positive value");
+                        e.Cancel = false;
                     }
 
                 }
