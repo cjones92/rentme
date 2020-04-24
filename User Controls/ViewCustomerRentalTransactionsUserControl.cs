@@ -41,13 +41,20 @@ namespace FurnitureRentals.User_Controls
 
         }
 
+        /// <summary>
+        /// Sets current employee
+        /// </summary>
+        /// <param name="employee">employee object</param>
         public void SetCurrentEmployee(Employee employee)
         {
             this.currentEmployee = employee;
         }
 
        
-
+        /// <summary>
+        /// Sets return cart
+        /// </summary>
+        /// <param name="returnCart">ReturnCart object</param>
         public void SetReturnCart(ReturnShoppingCartUserControl returnCart)
         {
             this.returnCart = returnCart;

@@ -112,10 +112,10 @@
             this.dataGridViewTextBoxColumn2,
             this.QuantityBeingOrdered});
             this.FurnitureDataGridView.DataSource = this.furnitureBindingSource;
-            this.FurnitureDataGridView.Location = new System.Drawing.Point(46, 94);
+            this.FurnitureDataGridView.Location = new System.Drawing.Point(22, 94);
             this.FurnitureDataGridView.Name = "FurnitureDataGridView";
             this.FurnitureDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.FurnitureDataGridView.Size = new System.Drawing.Size(544, 220);
+            this.FurnitureDataGridView.Size = new System.Drawing.Size(634, 220);
             this.FurnitureDataGridView.TabIndex = 20;
             this.FurnitureDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.FurnitureDataGridView_CellValidating);
             this.FurnitureDataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.FurnitureDataGridView_CurrentCellDirtyStateChanged);
@@ -227,7 +227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 392);
+            this.ClientSize = new System.Drawing.Size(680, 392);
             this.Controls.Add(this.StyleDescriptionComboBox);
             this.Controls.Add(this.CategoryDescriptionComboBox);
             this.Controls.Add(this.CloseFurnitureButton);

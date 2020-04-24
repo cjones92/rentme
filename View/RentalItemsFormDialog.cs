@@ -42,6 +42,10 @@ namespace FurnitureRentals.View
 
         }
 
+        /// <summary>
+        /// Sets current employee
+        /// </summary>
+        /// <param name="employee">employee object</param>
         public void SetCurrentEmployee(Employee employee)
         {
             this.currentEmployee = employee;
@@ -54,6 +58,10 @@ namespace FurnitureRentals.View
             this.ActualIDLabel.Text = "" + this.currentEmployee.EmployeeID;
         }
 
+        /// <summary>
+        /// Sets quantities found in return cart
+        /// </summary>
+        /// <param name="list">list of ReturnCart objects</param>
         public void SetReturnCartValues(List<ReturnCart> list)
         {
             if (this.returnItemList != null)
@@ -77,7 +85,9 @@ namespace FurnitureRentals.View
         }
 
 
-
+        /// <summary>
+        /// Loads RentalDataGridView
+        /// </summary>
         public void LoadRentalItemDataGridView()
         {
             try {
