@@ -288,7 +288,7 @@ namespace FurnitureRentals.View
             List<Furniture> selectedfurnitureList = new List<Furniture>();
             foreach (DataGridViewRow row in FurnitureDataGridView.Rows)
             {
-                if (row.Cells[4].Value != null )
+                if (row.Cells[5].Value != null )
                 {
                     row.Selected = true;
                     furnitureWithQuantities.Add((Furniture)row.DataBoundItem);
