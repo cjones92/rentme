@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewCustomerRentalTransactionsUserControl));
             this.rentalTransactionBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.rentalTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -48,7 +49,6 @@
             this.MemberIDLabel = new System.Windows.Forms.Label();
             this.ActualIDLabel = new System.Windows.Forms.Label();
             this.RentalTransactionDataGridView = new System.Windows.Forms.DataGridView();
-            this.rentalTransactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,8 +57,8 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingNavigator)).BeginInit();
             this.rentalTransactionBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RentalTransactionDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RentalTransactionDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // rentalTransactionBindingNavigator
@@ -88,7 +88,7 @@
             this.rentalTransactionBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.rentalTransactionBindingNavigator.Name = "rentalTransactionBindingNavigator";
             this.rentalTransactionBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.rentalTransactionBindingNavigator.Size = new System.Drawing.Size(711, 27);
+            this.rentalTransactionBindingNavigator.Size = new System.Drawing.Size(853, 27);
             this.rentalTransactionBindingNavigator.TabIndex = 0;
             this.rentalTransactionBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -100,6 +100,10 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // rentalTransactionBindingSource
+            // 
+            this.rentalTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.RentalTransaction);
             // 
             // bindingNavigatorCountItem
             // 
@@ -242,13 +246,9 @@
             this.RentalTransactionDataGridView.Location = new System.Drawing.Point(22, 99);
             this.RentalTransactionDataGridView.Name = "RentalTransactionDataGridView";
             this.RentalTransactionDataGridView.RowHeadersWidth = 51;
-            this.RentalTransactionDataGridView.Size = new System.Drawing.Size(644, 220);
+            this.RentalTransactionDataGridView.Size = new System.Drawing.Size(805, 220);
             this.RentalTransactionDataGridView.TabIndex = 11;
             this.RentalTransactionDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RentalTransactionDataGridView_CellContentClick);
-            // 
-            // rentalTransactionBindingSource
-            // 
-            this.rentalTransactionBindingSource.DataSource = typeof(FurnitureRentals.Model.RentalTransaction);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -316,12 +316,12 @@
             this.Controls.Add(this.CustomerName);
             this.Controls.Add(this.rentalTransactionBindingNavigator);
             this.Name = "ViewCustomerRentalTransactionsUserControl";
-            this.Size = new System.Drawing.Size(711, 376);
+            this.Size = new System.Drawing.Size(853, 376);
             ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingNavigator)).EndInit();
             this.rentalTransactionBindingNavigator.ResumeLayout(false);
             this.rentalTransactionBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RentalTransactionDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentalTransactionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RentalTransactionDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

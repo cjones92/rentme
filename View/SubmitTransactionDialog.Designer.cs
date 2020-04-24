@@ -61,7 +61,6 @@
             this.SubmitTransactionLabel.Size = new System.Drawing.Size(243, 13);
             this.SubmitTransactionLabel.TabIndex = 3;
             this.SubmitTransactionLabel.Text = "Are you sure you want to transmit this transaction?";
-            
             // 
             // SubmitTransactionDialog
             // 
@@ -72,6 +71,7 @@
             this.Controls.Add(this.ConfirmButton);
             this.Controls.Add(this.SubmitTransactionLabel);
             this.Name = "SubmitTransactionDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SubmitTransactionDialog";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -39,7 +39,6 @@ namespace FurnitureRentals.View
             this.rentalItemList = this.furnitureController.GetRentalItemByTransactionID(this.transactionID);
             this.returnItemList = new List<Furniture>();
             this.returnCart = returnShoppingCart;
-
         }
 
         /// <summary>
@@ -81,6 +80,7 @@ namespace FurnitureRentals.View
                     }
                 }
                 this.LoadRentalItemDataGridView();
+                
             }
         }
 
@@ -90,7 +90,7 @@ namespace FurnitureRentals.View
         /// </summary>
         public void LoadRentalItemDataGridView()
         {
-            try {
+            try { 
 
                 RentalItemDataGridView.AllowUserToAddRows = false;
                 RentalItemDataGridView.RowHeadersVisible = false;
@@ -127,16 +127,26 @@ namespace FurnitureRentals.View
                     width += column.Width;
                 }
                 RentalItemDataGridView.Width = width;
-            } catch (Exception) { 
+
             }
-    }
+            catch (Exception)
+            {
+                MessageBox.Show("The database could not be reached. Please try again");
+            }
+
+
+        }
   
+      
   
 
         private void ItemsToReturnButton_Click(object sender, EventArgs e)
         {
+            if (this.RentalItemDataGridView.SelectedRows.Count == 1 && RentalItemDataGridView.Rows[0].Cells[6].Value == null) {
+                MessageBox.Show("Please enter a value for quantity");
+            }
             
-            if (this.RentalItemDataGridView.SelectedRows.Count > 0)
+            else if (this.RentalItemDataGridView.SelectedRows.Count > 0)
             {
                 MessageBox.Show("The items will now be submitted.");
                 this.DialogResult = DialogResult.OK;
@@ -172,7 +182,12 @@ namespace FurnitureRentals.View
                     {
                         MessageBox.Show("Please enter a value for quantity wanted in row " + (selectedRow.Index + 1));
 
-                    }
+                    } 
+                    
+                    else if (int.Parse(selectedRow.Cells[6].Value.ToString()) <= 0)
+                {
+                    MessageBox.Show("Value being returned must be higher than zero");
+                }
 
                     else
                     {
@@ -186,14 +201,21 @@ namespace FurnitureRentals.View
             
             return this.returnItemList;
         }
+
+
         private void RentalItemDataGridView_CellValidating(object sender,
                                          DataGridViewCellValidatingEventArgs e)
         {
             int i;
+            int quantityOrdered = int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[3].Value.ToString());
             int quantityToBeReturned = 0;
+            int quantityAlreadyReturned = int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[4].Value.ToString());
             int quantityAvailable = 0;
+
+            
             if (RentalItemDataGridView.SelectedRows.Count > 0 && RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[6].Value != null && int.TryParse(Convert.ToString(e.FormattedValue), out i))
             {
+              
                 
                 quantityToBeReturned = int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[6].Value.ToString());
                
@@ -202,6 +224,7 @@ namespace FurnitureRentals.View
 
             if ((int.TryParse(Convert.ToString(e.FormattedValue), out i)) && (!string.IsNullOrEmpty(e.FormattedValue.ToString())))
             {
+                quantityAlreadyReturned = int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[4].Value.ToString());
                 quantityAvailable = int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[3].Value.ToString()) - int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[4].Value.ToString()) - int.Parse(RentalItemDataGridView.Rows[RentalItemDataGridView.CurrentCell.RowIndex].Cells[5].Value.ToString());
             }
 
@@ -218,11 +241,13 @@ namespace FurnitureRentals.View
                 {
                     e.Cancel = true;
                     MessageBox.Show("Please enter an integer value greater than 0");
+
                 }
                 else if (quantityToBeReturned > quantityAvailable)
                 {
                     e.Cancel = true;
-                    MessageBox.Show("You cannot order more than the amount available.");
+                    MessageBox.Show("You cannot return more than than what was ordered and/or already in the cart.");
+                    
                 }
                 else
                 {

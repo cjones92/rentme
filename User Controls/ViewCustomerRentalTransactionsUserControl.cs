@@ -135,27 +135,34 @@ namespace FurnitureRentals.User_Controls
         {
             if (RentalTransactionDataGridView.CurrentCell.ColumnIndex.Equals(0) && e.RowIndex != -1)
             {
-               
-                RentalItemsFormDialog formDialog = new RentalItemsFormDialog(int.Parse(RentalTransactionDataGridView.CurrentCell.Value.ToString()), this.returnCart);
-                formDialog.SetReturnCartValues(this.returnCart.GetReturnCartItemList());
-                formDialog.SetCurrentEmployee(this.currentEmployee);
-               
-                DialogResult addedResult = formDialog.ShowDialog();
-                
-                if (addedResult == DialogResult.OK)
-                {
+               try { 
 
-                    
-                    List<Furniture> list = formDialog.GetReturnedFurniture();
-                    foreach (Furniture furniture in list)
+                    RentalItemsFormDialog formDialog = new RentalItemsFormDialog(int.Parse(RentalTransactionDataGridView.CurrentCell.Value.ToString()), this.returnCart);
+                    formDialog.SetReturnCartValues(this.returnCart.GetReturnCartItemList());
+                    formDialog.SetCurrentEmployee(this.currentEmployee);
+
+                    DialogResult addedResult = formDialog.ShowDialog();
+
+                    if (addedResult == DialogResult.OK)
                     {
-                       
-                        this.returnCart.addReturn(furniture.RentalTransactionID, furniture.RentalItemID, furniture.FurnitureID, furniture.QuantityBeingReturned);
-                        
+
+
+                        List<Furniture> list = formDialog.GetReturnedFurniture();
+                        foreach (Furniture furniture in list)
+                        {
+
+                            this.returnCart.addReturn(furniture.RentalTransactionID, furniture.RentalItemID, furniture.FurnitureID, furniture.QuantityBeingReturned);
+
+                        }
+
+                        formDialog.Dispose();
+
                     }
 
-                    formDialog.Dispose();
-
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("The database could not be reached. Please try again");
                 }
             }
         }
