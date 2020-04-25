@@ -183,13 +183,10 @@ namespace FurnitureRentals.User_Controls
                 MessageBox.Show("Return transaction (ID: " + this.returnTransaction.ReturnTransactionID + ") " +
                     "are successfully posted", "Success");
 
-                // update inventory
-                if (result)
+                if (!result)
                 {
-                    foreach (ReturnCart returnItem in this.returnCartItemList)
-                    {
-                        this.furnitureController.UpdateInventory(returnItem.FurnitureID, returnItem.Quantity);
-                    }
+                    MessageBox.Show("Unable to process return transaction!", "Error");
+                    return;
                 }
 
                 this.returnCartItemList.Clear();

@@ -39,7 +39,9 @@ namespace FurnitureRentals.DAL
                 connection.Open();
                 rentalTransaction = connection.BeginTransaction();
 
-                using (SqlCommand insertTransactionCommand = new SqlCommand(sqlTransactionStatement, connection, rentalTransaction), updateInventoryCommand = new SqlCommand(sqlQuantityStatement, connection, rentalTransaction), insertItemCommand = new SqlCommand(sqlItemStatement, connection, rentalTransaction))
+                using (SqlCommand insertTransactionCommand = new SqlCommand(sqlTransactionStatement, connection, rentalTransaction), 
+                    updateInventoryCommand = new SqlCommand(sqlQuantityStatement, connection, rentalTransaction), 
+                    insertItemCommand = new SqlCommand(sqlItemStatement, connection, rentalTransaction))
                 {
                     insertTransactionCommand.Connection = connection;
 

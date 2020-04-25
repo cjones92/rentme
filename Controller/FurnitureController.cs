@@ -122,17 +122,6 @@ namespace FurnitureRentals.Controller
         }
 
         /// <summary>
-        /// Method that updates the inventory
-        /// </summary>
-        /// <param name="furnitureId">furniture id that was returned</param>
-        /// <param name="quantity">quantity that was the returned</param>
-        /// <returns>true if successfull otherwise false</returns>
-        public bool UpdateInventory(int furnitureId, int quantity)
-        {
-            return this.furnitureDBDAL.UpdateInventory(furnitureId, quantity);
-        }
-
-        /// <summary>
         /// Returns quantity of an item rented in a transaction
         /// </summary>
         /// <param name="rentalItemID"></param>

@@ -13,6 +13,16 @@ namespace FurnitureRentals.DAL
     /// </summary>
     class ReturnTransactionDBDAL
     {
+        FurnitureDBDAL furnitureDBDAL;
+
+        /// <summary>
+        /// Class controller
+        /// </summary>
+        public ReturnTransactionDBDAL()
+        {
+            this.furnitureDBDAL = new FurnitureDBDAL();
+        }
+
         /// <summary>
         /// Method that returns all the return transactions
         /// </summary>
@@ -110,6 +120,7 @@ namespace FurnitureRentals.DAL
         /// <returns>true if successfull otherwise false</returns>
         public bool PostReturnTransaction(ReturnTransaction returnTransaction, List<ReturnCart> ReturnItemList)
         {
+            SqlTransaction renturnTransaction = null;
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
             {
                 string sqlStatement = "INSERT INTO Return_Transaction (customer_id, return_date, " +
@@ -117,8 +128,9 @@ namespace FurnitureRentals.DAL
                 "VALUES (@CustomerID, @ReturnDate, @CheckedinBy, @LateFee, @RefundAmount); SELECT SCOPE_IDENTITY() ";
 
                 connection.Open();
+                renturnTransaction = connection.BeginTransaction();
 
-                using (SqlCommand insertCommand = new SqlCommand(sqlStatement, connection))
+                using (SqlCommand insertCommand = new SqlCommand(sqlStatement, connection, renturnTransaction))
                 {
                     insertCommand.Connection = connection;
                     insertCommand.Parameters.AddWithValue("@CustomerID", returnTransaction.CustomerID);
@@ -130,20 +142,26 @@ namespace FurnitureRentals.DAL
 
                     if (returnTransaction.ReturnTransactionID > 0)
                     {
-                        this.InsertReturnItem(connection, returnTransaction.ReturnTransactionID, ReturnItemList);
+                        this.InsertReturnItem(connection, returnTransaction.ReturnTransactionID, ReturnItemList, renturnTransaction);
                     }
 
+                    foreach (ReturnCart returnItem in ReturnItemList)
+                    {
+                        this.furnitureDBDAL.UpdateInventory(returnItem.FurnitureID, returnItem.Quantity, connection, renturnTransaction);
+                    }
+
+                    renturnTransaction.Commit();
                     return true;
                 }
             }
         }
 
-        private void InsertReturnItem(SqlConnection connection, int returnTxnId, List<ReturnCart> ReturnItemList)
+        private void InsertReturnItem(SqlConnection connection, int returnTxnId, List<ReturnCart> ReturnItemList, SqlTransaction renturnTransaction)
         {
             string insertReturnItemStatement = "INSERT INTO Return_Item (return_transaction_id, " +
                             "rental_item_id, quantity) VALUES (@ReturnTransactionID, @RentalItemID, @Quantity); " +
                             "SELECT SCOPE_IDENTITY() ";
-            using (SqlCommand insertCommand = new SqlCommand(insertReturnItemStatement, connection))
+            using (SqlCommand insertCommand = new SqlCommand(insertReturnItemStatement, connection, renturnTransaction))
             {
                 insertCommand.Connection = connection;
                 foreach (ReturnCart returnItem in ReturnItemList)

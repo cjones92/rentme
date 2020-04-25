@@ -189,23 +189,18 @@ namespace FurnitureRentals.DAL
         /// <param name="furnitureId">furniture id that was returned</param>
         /// <param name="quantity">quantity that was the returned</param>
         /// <returns>true if successfull otherwise false</returns>
-        public bool UpdateInventory(int furnitureId, int quantity)
+        public bool UpdateInventory(int furnitureId, int quantity, SqlConnection connection, SqlTransaction renturnTransaction)
         {
-            using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
-            {
-                string sqlStatement = "Update inventory set total_available = (total_available + @Quantity) " +
+            string sqlStatement = "Update inventory set total_available = (total_available + @Quantity) " +
                     "where furniture_id = @FurnitureID";
 
-                connection.Open();
-
-                using (SqlCommand updateCommand = new SqlCommand(sqlStatement, connection))
-                {
-                    updateCommand.Connection = connection;
-                    updateCommand.Parameters.AddWithValue("@Quantity", quantity);
-                    updateCommand.Parameters.AddWithValue("@FurnitureID", furnitureId);
-                    updateCommand.ExecuteNonQuery();
-                    return true;
-                }
+            using (SqlCommand updateCommand = new SqlCommand(sqlStatement, connection, renturnTransaction))
+            {
+                updateCommand.Connection = connection;
+                updateCommand.Parameters.AddWithValue("@Quantity", quantity);
+                updateCommand.Parameters.AddWithValue("@FurnitureID", furnitureId);
+                updateCommand.ExecuteNonQuery();
+                return true;
             }
         }
     }
