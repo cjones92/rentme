@@ -346,6 +346,8 @@ namespace FurnitureRentals.User_Controls
 
         }
 
+        
+
         private void RentalDataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             if (RentalDataGridView.IsCurrentCellDirty)
@@ -381,12 +383,13 @@ namespace FurnitureRentals.User_Controls
 
         }
 
-        private void RentalDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+
+        private void RentalDataGridView_KeyDown(object sender, KeyEventArgs e)
         {
-            int value = 0;
-            if (RentalDataGridView.IsCurrentCellDirty && RentalDataGridView.CurrentCell.Value != null && int.TryParse(RentalDataGridView.CurrentCell.Value.ToString(), out value) && int.Parse(RentalDataGridView.CurrentCell.Value.ToString()) > 0)
+            if (e.KeyCode == Keys.Enter)
             {
-                //this.LoadRentalDataGridView();
+                e.Handled = true;
+                this.LoadRentalDataGridView();
             }
         }
     }
