@@ -139,7 +139,7 @@ namespace FurnitureRentals.View
 
         private void ItemsToReturnButton_Click(object sender, EventArgs e)
         {
-            if (this.RentalItemDataGridView.SelectedRows.Count == 1 && RentalItemDataGridView.Rows[0].Cells[6].Value == null)
+            if (this.RentalItemDataGridView.SelectedRows.Count == 1 && RentalItemDataGridView.SelectedRows[0].Cells[6].Value == null)
             {
                 MessageBox.Show("Please enter a value for quantity");
             }
@@ -160,7 +160,7 @@ namespace FurnitureRentals.View
         {
             foreach (DataGridViewRow row in RentalItemDataGridView.Rows)
             {
-                if (row.Cells[5].Value != null)
+                if (row.Cells[6].Value != null)
                 {
                     row.Selected = true;
                 }

@@ -33,6 +33,11 @@
             this.RentalTotalTextBox = new System.Windows.Forms.TextBox();
             this.TotalLabel = new System.Windows.Forms.Label();
             this.RentalDataGridView = new System.Windows.Forms.DataGridView();
+            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Style = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewLinkColumn();
             this.SubmitRentalButton = new System.Windows.Forms.Button();
             this.CustomerName = new System.Windows.Forms.Label();
             this.MemberIDLabel = new System.Windows.Forms.Label();
@@ -40,11 +45,6 @@
             this.ActualIDLabel = new System.Windows.Forms.Label();
             this.DaysRentingTextBox = new System.Windows.Forms.TextBox();
             this.DaysRentingLabel = new System.Windows.Forms.Label();
-            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Style = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remove = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.RentalDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,8 +101,44 @@
             this.RentalDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RentalDataGridView_CellContentClick);
             this.RentalDataGridView.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.RentalDataGridView_CellValidated);
             this.RentalDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.RentalDataGridView_CellValidating);
-            this.RentalDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.RentalDataGridView_CellValueChanged);
+          
             this.RentalDataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.RentalDataGridView_CurrentCellDirtyStateChanged);
+            this.RentalDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RentalDataGridView_KeyDown);
+            // 
+            // Item
+            // 
+            this.Item.DataPropertyName = "Item";
+            this.Item.HeaderText = "Item";
+            this.Item.Name = "Item";
+            this.Item.ReadOnly = true;
+            // 
+            // Style
+            // 
+            this.Style.DataPropertyName = "Style";
+            this.Style.HeaderText = "Style";
+            this.Style.Name = "Style";
+            this.Style.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // TotalCost
+            // 
+            this.TotalCost.HeaderText = "Total Cost";
+            this.TotalCost.Name = "TotalCost";
+            this.TotalCost.ReadOnly = true;
+            // 
+            // Remove
+            // 
+            this.Remove.DataPropertyName = "Remove";
+            this.Remove.HeaderText = "Remove";
+            this.Remove.Name = "Remove";
+            this.Remove.ReadOnly = true;
+            this.Remove.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Remove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Remove.Text = "X";
             // 
             // SubmitRentalButton
             // 
@@ -167,41 +203,6 @@
             this.DaysRentingLabel.Size = new System.Drawing.Size(124, 13);
             this.DaysRentingLabel.TabIndex = 11;
             this.DaysRentingLabel.Text = "Number of Days Rented:";
-            // 
-            // Item
-            // 
-            this.Item.DataPropertyName = "Item";
-            this.Item.HeaderText = "Item";
-            this.Item.Name = "Item";
-            this.Item.ReadOnly = true;
-            // 
-            // Style
-            // 
-            this.Style.DataPropertyName = "Style";
-            this.Style.HeaderText = "Style";
-            this.Style.Name = "Style";
-            this.Style.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // TotalCost
-            // 
-            this.TotalCost.HeaderText = "Total Cost";
-            this.TotalCost.Name = "TotalCost";
-            this.TotalCost.ReadOnly = true;
-            // 
-            // Remove
-            // 
-            this.Remove.DataPropertyName = "Remove";
-            this.Remove.HeaderText = "Remove";
-            this.Remove.Name = "Remove";
-            this.Remove.ReadOnly = true;
-            this.Remove.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Remove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Remove.Text = "X";
             // 
             // CustomerRentalShoppingCartUserControl
             // 
