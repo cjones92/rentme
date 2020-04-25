@@ -23,13 +23,9 @@ namespace FurnitureRentals.View
             InitializeComponent();
         }
 
-       
-
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
-            
-                this.DialogResult = DialogResult.OK;
-            
+            this.DialogResult = DialogResult.OK;
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)

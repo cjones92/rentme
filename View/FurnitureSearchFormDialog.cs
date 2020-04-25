@@ -27,15 +27,13 @@ namespace FurnitureRentals.View
             this.LoadStyleComboBox();
             this.furnitureList = new List<Furniture>();
             this.currentFurnitureList = new List<Furniture>();
-           
-
         }
 
         private void LoadSearchOptionsComboBox()
         {
-            List<string> choices = new List<string> {"Select Search Style:", "Serial Number", "Category", "Style" };
+            List<string> choices = new List<string> { "Select Search Style:", "Serial Number", "Category", "Style" };
             this.SearchOptionsComboBox.DataSource = choices;
-            
+
         }
 
         private void LoadCategoryDescriptionComboBox()
@@ -52,7 +50,7 @@ namespace FurnitureRentals.View
                 this.CategoryDescriptionComboBox.DisplayMember = "CategoryDescription";
 
             }
-            catch (Exception )
+            catch (Exception)
             {
                 MessageBox.Show("There was a problem reaching the database. Please check the database connection.");
             }
@@ -138,7 +136,7 @@ namespace FurnitureRentals.View
         private void SearchOptionsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedValue = (string)this.SearchOptionsComboBox.SelectedValue;
-            
+
             if (selectedValue == "Serial Number")
             {
                 this.CategoryLabel.Visible = false;
@@ -166,7 +164,8 @@ namespace FurnitureRentals.View
                 this.CategoryLabel.Visible = false;
                 this.StyleLabel.Visible = true;
                 this.StyleDescriptionComboBox.Visible = true;
-            } else
+            }
+            else
             {
                 this.SerialNumberTextBox.Visible = false;
                 this.SerialNumberLabel.Visible = false;
@@ -194,7 +193,7 @@ namespace FurnitureRentals.View
 
         private bool CheckListValues(int furnitureID, List<Furniture> furnitureList)
         {
-            foreach(Furniture furniture in furnitureList)
+            foreach (Furniture furniture in furnitureList)
             {
                 if (furniture.FurnitureID == furnitureID)
                 {
@@ -205,14 +204,14 @@ namespace FurnitureRentals.View
         }
 
         private void AddButton_Click(object sender, EventArgs e)
-        { 
-            
-            
+        {
+
+
             if (this.GetSelectedFurniture().Count > 0)
             {
                 this.DialogResult = DialogResult.OK;
             }
-            
+
         }
 
         /// <summary>
@@ -222,7 +221,7 @@ namespace FurnitureRentals.View
         public void SetCurrentFurnitureList(List<Furniture> mainformFurnitureList)
         {
             this.currentFurnitureList = mainformFurnitureList;
-            
+
         }
 
         /// <summary>
@@ -236,7 +235,7 @@ namespace FurnitureRentals.View
 
         private bool DoesListIncludeFurniture(int furnitureID, List<Furniture> furnitureList)
         {
-            foreach(Furniture furniture in furnitureList)
+            foreach (Furniture furniture in furnitureList)
             {
                 if (furniture.FurnitureID == furnitureID)
                 {
@@ -258,9 +257,10 @@ namespace FurnitureRentals.View
 
                     }
                 }
-                             
-                
-            } else
+
+
+            }
+            else
             {
                 for (int index = 0; index < firstFurnitureList.Count; index++)
                     if (this.DoesListIncludeFurniture(firstFurnitureList[index].FurnitureID, secondFurnitureList))
@@ -288,16 +288,17 @@ namespace FurnitureRentals.View
             List<Furniture> selectedfurnitureList = new List<Furniture>();
             foreach (DataGridViewRow row in FurnitureDataGridView.Rows)
             {
-                if (row.Cells[5].Value != null )
+                if (row.Cells[5].Value != null)
                 {
                     row.Selected = true;
                     furnitureWithQuantities.Add((Furniture)row.DataBoundItem);
-                } else
+                }
+                else
                 {
                     row.Selected = false;
                 }
             }
-           
+
             if (this.FurnitureDataGridView.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select at least one row");
@@ -305,25 +306,23 @@ namespace FurnitureRentals.View
             else if (CompareFurnitureLists(furnitureWithQuantities, this.GetCurrentFurnitureList()))
             {
                 MessageBox.Show("List can not have same furniture item twice");
-            } else
+            }
+            else
             {
                 foreach (DataGridViewRow row in this.FurnitureDataGridView.SelectedRows)
-                { 
+                {
                     if (row.Cells[5].Value == null)
                     {
                         MessageBox.Show("Please enter a value for quantity wanted in row " + (row.Index + 1));
-
-                   
                     }
-                    
-                    
-                    else { 
-                    string serialNumber = row.Cells[0].Value.ToString();
-                    Furniture selectedFurniture = this.furnitureController.GetFurnitureBySerialNumber(serialNumber)[0];
-                    selectedFurniture.QuantityOrdered = int.Parse(row.Cells[5].Value.ToString());
-                    
-                    decimal rentalRate = this.furnitureList[row.Index].DailyRentalRate;
-                    selectedFurniture.TotalRentalCost = selectedFurniture.QuantityOrdered * rentalRate;
+                    else
+                    {
+                        string serialNumber = row.Cells[0].Value.ToString();
+                        Furniture selectedFurniture = this.furnitureController.GetFurnitureBySerialNumber(serialNumber)[0];
+                        selectedFurniture.QuantityOrdered = int.Parse(row.Cells[5].Value.ToString());
+
+                        decimal rentalRate = this.furnitureList[row.Index].DailyRentalRate;
+                        selectedFurniture.TotalRentalCost = selectedFurniture.QuantityOrdered * rentalRate;
                         selectedfurnitureList.Add(selectedFurniture);
                     }
                 }
@@ -334,30 +333,32 @@ namespace FurnitureRentals.View
         }
 
 
-        private void FurnitureDataGridView_CellValidating(object sender,
-                                          DataGridViewCellValidatingEventArgs e)
+        private void FurnitureDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             int i;
             int quantityToBeOrdered = 0;
             int quantityAvailable = 0;
-            if (FurnitureDataGridView.SelectedRows.Count > 0 && FurnitureDataGridView.Rows[FurnitureDataGridView.CurrentCell.RowIndex].Cells[5].Value != null && int.TryParse(Convert.ToString(e.FormattedValue), out i)) {
-                 quantityToBeOrdered = int.Parse(FurnitureDataGridView.Rows[FurnitureDataGridView.CurrentCell.RowIndex].Cells[5].Value.ToString());
+            if (FurnitureDataGridView.SelectedRows.Count > 0 && FurnitureDataGridView.Rows[FurnitureDataGridView.CurrentCell.RowIndex].Cells[5].Value != null && int.TryParse(Convert.ToString(e.FormattedValue), out i))
+            {
+                quantityToBeOrdered = int.Parse(FurnitureDataGridView.Rows[FurnitureDataGridView.CurrentCell.RowIndex].Cells[5].Value.ToString());
                 FurnitureDataGridView.Rows[FurnitureDataGridView.CurrentCell.RowIndex].Selected = true;
             }
 
-            if ((int.TryParse(Convert.ToString(e.FormattedValue), out i)) && (!string.IsNullOrEmpty(e.FormattedValue.ToString()))){
-                 quantityAvailable = int.Parse(FurnitureDataGridView.Rows[FurnitureDataGridView.CurrentCell.RowIndex].Cells[4].Value.ToString());
+            if ((int.TryParse(Convert.ToString(e.FormattedValue), out i)) && (!string.IsNullOrEmpty(e.FormattedValue.ToString())))
+            {
+                quantityAvailable = int.Parse(FurnitureDataGridView.Rows[FurnitureDataGridView.CurrentCell.RowIndex].Cells[4].Value.ToString());
             }
 
-            if (e.ColumnIndex == 5) 
+            if (e.ColumnIndex == 5)
             {
-               
 
-                if (string.IsNullOrEmpty(e.FormattedValue.ToString())) {
+
+                if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
+                {
 
                 }
 
-                else if (!int.TryParse(Convert.ToString(e.FormattedValue), out i) || int.Parse(Convert.ToString(e.FormattedValue)) <= 0 )
+                else if (!int.TryParse(Convert.ToString(e.FormattedValue), out i) || int.Parse(Convert.ToString(e.FormattedValue)) <= 0)
                 {
                     e.Cancel = true;
                     MessageBox.Show("Please enter an integer value greater than 0");
@@ -366,15 +367,15 @@ namespace FurnitureRentals.View
                 {
                     e.Cancel = true;
                     MessageBox.Show("You cannot order more than the amount available.");
-                } else
+                }
+                else
                 {
-                    
+
                 }
             }
         }
 
-        private void FurnitureDataGridView_CurrentCellDirtyStateChanged(object sender,
-    EventArgs e)
+        private void FurnitureDataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             if (FurnitureDataGridView.IsCurrentCellDirty)
             {
@@ -383,8 +384,6 @@ namespace FurnitureRentals.View
 
             }
         }
-
-       
     }
 }
 

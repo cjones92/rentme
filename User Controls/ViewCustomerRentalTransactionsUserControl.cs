@@ -24,12 +24,12 @@ namespace FurnitureRentals.User_Controls
         FurnitureController furnitureController;
         ReturnShoppingCartUserControl returnCart;
 
-        
+
         /// <summary>
         /// Controller
         /// </summary>
         /// <param name="returnCart"></param>
-        
+
         public ViewCustomerRentalTransactionsUserControl()
         {
             InitializeComponent();
@@ -37,7 +37,7 @@ namespace FurnitureRentals.User_Controls
             this.transactionList = new List<RentalTransaction>();
             this.furnitureController = new FurnitureController();
             this.currentEmployee = new Employee();
-            
+
 
         }
 
@@ -50,7 +50,7 @@ namespace FurnitureRentals.User_Controls
             this.currentEmployee = employee;
         }
 
-       
+
         /// <summary>
         /// Sets return cart
         /// </summary>
@@ -128,14 +128,14 @@ namespace FurnitureRentals.User_Controls
                 MessageBox.Show("There was a problem reaching the database. Please check the database connection.");
             }
 
-
         }
 
         private void RentalTransactionDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (RentalTransactionDataGridView.CurrentCell.ColumnIndex.Equals(0) && e.RowIndex != -1)
             {
-               try { 
+                try
+                {
 
                     RentalItemsFormDialog formDialog = new RentalItemsFormDialog(int.Parse(RentalTransactionDataGridView.CurrentCell.Value.ToString()), this.returnCart);
                     formDialog.SetReturnCartValues(this.returnCart.GetReturnCartItemList());

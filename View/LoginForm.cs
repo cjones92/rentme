@@ -23,8 +23,8 @@ namespace FurnitureRentals.View
         private AdminstratorController adminstratorController;
         private MainForm CurrentMainForm;
         private AdminMainFormWithUserControls CurrentAdminForm;
-       
-        
+
+
         /// <summary>
         /// Constructor for class
         /// </summary>
@@ -56,7 +56,8 @@ namespace FurnitureRentals.View
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
-        {  if (string.IsNullOrEmpty(this.UserNameTextBox.Text) || string.IsNullOrEmpty(this.PasswordMaskedTextBox.Text))
+        {
+            if (string.IsNullOrEmpty(this.UserNameTextBox.Text) || string.IsNullOrEmpty(this.PasswordMaskedTextBox.Text))
             {
                 MessageBox.Show("Please fill out both the user name and password text boxes before submitting");
             }
@@ -126,10 +127,10 @@ namespace FurnitureRentals.View
 
         private void LoginCloseButton_Click(object sender, EventArgs e)
         {
-            
-            
-                System.Windows.Forms.Application.Exit();
-            
+
+
+            System.Windows.Forms.Application.Exit();
+
         }
 
         private void UserNameTextBox_TextChanged(object sender, EventArgs e)
@@ -137,7 +138,7 @@ namespace FurnitureRentals.View
             ErrorLabel.ResetText();
         }
 
-        
+
 
         private void SignInComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -149,5 +150,5 @@ namespace FurnitureRentals.View
             ErrorLabel.ResetText();
         }
     }
-    }
+}
 

@@ -42,7 +42,7 @@ namespace FurnitureRentals.Controller
         /// <param name="employee">Employee</param>
         public Boolean RegisterEmployee(Employee employee)
         {
-            
+
             return EmployeeDBDAL.RegisterEmployee(employee);
 
         }

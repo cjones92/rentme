@@ -18,7 +18,7 @@ namespace FurnitureRentals.View
     public partial class EmployeeTableView : Form
     {
         private int selectedRowIndex = -1;
-        
+
         /// <summary>
         /// Class constructor.
         /// </summary>
@@ -54,7 +54,6 @@ namespace FurnitureRentals.View
         {
             this.DialogResult = DialogResult.OK;
         }
-
 
         private void employeeDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

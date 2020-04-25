@@ -80,7 +80,5 @@ namespace FurnitureRentals.User_Controls
                 returnTransactionDialog.ShowDialog();
             }
         }
-
-
     }
 }

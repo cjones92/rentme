@@ -21,7 +21,6 @@ namespace FurnitureRentals.DAL
         {
             List<Style> styles = new List<Style>();
 
-
             string selectStatement =
                 "SELECT style_id AS StyleID, description as Description FROM furniture_style";
 
@@ -39,17 +38,11 @@ namespace FurnitureRentals.DAL
                             Style style = new Style();
                             style.StyleID = (int)reader["StyleID"];
                             style.StyleDescription = reader["Description"].ToString();
-
-
-
                             styles.Add(style);
                         }
-
                     }
-
                 }
             }
-
 
             return styles;
         }

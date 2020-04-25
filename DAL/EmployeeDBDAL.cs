@@ -26,10 +26,7 @@ namespace FurnitureRentals.DAL
             var convertedPassword = System.Text.Encoding.UTF8.GetBytes(password);
             string encodedPassword = System.Convert.ToBase64String(convertedPassword);
 
-
-
             string selectStatement = "SELECT COUNT(*) AS Login,first_name, last_name, employee_id FROM employee WHERE username = @UserName AND password = @Password GROUP BY first_name, last_name, employee_id";
-
 
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
             {
@@ -41,24 +38,17 @@ namespace FurnitureRentals.DAL
                     selectCommand.Parameters.AddWithValue("@Password", encodedPassword);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-
-
                         while (reader.Read())
-                        {
-                            
+                        {                            
                             foundLogins = (int)reader["Login"];
                             loggedInEmployee.EmployeeID = (int)reader["employee_id"];
                             loggedInEmployee.FirstName = reader["first_name"].ToString();
-                            loggedInEmployee.LastName = reader["last_name"].ToString();
-
-                            
+                            loggedInEmployee.LastName = reader["last_name"].ToString();                            
                         }
-
                     }
-
                 }
-
             }
+
             if (foundLogins == 1)
             {
                 return loggedInEmployee;
@@ -165,7 +155,6 @@ namespace FurnitureRentals.DAL
                 "VALUES (@first_name, @middle_name, @last_name, @sex, @date_of_birth, @address1, " +
                 "@address2, @city, @state, @zipcode, @phone_number, @username, @password, @status); " +
                 "SELECT CAST(scope_identity() AS int)";
-                
 
                 connection.Open();
 
@@ -234,10 +223,6 @@ namespace FurnitureRentals.DAL
                 }
             }
         }
-
-
-
     }
-
 }
 

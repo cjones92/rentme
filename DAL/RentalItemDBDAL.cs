@@ -38,8 +38,6 @@ namespace FurnitureRentals.DAL
                     selectCommand.Parameters.AddWithValue("@RentalTransactionID", rentalItem.RentalTransactionID);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-
-
                         while (reader.Read())
                         {
                             Furniture rentedFurniture = new Furniture();
@@ -52,14 +50,9 @@ namespace FurnitureRentals.DAL
                             rentedFurniture.FurnitureStyle = reader["Style"].ToString();
                             
                             rentalItemList.Add(rentedFurniture);
-
-
                         }
-
                     }
-
                 }
-
             }
             return rentalItemList;
         }
@@ -81,21 +74,14 @@ namespace FurnitureRentals.DAL
                     selectCommand.Parameters.AddWithValue("@RentalItemID", rentalItemID);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-
-
                         while (reader.Read())
                         {
-
-
-                            rentalAmount = (int)reader["RentalQuantity"];
-                            
+                            rentalAmount = (int)reader["RentalQuantity"];                            
                         }
-
                     }
-
-                }
-               
+                }               
             }
+
             return rentalAmount; 
         }
 
@@ -116,8 +102,6 @@ namespace FurnitureRentals.DAL
                     selectCommand.Parameters.AddWithValue("@RentalItemID", rentalItemID);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-
-
                         while (reader.Read())
                         {
                             int value;
@@ -128,13 +112,9 @@ namespace FurnitureRentals.DAL
                             {
                                 returnAmount = 0;
                             }
-
                         }
-
                     }
-
                 }
-
             }
             return returnAmount;
         }

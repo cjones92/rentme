@@ -36,8 +36,8 @@ namespace FurnitureRentals.User_Controls
             this.currentCustomer = new Customer();
             this.DaysRentingTextBox.Text = "1";
             this.RentalDataGridView.EditMode = DataGridViewEditMode.EditOnKeystroke;
-            
-            
+
+
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace FurnitureRentals.User_Controls
             this.ActualIDLabel.Text = customer.CustomerId + "";
         }
 
-       private void LoadRentalDataGridView()
+        private void LoadRentalDataGridView()
         {
             try
             {
@@ -139,16 +139,16 @@ namespace FurnitureRentals.User_Controls
             }
         }
 
-        
+
 
         private void FurnitureSearchButton_Click(object sender, EventArgs e)
         {
             FurnitureSearchFormDialog furnitureSearchForm = new FurnitureSearchFormDialog();
-          
+
             DialogResult addedResult = furnitureSearchForm.ShowDialog();
             furnitureSearchForm.SetCurrentFurnitureList(furnitureList);
 
-            if (addedResult == DialogResult.OK )
+            if (addedResult == DialogResult.OK)
             {
                 List<Furniture> addedItems = furnitureSearchForm.GetSelectedFurniture();
 
@@ -156,9 +156,9 @@ namespace FurnitureRentals.User_Controls
 
                 foreach (Furniture furniture in addedItems)
                 {
-                   
+
                     furnitureList.Add(furniture);
-                    
+
                 }
                 this.LoadRentalDataGridView();
             }
@@ -167,11 +167,11 @@ namespace FurnitureRentals.User_Controls
 
         private void FillInTotal()
         {
-            
+
             decimal total = 0;
             foreach (DataGridViewRow row in RentalDataGridView.Rows)
             {
-               
+
                 total = total + decimal.Parse(row.Cells[3].Value.ToString());
             }
 
@@ -193,19 +193,22 @@ namespace FurnitureRentals.User_Controls
         }
 
         private void SubmitRentalButton_Click(object sender, EventArgs e)
-        { int value;
-                  
-            
+        {
+            int value;
+
+
             if (this.currentCustomer.CustomerId <= 0)
             {
                 MessageBox.Show("Please select a customer before adding items to the cart feature.");
-            } else if(!this.CheckRowQuantities())
+            }
+            else if (!this.CheckRowQuantities())
             {
                 MessageBox.Show("Please make sure a positive integer value is entered for all quantities");
             }
-            else if (string.IsNullOrEmpty(this.RentalTotalTextBox.Text)) {
+            else if (string.IsNullOrEmpty(this.RentalTotalTextBox.Text))
+            {
                 MessageBox.Show("Please add items to the order before submitting it.");
-            } 
+            }
             else
             {
                 SubmitTransactionDialog confirmTransactionForm = new SubmitTransactionDialog();
@@ -227,28 +230,33 @@ namespace FurnitureRentals.User_Controls
                     MessageBox.Show("The transaction was successfully processed");
                     furnitureList.Clear();
                     this.LoadRentalDataGridView();
-                } else
+                }
+                else
                 {
                     MessageBox.Show("The transaction was not successfully processed. Please check all values to ensure that a transaction can be successful.");
                 }
             }
-            
+
         }
 
         private void DaysRentingTextBox_TextChanged(object sender, EventArgs e)
         {
-           
+
             int value;
-            if (!string.IsNullOrEmpty(this.DaysRentingTextBox.Text) && int.TryParse(this.DaysRentingTextBox.Text, out value) && int.Parse(this.DaysRentingTextBox.Text) > 0 && this.DaysRentingTextBox.Text.Length > 0) {
-                
-                this.LoadRentalDataGridView();
-           } else if (!int.TryParse(this.DaysRentingTextBox.Text, out value) && this.DaysRentingTextBox.Text.Length > 0)
+            if (!string.IsNullOrEmpty(this.DaysRentingTextBox.Text) && int.TryParse(this.DaysRentingTextBox.Text, out value) && int.Parse(this.DaysRentingTextBox.Text) > 0 && this.DaysRentingTextBox.Text.Length > 0)
             {
-                
-                if (int.TryParse(this.DaysRentingTextBox.Text, out value) && int.Parse(this.DaysRentingTextBox.Text) <= 0) {
+
+                this.LoadRentalDataGridView();
+            }
+            else if (!int.TryParse(this.DaysRentingTextBox.Text, out value) && this.DaysRentingTextBox.Text.Length > 0)
+            {
+
+                if (int.TryParse(this.DaysRentingTextBox.Text, out value) && int.Parse(this.DaysRentingTextBox.Text) <= 0)
+                {
                     MessageBox.Show("Please only enter positive integers.");
                     this.DaysRentingTextBox.Text = "1";
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Please enter positive integers for the number of days rented");
                     this.DaysRentingTextBox.Text = "1";
@@ -261,9 +269,10 @@ namespace FurnitureRentals.User_Controls
             if (RentalDataGridView.CurrentCell.ColumnIndex.Equals(4) && e.RowIndex != -1)
             {
                 furnitureList.RemoveAt(RentalDataGridView.CurrentCell.RowIndex);
-                
+
                 this.LoadRentalDataGridView();
-            } else if (RentalDataGridView.CurrentCell.ColumnIndex.Equals(2) && e.RowIndex != -1)
+            }
+            else if (RentalDataGridView.CurrentCell.ColumnIndex.Equals(2) && e.RowIndex != -1)
             {
 
                 RentalDataGridView.Rows[RentalDataGridView.CurrentCell.RowIndex].Selected = true;
@@ -308,15 +317,15 @@ namespace FurnitureRentals.User_Controls
 
                 else if (!int.TryParse(Convert.ToString(e.FormattedValue), out i))
                 {
-                    
+
                     MessageBox.Show("Please enter a numeric value");
                     furnitureList[RentalDataGridView.CurrentCell.RowIndex].QuantityOrdered = furnitureList[RentalDataGridView.CurrentCell.RowIndex].QuantityOrdered;
                     e.Cancel = false;
                 }
-                 
+
                 else if (quantityToBeOrdered > quantityAvailable)
                 {
-                    
+
                     MessageBox.Show("You cannot order more than the amount available.");
                     furnitureList[RentalDataGridView.CurrentCell.RowIndex].QuantityOrdered = furnitureList[RentalDataGridView.CurrentCell.RowIndex].QuantityOrdered;
                     e.Cancel = false;
@@ -324,8 +333,8 @@ namespace FurnitureRentals.User_Controls
                 else
                 {
                     furnitureList[RentalDataGridView.CurrentCell.RowIndex].QuantityOrdered = quantityToBeOrdered;
-                    
-                    
+
+
                 }
             }
         }
@@ -334,18 +343,17 @@ namespace FurnitureRentals.User_Controls
         {
             if (!char.IsDigit(e.KeyChar)) e.Handled = true;         //Just Digits
             if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
-                        
+
         }
 
-        private void RentalDataGridView_CurrentCellDirtyStateChanged(object sender,
-    EventArgs e)
+        private void RentalDataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             if (RentalDataGridView.IsCurrentCellDirty)
             {
-                
+
                 RentalDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
                 RentalDataGridView.EndEdit();
-               
+
 
 
             }
@@ -354,7 +362,7 @@ namespace FurnitureRentals.User_Controls
         private void RentalDataGridView_CellValidated(object sender, DataGridViewCellEventArgs e)
         {
             int value;
-            
+
             if (!RentalDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected)
             {
                 return;
@@ -370,13 +378,13 @@ namespace FurnitureRentals.User_Controls
 
                 this.LoadRentalDataGridView();
             }
-            
+
         }
 
         private void RentalDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             int value = 0;
-            if(RentalDataGridView.IsCurrentCellDirty && RentalDataGridView.CurrentCell.Value != null && int.TryParse(RentalDataGridView.CurrentCell.Value.ToString(), out value) && int.Parse(RentalDataGridView.CurrentCell.Value.ToString()) > 0)
+            if (RentalDataGridView.IsCurrentCellDirty && RentalDataGridView.CurrentCell.Value != null && int.TryParse(RentalDataGridView.CurrentCell.Value.ToString(), out value) && int.Parse(RentalDataGridView.CurrentCell.Value.ToString()) > 0)
             {
                 this.LoadRentalDataGridView();
             }

@@ -81,8 +81,6 @@ namespace FurnitureRentals.DAL
                     selectCommand.Parameters.AddWithValue("@SerialNumber", chosenFurniture.SerialNumber);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-
-
                         while (reader.Read())
                         {
                             chosenFurniture.FurnitureID = (int)reader["FurnitureID"];
@@ -92,13 +90,9 @@ namespace FurnitureRentals.DAL
                             chosenFurniture.Quantity = (int)reader["Total Available"];
                             chosenFurniture.DailyRentalRate = (decimal)reader["Daily Rental Rate"];
                             furnitureList.Add(chosenFurniture);
-
                         }
-
                     }
-
                 }
-
             }
             return furnitureList;
         }
@@ -130,8 +124,6 @@ namespace FurnitureRentals.DAL
                     selectCommand.Parameters.AddWithValue("@CategoryID", chosenFurniture.CategoryID);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-
-
                         while (reader.Read())
                         {
                             Furniture furniture = new Furniture();
@@ -141,15 +133,10 @@ namespace FurnitureRentals.DAL
                             furniture.FurnitureStyle = reader["Style"].ToString();
                             furniture.Quantity = (int)reader["Total Available"];
                             furniture.DailyRentalRate = (decimal)reader["Daily Rental Rate"];
-
                             furnitureList.Add(furniture);
-
                         }
-
                     }
-
                 }
-
             }
             return furnitureList;
         }
@@ -179,8 +166,6 @@ namespace FurnitureRentals.DAL
                     selectCommand.Parameters.AddWithValue("@StyleID", chosenFurniture.StyleID);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-
-
                         while (reader.Read())
                         {
                             Furniture furniture = new Furniture();
@@ -190,15 +175,10 @@ namespace FurnitureRentals.DAL
                             furniture.FurnitureStyle = reader["Style"].ToString();
                             furniture.Quantity = (int)reader["Total Available"];
                             furniture.DailyRentalRate = (decimal)reader["Daily Rental Rate"];
-
                             furnitureList.Add(furniture);
-
                         }
-
                     }
-
                 }
-
             }
             return furnitureList;
         }

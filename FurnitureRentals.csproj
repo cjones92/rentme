@@ -78,7 +78,6 @@
     <Compile Include="DAL\FurnitureDBDAL.cs" />
     <Compile Include="DAL\FurnitureRentalsDBConnection.cs" />
     <Compile Include="DAL\RentalItemDBDAL.cs" />
-    <Compile Include="DAL\ReturnItemDBDAL.cs" />
     <Compile Include="DAL\ReturnTransactionDBDAL.cs" />
     <Compile Include="DAL\RentalTransactionDBDAL.cs" />
     <Compile Include="DAL\StyleDBDAL.cs" />

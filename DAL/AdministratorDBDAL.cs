@@ -26,10 +26,9 @@ namespace FurnitureRentals.DAL
             var convertedPassword = System.Text.Encoding.UTF8.GetBytes(password);
             string encodedPassword = System.Convert.ToBase64String(convertedPassword);
 
-
-
-            string selectStatement = "SELECT COUNT(*) AS Login, first_name, last_name, admin_id FROM administrator WHERE username = @UserName AND password = @Password GROUP BY first_name, last_name, admin_id";
-
+            string selectStatement = "SELECT COUNT(*) AS Login, first_name, last_name, admin_id " +
+                "FROM administrator WHERE username = @UserName AND password = @Password " +
+                "GROUP BY first_name, last_name, admin_id";
 
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
             {
@@ -41,7 +40,6 @@ namespace FurnitureRentals.DAL
                     selectCommand.Parameters.AddWithValue("@Password", encodedPassword);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-
                         while (reader.Read())
                         {
                             foundLogins = (int)reader["Login"];
@@ -49,12 +47,10 @@ namespace FurnitureRentals.DAL
                             loggedInAdministrator.FirstName = reader["first_name"].ToString();
                             loggedInAdministrator.LastName = reader["last_name"].ToString();
                         }
-
                     }
-
                 }
-
             }
+
             if (foundLogins == 1)
             {
                 return loggedInAdministrator;

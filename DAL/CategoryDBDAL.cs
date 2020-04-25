@@ -39,17 +39,11 @@ namespace FurnitureRentals.DAL
                             Category category = new Category();
                             category.CategoryID = (int)reader["CategoryID"];
                             category.CategoryDescription = reader["Description"].ToString();
-
-
-
                             categories.Add(category);
                         }
-
                     }
-
                 }
             }
-
 
             return categories;
         }

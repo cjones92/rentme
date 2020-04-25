@@ -50,7 +50,7 @@ namespace FurnitureRentals
         /// Sets the user name
         /// </summary>
         /// <param name="name">name</param>
-         public void SetUserNameText(string name)
+        public void SetUserNameText(string name)
         {
             if (name == null)
             {
@@ -118,7 +118,7 @@ namespace FurnitureRentals
             this.returnShoppingCartUserControl1.SetCurrentCustomer(this.loggedInEmployee.EmployeeID, this.manageCustomerUserControl1.GetCurrentCustomer());
         }
 
-       
+
 
     }
 

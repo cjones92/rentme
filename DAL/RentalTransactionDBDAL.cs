@@ -52,7 +52,6 @@ namespace FurnitureRentals.DAL
 
                     transaction.RentalID = Convert.ToInt32(insertTransactionCommand.ExecuteScalar());
 
-
                     if (transaction.RentalID <= 0)
                     {
                         rentalTransaction.Rollback();
@@ -70,8 +69,6 @@ namespace FurnitureRentals.DAL
                         updateInventoryCommand.Parameters.AddWithValue("@QuantityOrdered", furnitureList[index].QuantityOrdered);
                         updateInventoryCommand.Parameters.AddWithValue("@FurnitureID", furnitureList[index].FurnitureID);
 
-
-
                         int count = updateInventoryCommand.ExecuteNonQuery();
 
                         if (count <= 0)
@@ -87,29 +84,18 @@ namespace FurnitureRentals.DAL
                         insertItemCommand.Parameters.AddWithValue("@FurnitureID", furnitureList[index].FurnitureID);
                         insertItemCommand.Parameters.AddWithValue("@QuantityOrdered", furnitureList[index].QuantityOrdered);
 
-
-
-
-
                         furnitureList[index].RentalItemID = Convert.ToInt32(insertItemCommand.ExecuteScalar());
                         addedFurnitureItems.Add(furnitureList[index]);
                         if (addedFurnitureItems.Count <= 0)
                         {
-
                             rentalTransaction.Rollback();
                             return false;
                         }
-
                     }
                 }
                 rentalTransaction.Commit();
                 return true;
-
-
             }
-
-
-
         }
 
         /// <summary>
@@ -146,12 +132,10 @@ namespace FurnitureRentals.DAL
                             newTransaction.Status = reader["Status"].ToString();
                             transactionList.Add(newTransaction);
                         }
-
                     }
-
                 }
-
             }
+
             return transactionList;
         }
 

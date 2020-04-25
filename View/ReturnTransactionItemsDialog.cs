@@ -37,7 +37,7 @@ namespace FurnitureRentals.View
             dgReturnItems.AutoResizeRows();
             dgReturnItems.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgReturnItems.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            
+
             this.lblCustomerName.Text = customer.FirstName + " " + customer.LastName;
             this.lblMemberId.Text = customer.CustomerId + "";
 
@@ -47,7 +47,7 @@ namespace FurnitureRentals.View
 
         private void RefreshGrid(int transactionID)
         {
-            List<ReturnItemView> returnItemList =  this.returnTransactionController.GetAllReturnItems(transactionID);
+            List<ReturnItemView> returnItemList = this.returnTransactionController.GetAllReturnItems(transactionID);
             this.rentalTransactionViewBindingSource.DataSource = returnItemList;
 
             /*
