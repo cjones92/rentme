@@ -352,7 +352,7 @@ namespace FurnitureRentals.User_Controls
             {
 
                 RentalDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
-                RentalDataGridView.EndEdit();
+                
 
 
 
@@ -386,7 +386,7 @@ namespace FurnitureRentals.User_Controls
             int value = 0;
             if (RentalDataGridView.IsCurrentCellDirty && RentalDataGridView.CurrentCell.Value != null && int.TryParse(RentalDataGridView.CurrentCell.Value.ToString(), out value) && int.Parse(RentalDataGridView.CurrentCell.Value.ToString()) > 0)
             {
-                this.LoadRentalDataGridView();
+                //this.LoadRentalDataGridView();
             }
         }
     }
