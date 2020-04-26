@@ -150,9 +150,9 @@ namespace FurnitureRentals.User_Controls
         {
             FurnitureSearchFormDialog furnitureSearchForm = new FurnitureSearchFormDialog();
             furnitureSearchForm.StartPosition = FormStartPosition.CenterParent;
-
-            DialogResult addedResult = furnitureSearchForm.ShowDialog();
             furnitureSearchForm.SetCurrentFurnitureList(furnitureList);
+            DialogResult addedResult = furnitureSearchForm.ShowDialog();
+            
 
             if (addedResult == DialogResult.OK)
             {
