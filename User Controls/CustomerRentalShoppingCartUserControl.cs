@@ -267,7 +267,7 @@ namespace FurnitureRentals.User_Controls
 
         private void RentalDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (RentalDataGridView.CurrentCell.ColumnIndex.Equals(4) && e.RowIndex != -1)
+            if (RentalDataGridView.CurrentCell.ColumnIndex.Equals(5) && e.RowIndex != -1)
             {
                 furnitureList.RemoveAt(RentalDataGridView.CurrentCell.RowIndex);
 
