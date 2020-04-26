@@ -39,6 +39,15 @@ namespace FurnitureRentals.View
             this.rentalItemList = this.furnitureController.GetRentalItemByTransactionID(this.transactionID);
             this.returnItemList = new List<Furniture>();
             this.returnCart = returnShoppingCart;
+
+            this.RentalItemDataGridView.AllowUserToAddRows = false;
+            this.RentalItemDataGridView.RowHeadersVisible = false;
+            this.RentalItemDataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
+            this.RentalItemDataGridView.AutoResizeColumns();
+            this.RentalItemDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            this.RentalItemDataGridView.AutoResizeRows();
+            this.RentalItemDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            this.RentalItemDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         /// <summary>
@@ -72,10 +81,7 @@ namespace FurnitureRentals.View
                     {
                         if (returnedfurniture.FurnitureID == furniture.FurnitureID)
                         {
-
                             furniture.QuantityBeingReturned = returnedfurniture.Quantity;
-
-
                         }
                     }
                 }
@@ -92,17 +98,12 @@ namespace FurnitureRentals.View
         {
             try
             {
-
                 RentalItemDataGridView.AllowUserToAddRows = false;
                 RentalItemDataGridView.RowHeadersVisible = false;
                 RentalItemDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-
-
-
                 foreach (Furniture furniture in this.rentalItemList)
                 {
-
                     furniture.QuantityAlreadyReturned = this.furnitureController.GetQuantityReturned(furniture.RentalItemID);
                 }
 
@@ -115,6 +116,7 @@ namespace FurnitureRentals.View
 
                 }
 
+                /*
                 RentalItemDataGridView.AutoResizeColumns();
                 RentalItemDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 RentalItemDataGridView.AutoResizeRows();
@@ -128,7 +130,7 @@ namespace FurnitureRentals.View
                     width += column.Width;
                 }
                 RentalItemDataGridView.Width = width;
-
+                */
             }
             catch (Exception)
             {

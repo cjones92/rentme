@@ -130,7 +130,7 @@
             // 
             // viewCustomerRentalTransactionsUserControl2
             // 
-            this.viewCustomerRentalTransactionsUserControl2.Location = new System.Drawing.Point(43, 4);
+            this.viewCustomerRentalTransactionsUserControl2.Location = new System.Drawing.Point(5, 5);
             this.viewCustomerRentalTransactionsUserControl2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.viewCustomerRentalTransactionsUserControl2.Name = "viewCustomerRentalTransactionsUserControl2";
             this.viewCustomerRentalTransactionsUserControl2.Size = new System.Drawing.Size(948, 463);
