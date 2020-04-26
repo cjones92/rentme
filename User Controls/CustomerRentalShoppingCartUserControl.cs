@@ -229,10 +229,18 @@ namespace FurnitureRentals.User_Controls
                     transaction.CheckedOutByID = this.currentEmployee.EmployeeID;
 
                     transaction.Status = "Pending";
-                    this.rentalTransactionController.EnterRentalTransaction(transaction, furnitureList);
-                    MessageBox.Show("The transaction " + "(ID: " + transaction.RentalID + ") was successfully processed");
-                    furnitureList.Clear();
-                    this.LoadRentalDataGridView();
+                    bool successfulTransaction = this.rentalTransactionController.EnterRentalTransaction(transaction, furnitureList);
+
+                    if (!successfulTransaction)
+                    {
+                        MessageBox.Show("The transaction was not successfully processed. Please check all values to ensure that a transaction can be successful.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The transaction " + "(ID: " + transaction.RentalID + ") was successfully processed");
+                        furnitureList.Clear();
+                        this.LoadRentalDataGridView();
+                    }
                 }
                 else
                 {
