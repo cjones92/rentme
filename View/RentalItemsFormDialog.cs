@@ -70,7 +70,7 @@ namespace FurnitureRentals.View
                 {
                     foreach (ReturnCart returnedfurniture in list)
                     {
-                        if (returnedfurniture.FurnitureID == furniture.FurnitureID)
+                        if (returnedfurniture.FurnitureID == furniture.FurnitureID && returnedfurniture.RentalID == furniture.RentalTransactionID)
                         {
 
                             furniture.QuantityBeingReturned = returnedfurniture.Quantity;

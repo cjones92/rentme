@@ -29,6 +29,8 @@ namespace FurnitureRentals.View
             this.currentFurnitureList = new List<Furniture>();
         }
 
+        
+
         private void LoadSearchOptionsComboBox()
         {
             List<string> choices = new List<string> { "Select Search Style:", "Serial Number", "Category", "Style" };
@@ -89,8 +91,10 @@ namespace FurnitureRentals.View
                 if (searchChoice == "Serial Number" && this.SerialNumberTextBox.TextLength > 3)
                 {
 
-                    furnitureList = this.furnitureController.GetFurnitureBySerialNumber(this.SerialNumberTextBox.Text);
-                    furnitureBindingSource.DataSource = furnitureList;
+                    this.furnitureList = this.furnitureController.GetFurnitureBySerialNumber(this.SerialNumberTextBox.Text);
+                    this.RemoveItemsInCartFromSearch();
+                    
+                    furnitureBindingSource.DataSource = this.furnitureList;
                     if (furnitureList.Count == 0)
                     {
                         MessageBox.Show("There are no items matching this serial number");
@@ -99,8 +103,9 @@ namespace FurnitureRentals.View
                 }
                 else if ((searchChoice == "Category") && (this.CategoryDescriptionComboBox.SelectedIndex > -1))
                 {
-                    furnitureList = this.furnitureController.GetFurnitureByCategory((int.Parse(this.CategoryDescriptionComboBox.SelectedValue.ToString())));
-                    furnitureBindingSource.DataSource = furnitureList;
+                    this.furnitureList = this.furnitureController.GetFurnitureByCategory((int.Parse(this.CategoryDescriptionComboBox.SelectedValue.ToString())));
+                    this.RemoveItemsInCartFromSearch();
+                    furnitureBindingSource.DataSource = this.furnitureList;
                     if (furnitureList.Count == 0 && this.CategoryDescriptionComboBox.SelectedIndex != 0)
                     {
                         this.CategoryDescriptionComboBox.SelectedIndex = 0;
@@ -111,8 +116,9 @@ namespace FurnitureRentals.View
                 else if (searchChoice == "Style" && this.StyleDescriptionComboBox.SelectedIndex > -1)
                 {
 
-                    furnitureList = this.furnitureController.GetFurnitureByStyleID(int.Parse(this.StyleDescriptionComboBox.SelectedValue.ToString()));
-                    furnitureBindingSource.DataSource = furnitureList;
+                    this.furnitureList = this.furnitureController.GetFurnitureByStyleID(int.Parse(this.StyleDescriptionComboBox.SelectedValue.ToString()));
+                    this.RemoveItemsInCartFromSearch();
+                    furnitureBindingSource.DataSource = this.furnitureList;
 
                     if (furnitureList.Count == 0 && this.StyleDescriptionComboBox.SelectedIndex != 0)
                     {
@@ -222,6 +228,19 @@ namespace FurnitureRentals.View
         {
             this.currentFurnitureList = mainformFurnitureList;
 
+        }
+
+        private void RemoveItemsInCartFromSearch()
+        {
+            foreach (Furniture furniture in this.GetCurrentFurnitureList())
+            {
+                
+                if (this.DoesListIncludeFurniture(furniture.FurnitureID, this.furnitureList))
+                {
+                   
+                    this.furnitureList.RemoveAll(Furniture => Furniture.FurnitureID == furniture.FurnitureID);
+                }
+            }
         }
 
         /// <summary>
@@ -365,8 +384,9 @@ namespace FurnitureRentals.View
                 }
                 else if (quantityToBeOrdered > quantityAvailable)
                 {
-                    e.Cancel = true;
                     MessageBox.Show("You cannot order more than the amount available.");
+                    e.Cancel = true;
+                    
                 }
                 else
                 {
