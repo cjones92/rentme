@@ -37,7 +37,14 @@ namespace FurnitureRentals.User_Controls
             this.DaysRentingTextBox.Text = "1";
             this.RentalDataGridView.EditMode = DataGridViewEditMode.EditOnKeystroke;
 
-
+            this.RentalDataGridView.AllowUserToAddRows = false;
+            this.RentalDataGridView.RowHeadersVisible = false;
+            this.RentalDataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
+            this.RentalDataGridView.AutoResizeColumns();
+            this.RentalDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            this.RentalDataGridView.AutoResizeRows();
+            this.RentalDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            this.RentalDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         /// <summary>
@@ -70,13 +77,9 @@ namespace FurnitureRentals.User_Controls
                 }
                 else
                 {
-
                     RentalDataGridView.AutoGenerateColumns = false;
                     RentalDataGridView.AllowUserToAddRows = false;
                     RentalDataGridView.RowHeadersVisible = false;
-
-
-
 
                     var furnitureBindingList = new BindingList<Furniture>(furnitureList);
                     furnitureBindingList.AllowEdit = true;
@@ -95,18 +98,19 @@ namespace FurnitureRentals.User_Controls
                         row.Cells[2].Value = furnitureBindingList[row.Index].QuantityOrdered;
                         row.Cells[3].Value = furnitureBindingList[row.Index].QuantityOrdered * furnitureBindingList[row.Index].DailyRentalRate * int.Parse(this.DaysRentingTextBox.Text);
                     }
-                    RentalDataGridView.AutoResizeColumns();
-                    RentalDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                    RentalDataGridView.AutoResizeRows();
-                    RentalDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-                    int width = 0;
+                    //RentalDataGridView.AutoResizeColumns();
+                    //RentalDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    //RentalDataGridView.AutoResizeRows();
+                    //RentalDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-                    foreach (DataGridViewColumn column in RentalDataGridView.Columns)
-                    {
-                        width += column.Width;
-                    }
-                    RentalDataGridView.Width = width;
+                    //int width = 0;
+                    //foreach (DataGridViewColumn column in RentalDataGridView.Columns)
+                    //{
+                    //    width += column.Width;
+                    //}
+                    //RentalDataGridView.Width = width;
+
                     this.FillInTotal();
                     foreach (Furniture furniture in furnitureList)
                     {
@@ -144,6 +148,7 @@ namespace FurnitureRentals.User_Controls
         private void FurnitureSearchButton_Click(object sender, EventArgs e)
         {
             FurnitureSearchFormDialog furnitureSearchForm = new FurnitureSearchFormDialog();
+            furnitureSearchForm.StartPosition = FormStartPosition.CenterParent;
 
             DialogResult addedResult = furnitureSearchForm.ShowDialog();
             furnitureSearchForm.SetCurrentFurnitureList(furnitureList);
@@ -346,7 +351,7 @@ namespace FurnitureRentals.User_Controls
 
         }
 
-        
+
 
         private void RentalDataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
@@ -354,7 +359,7 @@ namespace FurnitureRentals.User_Controls
             {
 
                 RentalDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
-                
+
 
 
 
