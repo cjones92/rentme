@@ -33,6 +33,12 @@
             this.RentalTotalTextBox = new System.Windows.Forms.TextBox();
             this.TotalLabel = new System.Windows.Forms.Label();
             this.RentalDataGridView = new System.Windows.Forms.DataGridView();
+            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Style = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuantityAvailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewLinkColumn();
             this.SubmitRentalButton = new System.Windows.Forms.Button();
             this.CustomerName = new System.Windows.Forms.Label();
             this.MemberIDLabel = new System.Windows.Forms.Label();
@@ -40,12 +46,6 @@
             this.ActualIDLabel = new System.Windows.Forms.Label();
             this.DaysRentingTextBox = new System.Windows.Forms.TextBox();
             this.DaysRentingLabel = new System.Windows.Forms.Label();
-            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Style = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuantityAvailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remove = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.RentalDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,6 +76,7 @@
             this.RentalTotalTextBox.Font = new System.Drawing.Font("Calibri", 10.2F);
             this.RentalTotalTextBox.Location = new System.Drawing.Point(499, 344);
             this.RentalTotalTextBox.Name = "RentalTotalTextBox";
+            this.RentalTotalTextBox.ReadOnly = true;
             this.RentalTotalTextBox.Size = new System.Drawing.Size(100, 24);
             this.RentalTotalTextBox.TabIndex = 2;
             // 
@@ -110,6 +111,58 @@
             this.RentalDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.RentalDataGridView_CellValidating);
             this.RentalDataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.RentalDataGridView_CurrentCellDirtyStateChanged);
             this.RentalDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RentalDataGridView_KeyDown);
+            // 
+            // Item
+            // 
+            this.Item.DataPropertyName = "Item";
+            this.Item.HeaderText = "Item";
+            this.Item.MinimumWidth = 6;
+            this.Item.Name = "Item";
+            this.Item.ReadOnly = true;
+            this.Item.Width = 125;
+            // 
+            // Style
+            // 
+            this.Style.DataPropertyName = "Style";
+            this.Style.HeaderText = "Style";
+            this.Style.MinimumWidth = 6;
+            this.Style.Name = "Style";
+            this.Style.ReadOnly = true;
+            this.Style.Width = 150;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity Ordering";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Width = 125;
+            // 
+            // QuantityAvailable
+            // 
+            this.QuantityAvailable.DataPropertyName = "QuantityAvailable";
+            this.QuantityAvailable.HeaderText = "Quantity In Stock";
+            this.QuantityAvailable.Name = "QuantityAvailable";
+            this.QuantityAvailable.ReadOnly = true;
+            // 
+            // TotalCost
+            // 
+            this.TotalCost.HeaderText = "Total Cost";
+            this.TotalCost.MinimumWidth = 6;
+            this.TotalCost.Name = "TotalCost";
+            this.TotalCost.ReadOnly = true;
+            this.TotalCost.Width = 125;
+            // 
+            // Remove
+            // 
+            this.Remove.DataPropertyName = "Remove";
+            this.Remove.HeaderText = "Remove";
+            this.Remove.MinimumWidth = 6;
+            this.Remove.Name = "Remove";
+            this.Remove.ReadOnly = true;
+            this.Remove.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Remove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Remove.Text = "X";
+            this.Remove.Width = 125;
             // 
             // SubmitRentalButton
             // 
@@ -181,58 +234,6 @@
             this.DaysRentingLabel.Size = new System.Drawing.Size(146, 17);
             this.DaysRentingLabel.TabIndex = 11;
             this.DaysRentingLabel.Text = "Number of Days Rented:";
-            // 
-            // Item
-            // 
-            this.Item.DataPropertyName = "Item";
-            this.Item.HeaderText = "Item";
-            this.Item.MinimumWidth = 6;
-            this.Item.Name = "Item";
-            this.Item.ReadOnly = true;
-            this.Item.Width = 125;
-            // 
-            // Style
-            // 
-            this.Style.DataPropertyName = "Style";
-            this.Style.HeaderText = "Style";
-            this.Style.MinimumWidth = 6;
-            this.Style.Name = "Style";
-            this.Style.ReadOnly = true;
-            this.Style.Width = 150;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity Ordering";
-            this.Quantity.MinimumWidth = 6;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.Width = 125;
-            // 
-            // QuantityAvailable
-            // 
-            this.QuantityAvailable.DataPropertyName = "QuantityAvailable";
-            this.QuantityAvailable.HeaderText = "Quantity In Stock";
-            this.QuantityAvailable.Name = "QuantityAvailable";
-            this.QuantityAvailable.ReadOnly = true;
-            // 
-            // TotalCost
-            // 
-            this.TotalCost.HeaderText = "Total Cost";
-            this.TotalCost.MinimumWidth = 6;
-            this.TotalCost.Name = "TotalCost";
-            this.TotalCost.ReadOnly = true;
-            this.TotalCost.Width = 125;
-            // 
-            // Remove
-            // 
-            this.Remove.DataPropertyName = "Remove";
-            this.Remove.HeaderText = "Remove";
-            this.Remove.MinimumWidth = 6;
-            this.Remove.Name = "Remove";
-            this.Remove.ReadOnly = true;
-            this.Remove.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Remove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Remove.Text = "X";
-            this.Remove.Width = 125;
             // 
             // CustomerRentalShoppingCartUserControl
             // 
