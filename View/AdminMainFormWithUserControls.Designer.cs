@@ -49,21 +49,21 @@
             this.tbCtrlAdminForm.Controls.Add(this.tbPgEmployee);
             this.tbCtrlAdminForm.Controls.Add(this.tbPgReport);
             this.tbCtrlAdminForm.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbCtrlAdminForm.Location = new System.Drawing.Point(0, 34);
-            this.tbCtrlAdminForm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbCtrlAdminForm.Location = new System.Drawing.Point(0, 42);
+            this.tbCtrlAdminForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbCtrlAdminForm.Name = "tbCtrlAdminForm";
             this.tbCtrlAdminForm.SelectedIndex = 0;
-            this.tbCtrlAdminForm.Size = new System.Drawing.Size(772, 562);
+            this.tbCtrlAdminForm.Size = new System.Drawing.Size(1029, 692);
             this.tbCtrlAdminForm.TabIndex = 0;
             // 
             // tbPgEmployee
             // 
             this.tbPgEmployee.Controls.Add(this.manageEmployeeUserControl1);
-            this.tbPgEmployee.Location = new System.Drawing.Point(4, 22);
-            this.tbPgEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPgEmployee.Location = new System.Drawing.Point(4, 25);
+            this.tbPgEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPgEmployee.Name = "tbPgEmployee";
-            this.tbPgEmployee.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbPgEmployee.Size = new System.Drawing.Size(764, 536);
+            this.tbPgEmployee.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPgEmployee.Size = new System.Drawing.Size(1021, 663);
             this.tbPgEmployee.TabIndex = 0;
             this.tbPgEmployee.Text = "Employee";
             this.tbPgEmployee.UseVisualStyleBackColor = true;
@@ -71,11 +71,11 @@
             // tbPgReport
             // 
             this.tbPgReport.Controls.Add(this.reportUserControl1);
-            this.tbPgReport.Location = new System.Drawing.Point(4, 22);
-            this.tbPgReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPgReport.Location = new System.Drawing.Point(4, 25);
+            this.tbPgReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPgReport.Name = "tbPgReport";
-            this.tbPgReport.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbPgReport.Size = new System.Drawing.Size(764, 523);
+            this.tbPgReport.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPgReport.Size = new System.Drawing.Size(1021, 663);
             this.tbPgReport.TabIndex = 1;
             this.tbPgReport.Text = "Report";
             this.tbPgReport.UseVisualStyleBackColor = true;
@@ -83,18 +83,20 @@
             // UserLoggedInLabel
             // 
             this.UserLoggedInLabel.AutoSize = true;
-            this.UserLoggedInLabel.Location = new System.Drawing.Point(533, 9);
+            this.UserLoggedInLabel.Location = new System.Drawing.Point(711, 11);
+            this.UserLoggedInLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.UserLoggedInLabel.Name = "UserLoggedInLabel";
-            this.UserLoggedInLabel.Size = new System.Drawing.Size(76, 13);
+            this.UserLoggedInLabel.Size = new System.Drawing.Size(99, 17);
             this.UserLoggedInLabel.TabIndex = 1;
             this.UserLoggedInLabel.Text = "Logged In As: ";
             // 
             // LogoutLinkLabel
             // 
             this.LogoutLinkLabel.AutoSize = true;
-            this.LogoutLinkLabel.Location = new System.Drawing.Point(533, 34);
+            this.LogoutLinkLabel.Location = new System.Drawing.Point(711, 42);
+            this.LogoutLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LogoutLinkLabel.Name = "LogoutLinkLabel";
-            this.LogoutLinkLabel.Size = new System.Drawing.Size(45, 13);
+            this.LogoutLinkLabel.Size = new System.Drawing.Size(59, 17);
             this.LogoutLinkLabel.TabIndex = 3;
             this.LogoutLinkLabel.TabStop = true;
             this.LogoutLinkLabel.Text = "Log Out";
@@ -103,60 +105,63 @@
             // LoggedInLabel
             // 
             this.LoggedInLabel.AutoSize = true;
-            this.LoggedInLabel.Location = new System.Drawing.Point(675, 22);
+            this.LoggedInLabel.Location = new System.Drawing.Point(900, 27);
+            this.LoggedInLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LoggedInLabel.Name = "LoggedInLabel";
-            this.LoggedInLabel.Size = new System.Drawing.Size(75, 13);
+            this.LoggedInLabel.Size = new System.Drawing.Size(97, 17);
             this.LoggedInLabel.TabIndex = 2;
             this.LoggedInLabel.Text = "Not Logged In";
             // 
             // FullNameLabel
             // 
             this.FullNameLabel.AutoSize = true;
-            this.FullNameLabel.Location = new System.Drawing.Point(640, 22);
+            this.FullNameLabel.Location = new System.Drawing.Point(853, 27);
+            this.FullNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FullNameLabel.Name = "FullNameLabel";
-            this.FullNameLabel.Size = new System.Drawing.Size(38, 13);
+            this.FullNameLabel.Size = new System.Drawing.Size(49, 17);
             this.FullNameLabel.TabIndex = 4;
             this.FullNameLabel.Text = "Name:";
             // 
             // UserNameLabel
             // 
             this.UserNameLabel.AutoSize = true;
-            this.UserNameLabel.Location = new System.Drawing.Point(615, 9);
+            this.UserNameLabel.Location = new System.Drawing.Point(820, 11);
+            this.UserNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.UserNameLabel.Name = "UserNameLabel";
-            this.UserNameLabel.Size = new System.Drawing.Size(63, 13);
+            this.UserNameLabel.Size = new System.Drawing.Size(83, 17);
             this.UserNameLabel.TabIndex = 5;
             this.UserNameLabel.Text = "User Name:";
             // 
             // ActualUserName
             // 
             this.ActualUserName.AutoSize = true;
-            this.ActualUserName.Location = new System.Drawing.Point(675, 9);
+            this.ActualUserName.Location = new System.Drawing.Point(900, 11);
+            this.ActualUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ActualUserName.Name = "ActualUserName";
-            this.ActualUserName.Size = new System.Drawing.Size(75, 13);
+            this.ActualUserName.Size = new System.Drawing.Size(97, 17);
             this.ActualUserName.TabIndex = 6;
             this.ActualUserName.Text = "Not Logged In";
             // 
             // manageEmployeeUserControl1
             // 
-            this.manageEmployeeUserControl1.Location = new System.Drawing.Point(-4, 0);
-            this.manageEmployeeUserControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.manageEmployeeUserControl1.Location = new System.Drawing.Point(-5, 0);
+            this.manageEmployeeUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.manageEmployeeUserControl1.Name = "manageEmployeeUserControl1";
-            this.manageEmployeeUserControl1.Size = new System.Drawing.Size(1142, 836);
+            this.manageEmployeeUserControl1.Size = new System.Drawing.Size(1523, 1029);
             this.manageEmployeeUserControl1.TabIndex = 0;
             // 
             // reportUserControl1
             // 
-            this.reportUserControl1.Location = new System.Drawing.Point(2, 0);
-            this.reportUserControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reportUserControl1.Location = new System.Drawing.Point(2, 3);
             this.reportUserControl1.Name = "reportUserControl1";
-            this.reportUserControl1.Size = new System.Drawing.Size(764, 468);
+            this.reportUserControl1.Size = new System.Drawing.Size(1013, 652);
             this.reportUserControl1.TabIndex = 0;
             // 
             // AdminMainFormWithUserControls
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(772, 596);
+            this.ClientSize = new System.Drawing.Size(1029, 734);
             this.Controls.Add(this.ActualUserName);
             this.Controls.Add(this.UserNameLabel);
             this.Controls.Add(this.FullNameLabel);
@@ -164,9 +169,9 @@
             this.Controls.Add(this.LogoutLinkLabel);
             this.Controls.Add(this.UserLoggedInLabel);
             this.Controls.Add(this.tbCtrlAdminForm);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AdminMainFormWithUserControls";
-            this.Text = "AdminMainFormWithUserControls";
+            this.Text = "Admin Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminMainFormWithUserControls_FormClosing);
             this.tbCtrlAdminForm.ResumeLayout(false);
             this.tbPgEmployee.ResumeLayout(false);
@@ -185,9 +190,9 @@
         private System.Windows.Forms.Label UserLoggedInLabel;
         private System.Windows.Forms.LinkLabel LogoutLinkLabel;
         private System.Windows.Forms.Label LoggedInLabel;
-        private User_Controls.ReportUserControl reportUserControl1;
         private System.Windows.Forms.Label FullNameLabel;
         private System.Windows.Forms.Label UserNameLabel;
         private System.Windows.Forms.Label ActualUserName;
+        private User_Controls.ReportUserControl reportUserControl1;
     }
 }
