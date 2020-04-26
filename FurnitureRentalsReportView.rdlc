@@ -1143,12 +1143,56 @@
         <DataSetName>ReportDataSet</DataSetName>
         <Height>1in</Height>
         <Width>7in</Width>
+        <Visibility>
+          <Hidden>=CountRows("ReportDataSet")&lt;1</Hidden>
+        </Visibility>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="Textbox6">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>No details found for selected dates. This request doesn’t qualify the condition: </Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>"Furniture must be rented at least twice to populate data to the report". Please try different parameters.</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>1.455in</Top>
+        <Height>0.41667in</Height>
+        <Width>7in</Width>
+        <ZIndex>1</ZIndex>
+        <Visibility>
+          <Hidden>=CountRows("ReportDataSet")&gt;0</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>2in</Height>
     <Style />
