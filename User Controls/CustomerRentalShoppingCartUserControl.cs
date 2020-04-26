@@ -321,7 +321,7 @@ namespace FurnitureRentals.User_Controls
 
                     MessageBox.Show("Please enter a numeric value");
                     furnitureList[RentalDataGridView.CurrentCell.RowIndex].QuantityOrdered = furnitureList[RentalDataGridView.CurrentCell.RowIndex].QuantityOrdered;
-                    e.Cancel = false;
+                    e.Cancel = true;
                 }
 
                 else if (quantityToBeOrdered > quantityAvailable)
@@ -329,11 +329,12 @@ namespace FurnitureRentals.User_Controls
 
                     MessageBox.Show("You cannot order more than the amount available.");
                     furnitureList[RentalDataGridView.CurrentCell.RowIndex].QuantityOrdered = furnitureList[RentalDataGridView.CurrentCell.RowIndex].QuantityOrdered;
-                    e.Cancel = false;
+                    e.Cancel = true;
                 }
                 else
                 {
                     furnitureList[RentalDataGridView.CurrentCell.RowIndex].QuantityOrdered = quantityToBeOrdered;
+                    BeginInvoke(new MethodInvoker(LoadRentalDataGridView));
 
 
                 }
