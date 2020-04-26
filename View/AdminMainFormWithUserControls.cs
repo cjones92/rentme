@@ -85,6 +85,12 @@ namespace FurnitureRentals.View
                 System.Windows.Forms.Application.Exit();
             }
         }
+
+        private void AdminTabs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.reportUserControl.LoadReportView();
+            this.manageEmployeeUserControl.ClearAllFields();
+        }
     }
 }
 

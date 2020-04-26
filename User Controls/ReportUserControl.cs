@@ -69,5 +69,18 @@ namespace FurnitureRentals.User_Controls
             this.lblEndDateValue.Text = "";
         }
 
+        /// <summary>
+        /// Loads cleared report view
+        /// </summary>
+        public void LoadReportView()
+        {
+            startDateTimePicker.Value = DateTime.Today;
+            endDateTimePicker.Value = DateTime.Today;
+            reportViewer.Clear();
+            this.lblBeginDateSelected.Visible = false;
+            this.lblEndDateSelected.Visible = false;
+            this.lblBeginDateValue.Text = "";
+            this.lblEndDateValue.Text = "";
+        }
     }
 }
