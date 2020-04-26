@@ -27,10 +27,6 @@ namespace FurnitureRentals
         {
             InitializeComponent();
             this.loggedInEmployee = new Employee();
-            //this.tabManageCustomerUserControl.TabPages.Remove(this.ShoppingCartTab);
-            //this.tabManageCustomerUserControl.TabPages.Remove(this.CustomerRentalCartTab);
-            //this.tabManageCustomerUserControl.TabPages.Remove(this.ViewReturnsTab);
-            //this.tabManageCustomerUserControl.TabPages.Remove(this.ReturnsCartTab);
         }
 
         /// <summary>
@@ -101,14 +97,19 @@ namespace FurnitureRentals
             this.loggedInEmployee = employee;
             this.customerRentalShoppingCartUserControl1.SetCurrentEmployee(employee);
             this.viewCustomerRentalTransactionsUserControl2.SetCurrentEmployee(employee);
-            //this.tabManageCustomerUserControl.TabPages.Add(this.ShoppingCartTab);
-            //this.tabManageCustomerUserControl.TabPages.Add(this.CustomerRentalCartTab);
-            //this.tabManageCustomerUserControl.TabPages.Add(this.ViewReturnsTab);
-            //this.tabManageCustomerUserControl.TabPages.Add(this.ReturnsCartTab);
         }
 
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(this.manageCustomerUserControl1.GetCurrentCustomer() == null || this.manageCustomerUserControl1.GetCurrentCustomer().CustomerId<1)
+            {
+                if(this.tabManageCustomerUserControl.SelectedTab.Text != "Manage Customer") { 
+                    MessageBox.Show("Please select customer", "Information");
+                }
+                this.tabManageCustomerUserControl.SelectTab(0);
+                return;
+            }
+
             this.customerRentalShoppingCartUserControl1.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
             this.viewCustomerRentalTransactionsUserControl2.SetCurrentCustomer(this.manageCustomerUserControl1.GetCurrentCustomer());
             this.viewCustomerRentalTransactionsUserControl2.LoadRentalTransactionDataGridView();
