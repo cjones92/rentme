@@ -21,6 +21,7 @@ namespace FurnitureRentals.User_Controls
 
     {
         FurnitureController furnitureController;
+        RentalTransactionController rentalTransactionController;
         Employee currentEmployee;
         Customer currentCustomer;
         List<Furniture> furnitureList;
@@ -32,6 +33,7 @@ namespace FurnitureRentals.User_Controls
         {
             InitializeComponent();
             this.furnitureController = new FurnitureController();
+            this.rentalTransactionController = new RentalTransactionController();
             this.furnitureList = new List<Furniture>();
             this.currentCustomer = new Customer();
             this.DaysRentingTextBox.Text = "1";
@@ -227,7 +229,7 @@ namespace FurnitureRentals.User_Controls
                     transaction.CheckedOutByID = this.currentEmployee.EmployeeID;
 
                     transaction.Status = "Pending";
-                    this.furnitureController.EnterRentalTransaction(transaction, furnitureList);
+                    this.rentalTransactionController.EnterRentalTransaction(transaction, furnitureList);
                     MessageBox.Show("The transaction was successfully processed");
                     furnitureList.Clear();
                     this.LoadRentalDataGridView();

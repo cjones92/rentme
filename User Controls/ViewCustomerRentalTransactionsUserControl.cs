@@ -22,6 +22,7 @@ namespace FurnitureRentals.User_Controls
         Employee currentEmployee;
         List<RentalTransaction> transactionList;
         FurnitureController furnitureController;
+        RentalTransactionController rentalTransactionController;
         ReturnShoppingCartUserControl returnCart;
 
 
@@ -36,6 +37,7 @@ namespace FurnitureRentals.User_Controls
             this.currentCustomer = new Customer();
             this.transactionList = new List<RentalTransaction>();
             this.furnitureController = new FurnitureController();
+            this.rentalTransactionController = new RentalTransactionController();
             this.currentEmployee = new Employee();
 
             this.RentalTransactionDataGridView.AllowUserToAddRows = false;
@@ -89,7 +91,7 @@ namespace FurnitureRentals.User_Controls
                 RentalTransactionDataGridView.AllowUserToAddRows = false;
                 RentalTransactionDataGridView.RowHeadersVisible = false;
 
-                transactionList = this.furnitureController.GetRentalTransactionsByCustomerID(this.currentCustomer.CustomerId);
+                transactionList = this.rentalTransactionController.GetRentalTransactionsByCustomerID(this.currentCustomer.CustomerId);
 
                 foreach (RentalTransaction transaction in transactionList)
                 {

@@ -21,6 +21,7 @@ namespace FurnitureRentals.View
         List<Furniture> rentalItemList;
         List<Furniture> returnItemList;
         FurnitureController furnitureController;
+        RentalTransactionController rentalTransactionController;
         int transactionID;
         ReturnShoppingCartUserControl returnCart;
         Employee currentEmployee;
@@ -34,9 +35,10 @@ namespace FurnitureRentals.View
         {
             InitializeComponent();
             this.furnitureController = new FurnitureController();
+            this.rentalTransactionController = new RentalTransactionController();
             this.transactionID = transactionID;
             this.currentEmployee = new Employee();
-            this.rentalItemList = this.furnitureController.GetRentalItemByTransactionID(this.transactionID);
+            this.rentalItemList = this.rentalTransactionController.GetRentalItemByTransactionID(this.transactionID);
             this.returnItemList = new List<Furniture>();
             this.returnCart = returnShoppingCart;
 
