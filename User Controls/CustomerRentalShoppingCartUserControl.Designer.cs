@@ -43,6 +43,7 @@
             this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Style = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuantityAvailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remove = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.RentalDataGridView)).BeginInit();
@@ -51,10 +52,9 @@
             // FurnitureSearchButton
             // 
             this.FurnitureSearchButton.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.FurnitureSearchButton.Location = new System.Drawing.Point(25, 82);
-            this.FurnitureSearchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FurnitureSearchButton.Location = new System.Drawing.Point(19, 67);
             this.FurnitureSearchButton.Name = "FurnitureSearchButton";
-            this.FurnitureSearchButton.Size = new System.Drawing.Size(181, 28);
+            this.FurnitureSearchButton.Size = new System.Drawing.Size(136, 23);
             this.FurnitureSearchButton.TabIndex = 0;
             this.FurnitureSearchButton.Text = "Look Up Furniture";
             this.FurnitureSearchButton.UseVisualStyleBackColor = true;
@@ -63,10 +63,9 @@
             // EmptyCartButton
             // 
             this.EmptyCartButton.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.EmptyCartButton.Location = new System.Drawing.Point(228, 82);
-            this.EmptyCartButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EmptyCartButton.Location = new System.Drawing.Point(171, 67);
             this.EmptyCartButton.Name = "EmptyCartButton";
-            this.EmptyCartButton.Size = new System.Drawing.Size(100, 28);
+            this.EmptyCartButton.Size = new System.Drawing.Size(75, 23);
             this.EmptyCartButton.TabIndex = 1;
             this.EmptyCartButton.Text = "Clear Cart";
             this.EmptyCartButton.UseVisualStyleBackColor = true;
@@ -75,20 +74,18 @@
             // RentalTotalTextBox
             // 
             this.RentalTotalTextBox.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.RentalTotalTextBox.Location = new System.Drawing.Point(665, 424);
-            this.RentalTotalTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RentalTotalTextBox.Location = new System.Drawing.Point(499, 344);
             this.RentalTotalTextBox.Name = "RentalTotalTextBox";
-            this.RentalTotalTextBox.Size = new System.Drawing.Size(132, 28);
+            this.RentalTotalTextBox.Size = new System.Drawing.Size(100, 24);
             this.RentalTotalTextBox.TabIndex = 2;
             // 
             // TotalLabel
             // 
             this.TotalLabel.AutoSize = true;
             this.TotalLabel.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.TotalLabel.Location = new System.Drawing.Point(582, 427);
-            this.TotalLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.TotalLabel.Location = new System.Drawing.Point(436, 347);
             this.TotalLabel.Name = "TotalLabel";
-            this.TotalLabel.Size = new System.Drawing.Size(48, 21);
+            this.TotalLabel.Size = new System.Drawing.Size(40, 17);
             this.TotalLabel.TabIndex = 3;
             this.TotalLabel.Text = "Total:";
             // 
@@ -99,14 +96,14 @@
             this.Item,
             this.Style,
             this.Quantity,
+            this.QuantityAvailable,
             this.TotalCost,
             this.Remove});
             this.RentalDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.RentalDataGridView.Location = new System.Drawing.Point(25, 124);
-            this.RentalDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RentalDataGridView.Location = new System.Drawing.Point(19, 101);
             this.RentalDataGridView.Name = "RentalDataGridView";
             this.RentalDataGridView.RowHeadersWidth = 51;
-            this.RentalDataGridView.Size = new System.Drawing.Size(772, 265);
+            this.RentalDataGridView.Size = new System.Drawing.Size(579, 215);
             this.RentalDataGridView.TabIndex = 4;
             this.RentalDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RentalDataGridView_CellContentClick);
             this.RentalDataGridView.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.RentalDataGridView_CellValidated);
@@ -117,10 +114,9 @@
             // SubmitRentalButton
             // 
             this.SubmitRentalButton.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.SubmitRentalButton.Location = new System.Drawing.Point(665, 466);
-            this.SubmitRentalButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SubmitRentalButton.Location = new System.Drawing.Point(499, 379);
             this.SubmitRentalButton.Name = "SubmitRentalButton";
-            this.SubmitRentalButton.Size = new System.Drawing.Size(132, 38);
+            this.SubmitRentalButton.Size = new System.Drawing.Size(99, 31);
             this.SubmitRentalButton.TabIndex = 5;
             this.SubmitRentalButton.Text = "Submit Order";
             this.SubmitRentalButton.UseVisualStyleBackColor = true;
@@ -130,10 +126,9 @@
             // 
             this.CustomerName.AutoSize = true;
             this.CustomerName.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.CustomerName.Location = new System.Drawing.Point(32, 18);
-            this.CustomerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.CustomerName.Location = new System.Drawing.Point(24, 15);
             this.CustomerName.Name = "CustomerName";
-            this.CustomerName.Size = new System.Drawing.Size(128, 21);
+            this.CustomerName.Size = new System.Drawing.Size(103, 17);
             this.CustomerName.TabIndex = 6;
             this.CustomerName.Text = "Customer Name:";
             // 
@@ -141,10 +136,9 @@
             // 
             this.MemberIDLabel.AutoSize = true;
             this.MemberIDLabel.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.MemberIDLabel.Location = new System.Drawing.Point(63, 43);
-            this.MemberIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.MemberIDLabel.Location = new System.Drawing.Point(47, 35);
             this.MemberIDLabel.Name = "MemberIDLabel";
-            this.MemberIDLabel.Size = new System.Drawing.Size(97, 21);
+            this.MemberIDLabel.Size = new System.Drawing.Size(80, 17);
             this.MemberIDLabel.TabIndex = 7;
             this.MemberIDLabel.Text = "Member ID: ";
             // 
@@ -152,10 +146,9 @@
             // 
             this.ActualNameLabel.AutoSize = true;
             this.ActualNameLabel.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.ActualNameLabel.Location = new System.Drawing.Point(182, 18);
-            this.ActualNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ActualNameLabel.Location = new System.Drawing.Point(136, 15);
             this.ActualNameLabel.Name = "ActualNameLabel";
-            this.ActualNameLabel.Size = new System.Drawing.Size(52, 21);
+            this.ActualNameLabel.Size = new System.Drawing.Size(42, 17);
             this.ActualNameLabel.TabIndex = 8;
             this.ActualNameLabel.Text = "label1";
             // 
@@ -163,20 +156,18 @@
             // 
             this.ActualIDLabel.AutoSize = true;
             this.ActualIDLabel.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.ActualIDLabel.Location = new System.Drawing.Point(182, 44);
-            this.ActualIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ActualIDLabel.Location = new System.Drawing.Point(136, 36);
             this.ActualIDLabel.Name = "ActualIDLabel";
-            this.ActualIDLabel.Size = new System.Drawing.Size(52, 21);
+            this.ActualIDLabel.Size = new System.Drawing.Size(42, 17);
             this.ActualIDLabel.TabIndex = 9;
             this.ActualIDLabel.Text = "label2";
             // 
             // DaysRentingTextBox
             // 
             this.DaysRentingTextBox.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.DaysRentingTextBox.Location = new System.Drawing.Point(665, 86);
-            this.DaysRentingTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DaysRentingTextBox.Location = new System.Drawing.Point(499, 70);
             this.DaysRentingTextBox.Name = "DaysRentingTextBox";
-            this.DaysRentingTextBox.Size = new System.Drawing.Size(132, 28);
+            this.DaysRentingTextBox.Size = new System.Drawing.Size(100, 24);
             this.DaysRentingTextBox.TabIndex = 10;
             this.DaysRentingTextBox.TextChanged += new System.EventHandler(this.DaysRentingTextBox_TextChanged);
             this.DaysRentingTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DaysRented_KeyPress);
@@ -185,10 +176,9 @@
             // 
             this.DaysRentingLabel.AutoSize = true;
             this.DaysRentingLabel.Font = new System.Drawing.Font("Calibri", 10.2F);
-            this.DaysRentingLabel.Location = new System.Drawing.Point(454, 89);
-            this.DaysRentingLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.DaysRentingLabel.Location = new System.Drawing.Point(340, 72);
             this.DaysRentingLabel.Name = "DaysRentingLabel";
-            this.DaysRentingLabel.Size = new System.Drawing.Size(180, 21);
+            this.DaysRentingLabel.Size = new System.Drawing.Size(146, 17);
             this.DaysRentingLabel.TabIndex = 11;
             this.DaysRentingLabel.Text = "Number of Days Rented:";
             // 
@@ -212,10 +202,17 @@
             // 
             // Quantity
             // 
-            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.HeaderText = "Quantity Ordering";
             this.Quantity.MinimumWidth = 6;
             this.Quantity.Name = "Quantity";
             this.Quantity.Width = 125;
+            // 
+            // QuantityAvailable
+            // 
+            this.QuantityAvailable.DataPropertyName = "QuantityAvailable";
+            this.QuantityAvailable.HeaderText = "Quantity In Stock";
+            this.QuantityAvailable.Name = "QuantityAvailable";
+            this.QuantityAvailable.ReadOnly = true;
             // 
             // TotalCost
             // 
@@ -239,7 +236,7 @@
             // 
             // CustomerRentalShoppingCartUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.DaysRentingLabel);
             this.Controls.Add(this.DaysRentingTextBox);
@@ -253,9 +250,8 @@
             this.Controls.Add(this.RentalTotalTextBox);
             this.Controls.Add(this.EmptyCartButton);
             this.Controls.Add(this.FurnitureSearchButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CustomerRentalShoppingCartUserControl";
-            this.Size = new System.Drawing.Size(1044, 577);
+            this.Size = new System.Drawing.Size(783, 469);
             ((System.ComponentModel.ISupportInitialize)(this.RentalDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -279,6 +275,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Item;
         private System.Windows.Forms.DataGridViewTextBoxColumn Style;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuantityAvailable;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalCost;
         private System.Windows.Forms.DataGridViewLinkColumn Remove;
     }

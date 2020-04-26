@@ -90,13 +90,14 @@ namespace FurnitureRentals.User_Controls
                     {
                         Item = o.ItemDescription,
                         Style = o.FurnitureStyle,
+                        QuantityAvailable = o.Quantity,
                         Remove = "X"
                     }).ToList(); ;
 
                     foreach (DataGridViewRow row in RentalDataGridView.Rows)
                     {
                         row.Cells[2].Value = furnitureBindingList[row.Index].QuantityOrdered;
-                        row.Cells[3].Value = furnitureBindingList[row.Index].QuantityOrdered * furnitureBindingList[row.Index].DailyRentalRate * int.Parse(this.DaysRentingTextBox.Text);
+                        row.Cells[4].Value = furnitureBindingList[row.Index].QuantityOrdered * furnitureBindingList[row.Index].DailyRentalRate * int.Parse(this.DaysRentingTextBox.Text);
                     }
 
                     //RentalDataGridView.AutoResizeColumns();
@@ -172,7 +173,7 @@ namespace FurnitureRentals.User_Controls
             foreach (DataGridViewRow row in RentalDataGridView.Rows)
             {
 
-                total = total + decimal.Parse(row.Cells[3].Value.ToString());
+                total = total + decimal.Parse(row.Cells[4].Value.ToString());
             }
 
             this.RentalTotalTextBox.Text = "$ " + total;
