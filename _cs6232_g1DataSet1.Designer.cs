@@ -419,7 +419,7 @@ namespace FurnitureRentals {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_mostPopularFurnitureRentedDuringDatesRow Addsp_mostPopularFurnitureRentedDuringDatesRow(string serial_no, string category, string description, int times_qf_rented, int total_rentals, int percentAllFurniture, int percentMembersAge18_29) {
+            public sp_mostPopularFurnitureRentedDuringDatesRow Addsp_mostPopularFurnitureRentedDuringDatesRow(string serial_no, string category, string description, int times_qf_rented, int total_rentals, decimal percentAllFurniture, decimal percentMembersAge18_29) {
                 sp_mostPopularFurnitureRentedDuringDatesRow rowsp_mostPopularFurnitureRentedDuringDatesRow = ((sp_mostPopularFurnitureRentedDuringDatesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         serial_no,
@@ -473,9 +473,9 @@ namespace FurnitureRentals {
                 base.Columns.Add(this.columntimes_qf_rented);
                 this.columntotal_rentals = new global::System.Data.DataColumn("total_rentals", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotal_rentals);
-                this.columnpercentAllFurniture = new global::System.Data.DataColumn("percentAllFurniture", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnpercentAllFurniture = new global::System.Data.DataColumn("percentAllFurniture", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpercentAllFurniture);
-                this.columnpercentMembersAge18_29 = new global::System.Data.DataColumn("percentMembersAge18_29", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnpercentMembersAge18_29 = new global::System.Data.DataColumn("percentMembersAge18_29", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpercentMembersAge18_29);
                 this.columnserial_no.AllowDBNull = false;
                 this.columnserial_no.MaxLength = 45;
@@ -708,10 +708,10 @@ namespace FurnitureRentals {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int percentAllFurniture {
+            public decimal percentAllFurniture {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.percentAllFurnitureColumn]));
+                        return ((decimal)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.percentAllFurnitureColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'percentAllFurniture\' in table \'sp_mostPopularFurnitureRente" +
@@ -725,10 +725,10 @@ namespace FurnitureRentals {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int percentMembersAge18_29 {
+            public decimal percentMembersAge18_29 {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.percentMembersAge18_29Column]));
+                        return ((decimal)(this[this.tablesp_mostPopularFurnitureRentedDuringDates.percentMembersAge18_29Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'percentMembersAge18_29\' in table \'sp_mostPopularFurnitureRe" +

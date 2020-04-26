@@ -464,7 +464,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!percentAllFurniture.Value)/100</Value>
+                              <Value>=CDec(Sum(Fields!percentAllFurniture.Value)/100)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Format>0.00%</Format>
@@ -1152,7 +1152,7 @@
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox6">
+      <Textbox Name="txtboxErrorMessage">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
@@ -1175,7 +1175,6 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>1.455in</Top>
         <Height>0.41667in</Height>
         <Width>7in</Width>
