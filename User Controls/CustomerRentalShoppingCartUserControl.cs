@@ -230,7 +230,7 @@ namespace FurnitureRentals.User_Controls
 
                     transaction.Status = "Pending";
                     this.rentalTransactionController.EnterRentalTransaction(transaction, furnitureList);
-                    MessageBox.Show("The transaction was successfully processed");
+                    MessageBox.Show("The transaction " + "(ID: " + transaction.RentalID + ") was successfully processed");
                     furnitureList.Clear();
                     this.LoadRentalDataGridView();
                 }
