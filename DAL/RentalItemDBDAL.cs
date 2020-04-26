@@ -59,6 +59,11 @@ namespace FurnitureRentals.DAL
             return rentalItemList;
         }
 
+        /// <summary>
+        /// Method that returns the list of furnitures rented
+        /// </summary>
+        /// <param name="transactionID">transaction of the rental</param>
+        /// <returns>a list of furnitures</returns>
         public List<Furniture> GetRentalItemByTransactionID(int transactionID)
         {
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
@@ -72,6 +77,13 @@ namespace FurnitureRentals.DAL
             }
         }
 
+        /// <summary>
+        /// Method that returns the total quantity rented for a given rental item id
+        /// </summary>
+        /// <param name="rentalItemID">rental item id of a rental transaction</param>
+        /// <param name="connection">SQL connection object</param>
+        /// <param name="sqlTransaction">SQL transaction object</param>
+        /// <returns>total quantity ordered</returns>
         public int GetQuantityRented(int rentalItemID, SqlConnection connection, SqlTransaction sqlTransaction)
         {
             int totalQuantityRented = 0;
@@ -94,6 +106,11 @@ namespace FurnitureRentals.DAL
             return totalQuantityRented;
         }
 
+        /// <summary>
+        /// Method that returns the total quantity rented for a given rental item id
+        /// </summary>
+        /// <param name="rentalItemID">rental item id of a rental transaction</param>
+        /// <returns></returns>
         public int GetQuantityRented(int rentalItemID)
         {
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
@@ -106,6 +123,5 @@ namespace FurnitureRentals.DAL
                 return totalQuantityRented;
             }
         }
-
     }
 }

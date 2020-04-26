@@ -177,6 +177,13 @@ namespace FurnitureRentals.DAL
             return transaction;
         }
 
+        /// <summary>
+        /// Method that closes a rental transaction
+        /// </summary>
+        /// <param name="rentalId">rental id of a rental transaction</param>
+        /// <param name="connection">sql connection object</param>
+        /// <param name="transaction">sql transaction object</param>
+        /// <returns>true if call is successful</returns>
         public bool CloseRentalTransaction(int rentalId, SqlConnection connection, SqlTransaction transaction)
         {
             String updateStatement = "UPDATE RENTAL_TRANSACTION SET STATUS = 'Returned' WHERE RENTAL_ID = @RENTAL_ID AND STATUS='Pending'";

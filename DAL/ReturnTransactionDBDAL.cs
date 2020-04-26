@@ -209,7 +209,11 @@ namespace FurnitureRentals.DAL
             }
         }
 
-
+        /// <summary>
+        /// Method that returns the total quantity returned for a given rental item id
+        /// </summary>
+        /// <param name="rentalItemID">rental item id of a rental transaction</param>
+        /// <returns></returns>
         public int GetQuantityReturned(int rentalItemID)
         {
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
@@ -222,9 +226,16 @@ namespace FurnitureRentals.DAL
             }
         }
 
+        /// <summary>
+        /// Method that returns the total quantity returned for a given rental item id
+        /// </summary>
+        /// <param name="rentalItemID">rental item id of a rental transaction</param>
+        /// <param name="connection">SQL connection object</param>
+        /// <param name="sqlTransaction">SQL transaction object</param>
+        /// <returns>total quantity returned</returns>
         public int GetQuantityReturned(int rentalItemID, SqlConnection connection, SqlTransaction sqlTransaction)
         {
-            int returnAmount = 0;
+            int totalQuantityReturned = 0;
             string selectStatement = "SELECT Sum(return_item.quantity) AS ReturnQuantity From return_item " +
                 "WHERE return_item.rental_item_id = @RentalItemID;";
 
@@ -238,16 +249,16 @@ namespace FurnitureRentals.DAL
                         int value;
                         if (int.TryParse(reader["ReturnQuantity"].ToString(), out value))
                         {
-                            returnAmount = (int)reader["ReturnQuantity"];
+                            totalQuantityReturned = (int)reader["ReturnQuantity"];
                         }
                         else
                         {
-                            returnAmount = 0;
+                            totalQuantityReturned = 0;
                         }
                     }
                 }
             }
-            return returnAmount;
+            return totalQuantityReturned;
         }
     }
 }
