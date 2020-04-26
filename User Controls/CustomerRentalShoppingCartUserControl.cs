@@ -157,17 +157,12 @@ namespace FurnitureRentals.User_Controls
             {
                 List<Furniture> addedItems = furnitureSearchForm.GetSelectedFurniture();
 
-
-
                 foreach (Furniture furniture in addedItems)
                 {
-
                     furnitureList.Add(furniture);
-
                 }
                 this.LoadRentalDataGridView();
             }
-
         }
 
         private void FillInTotal()
