@@ -238,7 +238,7 @@ namespace FurnitureRentals.View
                 else if (quantityToBeReturned > quantityAvailable)
                 {
                     e.Cancel = true;
-                    MessageBox.Show("You cannot return more than than what was ordered and/or already in the cart.");
+                    MessageBox.Show("You cannot return more than what was ordered and/or already in the cart.");
                 }
                 else
                 {
