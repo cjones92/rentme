@@ -148,7 +148,7 @@ namespace FurnitureRentals.User_Controls
             }
             else if (employeeList.Count == 1)
             {
-                this.populateEmployeeData(employeeList[0]);
+                this.PopulateEmployeeData(employeeList[0]);
             }
             else if (employeeList.Count > 1)
             {
@@ -159,7 +159,7 @@ namespace FurnitureRentals.User_Controls
                 int selectedIndex = employeeTableView.GetSelectedRowIndex();
                 if (employeeTableView.DialogResult == DialogResult.OK && selectedIndex > -1)
                 {
-                    this.populateEmployeeData(employeeList[selectedIndex]);
+                    this.PopulateEmployeeData(employeeList[selectedIndex]);
                 }
             }
         }
@@ -185,7 +185,7 @@ namespace FurnitureRentals.User_Controls
         }
 
 
-        private void populateEmployeeData(Employee employee)
+        private void PopulateEmployeeData(Employee employee)
         {
             btnRegister.Enabled = false;
             btnUpdate.Enabled = true;
@@ -256,7 +256,7 @@ namespace FurnitureRentals.User_Controls
                     employee.Status = cbxStatus.Text;
 
                     String name = employee.FirstName + " " + employee.LastName;
-                    string errorMessage = isValidPhoneNumberAndZip(employee);
+                    string errorMessage = IsValidPhoneNumberAndZip(employee);
                     if (errorMessage.Length > 0)
                     {
                         MessageBox.Show(errorMessage, "Error");
@@ -280,7 +280,7 @@ namespace FurnitureRentals.User_Controls
             }
         }
 
-        private string isValidPhoneNumberAndZip(Employee employee)
+        private string IsValidPhoneNumberAndZip(Employee employee)
         {
             string errorMessage = "";
             if (employee.Phone.Trim().Length > 0)
@@ -431,7 +431,10 @@ namespace FurnitureRentals.User_Controls
             dateChosen = true;
         }
 
-        private void clearAllFields()
+        /// <summary>
+        /// Clears all fields in the ManageEmployeeUserControl.
+        /// </summary>
+        public void ClearAllFields()
         {
             txtSearch.Text = "";
             txtFirstName.Text = "";
@@ -475,7 +478,7 @@ namespace FurnitureRentals.User_Controls
                     employee.Password = txtPassword.Text;
                     employee.Status = cbxStatus.Text;
 
-                    string errorMessage = isValidPhoneNumberAndZip(employee);
+                    string errorMessage = IsValidPhoneNumberAndZip(employee);
                     if (errorMessage.Length > 0)
                     {
                         MessageBox.Show(errorMessage, "Error");
@@ -504,7 +507,7 @@ namespace FurnitureRentals.User_Controls
 
         private void cbxSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            clearAllFields();
+            ClearAllFields();
         }
     }
 }

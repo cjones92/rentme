@@ -27,6 +27,15 @@ namespace FurnitureRentals.View
             this.LoadStyleComboBox();
             this.furnitureList = new List<Furniture>();
             this.currentFurnitureList = new List<Furniture>();
+
+            this.FurnitureDataGridView.AllowUserToAddRows = false;
+            this.FurnitureDataGridView.RowHeadersVisible = false;
+            this.FurnitureDataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
+            this.FurnitureDataGridView.AutoResizeColumns();
+            this.FurnitureDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            this.FurnitureDataGridView.AutoResizeRows();
+            this.FurnitureDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            this.FurnitureDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         

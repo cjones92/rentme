@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FurnitureRentals.DAL
 {
@@ -39,8 +40,8 @@ namespace FurnitureRentals.DAL
                 connection.Open();
                 rentalTransaction = connection.BeginTransaction();
 
-                using (SqlCommand insertTransactionCommand = new SqlCommand(sqlTransactionStatement, connection, rentalTransaction), 
-                    updateInventoryCommand = new SqlCommand(sqlQuantityStatement, connection, rentalTransaction), 
+                using (SqlCommand insertTransactionCommand = new SqlCommand(sqlTransactionStatement, connection, rentalTransaction),
+                    updateInventoryCommand = new SqlCommand(sqlQuantityStatement, connection, rentalTransaction),
                     insertItemCommand = new SqlCommand(sqlItemStatement, connection, rentalTransaction))
                 {
                     insertTransactionCommand.Connection = connection;
@@ -63,7 +64,6 @@ namespace FurnitureRentals.DAL
 
                     ///foreach (Furniture furniture in furnitureList)
                     for (int index = 0; index < furnitureList.Count; index++)
-
                     {
                         updateInventoryCommand.Connection = connection;
                         updateInventoryCommand.Parameters.Clear();
@@ -111,9 +111,8 @@ namespace FurnitureRentals.DAL
             List<RentalTransaction> transactionList = new List<RentalTransaction>();
             transaction.CustomerID = customerID;
 
-            string selectStatement = "SELECT rental_id as RentalTransactionID, rented_on AS RentedOn, due_date AS DueDate, total_due AS TotalDue, status AS Status " +
-"FROM rental_transaction WHERE customer_id = @CustomerID";
-            ;
+            string selectStatement = "SELECT rental_id as RentalTransactionID, rented_on AS RentedOn, due_date AS DueDate, " +
+                "total_due AS TotalDue, status AS Status FROM rental_transaction WHERE customer_id = @CustomerID";
 
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
             {
@@ -174,7 +173,39 @@ namespace FurnitureRentals.DAL
                     }
                 }
             }
+
             return transaction;
+        }
+
+        /// <summary>
+        /// Method that closes a rental transaction
+        /// </summary>
+        /// <param name="rentalId">rental id of a rental transaction</param>
+        /// <param name="connection">sql connection object</param>
+        /// <param name="transaction">sql transaction object</param>
+        /// <returns>true if call is successful</returns>
+        public bool CloseRentalTransaction(int rentalId, SqlConnection connection, SqlTransaction transaction)
+        {
+            String updateStatement = "UPDATE RENTAL_TRANSACTION SET STATUS = 'Returned' WHERE RENTAL_ID = @RENTAL_ID AND STATUS='Pending'";
+
+            using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection, transaction))
+            {
+                if (rentalId < 0)
+                {
+                    return false;
+                }
+
+                updateCommand.Parameters.AddWithValue("@RENTAL_ID", rentalId);
+                int result = updateCommand.ExecuteNonQuery();
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
     }
 }

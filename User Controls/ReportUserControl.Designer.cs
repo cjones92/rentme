@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.sp_mostPopularFurnitureRentedDuringDatesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._cs6232_g1DataSet1 = new FurnitureRentals._cs6232_g1DataSet1();
             this.labelBeginDate = new System.Windows.Forms.Label();
@@ -113,7 +113,7 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(891, 533);
+            this.btnClear.Location = new System.Drawing.Point(891, 620);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(82, 30);
             this.btnClear.TabIndex = 7;
@@ -123,15 +123,15 @@
             // 
             // reportViewer
             // 
-            reportDataSource2.Name = "ReportDataSet";
-            reportDataSource2.Value = this.sp_mostPopularFurnitureRentedDuringDatesBindingSource;
-            this.reportViewer.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource1.Name = "ReportDataSet";
+            reportDataSource1.Value = this.sp_mostPopularFurnitureRentedDuringDatesBindingSource;
+            this.reportViewer.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer.LocalReport.ReportEmbeddedResource = "FurnitureRentals.FurnitureRentalsReportView.rdlc";
             this.reportViewer.Location = new System.Drawing.Point(17, 144);
             this.reportViewer.Name = "reportViewer";
             this.reportViewer.Padding = new System.Windows.Forms.Padding(10);
             this.reportViewer.ServerReport.BearerToken = null;
-            this.reportViewer.Size = new System.Drawing.Size(982, 383);
+            this.reportViewer.Size = new System.Drawing.Size(982, 470);
             this.reportViewer.TabIndex = 6;
             // 
             // sp_mostPopularFurnitureRentedDuringDatesTableAdapter
@@ -201,7 +201,7 @@
             this.Controls.Add(this.labelEndDate);
             this.Controls.Add(this.labelBeginDate);
             this.Name = "ReportUserControl";
-            this.Size = new System.Drawing.Size(1013, 565);
+            this.Size = new System.Drawing.Size(1013, 653);
             this.Load += new System.EventHandler(this.Report_Load);
             ((System.ComponentModel.ISupportInitialize)(this.sp_mostPopularFurnitureRentedDuringDatesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._cs6232_g1DataSet1)).EndInit();

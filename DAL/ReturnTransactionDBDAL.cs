@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FurnitureRentals.DAL
 {
@@ -14,6 +15,8 @@ namespace FurnitureRentals.DAL
     class ReturnTransactionDBDAL
     {
         FurnitureDBDAL furnitureDBDAL;
+        RentalItemDBDAL rentalItemDBDAL;
+        RentalTransactionDBDAL rentalTransactionDBDAL;
 
         /// <summary>
         /// Class controller
@@ -21,6 +24,8 @@ namespace FurnitureRentals.DAL
         public ReturnTransactionDBDAL()
         {
             this.furnitureDBDAL = new FurnitureDBDAL();
+            this.rentalItemDBDAL = new RentalItemDBDAL();
+            this.rentalTransactionDBDAL = new RentalTransactionDBDAL();
         }
 
         /// <summary>
@@ -120,7 +125,7 @@ namespace FurnitureRentals.DAL
         /// <returns>true if successfull otherwise false</returns>
         public bool PostReturnTransaction(ReturnTransaction returnTransaction, List<ReturnCart> ReturnItemList)
         {
-            SqlTransaction renturnTransaction = null;
+            SqlTransaction sqlTransaction = null;
             using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
             {
                 string sqlStatement = "INSERT INTO Return_Transaction (customer_id, return_date, " +
@@ -128,9 +133,9 @@ namespace FurnitureRentals.DAL
                 "VALUES (@CustomerID, @ReturnDate, @CheckedinBy, @LateFee, @RefundAmount); SELECT SCOPE_IDENTITY() ";
 
                 connection.Open();
-                renturnTransaction = connection.BeginTransaction();
+                sqlTransaction = connection.BeginTransaction();
 
-                using (SqlCommand insertCommand = new SqlCommand(sqlStatement, connection, renturnTransaction))
+                using (SqlCommand insertCommand = new SqlCommand(sqlStatement, connection, sqlTransaction))
                 {
                     insertCommand.Connection = connection;
                     insertCommand.Parameters.AddWithValue("@CustomerID", returnTransaction.CustomerID);
@@ -142,15 +147,44 @@ namespace FurnitureRentals.DAL
 
                     if (returnTransaction.ReturnTransactionID > 0)
                     {
-                        this.InsertReturnItem(connection, returnTransaction.ReturnTransactionID, ReturnItemList, renturnTransaction);
+                        this.InsertReturnItem(connection, returnTransaction.ReturnTransactionID, ReturnItemList, sqlTransaction);
                     }
 
+                    var rentalIdList = new List<int>();
                     foreach (ReturnCart returnItem in ReturnItemList)
                     {
-                        this.furnitureDBDAL.UpdateInventory(returnItem.FurnitureID, returnItem.Quantity, connection, renturnTransaction);
+                        if(!rentalIdList.Contains(returnItem.RentalID))
+                        {
+                            rentalIdList.Add(returnItem.RentalID);
+                        }
+                        this.furnitureDBDAL.UpdateInventory(returnItem.FurnitureID, returnItem.Quantity, connection, sqlTransaction);
                     }
 
-                    renturnTransaction.Commit();
+
+                    foreach (int rentalTransactionId in rentalIdList)
+                    {
+                        List<Furniture> furnitureList = this.rentalItemDBDAL.GetRentalItemByTransactionID(rentalTransactionId, connection, sqlTransaction);
+
+                        bool isCloseTransaction = false;
+                        int totalQuantityRented = 0;
+                        int totalQuantityReturned = 0;
+                        foreach (Furniture furniture in furnitureList)
+                        {
+                            totalQuantityRented = furniture.QuantityOrdered;
+                            totalQuantityReturned = this.GetQuantityReturned(furniture.RentalItemID, connection, sqlTransaction);
+                            if (totalQuantityRented == totalQuantityReturned)
+                            {
+                                isCloseTransaction = true;
+                            }
+                        }
+
+                        if (isCloseTransaction)
+                        {
+                            this.rentalTransactionDBDAL.CloseRentalTransaction(rentalTransactionId, connection, sqlTransaction);
+                        }
+                    }
+
+                    sqlTransaction.Commit();
                     return true;
                 }
             }
@@ -173,6 +207,58 @@ namespace FurnitureRentals.DAL
                     insertCommand.ExecuteNonQuery();
                 }
             }
+        }
+
+        /// <summary>
+        /// Method that returns the total quantity returned for a given rental item id
+        /// </summary>
+        /// <param name="rentalItemID">rental item id of a rental transaction</param>
+        /// <returns></returns>
+        public int GetQuantityReturned(int rentalItemID)
+        {
+            using (SqlConnection connection = FurnitureRentalsDBConnection.GetConnection())
+            {
+                connection.Open();
+                SqlTransaction sqlTransaction = connection.BeginTransaction();
+                int totalQuantityReturned = this.GetQuantityReturned(rentalItemID, connection, sqlTransaction);
+                sqlTransaction.Dispose();
+                return totalQuantityReturned;
+            }
+        }
+
+        /// <summary>
+        /// Method that returns the total quantity returned for a given rental item id
+        /// </summary>
+        /// <param name="rentalItemID">rental item id of a rental transaction</param>
+        /// <param name="connection">SQL connection object</param>
+        /// <param name="sqlTransaction">SQL transaction object</param>
+        /// <returns>total quantity returned</returns>
+        public int GetQuantityReturned(int rentalItemID, SqlConnection connection, SqlTransaction sqlTransaction)
+        {
+            int totalQuantityReturned = 0;
+            string selectStatement = "SELECT Sum(return_item.quantity) AS ReturnQuantity From return_item " +
+                "WHERE return_item.rental_item_id = @RentalItemID;";
+
+            using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection, sqlTransaction))
+            {
+                selectCommand.Parameters.AddWithValue("@RentalItemID", rentalItemID);
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int value;
+                        if (int.TryParse(reader["ReturnQuantity"].ToString(), out value))
+                        {
+                            totalQuantityReturned = (int)reader["ReturnQuantity"];
+                        }
+                        else
+                        {
+                            totalQuantityReturned = 0;
+                        }
+                    }
+                }
+            }
+            return totalQuantityReturned;
         }
     }
 }

@@ -38,6 +38,14 @@ namespace FurnitureRentals.User_Controls
             this.furnitureController = new FurnitureController();
             this.currentEmployee = new Employee();
 
+            this.RentalTransactionDataGridView.AllowUserToAddRows = false;
+            this.RentalTransactionDataGridView.RowHeadersVisible = false;
+            this.RentalTransactionDataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
+            this.RentalTransactionDataGridView.AutoResizeColumns();
+            this.RentalTransactionDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            this.RentalTransactionDataGridView.AutoResizeRows();
+            this.RentalTransactionDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            this.RentalTransactionDataGridView.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
         }
 
@@ -49,7 +57,6 @@ namespace FurnitureRentals.User_Controls
         {
             this.currentEmployee = employee;
         }
-
 
         /// <summary>
         /// Sets return cart
@@ -109,6 +116,7 @@ namespace FurnitureRentals.User_Controls
                     RentalTransaction transaction = (RentalTransaction)row.DataBoundItem;
                 }
 
+                /*
                 RentalTransactionDataGridView.AutoResizeColumns();
                 RentalTransactionDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 RentalTransactionDataGridView.AutoResizeRows();
@@ -121,7 +129,7 @@ namespace FurnitureRentals.User_Controls
                     width += column.Width;
                 }
                 RentalTransactionDataGridView.Width = width;
-
+                */
             }
             catch (Exception)
             {
@@ -136,8 +144,9 @@ namespace FurnitureRentals.User_Controls
             {
                 try
                 {
-
                     RentalItemsFormDialog formDialog = new RentalItemsFormDialog(int.Parse(RentalTransactionDataGridView.CurrentCell.Value.ToString()), this.returnCart);
+                    formDialog.StartPosition = FormStartPosition.CenterParent;
+
                     formDialog.SetReturnCartValues(this.returnCart.GetReturnCartItemList());
                     formDialog.SetCurrentEmployee(this.currentEmployee);
 
@@ -145,18 +154,13 @@ namespace FurnitureRentals.User_Controls
 
                     if (addedResult == DialogResult.OK)
                     {
-
-
                         List<Furniture> list = formDialog.GetReturnedFurniture();
                         foreach (Furniture furniture in list)
                         {
-
                             this.returnCart.addReturn(furniture.RentalTransactionID, furniture.RentalItemID, furniture.FurnitureID, furniture.QuantityBeingReturned);
-
                         }
 
                         formDialog.Dispose();
-
                     }
 
                 }

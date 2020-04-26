@@ -35,9 +35,11 @@
             // 
             // ReturnButton
             // 
-            this.ReturnButton.Location = new System.Drawing.Point(252, 91);
+            this.ReturnButton.Font = new System.Drawing.Font("Calibri", 10.2F);
+            this.ReturnButton.Location = new System.Drawing.Point(171, 112);
+            this.ReturnButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ReturnButton.Name = "ReturnButton";
-            this.ReturnButton.Size = new System.Drawing.Size(75, 23);
+            this.ReturnButton.Size = new System.Drawing.Size(100, 38);
             this.ReturnButton.TabIndex = 5;
             this.ReturnButton.Text = "Return";
             this.ReturnButton.UseVisualStyleBackColor = true;
@@ -45,9 +47,11 @@
             // 
             // ConfirmButton
             // 
-            this.ConfirmButton.Location = new System.Drawing.Point(87, 91);
+            this.ConfirmButton.Font = new System.Drawing.Font("Calibri", 10.2F);
+            this.ConfirmButton.Location = new System.Drawing.Point(279, 112);
+            this.ConfirmButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ConfirmButton.Name = "ConfirmButton";
-            this.ConfirmButton.Size = new System.Drawing.Size(75, 23);
+            this.ConfirmButton.Size = new System.Drawing.Size(100, 38);
             this.ConfirmButton.TabIndex = 4;
             this.ConfirmButton.Text = "Confirm";
             this.ConfirmButton.UseVisualStyleBackColor = true;
@@ -56,20 +60,23 @@
             // SubmitTransactionLabel
             // 
             this.SubmitTransactionLabel.AutoSize = true;
-            this.SubmitTransactionLabel.Location = new System.Drawing.Point(84, 53);
+            this.SubmitTransactionLabel.Font = new System.Drawing.Font("Calibri", 10.2F);
+            this.SubmitTransactionLabel.Location = new System.Drawing.Point(106, 63);
+            this.SubmitTransactionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SubmitTransactionLabel.Name = "SubmitTransactionLabel";
-            this.SubmitTransactionLabel.Size = new System.Drawing.Size(243, 13);
+            this.SubmitTransactionLabel.Size = new System.Drawing.Size(370, 21);
             this.SubmitTransactionLabel.TabIndex = 3;
             this.SubmitTransactionLabel.Text = "Are you sure you want to transmit this transaction?";
             // 
             // SubmitTransactionDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 193);
+            this.ClientSize = new System.Drawing.Size(567, 238);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.ConfirmButton);
             this.Controls.Add(this.SubmitTransactionLabel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SubmitTransactionDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SubmitTransactionDialog";

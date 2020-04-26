@@ -37,10 +37,15 @@ namespace FurnitureRentals.User_Controls
             this.DaysRentingTextBox.Text = "1";
             this.RentalDataGridView.EditMode = DataGridViewEditMode.EditOnKeystroke;
 
-
+            this.RentalDataGridView.AllowUserToAddRows = false;
+            this.RentalDataGridView.RowHeadersVisible = false;
+            this.RentalDataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
+            this.RentalDataGridView.AutoResizeColumns();
+            this.RentalDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            this.RentalDataGridView.AutoResizeRows();
+            this.RentalDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            this.RentalDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
-
-     
 
         /// <summary>
         /// sets current employee
@@ -66,16 +71,13 @@ namespace FurnitureRentals.User_Controls
         {
             try
             {
-
                 if (this.DaysRentingTextBox.TextLength == 0)
                 {
                     MessageBox.Show("There must be a value for days to properly calculate rental transaction costs.");
                 }
                 else
                 {
-
                     RentalDataGridView.AutoGenerateColumns = false;
-
                     RentalDataGridView.AllowUserToAddRows = false;
                     RentalDataGridView.RowHeadersVisible = false;
 
@@ -88,27 +90,27 @@ namespace FurnitureRentals.User_Controls
                     {
                         Item = o.ItemDescription,
                         Style = o.FurnitureStyle,
-                        QuantityAvailable = o.Quantity,
                         Remove = "X"
                     }).ToList(); ;
 
                     foreach (DataGridViewRow row in RentalDataGridView.Rows)
                     {
                         row.Cells[2].Value = furnitureBindingList[row.Index].QuantityOrdered;
-                        row.Cells[4].Value = furnitureBindingList[row.Index].QuantityOrdered * furnitureBindingList[row.Index].DailyRentalRate * int.Parse(this.DaysRentingTextBox.Text);
+                        row.Cells[3].Value = furnitureBindingList[row.Index].QuantityOrdered * furnitureBindingList[row.Index].DailyRentalRate * int.Parse(this.DaysRentingTextBox.Text);
                     }
-                    RentalDataGridView.AutoResizeColumns();
-                    RentalDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                    RentalDataGridView.AutoResizeRows();
-                    RentalDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-                    int width = 0;
+                    //RentalDataGridView.AutoResizeColumns();
+                    //RentalDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    //RentalDataGridView.AutoResizeRows();
+                    //RentalDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-                    foreach (DataGridViewColumn column in RentalDataGridView.Columns)
-                    {
-                        width += column.Width;
-                    }
-                    RentalDataGridView.Width = width;
+                    //int width = 0;
+                    //foreach (DataGridViewColumn column in RentalDataGridView.Columns)
+                    //{
+                    //    width += column.Width;
+                    //}
+                    //RentalDataGridView.Width = width;
+
                     this.FillInTotal();
                     foreach (Furniture furniture in furnitureList)
                     {
@@ -119,14 +121,10 @@ namespace FurnitureRentals.User_Controls
             }
             catch (Exception)
             {
-                MessageBox.Show("There was an error reaching the database. Please try again");
+                MessageBox.Show("There was a problem reaching the database. Please check the database connection.");
             }
 
         }
-            
-            
-
-        
 
         private void TabulateRentalCosts()
         {
@@ -150,26 +148,21 @@ namespace FurnitureRentals.User_Controls
         private void FurnitureSearchButton_Click(object sender, EventArgs e)
         {
             FurnitureSearchFormDialog furnitureSearchForm = new FurnitureSearchFormDialog();
-            furnitureSearchForm.SetCurrentFurnitureList(furnitureList);
+            furnitureSearchForm.StartPosition = FormStartPosition.CenterParent;
+
             DialogResult addedResult = furnitureSearchForm.ShowDialog();
-           
-           
+            furnitureSearchForm.SetCurrentFurnitureList(furnitureList);
 
             if (addedResult == DialogResult.OK)
             {
                 List<Furniture> addedItems = furnitureSearchForm.GetSelectedFurniture();
 
-
-
                 foreach (Furniture furniture in addedItems)
                 {
-
                     furnitureList.Add(furniture);
-
                 }
                 this.LoadRentalDataGridView();
             }
-
         }
 
         private void FillInTotal()
@@ -179,7 +172,7 @@ namespace FurnitureRentals.User_Controls
             foreach (DataGridViewRow row in RentalDataGridView.Rows)
             {
 
-                total = total + decimal.Parse(row.Cells[4].Value.ToString());
+                total = total + decimal.Parse(row.Cells[3].Value.ToString());
             }
 
             this.RentalTotalTextBox.Text = "$ " + total;
@@ -326,21 +319,20 @@ namespace FurnitureRentals.User_Controls
                 {
 
                     MessageBox.Show("Please enter a numeric value");
-                    e.Cancel = true;
+                    furnitureList[RentalDataGridView.CurrentCell.RowIndex].QuantityOrdered = furnitureList[RentalDataGridView.CurrentCell.RowIndex].QuantityOrdered;
+                    e.Cancel = false;
                 }
 
                 else if (quantityToBeOrdered > quantityAvailable)
                 {
 
                     MessageBox.Show("You cannot order more than the amount available.");
-                    e.Cancel = true;
-                               
-                    
+                    furnitureList[RentalDataGridView.CurrentCell.RowIndex].QuantityOrdered = furnitureList[RentalDataGridView.CurrentCell.RowIndex].QuantityOrdered;
+                    e.Cancel = false;
                 }
                 else
                 {
                     furnitureList[RentalDataGridView.CurrentCell.RowIndex].QuantityOrdered = quantityToBeOrdered;
-                    BeginInvoke(new MethodInvoker(LoadRentalDataGridView));
 
 
                 }
@@ -354,16 +346,18 @@ namespace FurnitureRentals.User_Controls
 
         }
 
-        
+
 
         private void RentalDataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             if (RentalDataGridView.IsCurrentCellDirty)
             {
-                
+
                 RentalDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
-                
-      
+
+
+
+
             }
         }
 
@@ -384,7 +378,7 @@ namespace FurnitureRentals.User_Controls
             else if (int.TryParse(this.DaysRentingTextBox.Text, out value) && int.Parse(this.DaysRentingTextBox.Text) > 0 && this.DaysRentingTextBox.Text.Length > 0)
             {
 
-               //this.LoadRentalDataGridView();
+                this.LoadRentalDataGridView();
             }
 
         }
@@ -394,7 +388,6 @@ namespace FurnitureRentals.User_Controls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                SendKeys.Send("{TAB}");
                 e.Handled = true;
                 this.LoadRentalDataGridView();
             }
