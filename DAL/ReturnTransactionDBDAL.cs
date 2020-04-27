@@ -165,16 +165,16 @@ namespace FurnitureRentals.DAL
                     {
                         List<Furniture> furnitureList = this.rentalItemDBDAL.GetRentalItemByTransactionID(rentalTransactionId, connection, sqlTransaction);
 
-                        bool isCloseTransaction = false;
+                        bool isCloseTransaction = true;
                         int totalQuantityRented = 0;
                         int totalQuantityReturned = 0;
                         foreach (Furniture furniture in furnitureList)
                         {
                             totalQuantityRented = furniture.QuantityOrdered;
                             totalQuantityReturned = this.GetQuantityReturned(furniture.RentalItemID, connection, sqlTransaction);
-                            if (totalQuantityRented == totalQuantityReturned)
+                            if (totalQuantityRented != totalQuantityReturned)
                             {
-                                isCloseTransaction = true;
+                                isCloseTransaction = false;
                             }
                         }
 
