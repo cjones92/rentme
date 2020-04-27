@@ -1243,11 +1243,11 @@
         </Field>
         <Field Name="percentAllFurniture">
           <DataField>percentAllFurniture</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="percentMembersAge18_29">
           <DataField>percentMembersAge18_29</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
